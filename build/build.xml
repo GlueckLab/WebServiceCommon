@@ -1,0 +1,135 @@
+<!--  
+ * Web Service Common.  A java library providing shared utilities for
+ * web services.
+ * 
+ * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ *
+ -->
+<project name="WebServiceCommon" default="compress">
+	<property name="project.version" value="1.0.0" />	
+	<property name="project" value="WebServiceCommon" />
+	<property name="sourcedir" value="${basedir}/../src" />
+    <property name="targetdir"  value="${basedir}/bin"/>
+	<property name="javadocdir" value="${basedir}/javadoc/WebServiceCommon-javadoc" />
+	<property name="thirdpartydir" value="${basedir}/../../thirdparty" />
+
+	<fileset id="thirdpartylibs" dir="${thirdpartydir}">
+		<include name="hibernate/4.0.0/lib/required/antlr-2.7.7.jar" />
+		<include name="hibernate/4.0.0/lib/optional/c3p0-0.9.1.jar" />
+		<include name="hibernate/4.0.0/lib/required/classmate-0.5.4.jar" />
+		<include name="hibernate/4.0.0/lib/required/commons-collections-3.2.1.jar" />
+		<include name="hibernate/4.0.0/lib/required/dom4j.jar" />
+		<include name="hibernate/4.0.0/lib/optional/hibernate-c3p0-4.0.0.Final.jar" />
+		<include name="hibernate/4.0.0/lib/required/hibernate-commons-annotations-4.0.1.Final.jar" />
+		<include name="hibernate/4.0.0/lib/required/hibernate-core-4.0.0.Final.jar" />
+		<include name="hibernate/4.0.0/lib/required/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+		<include name="hibernate/4.0.0/lib/required/jandex-1.0.3.Final.jar" />
+		<include name="hibernate/4.0.0/lib/required/javassist-3.12.1.GA.jar" />
+		<include name="hibernate/4.0.0/lib/required/jboss-logging-3.1.0.CR2.jar" />
+		<include name="hibernate/4.0.0/lib/required/jboss-transaction-api_1.1_spec-1.0.0.Final.jar" />
+		<include name="junit/4.7/lib/junit-4.7.jar" />
+	</fileset>
+	
+	<path id="librariespath">
+		<fileset refid="thirdpartylibs"/>
+	</path>
+		
+    <target name="clean">
+    	<delete dir="${targetdir}"/>
+        <mkdir dir="${targetdir}"/>
+    </target>
+
+	<target name="javadoc">
+      <javadoc
+           access="public"
+           destdir="${javadocdir}"
+           author="true"
+           version="true"
+           use="true"
+           windowtitle="UC Denver Biostatistics - Web Service Common Package API Specification"
+         >
+        <fileset dir="${sourcedir}" defaultexcludes="yes">
+            <include name="**/*.java"/>
+        </fileset>
+      </javadoc>
+	</target>
+	
+    <target name="compile" depends="clean">
+      <javac debug="true"
+             deprecation="on"
+			 listfiles="true"
+			 debuglevel="lines,vars,source"
+			 srcdir="${sourcedir}"
+             destdir="${targetdir}"
+             classpathref="librariespath"
+      />
+    </target>
+
+	<!-- compile the library file -->
+	<target name="compress" depends="compile,javadoc">
+		<jar destfile="${targetdir}/${project}-${project.version}.jar" basedir="${targetdir}" includes="**/*.class">
+			<manifest>
+				<attribute name="Author" value="Uttara Sakhadeo and Sarah Kreidler"/>
+				<section name="Shared">
+					<attribute name="Title" value="${project}"/>
+					<attribute name="Vendor" value="CU Denver Biostatistics Department"/>
+				</section>
+				<section name="Copyright">
+					<attribute name="Copy" value="(C) CU Denver Biostatistics Department"/>
+				</section>
+			</manifest>
+		</jar>
+	</target>	
+	
+	<!-- Create the javadoc distribution  -->
+	<target name="javadoc-distribution" depends="javadoc">
+		<jar destfile="${targetdir}/${project}-${project.version}-javadoc.jar" basedir="${javadocdir}/.." >
+			<manifest>
+				<attribute name="Author" value="Uttara Sakhadeo and Sarah Kreidler"/>
+				<section name="Shared">
+					<attribute name="Title" value="${project} Javadoc"/>
+					<attribute name="Vendor" value="CU Denver Biostatistics Department"/>
+				</section>
+				<section name="Copyright">
+					<attribute name="Copy" value="(C) CU Denver Biostatistics Department"/>
+				</section>
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- Create the source distribution -->
+	<target name="source-distribution">
+		<jar destfile="${targetdir}/${project}-${project.version}-source.jar" basedir="${basedir}/../.." 
+			includes="WebServiceCommon/*,
+			WebServiceCommon/build/build.xml,
+			WebServiceCommon/src/**">
+			<manifest>
+				<attribute name="Author" value="Uttara Sakhadeo and Sarah Kreidler"/>
+				<section name="Shared">
+					<attribute name="Title" value="${project} Source Code"/>
+					<attribute name="Vendor" value="CU Denver Biostatistics Department"/>
+					<attribute name="Implementation-Version" 
+					                 value="${project.version}"/> 
+				</section>
+				<section name="Copyright">
+					<attribute name="Copy" value="(C) CU Denver Biostatistics Department"/>
+				</section>
+			</manifest>
+		</jar>
+	</target>
+			
+</project>
