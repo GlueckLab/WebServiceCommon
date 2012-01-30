@@ -1,8 +1,5 @@
 /*
- * Study Design Service for the GLIMMPSE Software System.  
- * This service stores study design definitions for users of the GLIMMSE interface.
- * Service contain all information related to a power or sample size calculation.  
- * The Study Design Service simplifies communication between different screens in the user interface.
+ * Web service utility functions for managing hibernate, json, etc.
  * 
  * Copyright (C) 2010 Regents of the University of Colorado.  
  *
@@ -21,10 +18,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /**
  * 
  * @author Uttara Sakhadeo

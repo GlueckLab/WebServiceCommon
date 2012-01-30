@@ -1,8 +1,5 @@
 /*
- * Study Design Service for the GLIMMPSE Software System.  
- * This service stores study design definitions for users of the GLIMMSE interface.
- * Service contain all information related to a power or sample size calculation.  
- * The Study Design Service simplifies communication between different screens in the user interface.
+ * Web service utility functions for managing hibernate, json, etc.
  * 
  * Copyright (C) 2010 Regents of the University of Colorado.  
  *
@@ -22,8 +19,6 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
-import java.util.UUID;
-
 /**
  * This is a wrapper for the Confidence Interval information.
  * @author Uttara Sakhadeo
@@ -35,7 +30,7 @@ public class ConfidenceInterval
 	 * Member Variables
 	 *--------------------*/
 	private int id;
-	private UUID studyUUID;
+	private StudyDesign studyDesign;
 	private boolean isBetaFixed;
 	private boolean isSigmaFixed;
 	private float lowerTailProbability;
@@ -48,7 +43,7 @@ public class ConfidenceInterval
 	public ConfidenceInterval() {
 	}	
 	/**
-	 * @param studyUUID
+	 * @param studyDesign
 	 * @param isBetaFixed
 	 * @param isSigmaFixed
 	 * @param lowerTailProbability
@@ -56,10 +51,10 @@ public class ConfidenceInterval
 	 * @param sampleSize
 	 * @param rankOfDesignMatrix
 	 */
-	public ConfidenceInterval(UUID studyUUID, boolean isBetaFixed,
+	public ConfidenceInterval(StudyDesign studyDesign, boolean isBetaFixed,
 			boolean isSigmaFixed, float lowerTailProbability,
 			float upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
-		this.studyUUID = studyUUID;
+		this.studyDesign = studyDesign;
 		this.isBetaFixed = isBetaFixed;
 		this.isSigmaFixed = isSigmaFixed;
 		this.lowerTailProbability = lowerTailProbability;
@@ -69,7 +64,7 @@ public class ConfidenceInterval
 	}
 	/**
 	 * @param id
-	 * @param studyUUID
+	 * @param studyDesign
 	 * @param isBetaFixed
 	 * @param isSigmaFixed
 	 * @param lowerTailProbability
@@ -77,11 +72,11 @@ public class ConfidenceInterval
 	 * @param sampleSize
 	 * @param rankOfDesignMatrix
 	 */
-	public ConfidenceInterval(int id, UUID studyUUID, boolean isBetaFixed,
+	public ConfidenceInterval(int id, StudyDesign studyDesign, boolean isBetaFixed,
 			boolean isSigmaFixed, float lowerTailProbability,
 			float upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
 		this.id = id;
-		this.studyUUID = studyUUID;
+		this.studyDesign = studyDesign;
 		this.isBetaFixed = isBetaFixed;
 		this.isSigmaFixed = isSigmaFixed;
 		this.lowerTailProbability = lowerTailProbability;
@@ -98,11 +93,11 @@ public class ConfidenceInterval
 	public void setId(int id) {
 		this.id = id;
 	}
-	public UUID getStudyUUID() {
-		return studyUUID;
+	public StudyDesign getstudyDesign() {
+		return studyDesign;
 	}
-	public void setStudyUUID(UUID studyUUID) {
-		this.studyUUID = studyUUID;
+	public void setstudyDesign(StudyDesign studyDesign) {
+		this.studyDesign = studyDesign;
 	}
 	public boolean isBetaFixed() {
 		return isBetaFixed;

@@ -1,6 +1,5 @@
 /*
- * Java Statistics.  A java library providing power/sample size estimation for 
- * the general linear model.
+ * Web service utility functions for managing hibernate, json, etc.
  * 
  * Copyright (C) 2010 Regents of the University of Colorado.  
  *

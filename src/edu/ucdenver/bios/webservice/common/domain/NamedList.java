@@ -1,8 +1,5 @@
 /*
- * Study Design Service for the GLIMMPSE Software System.  
- * This service stores study design definitions for users of the GLIMMSE interface.
- * Service contain all information related to a power or sample size calculation.  
- * The Study Design Service simplifies communication between different screens in the user interface.
+ * Web service utility functions for managing hibernate, json, etc.
  * 
  * Copyright (C) 2010 Regents of the University of Colorado.  
  *
@@ -24,7 +21,7 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 /**
  * This is a wrapper for the lists of different types.
  * @author Uttara Sakhadeo
@@ -32,7 +29,7 @@ import java.util.UUID;
  */
 public class NamedList 
 {
-	private UUID studyUUID;
+	private StudyDesign studyDesign;
 	private String name = null;
 	private List<String> dataList = null;
 	
@@ -77,12 +74,12 @@ public class NamedList
 		return this.dataList.get(index);
 	}
 
-	public UUID getStudyUUID() {
-		return studyUUID;
+	public StudyDesign getStudyStudyDesign() {
+		return studyDesign;
 	}
 
-	public void setStudyUUID(UUID studyUUID) {
-		this.studyUUID = studyUUID;
+	public void setStudyDesign(StudyDesign studyDesign) {
+		this.studyDesign = studyDesign;
 	}
 	
 	public void addEntry(String element) {		
