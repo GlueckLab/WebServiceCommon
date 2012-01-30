@@ -20,14 +20,16 @@
  *
  -->
 <project name="WebServiceCommon" default="compress">
-	<property name="project.version" value="1.0.0" />	
-	<property name="project" value="WebServiceCommon" />
-	<property name="sourcedir" value="${basedir}/../src" />
-    <property name="targetdir"  value="${basedir}/bin"/>
-	<property name="javadocdir" value="${basedir}/javadoc/WebServiceCommon-javadoc" />
-	<property name="thirdpartydir" value="${basedir}/../../thirdparty" />
-
-	<fileset id="thirdpartylibs" dir="${thirdpartydir}">
+	<property name="module.version" value="1.0.0" />	
+	<property name="module.name" value="edu.ucdenver.bios.webservice.common" />
+	<property name="debug" value="TRUE" />
+	<property name="source.dir" value="${basedir}/../src" />
+    <property name="target.dir"  value="${basedir}/bin"/>
+	<property name="javadoc.dir" value="${target.dir}/javadoc/${module.name}-${module.version}-javadoc" />
+	<property name="thirdparty.dir" value="${basedir}/../../thirdparty" />
+	<property name="gwt.dir" value="${target.dir}/gwt" />
+	
+	<fileset id="thirdparty.libs" dir="${thirdparty.dir}">
 		<include name="hibernate/4.0.0/lib/required/antlr-2.7.7.jar" />
 		<include name="hibernate/4.0.0/lib/optional/c3p0-0.9.1.jar" />
 		<include name="hibernate/4.0.0/lib/required/classmate-0.5.4.jar" />
@@ -44,48 +46,55 @@
 		<include name="junit/4.7/lib/junit-4.7.jar" />
 	</fileset>
 	
-	<path id="librariespath">
-		<fileset refid="thirdpartylibs"/>
+	<path id="library.path">
+		<fileset refid="thirdparty.libs"/>
 	</path>
 		
     <target name="clean">
-    	<delete dir="${targetdir}"/>
-        <mkdir dir="${targetdir}"/>
+    	<delete dir="${target.dir}"/>
     </target>
 
+    <target name="setup" depends="clean">
+        <mkdir dir="${target.dir}"/>
+        <mkdir dir="${target.dir}/classes"/>
+        <mkdir dir="${gwt.dir}"/>
+    </target>
+	
 	<target name="javadoc">
       <javadoc
            access="public"
-           destdir="${javadocdir}"
+           destdir="${javadoc.dir}"
            author="true"
            version="true"
            use="true"
            windowtitle="UC Denver Biostatistics - Web Service Common Package API Specification"
          >
-        <fileset dir="${sourcedir}" defaultexcludes="yes">
+        <fileset dir="${source.dir}" defaultexcludes="yes">
             <include name="**/*.java"/>
         </fileset>
       </javadoc>
 	</target>
 	
-    <target name="compile" depends="clean">
-      <javac debug="true"
+	<!-- compile the library file -->
+    <target name="compile" depends="setup">
+      <javac debug="${debug}"
              deprecation="on"
 			 listfiles="true"
 			 debuglevel="lines,vars,source"
-			 srcdir="${sourcedir}"
-             destdir="${targetdir}"
-             classpathref="librariespath"
+			 srcdir="${source.dir}"
+             destdir="${target.dir}/classes"
+             classpathref="library.path"
       />
     </target>
 
-	<!-- compile the library file -->
+	<!-- create the library jar file -->
 	<target name="compress" depends="compile,javadoc">
-		<jar destfile="${targetdir}/${project}-${project.version}.jar" basedir="${targetdir}" includes="**/*.class">
+		<jar destfile="${target.dir}/${module.name}-${module.version}.jar" 
+			basedir="${target.dir}/classes" includes="**/*.class">
 			<manifest>
 				<attribute name="Author" value="Uttara Sakhadeo and Sarah Kreidler"/>
 				<section name="Shared">
-					<attribute name="Title" value="${project}"/>
+					<attribute name="Title" value="Web Services Common Library"/>
 					<attribute name="Vendor" value="CU Denver Biostatistics Department"/>
 				</section>
 				<section name="Copyright">
@@ -95,13 +104,41 @@
 		</jar>
 	</target>	
 	
+	<!-- GWT module creation -->
+  	<target name="compress.gwt" depends="compress"
+    	description="create a domain object jar file for inclusion in a Google Web Toolkit application">
+  		<!-- Copy the required class, source, and gwt.xml files -->
+		<copy todir="${gwt.dir}">
+			<fileset dir="${target.dir}/classes"  
+			  		includes="edu/ucdenver/bios/webservice/common/domain/**" />
+			<fileset dir="${source.dir}"  
+			  		includes="edu/ucdenver/bios/webservice/common/common.gwt.xml,
+						edu/ucdenver/bios/webservice/common/domain/**" />
+		</copy>
+  		<!-- Create the GWT jar file -->
+		<jar destfile="${target.dir}/${module.name}-gwt-${module.version}.jar" 
+			basedir="${gwt.dir}" includes="**/*.class,**/*.java,**/*.xml">
+			<manifest>
+				<attribute name="Author" value="Sarah Kreidler"/>
+				<section name="Shared">
+					<attribute name="Title" value="Web Services Common Library for Google Web Toolkit"/>
+					<attribute name="Vendor" value="CU Denver Biostatistics Department"/>
+				</section>
+				<section name="Copyright">
+					<attribute name="Copy" value="(C) CU Denver Biostatistics Department"/>
+				</section>
+			</manifest>
+		</jar>
+	</target>
+	
 	<!-- Create the javadoc distribution  -->
-	<target name="javadoc-distribution" depends="javadoc">
-		<jar destfile="${targetdir}/${project}-${project.version}-javadoc.jar" basedir="${javadocdir}/.." >
+	<target name="javadoc.distribution" depends="javadoc">
+		<jar destfile="${target.dir}/${module.name}-javadoc-${module.version}.jar" 
+			basedir="${javadoc.dir}/.." >
 			<manifest>
 				<attribute name="Author" value="Uttara Sakhadeo and Sarah Kreidler"/>
 				<section name="Shared">
-					<attribute name="Title" value="${project} Javadoc"/>
+					<attribute name="Title" value="Web Services Common Library Javadoc"/>
 					<attribute name="Vendor" value="CU Denver Biostatistics Department"/>
 				</section>
 				<section name="Copyright">
@@ -112,18 +149,19 @@
 	</target>
 	
 	<!-- Create the source distribution -->
-	<target name="source-distribution">
-		<jar destfile="${targetdir}/${project}-${project.version}-source.jar" basedir="${basedir}/../.." 
+	<target name="source.distribution">
+		<jar destfile="${target.dir}/${module.name}-source-${module.version}.jar" 
+			basedir="${basedir}/../.." 
 			includes="WebServiceCommon/*,
 			WebServiceCommon/build/build.xml,
 			WebServiceCommon/src/**">
 			<manifest>
 				<attribute name="Author" value="Uttara Sakhadeo and Sarah Kreidler"/>
 				<section name="Shared">
-					<attribute name="Title" value="${project} Source Code"/>
+					<attribute name="Title" value="Web Services Common Library Source Code"/>
 					<attribute name="Vendor" value="CU Denver Biostatistics Department"/>
 					<attribute name="Implementation-Version" 
-					                 value="${project.version}"/> 
+					                 value="${module.version}"/> 
 				</section>
 				<section name="Copyright">
 					<attribute name="Copy" value="(C) CU Denver Biostatistics Department"/>
