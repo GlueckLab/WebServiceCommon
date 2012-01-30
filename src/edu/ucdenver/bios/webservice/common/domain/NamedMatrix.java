@@ -25,39 +25,47 @@ public class NamedMatrix
 	protected int rows;
 	protected int columns;
 	protected double[][] data;
+	
+	public NamedMatrix(String name, int rows, int columns)
+	{
+		this.name = name;
+		this.rows = -1;
+		this.columns = -1;
+		data = new double[rows][columns];
+	}
+	
 	public String getName()
 	{
 		return name;
 	}
+	
 	public void setName(String name)
 	{
 		this.name = name;
 	}
+	
 	public int getRows()
 	{
 		return rows;
 	}
-	public void setRows(int rows)
-	{
-		this.rows = rows;
-	}
+	
 	public int getColumns()
 	{
 		return columns;
 	}
-	public void setColumns(int columns)
-	{
-		this.columns = columns;
-	}
-	public double[][] getData()
-	{
-		return data;
-	}
-	public void setData(double[][] data)
-	{
-		this.data = data;
-	} 
 	
-	
+	public void setCellData(int row, int column, double value)
+	{
+		if (row >= 0 && row < rows && 
+				column >= 0 && column < columns)
+		{
+			data[row][column] = value;
+		}
+	}
+		
+	public Double getCellData(int row, int column)
+	{
+		return data[row][column];
+	}
 	
 }

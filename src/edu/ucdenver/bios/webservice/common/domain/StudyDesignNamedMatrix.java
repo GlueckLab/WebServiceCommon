@@ -23,6 +23,13 @@ public class StudyDesignNamedMatrix extends NamedMatrix
 {
 	protected StudyDesign studyDesign;
 
+	public StudyDesignNamedMatrix(StudyDesign studyDesign, 
+			String name, int rows, int columns)
+	{
+		super(name, rows, columns);
+		this.studyDesign = studyDesign;
+	}
+	
 	public StudyDesign getStudyDesign()
 	{
 		return studyDesign;
