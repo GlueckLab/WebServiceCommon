@@ -27,19 +27,50 @@ package edu.ucdenver.bios.webservice.common.domain;
  * @author Sarah Kreidler
  *
  */
-public class StudyDesignFixedRandomMatrix extends FixedRandomMatrix
+public class FixedRandomMatrix
 {
-	protected StudyDesign studyDesign;
+	protected String name;
+	protected NamedMatrix fixedMatrix;
+	protected NamedMatrix randomMatrix;
+	protected boolean combineHorizontal = true;
 
-    /**
-     * Constructor, create a fixed/random matrix from the specified data arrays
-     */
-    public StudyDesignFixedRandomMatrix(StudyDesign design, String name,
-    		NamedMatrix fixedMatrix, NamedMatrix randomMatrix, boolean combineHorizontal) 
-    throws IllegalArgumentException
-    {
-    	super(name, fixedMatrix, randomMatrix, combineHorizontal);
-    	this.studyDesign = studyDesign;
-    }
+	/**
+	 * Constructor, create a fixed/random matrix from the specified data arrays
+	 */
+	public FixedRandomMatrix(String name, NamedMatrix fixedMatrix, 
+			NamedMatrix randomMatrix, boolean combineHorizontal) 
+	throws IllegalArgumentException
+	{
+		this.name = name;
+		this.fixedMatrix = fixedMatrix;
+		this.randomMatrix = randomMatrix;
+	}
+
+	/**
+	 * Get the fixed submatrix
+	 * @return fixed submatrix
+	 */
+	public NamedMatrix getFixedMatrix()
+	{
+		return fixedMatrix;
+	}
+
+	/**
+	 * Get the random submatrix
+	 * @return random submatrix
+	 */
+	public NamedMatrix getRandomMatrix()
+	{
+		return randomMatrix;
+	}    
+
+	/**
+	 * Get the matrix name
+	 * @return name
+	 */
+	public String getName()
+	{
+		return name;
+	}  
 
 }
