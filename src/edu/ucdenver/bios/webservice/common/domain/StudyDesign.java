@@ -21,6 +21,14 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 
 /**
  * Main Study Design object which holds
@@ -28,6 +36,8 @@ import java.util.Set;
  * 
  * @author Uttara Sakhadeo
  */
+@Entity
+@Table(name="tablestudydesign")
 public class StudyDesign
 {
 	public enum SolutionType
@@ -38,17 +48,23 @@ public class StudyDesign
 	};
 
 	// UUID for the study design.  Main unique identifier for the design
+	@Id
+	@Column(name="uuid")
 	private byte[] uuid = null;
 	// name of the study design
+	@Column(name="name")
 	private String name = null;	
 	// flag indicating whether we are solving for power or sample size
 	private SolutionType solutionType = null;
 	// flag indicating if the design includes a baseline covariate
+	@Column(name="hasGaussianCovariate")
 	private boolean gaussianCovariate = false;
 	
     private Set<BetweenParticipantFactor> betweenParticipantFactorSet = new HashSet<BetweenParticipantFactor>();
 	private Set<NamedList> listSet = new HashSet<NamedList>();
 	private Set<StudyDesignNamedMatrix> matrixSet = new HashSet<StudyDesignNamedMatrix>();
+	@OneToOne
+	private Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions = new HashSet<ConfidenceIntervalDescription>();
 
 	/**
 	 * Create an empty study design without a UUID assigned
@@ -148,7 +164,112 @@ public class StudyDesign
 	{
 		matrixSet.add(matrix);
 	}
+
+	public Set<ConfidenceIntervalDescription> getConfidenceIntervalDescriptions() {
+		return confidenceIntervalDescriptions;
+	}
+
+	public void setConfidenceIntervalDescriptions(
+			Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions) {
+		this.confidenceIntervalDescriptions = confidenceIntervalDescriptions;
+	}
 	
 	
 	
 }
+/*{
+
+// UUID for the study design.  Main unique identifier for the design
+@Id
+@Column(name="uuid")
+private byte[] uuid = null;
+private UUID studyUUID = null;
+// name of the study design
+@Column(name="name")
+private String name = null;	
+// flag indicating whether we are solving for power or sample size	
+//private SolvingFor flagSolveFor = null;
+@Column(name="flagSolveFor")
+private String flagSolveFor =null;
+// flag indicating if the design includes a baseline covariate
+@Column(name="hasGaussianCovariate")
+private boolean hasGaussianCovariate = false;
+//private ConfidenceInterval confidenceIntervalDescription = null;
+private Set<ConfidenceInterval> confidenceIntervalDescriptions = new HashSet<ConfidenceInterval>();
+
+public StudyDesign() 
+{}	
+
+
+public StudyDesign(UUID studyUUID) 
+{
+	this.studyUUID = studyUUID;
+	this.uuid = UUIDConversion.asByteArray(studyUUID);
+}
+
+public UUID getStudyUUID() 
+{
+	return studyUUID;
+}
+	
+public byte[] getUuid() 
+{
+	return uuid;
+}
+
+   public void setUuid(byte [] uuid) 
+    {
+        this.uuid = uuid;
+    }
+
+public void setStudyUUID(UUID studyUuid) 
+{
+	this.studyUUID = studyUuid;
+	this.uuid = UUIDConversion.asByteArray(studyUUID);
+}
+	
+public String getName() 
+{
+	return name;
+}
+
+public void setName(String name) 
+{
+	this.name = name;
+}
+	
+public boolean isHasGaussianCovariate() {
+	return hasGaussianCovariate;
+}
+
+public void setHasGaussianCovariate(boolean hasGaussianCovariate) {
+	this.hasGaussianCovariate = hasGaussianCovariate;
+}
+
+public SolvingFor getFlagSolvingFor() {
+	return SolvingFor.fromValue(this.flagSolveFor);
+}
+
+public void setFlagSolvingFor(SolvingFor flagSolvingFor) {
+	this.flagSolveFor = flagSolvingFor.toValue();
+}
+
+public Set<ConfidenceInterval> getConfidenceIntervalDescriptions() {
+	return confidenceIntervalDescriptions;
+}
+
+public void setConfidenceIntervalDescriptions(
+		Set<ConfidenceInterval> confidenceIntervalDescriptions) {
+	this.confidenceIntervalDescriptions = confidenceIntervalDescriptions;
+}
+
+public ConfidenceInterval getConfidenceIntervalDescription() {
+	return confidenceIntervalDescription;
+}
+
+public void setConfidenceIntervalDescription(
+		ConfidenceInterval confidenceIntervalDescription) {
+	this.confidenceIntervalDescription = confidenceIntervalDescription;
+}
+
+}*/
