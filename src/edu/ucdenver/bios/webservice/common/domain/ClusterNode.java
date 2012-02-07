@@ -28,8 +28,9 @@ public class ClusterNode
 	/*--------------------
 	 * Member Variables
 	 *--------------------*/
-	private String clusterName = null;	
-	private Integer sampleSize = null;	
+	private String groupeName = null;	
+	private Integer groupeSize = null;	
+	private Integer depth = null;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/	
@@ -37,30 +38,37 @@ public class ClusterNode
 	/**
 	 * @param clusterName
 	 */
-	public ClusterNode(String clusterName) {
-		this.clusterName = clusterName;
+	public ClusterNode(String groupeName) {
+		this.groupeName = groupeName;
 	}
 	/**
 	 * @param clusterName
 	 * @param sampleSize
 	 */
-	public ClusterNode(String clusterName, Integer sampleSize) {
-		this.clusterName = clusterName;
-		this.sampleSize = sampleSize;
+	public ClusterNode(String groupeName, Integer groupeSize, Integer depth) {
+		this.groupeName = groupeName;
+		this.groupeSize = groupeSize;
+		this.depth = depth;
 	}	
 	/*--------------------
 	 * Getter/Setter Methods
-	 *--------------------*/	
-	public String getClusterName() {
-		return clusterName;
+	 *--------------------*/
+	public String getGroupeName() {
+		return groupeName;
 	}
-	public void setClusterName(String clusterName) {
-		this.clusterName = clusterName;
-	}	
-	public Integer getSampleSize() {
-		return sampleSize;
+	public void setGroupeName(String groupeName) {
+		this.groupeName = groupeName;
 	}
-	public void setSampleSize(int sampleSize) {
-		this.sampleSize = new Integer(sampleSize);
-	}		
+	public Integer getGroupeSize() {
+		return groupeSize;
+	}
+	public void setGroupeSize(Integer groupeSize) {
+		this.groupeSize = groupeSize;
+	}
+	public Integer getDepth() {
+		return depth;
+	}
+	public void setDepth(Integer depth) {
+		this.depth = depth;
+	}			
 }
