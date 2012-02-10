@@ -18,6 +18,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
+
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+
 /**
  * This is a wrapper for the clustering information.
  * @author Uttara Sakhadeo
@@ -28,9 +32,20 @@ public class ClusterNode
 	/*--------------------
 	 * Member Variables
 	 *--------------------*/
-	private String groupeName = null;	
-	private Integer groupeSize = null;	
-	private Integer depth = null;
+	@Column(name="id")
+	private Integer id = null;
+	@ManyToOne
+	private StudyDesign studyDesign = null;
+	/*@Column(name="position")
+	private Integer position = null;*/
+	@Column(name="name")
+	private String groupeName = null;
+	@Column(name="size")
+	private Integer groupeSize = null;
+	@Column(name="node")
+	private int node;
+	@Column(name="parent")
+	private int parent;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/	
@@ -45,10 +60,11 @@ public class ClusterNode
 	 * @param clusterName
 	 * @param sampleSize
 	 */
-	public ClusterNode(String groupeName, Integer groupeSize, Integer depth) {
+	public ClusterNode(String groupeName, Integer groupeSize, int node, int parent) {
 		this.groupeName = groupeName;
 		this.groupeSize = groupeSize;
-		this.depth = depth;
+		this.node = node;
+		this.parent = parent;
 	}	
 	/*--------------------
 	 * Getter/Setter Methods
@@ -64,11 +80,29 @@ public class ClusterNode
 	}
 	public void setGroupeSize(Integer groupeSize) {
 		this.groupeSize = groupeSize;
+	}	
+	public Integer getId() {
+		return id;
 	}
-	public Integer getDepth() {
-		return depth;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public void setDepth(Integer depth) {
-		this.depth = depth;
-	}			
+	public StudyDesign getStudyDesign() {
+		return studyDesign;
+	}
+	public void setStudyDesign(StudyDesign studyDesign) {
+		this.studyDesign = studyDesign;
+	}
+	public int getNode() {
+		return node;
+	}
+	public void setNode(int node) {
+		this.node = node;
+	}
+	public int getParent() {
+		return parent;
+	}
+	public void setParent(int parent) {
+		this.parent = parent;
+	}		
 }
