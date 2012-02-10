@@ -19,33 +19,35 @@
  */
 package edu.ucdenver.bios.webservice.common.enumclasses;
 
-public enum HorizontalAxisLabel {	
-	VARIABILITY_SCALE_FACTOR("1"),
-	TOTAL_SAMPLE_SIZE("2"),
-	REGRESSION_COEEFICIENT_SCALE_FACTOR("3");
-		/*VARIABILITY_SCALE_FACTOR("Variability Scale Factor"),
-		TOTAL_SAMPLE_SIZE("Total Sample Size"),
-		REGRESSION_COEEFICIENT_SCALE_FACTOR("Regression Coeeficient Scale Factor");*/
-		
-		final String id;
-		
-		HorizontalAxisLabel(String id){
-			//System.out.println("HorizontalAxisLabel Enum Constructor : "+id);
-			this.id=id;}
+/**
+ * Enum object referred in 'StudyDesign' class.
+ * 
+ * @author Uttara Sakhadeo
+ */
+public enum PowerMethodEnum
+{
+	CONDITIONAL("Conditional"),
+	UNCONDITIONAL("Unconditional"),
+	QUANTILE("Quantile");
+	
+	final String id;
+	
+	PowerMethodEnum(String id){		
+		this.id=id;}
 
-		public String getId() {			
-			return id;
-		}
-		
-		public static HorizontalAxisLabel parseId(String id)
-		{					 								
-			HorizontalAxisLabel horizontalAxisLabel = null;			
-			for (HorizontalAxisLabel b : HorizontalAxisLabel.values()) 
-			{				
-		        if (id.equalsIgnoreCase(b.id)) {
-		        	horizontalAxisLabel = b;
-		        }		
-			}
-			return horizontalAxisLabel;
-		}
-}
+	public String getId() {		
+		return id;
+	}
+	
+	public static PowerMethodEnum parseId(String id)
+	{					 						
+		PowerMethodEnum powerMethodEnum = null;			
+		for (PowerMethodEnum b : PowerMethodEnum.values()) 
+		{				
+	        if (id.equalsIgnoreCase(b.id)) {
+	        	powerMethodEnum = b;
+	        }		
+		}		
+		return powerMethodEnum;
+	}
+};
