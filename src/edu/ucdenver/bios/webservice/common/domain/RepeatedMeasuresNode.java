@@ -56,7 +56,8 @@ public class RepeatedMeasuresNode
 	private String dimension = null;
 	private String type = null;
 	private Integer numberOfMeasurements = null;
-	private Integer depth = null;
+	private int node;
+	private int parent;
 	private List<Integer> spacingList = null;
 	//private Spacing spacingList = null;
 	
@@ -69,22 +70,24 @@ public class RepeatedMeasuresNode
 		//super();
 		this.dimension = name;		
 	}		
-	public RepeatedMeasuresNode(String name, String type, Integer count,Integer depth) 
+	public RepeatedMeasuresNode(String name, String type, Integer count,int node, int parent) 
 	{
 		//super();
 		this.dimension = name;
 		this.type = type;
 		this.numberOfMeasurements = count;		
-		this.depth = depth;
+		this.node = node;
+		this.parent = parent;		
 	}			
 	public RepeatedMeasuresNode(String name, String type, Integer count,
-			List<Integer> spacingList, Integer depth) 
+			List<Integer> spacingList, int node, int parent) 
 	{
 		//super();
 		this.dimension = name;
 		this.type = type;
 		this.numberOfMeasurements = count;
-		this.depth = depth;
+		this.node = node;
+		this.parent = parent;
 		this.setSpacingList(spacingList);
 	}
 	public String getDimension() {
@@ -104,19 +107,23 @@ public class RepeatedMeasuresNode
 	}
 	public void setNumberOfMeasurements(Integer numberOfMeasurements) {
 		this.numberOfMeasurements = numberOfMeasurements;
-	}
-	public Integer getDepth() {
-		return depth;
-	}
-	public void setDepth(Integer depth) {
-		this.depth = depth;
-	}
+	}	
 	public List<Integer> getSpacingList() {
 		return spacingList;
 	}
 	public void setSpacingList(List<Integer> spacingList) {
 		this.spacingList = spacingList;
 	}
-	
-	
+	public int getNode() {
+		return node;
+	}
+	public void setNode(int node) {
+		this.node = node;
+	}
+	public int getParent() {
+		return parent;
+	}
+	public void setParent(int parent) {
+		this.parent = parent;
+	}	
 }
