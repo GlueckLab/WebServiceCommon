@@ -24,29 +24,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import edu.ucdenver.bios.webservice.common.enumclasses.HorizontalAxisLabelEnum;
+import edu.ucdenver.bios.webservice.common.enumclasses.StratificationVariableEnum;
+
 /**
  * Object describes Power Curve Structure.
  * 
  * @author Uttara Sakhadeo
  */
 @Entity
-@Table(name="tablePowerCurveDescription")
-public class PowerCurveDescription 
-{
+@Table(name="POWER_CURVE_DESCRIPTION")
+public class PowerCurveDescription
+{	
 	/*--------------------
 	 * Member Variables
-	 *--------------------*/
-	public enum HorizontalAxisLabel
-	{
-		VARIABILITY_SCALE_FACTOR,
-		TOTAL_SAMPLE_SEIZE,
-		REGRESSION_COEEFICIENT_SCALE_FACTOR		
-	};
-	public enum StratificationVariable
-	{
-		TYPE_I_ERROR,
-		STATISTICAL_TEST
-	};
+	 *--------------------*/		
 	@Id
 	private int id;
 	@Column(name="sampleSize")
@@ -64,9 +56,9 @@ public class PowerCurveDescription
 	@Column(name="uuid")
 	private StudyDesign studyDesign;
 	@Column(name="horizontalAxisLabel")
-	private HorizontalAxisLabel hAxisLabel;
+	private HorizontalAxisLabelEnum horizontalAxisLabelEnum;
 	@Column(name="stratificationVariable")
-	private StratificationVariable stratificationVar;
+	private StratificationVariableEnum stratificationVarEnum;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -126,19 +118,20 @@ public class PowerCurveDescription
 	}
 	public void setStudyDesign(StudyDesign studyDesign) {
 		this.studyDesign = studyDesign;
+	}	
+	public StratificationVariableEnum getStratificationVarEnum() {
+		return stratificationVarEnum;
 	}
-	public HorizontalAxisLabel gethAxisLabel() {
-		return hAxisLabel;
+	public void setStratificationVarEnum(
+			StratificationVariableEnum stratificationVarEnum) {
+		this.stratificationVarEnum = stratificationVarEnum;
 	}
-	public void sethAxisLabel(HorizontalAxisLabel hAxisLabel) {
-		this.hAxisLabel = hAxisLabel;
+	public HorizontalAxisLabelEnum getHorizontalAxisLabelEnum() {
+		return horizontalAxisLabelEnum;
 	}
-	public StratificationVariable getStratificationVar() {
-		return stratificationVar;
+	public void setHorizontalAxisLabelEnum(
+			HorizontalAxisLabelEnum horizontalAxisLabelEnum) {
+		this.horizontalAxisLabelEnum = horizontalAxisLabelEnum;
 	}
-	public void setStratificationVar(StratificationVariable stratificationVar) {
-		this.stratificationVar = stratificationVar;
-	}
-
 	
 }
