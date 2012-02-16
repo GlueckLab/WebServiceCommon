@@ -26,6 +26,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -34,16 +36,15 @@ import javax.persistence.Id;
  *
  */
 @Entity
+@Table(name="CONFIDENCE_INTERVAL")
 public class ConfidenceIntervalDescription 
 {
 	/*--------------------
 	 * Member Variables
-	 *--------------------*/
-	private int id;
-	//private byte[] uuid;
-	// UUID for the study design.  referencing a unique identifier for the design	
-	private StudyDesign studyDesign;
-	private UUID studyUUID;
+	 *--------------------*/	
+	private int id;	
+	@OneToOne
+	private StudyDesign studyDesign;	
 	@Column(name="isBetaFixed")
 	private boolean betaFixed;
 	@Column(name="isSigmaFixed")
@@ -68,10 +69,9 @@ public class ConfidenceIntervalDescription
 	 * @param sampleSize
 	 * @param rankOfDesignMatrix
 	 */
-	public ConfidenceIntervalDescription(UUID studyUUID, boolean isBetaFixed,
+	public ConfidenceIntervalDescription(boolean isBetaFixed,
 			boolean isSigmaFixed, float lowerTailProbability,
 			float upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
-		this.studyUUID = studyUUID;
 		this.betaFixed = isBetaFixed;
 		this.sigmaFixed = isSigmaFixed;
 		this.lowerTrailProbability = lowerTailProbability;
@@ -89,11 +89,10 @@ public class ConfidenceIntervalDescription
 	 * @param sampleSize
 	 * @param rankOfDesignMatrix
 	 */
-	public ConfidenceIntervalDescription(int id, UUID studyUUID, boolean isBetaFixed,
+	public ConfidenceIntervalDescription(int id, boolean isBetaFixed,
 			boolean isSigmaFixed, float lowerTailProbability,
 			float upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
 		this.id = id;
-		this.studyUUID = studyUUID;
 		this.betaFixed = isBetaFixed;
 		this.sigmaFixed = isSigmaFixed;
 		this.lowerTrailProbability = lowerTailProbability;
@@ -112,14 +111,7 @@ public class ConfidenceIntervalDescription
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public UUID getStudyUUID() {
-		return studyUUID;
-	}
-	public void setStudyUUID(UUID studyUUID) {
-		this.studyUUID = studyUUID;		
-	}
-	
+	}	
 	public boolean isBetaFixed() {
 		return betaFixed;
 	}
@@ -161,12 +153,5 @@ public class ConfidenceIntervalDescription
 	}
 	public void setUpperTrailProbability(float upperTrailProbability) {
 		this.upperTrailProbability = upperTrailProbability;
-	}
-	/*public byte[] getUuid() {
-		return uuid;
-	}
-	public void setUuid(byte[] uuid) {
-		this.uuid = uuid;
-	}*/
-	
+	}	
 }
