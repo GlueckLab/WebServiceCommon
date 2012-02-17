@@ -17,36 +17,37 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package edu.ucdenver.bios.webservice.common.enumclasses;
+package edu.ucdenver.bios.webservice.common.enums;
 
 /**
  * Enum object referred in 'StudyDesign' class.
  * 
  * @author Uttara Sakhadeo
  */
-public enum SolutionTypeEnum
+public enum PowerMethodEnum
 {
-	POWER("Power"),
-	SAMPLE_SIZE("Sample Size"),
-	DETECTABLE_DIFFERENCE("Detectable Difference");
+	CONDITIONAL("Conditional"),
+	UNCONDITIONAL("Unconditional"),
+	QUANTILE("Quantile");
 	
 	final String id;
 	
-	SolutionTypeEnum(String id){this.id=id;}
+	PowerMethodEnum(String id){		
+		this.id=id;}
 
 	public String getId() {		
 		return id;
 	}
 	
-	public static SolutionTypeEnum parseId(String id)
+	public static PowerMethodEnum parseId(String id)
 	{					 						
-		SolutionTypeEnum soulutionTypeEnum = null;			
-		for (SolutionTypeEnum b : SolutionTypeEnum.values()) 
+		PowerMethodEnum powerMethodEnum = null;			
+		for (PowerMethodEnum b : PowerMethodEnum.values()) 
 		{				
 	        if (id.equalsIgnoreCase(b.id)) {
-	        	soulutionTypeEnum = b;
+	        	powerMethodEnum = b;
 	        }		
 		}		
-		return soulutionTypeEnum;
-	}	
+		return powerMethodEnum;
+	}
 };

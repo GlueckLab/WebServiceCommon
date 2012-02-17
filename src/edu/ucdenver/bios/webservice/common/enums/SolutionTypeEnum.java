@@ -17,33 +17,36 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-package edu.ucdenver.bios.webservice.common.enumclasses;
+package edu.ucdenver.bios.webservice.common.enums;
 
 /**
- * Enum object referred in 'PowerCurveDescription' class.
+ * Enum object referred in 'StudyDesign' class.
  * 
  * @author Uttara Sakhadeo
  */
-public enum StratificationVariableEnum 
+public enum SolutionTypeEnum
 {
-	TYPE_I_ERROR("Type I error"),
-	STATISTICAL_TEST("Statistical Test");
+	POWER("Power"),
+	SAMPLE_SIZE("Sample Size"),
+	DETECTABLE_DIFFERENCE("Detectable Difference");
 	
 	final String id;
 	
-	StratificationVariableEnum(String id){this.id=id;}
+	SolutionTypeEnum(String id){this.id=id;}
+
+	public String getId() {		
+		return id;
+	}
 	
-	public String getId() {return id;}
-		
-	public StratificationVariableEnum parseId(String id)
-	{					 
-		StratificationVariableEnum stratificationVarEnum = null;			
-		for (StratificationVariableEnum b : StratificationVariableEnum.values()) 
+	public static SolutionTypeEnum parseId(String id)
+	{					 						
+		SolutionTypeEnum soulutionTypeEnum = null;			
+		for (SolutionTypeEnum b : SolutionTypeEnum.values()) 
 		{				
 	        if (id.equalsIgnoreCase(b.id)) {
-	        	stratificationVarEnum = b;
+	        	soulutionTypeEnum = b;
 	        }		
 		}		
-		return stratificationVarEnum;
-	}
-}
+		return soulutionTypeEnum;
+	}	
+};
