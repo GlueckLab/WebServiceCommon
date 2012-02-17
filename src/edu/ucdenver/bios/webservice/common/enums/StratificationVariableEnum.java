@@ -35,7 +35,7 @@ public enum StratificationVariableEnum
 	
 	public String getId() {return id;}
 		
-	public StratificationVariableEnum parseId(String id)
+	public static StratificationVariableEnum parseId(String id)
 	{					 
 		StratificationVariableEnum stratificationVarEnum = null;			
 		for (StratificationVariableEnum b : StratificationVariableEnum.values()) 
