@@ -28,7 +28,7 @@ public class WithinParticipantFactor
 	// response list
 	private ResponseList responseList;
 	// repeated measures
-	private RepeatedMeasures repeatedMeasures;
+	private RepeatedMeasuresNode repeatedMeasures;
 	// clustering
 	//private Cluster clustering;
 	public ResponseList getResponseList() {
@@ -37,10 +37,10 @@ public class WithinParticipantFactor
 	public void setResponseList(ResponseList responseList) {
 		this.responseList = responseList;
 	}
-	public RepeatedMeasures getRepeatedMeasures() {
+	public RepeatedMeasuresNode getRepeatedMeasures() {
 		return repeatedMeasures;
 	}
-	public void setRepeatedMeasures(RepeatedMeasures repeatedMeasures) {
+	public void setRepeatedMeasures(RepeatedMeasuresNode repeatedMeasures) {
 		this.repeatedMeasures = repeatedMeasures;
 	}
 	

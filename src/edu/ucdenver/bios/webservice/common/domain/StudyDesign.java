@@ -30,7 +30,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import edu.ucdenver.bios.webservice.common.enumclasses.HorizontalAxisLabel;
+import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
+import edu.ucdenver.bios.webservice.common.enums.SolutionTypeEnum;
 
 
 /**
@@ -40,72 +41,9 @@ import edu.ucdenver.bios.webservice.common.enumclasses.HorizontalAxisLabel;
  * @author Uttara Sakhadeo
  */
 @Entity
-@Table(name="tablestudydesign")
+@Table(name="STUDY_DESIGN")
 public class StudyDesign
-{
-	public enum SolutionType
-	{
-		POWER("1"),
-		SAMPLE_SIZE("2"),
-		DETECTABLE_DIFFERENCE("3");
-		
-		final String id;
-		
-		SolutionType(String id){
-			//System.out.println("HorizontalAxisLabel Enum Constructor : "+id);
-			this.id=id;}
-
-		public String getId() {
-			System.out.println("getId()"+id);
-			return id;
-		}
-		
-		public static SolutionType parseId(String id)
-		{					 			
-			System.out.println("parseId() "+id);			
-			SolutionType solutionType = null;			
-			for (SolutionType b : SolutionType.values()) 
-			{				
-		        if (id.equalsIgnoreCase(b.id)) {
-		        	solutionType = b;
-		        }		
-			}
-			System.out.println(solutionType.id);
-			return solutionType;
-		}		
-	};	
-	public enum PowerMethod
-	{
-		CONDITIONAL("1"),
-		UNCONDITIONAL("2"),
-		QUANTILE("3");
-		
-		final String id;
-		
-		PowerMethod(String id){
-			//System.out.println("HorizontalAxisLabel Enum Constructor : "+id);
-			this.id=id;}
-
-		public String getId() {
-			System.out.println("getId()"+id);
-			return id;
-		}
-		
-		public static PowerMethod parseId(String id)
-		{					 			
-			System.out.println("parseId() "+id);			
-			PowerMethod powerMethod = null;			
-			for (PowerMethod b : PowerMethod.values()) 
-			{				
-		        if (id.equalsIgnoreCase(b.id)) {
-		        	powerMethod = b;
-		        }		
-			}
-			System.out.println(powerMethod.id);
-			return powerMethod;
-		}
-	};
-
+{	
 	/*--------------------
 	 * Member Variables
 	 *--------------------*/
@@ -114,42 +52,53 @@ public class StudyDesign
 	@Column(name="uuid")
 	private byte[] uuid = null;
 	@Column(name="name")
-	private String name = null;	
-	@Column
-	private SolutionType solutionType = null;	
+	private String name = null;		
 	@Column(name="gaussianCovariate")
 	private boolean gaussianCovariate = false;
+	@Column(name="powerMethod")
+	private PowerMethodEnum powerMethodEnum;
+	@Column(name="solutionType")
+	private SolutionTypeEnum solutionTypeEnum;
+	
+	@OneToOne
+	private Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions = new HashSet<ConfidenceIntervalDescription>();
+	@OneToOne
+	private Set<PowerCurveDescription> powerCurveDescriptions = new HashSet<PowerCurveDescription>();		
+	@OneToMany
+    private List<ClusterNode> clusteringTree;        
 	
 	/* separate sets for list objects */
+	@OneToMany
 	private List<TypeIError> alphaList;
-	private List<Double> betaScaleList;
-	private List<Double> sigmaScaleList;
-	private List<Double> powerList;
-	private List<Integer> perGroupSampleSizeList;
-	private List<Integer> relativeGroupSizeList;
-	private List<StatisticalTest> testList;
-	private List<String> responseList;
+	@OneToMany
+	private List<BetaScale> betaScaleList;
+	@OneToMany
+	private List<SigmaScale> sigmaScaleList;
+	@OneToMany
+	private List<RelativeGroupSize> relativeGroupSizeList;
+	@OneToMany
+	private List<Test> testList;
+	@OneToMany
 	private List<PowerMethod> powerMethodList;
-	private List<Double> quantileList;
-	// clustering information
-    @OneToMany
-	private List<ClusterNode> clusteringTree;
-    // repeated measures
-    @OneToMany
-	private List<RepeatedMeasuresNode> repeatedMeasuresTree;
+	@OneToMany
+	private List<Quantile> quantileList;
+	@OneToMany
+	private List<NominalPower> nominalPower;
 	
+	private List<String> responseList;	
+	private List<Double> perGroupSampleSizeList;
+		
 	// fixed between subject effects
     private Set<BetweenParticipantFactor> betweenParticipantFactorSet = new HashSet<BetweenParticipantFactor>();   
     //	private Set<NamedList> listSet = new HashSet<NamedList>();
 	// Instead of Set -> HashMap() .... for matrices,
 	private Set<StudyDesignNamedMatrix> matrixSet = new HashSet<StudyDesignNamedMatrix>();
-	@OneToOne
-	private Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions = new HashSet<ConfidenceIntervalDescription>();
-	@OneToOne
-	private Set<PowerCurveDescription> powerCurveDescriptions = new HashSet<PowerCurveDescription>();
+	@OneToMany
+	private List<RepeatedMeasuresNode> repeatedMeasuresTree;
 	// primary study hypothesis
 	@OneToOne
-	private Set<Hypothesis> hypotheses;
+	private Set<Hypothesis> hypotheses;	
+		
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -180,13 +129,7 @@ public class StudyDesign
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public SolutionType getSolutionType() {
-		return solutionType;
-	}
-	public void setSolutionType(SolutionType solutionType) {
-		this.solutionType = solutionType;
-	}
+	}	
 	public boolean isGaussianCovariate() {
 		return gaussianCovariate;
 	}
@@ -198,67 +141,19 @@ public class StudyDesign
 	}
 	public void setAlphaList(List<TypeIError> alphaList) {
 		this.alphaList = alphaList;
-	}
-	public List<Double> getBetaScaleList() {
-		return betaScaleList;
-	}
-	public void setBetaScaleList(List<Double> betaScaleList) {
-		this.betaScaleList = betaScaleList;
-	}
-	public List<Double> getSigmaScaleList() {
-		return sigmaScaleList;
-	}
-	public void setSigmaScaleList(List<Double> sigmaScaleList) {
-		this.sigmaScaleList = sigmaScaleList;
-	}
-	public List<Double> getPowerList() {
-		return powerList;
-	}
-	public void setPowerList(List<Double> powerList) {
-		this.powerList = powerList;
-	}
-	public List<Integer> getPerGroupSampleSizeList() {
-		return perGroupSampleSizeList;
-	}
-	public void setPerGroupSampleSizeList(List<Integer> perGroupSampleSizeList) {
-		this.perGroupSampleSizeList = perGroupSampleSizeList;
-	}
-	public List<Integer> getRelativeGroupSizeList() {
-		return relativeGroupSizeList;
-	}
-	public void setRelativeGroupSizeList(List<Integer> relativeGroupSizeList) {
-		this.relativeGroupSizeList = relativeGroupSizeList;
-	}
-	public List<StatisticalTest> getTestList() {
-		return testList;
-	}
-	public void setTestList(List<StatisticalTest> testList) {
-		this.testList = testList;
-	}
+	}		
 	public List<String> getResponseList() {
 		return responseList;
 	}
 	public void setResponseList(List<String> responseList) {
 		this.responseList = responseList;
 	}
-	public List<PowerMethod> getPowerMethodList() {
+	/*public List<PowerMethod> getPowerMethodList() {
 		return powerMethodList;
 	}
 	public void setPowerMethodList(List<PowerMethod> powerMethodList) {
 		this.powerMethodList = powerMethodList;
-	}
-	public List<Double> getQuantileList() {
-		return quantileList;
-	}
-	public void setQuantileList(List<Double> quantileList) {
-		this.quantileList = quantileList;
-	}
-	public List<ClusterNode> getClusteringTree() {
-		return clusteringTree;
-	}
-	public void setClusteringTree(List<ClusterNode> clusteringTree) {
-		this.clusteringTree = clusteringTree;
-	}
+	}*/	
 	public List<RepeatedMeasuresNode> getRepeatedMeasuresTree() {
 		return repeatedMeasuresTree;
 	}
@@ -298,7 +193,74 @@ public class StudyDesign
 	}
 	public void setHypotheses(Set<Hypothesis> hypotheses) {
 		this.hypotheses = hypotheses;
-	}		
+	}	
+	public List<ClusterNode> getClusteringTree() {
+		return clusteringTree;
+	}
+	public void setClusteringTree(List<ClusterNode> clusteringTree) {
+		this.clusteringTree = clusteringTree;
+	}
+	public PowerMethodEnum getPowerMethodEnum() {
+		return powerMethodEnum;
+	}
+	public void setPowerMethodEnum(PowerMethodEnum powerMethodEnum) {
+		this.powerMethodEnum = powerMethodEnum;
+	}
+	public SolutionTypeEnum getSolutionTypeEnum() {
+		return solutionTypeEnum;
+	}
+	public void setSolutionTypeEnum(SolutionTypeEnum solutionTypeEnum) {
+		this.solutionTypeEnum = solutionTypeEnum;
+	}
+	public List<BetaScale> getBetaScaleList() {
+		return betaScaleList;
+	}
+	public void setBetaScaleList(List<BetaScale> betaScaleList) {
+		this.betaScaleList = betaScaleList;
+	}
+	public List<SigmaScale> getSigmaScaleList() {
+		return sigmaScaleList;
+	}
+	public void setSigmaScaleList(List<SigmaScale> sigmaScaleList) {
+		this.sigmaScaleList = sigmaScaleList;
+	}
+	public List<RelativeGroupSize> getRelativeGroupSizeList() {
+		return relativeGroupSizeList;
+	}
+	public void setRelativeGroupSizeList(
+			List<RelativeGroupSize> relativeGroupSizeList) {
+		this.relativeGroupSizeList = relativeGroupSizeList;
+	}
+	public List<Test> getTestList() {
+		return testList;
+	}
+	public void setTestList(List<Test> testList) {
+		this.testList = testList;
+	}
+	public List<PowerMethod> getPowerMethodList() {
+		return powerMethodList;
+	}
+	public void setPowerMethodList(List<PowerMethod> powerMethodList) {
+		this.powerMethodList = powerMethodList;
+	}
+	public List<Quantile> getQuantileList() {
+		return quantileList;
+	}
+	public void setQuantileList(List<Quantile> quantileList) {
+		this.quantileList = quantileList;
+	}
+	public List<Double> getPerGroupSampleSizeList() {
+		return perGroupSampleSizeList;
+	}
+	public void setPerGroupSampleSizeList(List<Double> perGroupSampleSizeList) {
+		this.perGroupSampleSizeList = perGroupSampleSizeList;
+	}
+	public List<NominalPower> getNominalPower() {
+		return nominalPower;
+	}
+	public void setNominalPower(List<NominalPower> nominalPower) {
+		this.nominalPower = nominalPower;
+	}
 		
 }
 /*{

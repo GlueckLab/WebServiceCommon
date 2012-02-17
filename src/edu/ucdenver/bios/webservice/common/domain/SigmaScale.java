@@ -27,16 +27,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
-
 /**
- * This is a wrapper for the Hypothesis information.
+ * This is a wrapper for the SigmaScale information.
  * @author Uttara Sakhadeo
  *
  */
 @Entity
-@Table(name="STUDY_HYPOTHESIS")
-public class Hypothesis 
+@Table(name="SIGMA_SCALE_LIST")
+public class SigmaScale 
 {
 	/*--------------------
 	 * Member Variables
@@ -44,12 +42,23 @@ public class Hypothesis
 	private int id;	
 	@OneToMany
 	private StudyDesign studyDesign;
-	@Column(name="beta_value")
-	private HypothesisTypeEnum type;
+	@Column(name="sigma_scale_value")
+	private double value;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public Hypothesis(){}
+	public SigmaScale(){}	
+	/**
+	 * @param id
+	 * @param studyDesign
+	 * @param alphaValue
+	 */
+	public SigmaScale(int id, StudyDesign studyDesign, double value) {
+		super();
+		this.id = id;
+		this.studyDesign = studyDesign;
+		this.value = value;
+	}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -68,11 +77,10 @@ public class Hypothesis
 	public void setStudyDesign(StudyDesign studyDesign) {
 		this.studyDesign = studyDesign;
 	}
-	public HypothesisTypeEnum getType() {
-		return type;
+	public double getValue() {
+		return value;
 	}
-	public void setType(HypothesisTypeEnum type) {
-		this.type = type;
+	public void setValue(double value) {
+		this.value = value;
 	}
-	
 }

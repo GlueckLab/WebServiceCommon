@@ -26,17 +26,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
-
 /**
- * This is a wrapper for the Hypothesis information.
+ * This is a wrapper for the test list object information.
  * @author Uttara Sakhadeo
  *
  */
 @Entity
-@Table(name="STUDY_HYPOTHESIS")
-public class Hypothesis 
+@Table(name="TEST_LIST")
+public class Test 
 {
 	/*--------------------
 	 * Member Variables
@@ -44,12 +41,23 @@ public class Hypothesis
 	private int id;	
 	@OneToMany
 	private StudyDesign studyDesign;
-	@Column(name="beta_value")
-	private HypothesisTypeEnum type;
+	@Column(name="name")
+	private String value;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public Hypothesis(){}
+	public Test(){}	
+	/**
+	 * @param id
+	 * @param studyDesign
+	 * @param alphaValue
+	 */
+	public Test(int id, StudyDesign studyDesign, String value) {
+		super();
+		this.id = id;
+		this.studyDesign = studyDesign;
+		this.value = value;
+	}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -68,11 +76,11 @@ public class Hypothesis
 	public void setStudyDesign(StudyDesign studyDesign) {
 		this.studyDesign = studyDesign;
 	}
-	public HypothesisTypeEnum getType() {
-		return type;
+	public String getValue() {
+		return value;
 	}
-	public void setType(HypothesisTypeEnum type) {
-		this.type = type;
+	public void setValue(String value) {
+		this.value = value;
 	}
-	
+		
 }

@@ -27,16 +27,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
+import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
 
 /**
- * This is a wrapper for the Hypothesis information.
+ * This is a wrapper for the power method object information.
  * @author Uttara Sakhadeo
  *
  */
 @Entity
-@Table(name="STUDY_HYPOTHESIS")
-public class Hypothesis 
+@Table(name="POWER_METHOD_LIST")
+public class PowerMethod 
 {
 	/*--------------------
 	 * Member Variables
@@ -44,12 +44,12 @@ public class Hypothesis
 	private int id;	
 	@OneToMany
 	private StudyDesign studyDesign;
-	@Column(name="beta_value")
-	private HypothesisTypeEnum type;
+	@Column(name="method")
+	private PowerMethodEnum powerMethodEnum;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public Hypothesis(){}
+	public PowerMethod(){}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -68,11 +68,10 @@ public class Hypothesis
 	public void setStudyDesign(StudyDesign studyDesign) {
 		this.studyDesign = studyDesign;
 	}
-	public HypothesisTypeEnum getType() {
-		return type;
+	public PowerMethodEnum getPowerMethodEnum() {
+		return powerMethodEnum;
 	}
-	public void setType(HypothesisTypeEnum type) {
-		this.type = type;
-	}
-	
+	public void setPowerMethodEnum(PowerMethodEnum powerMethodEnum) {
+		this.powerMethodEnum = powerMethodEnum;
+	}	
 }
