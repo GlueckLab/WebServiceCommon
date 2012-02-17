@@ -43,7 +43,7 @@ public class RelativeGroupSize
 	@OneToMany
 	private StudyDesign studyDesign;
 	@Column(name="relative_group_size_value")
-	private double value;	
+	private int value;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -53,7 +53,7 @@ public class RelativeGroupSize
 	 * @param studyDesign
 	 * @param alphaValue
 	 */
-	public RelativeGroupSize(int id, StudyDesign studyDesign, double value) {
+	public RelativeGroupSize(int id, StudyDesign studyDesign, int value) {
 		super();
 		this.id = id;
 		this.studyDesign = studyDesign;
@@ -77,10 +77,10 @@ public class RelativeGroupSize
 	public void setStudyDesign(StudyDesign studyDesign) {
 		this.studyDesign = studyDesign;
 	}
-	public double getValue() {
+	public int getValue() {
 		return value;
 	}
-	public void setValue(double value) {
+	public void setValue(int value) {
 		this.value = value;
 	}
 }
