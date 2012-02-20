@@ -42,6 +42,8 @@ public class ClusterNode
 	private String groupeName = null;
 	@Column(name="size")
 	private Integer groupeSize = null;
+	@Column(name="icc")
+	private Double intraClusterCorrelation = null;
 	@Column(name="node")
 	private int node;
 	@Column(name="parent")
