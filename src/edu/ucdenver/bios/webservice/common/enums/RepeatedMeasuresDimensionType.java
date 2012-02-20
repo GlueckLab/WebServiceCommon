@@ -18,32 +18,31 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
+
 /**
- * Enum object referred in 'Hypothesis' class.
- * 
- * @author Uttara Sakhadeo
+ * Enum of types of repeated measures
  */
-public enum HypothesisTypeEnum 
+public enum RepeatedMeasuresDimensionType
 {
-	MAIN_EFFECT("Main Effect"),
-	INTERACTION("Interaction"),
-	TREND("Trend");
+	NUMERIC("Numeric"),
+	ORDINAL("Ordinal"),
+	NOMINAL("Nominal");
 	
 	final String id;
 	
-	HypothesisTypeEnum(String id){this.id=id;}
+	RepeatedMeasuresDimensionType(String id){this.id=id;}
 
 	public String getId() {return id;}
 	
-	public static HypothesisTypeEnum parseId(String id)
+	public static RepeatedMeasuresDimensionType parseId(String id)
 	{					 								
-		HypothesisTypeEnum hypothesisType = null;			
-		for (HypothesisTypeEnum type : HypothesisTypeEnum.values()) 
+		RepeatedMeasuresDimensionType dimensionType = null;			
+		for (RepeatedMeasuresDimensionType type : RepeatedMeasuresDimensionType.values()) 
 		{				
 	        if (id.equalsIgnoreCase(type.id)) {
-	        	hypothesisType = type;
+	        	dimensionType = type;
 	        }		
 		}
-		return hypothesisType;
+		return dimensionType;
 	}
 }

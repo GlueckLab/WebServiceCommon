@@ -18,32 +18,35 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
+
 /**
- * Enum object referred in 'Hypothesis' class.
- * 
- * @author Uttara Sakhadeo
+ * Enum of available types of trends which can be tested in a
+ * hypothesis.
  */
-public enum HypothesisTypeEnum 
+public enum HypothesisTrendTypeEnum
 {
-	MAIN_EFFECT("Main Effect"),
-	INTERACTION("Interaction"),
-	TREND("Trend");
+	NONE("None"),
+	CHANGE_FROM_BASELINE("Change from baseline"),
+	ALL_POYNOMIAL("All polynomial trends"),
+	LINEAR("Linear trend"),
+	QUADRATIC("Quadratic trend"),
+	CUBIC("Cubic trend");
 	
 	final String id;
 	
-	HypothesisTypeEnum(String id){this.id=id;}
+	HypothesisTrendTypeEnum(String id){this.id=id;}
 
 	public String getId() {return id;}
 	
-	public static HypothesisTypeEnum parseId(String id)
+	public static HypothesisTrendTypeEnum parseId(String id)
 	{					 								
-		HypothesisTypeEnum hypothesisType = null;			
-		for (HypothesisTypeEnum type : HypothesisTypeEnum.values()) 
+		HypothesisTrendTypeEnum hypothesisTrendType = null;			
+		for (HypothesisTrendTypeEnum type : HypothesisTrendTypeEnum.values()) 
 		{				
 	        if (id.equalsIgnoreCase(type.id)) {
-	        	hypothesisType = type;
+	        	hypothesisTrendType = type;
 	        }		
 		}
-		return hypothesisType;
+		return hypothesisTrendType;
 	}
 }
