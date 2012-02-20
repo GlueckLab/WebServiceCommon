@@ -21,51 +21,59 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 public class NamedMatrix
 {
-	protected String name;
-	protected int rows;
-	protected int columns;
-	protected double[][] data;
-	
-	public NamedMatrix(String name, int rows, int columns)
-	{
-		this.name = name;
-		this.rows = -1;
-		this.columns = -1;
-		data = new double[rows][columns];
-	}
-	
-	public String getName()
-	{
-		return name;
-	}
-	
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-	
-	public int getRows()
-	{
-		return rows;
-	}
-	
-	public int getColumns()
-	{
-		return columns;
-	}
-	
-	public void setCellData(int row, int column, double value)
-	{
-		if (row >= 0 && row < rows && 
-				column >= 0 && column < columns)
-		{
-			data[row][column] = value;
-		}
-	}
-		
-	public Double getCellData(int row, int column)
-	{
-		return data[row][column];
-	}
-	
+    protected String name;
+    protected int rows;
+    protected int columns;
+    protected double[][] data;
+
+    public NamedMatrix(String name, int rows, int columns)
+    {
+        this.name = name;
+        this.rows = rows;
+        this.columns = columns;
+        data = new double[rows][columns];
+    }
+
+    public NamedMatrix(String name, int rows, int columns, double[][] data)
+    {
+        this.name = name;
+        this.rows = rows;
+        this.columns = columns;
+        this.data = data;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public int getRows()
+    {
+        return rows;
+    }
+
+    public int getColumns()
+    {
+        return columns;
+    }
+
+    public void setCellData(int row, int column, double value)
+    {
+        if (row >= 0 && row < rows && 
+                column >= 0 && column < columns)
+        {
+            data[row][column] = value;
+        }
+    }
+
+    public Double getCellData(int row, int column)
+    {
+        return data[row][column];
+    }
+
 }
