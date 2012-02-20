@@ -30,13 +30,12 @@ import java.util.List;
 public class BetweenParticipantFactor
 {
 	private int id;
-	private StudyDesign studyDesign;
+	private StudyDesign studyDesign = null;
 	private String predictorName = null;
-	private List<String> categoryList = null;
+	private List<String> categoryList = new ArrayList<String>();
 	
 	public BetweenParticipantFactor() 
 	{
-		categoryList = new ArrayList<String>();
 	}
 	
 	public BetweenParticipantFactor(String predictorName, List<String> categoryList)
@@ -47,22 +46,41 @@ public class BetweenParticipantFactor
 	
 	public StudyDesign getstudyDesign() {
 		return studyDesign;
-	}
-	public void setstudyDesign(StudyDesign studyDesign) {
+	} 
+	
+	public void setstudyDesign(StudyDesign studyDesign) 
+	{
 		this.studyDesign = studyDesign;
 	}
-	public String getPredictorName() {
+	
+	public String getPredictorName() 
+	{
 		return predictorName;
 	}
-	public void setPredictorName(String predictorName) {
+	
+	public void setPredictorName(String predictorName) 
+	{
 		this.predictorName = predictorName;
 	}
-	public List<String> getCategoryList() {
+	
+	public List<String> getCategoryList() 
+	{
 		return categoryList;
 	}
-	public void setCategoryList(List<String> dataList) {
-		this.categoryList = dataList;
+	
+	public void setCategoryList(List<String> dataList) 
+	{
+	    if (dataList != null)	this.categoryList = dataList;
 	}
 	
+	public void addCategory(String category)
+	{
+	    this.categoryList.add(category);
+	}
+	
+	public void clearCategories()
+	{
+	    this.categoryList.clear();
+	}
 	
 }
