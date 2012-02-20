@@ -28,7 +28,7 @@ public enum HorizontalAxisLabelEnum
 {		
 	VARIABILITY_SCALE_FACTOR("Variability Scale Factor"),
 	TOTAL_SAMPLE_SIZE("Total Sample Size"),
-	REGRESSION_COEEFICIENT_SCALE_FACTOR("Regression Coeeficient Scale Factor");
+	REGRESSION_COEEFICIENT_SCALE_FACTOR("Regression Coefficient Scale Factor");
 	
 	final String id;
 	
