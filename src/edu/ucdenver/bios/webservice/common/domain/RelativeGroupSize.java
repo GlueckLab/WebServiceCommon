@@ -19,6 +19,8 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +36,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="RELATIVE_GROUP_SIZE_LIST")
-public class RelativeGroupSize 
+public class RelativeGroupSize implements Serializable 
 {
 	/*--------------------
 	 * Member Variables

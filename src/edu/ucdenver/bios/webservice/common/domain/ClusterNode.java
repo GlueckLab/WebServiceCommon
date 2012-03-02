@@ -19,7 +19,12 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 /**
@@ -27,21 +32,20 @@ import javax.persistence.ManyToOne;
  * @author Uttara Sakhadeo
  *
  */
-public class ClusterNode 
+public class ClusterNode implements Serializable 
 {		
 	/*--------------------
 	 * Member Variables
 	 *--------------------*/
-	@Column(name="id")
-	private Integer id = null;
+	private int id;
 	@ManyToOne
 	private StudyDesign studyDesign = null;
 	/*@Column(name="position")
 	private Integer position = null;*/
-	@Column(name="name")
-	private String groupeName = null;
+	@Column(name="group")
+	private String groupName = null;
 	@Column(name="size")
-	private Integer groupeSize = null;
+	private Integer groupSize = null;
 	@Column(name="icc")
 	private Double intraClusterCorrelation = null;
 	@Column(name="node")
@@ -55,38 +59,29 @@ public class ClusterNode
 	/**
 	 * @param clusterName
 	 */
-	public ClusterNode(String groupeName) {
-		this.groupeName = groupeName;
+	public ClusterNode(String groupName) {
+		this.groupName = groupName;
 	}
 	/**
 	 * @param clusterName
 	 * @param sampleSize
 	 */
-	public ClusterNode(String groupeName, Integer groupeSize, int node, int parent) {
-		this.groupeName = groupeName;
-		this.groupeSize = groupeSize;
+	public ClusterNode(String groupName, Integer groupSize, int node, int parent) {
+		this.groupName = groupName;
+		this.groupSize = groupSize;
 		this.node = node;
 		this.parent = parent;
 	}	
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	public String getGroupeName() {
-		return groupeName;
-	}
-	public void setGroupeName(String groupeName) {
-		this.groupeName = groupeName;
-	}
-	public Integer getGroupeSize() {
-		return groupeSize;
-	}
-	public void setGroupeSize(Integer groupeSize) {
-		this.groupeSize = groupeSize;
-	}	
-	public Integer getId() {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public StudyDesign getStudyDesign() {
@@ -106,5 +101,17 @@ public class ClusterNode
 	}
 	public void setParent(int parent) {
 		this.parent = parent;
-	}		
+	}
+	public String getGroupName() {
+		return groupName;
+	}
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+	public Integer getGroupSize() {
+		return groupSize;
+	}
+	public void setGroupSize(Integer groupSize) {
+		this.groupSize = groupSize;
+	}			
 }

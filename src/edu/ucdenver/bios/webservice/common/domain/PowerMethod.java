@@ -19,6 +19,8 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +38,7 @@ import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
  */
 @Entity
 @Table(name="POWER_METHOD_LIST")
-public class PowerMethod 
+public class PowerMethod implements Serializable
 {
 	/*--------------------
 	 * Member Variables

@@ -20,50 +20,58 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
- * This is a wrapper for the TypeIError information.
+ * This is a wrapper for the Matrix information.
+ * This class holds cell data of a NamedMatrix.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="ALPHA_LIST")
-public class TypeIError implements Serializable 
+public class NamedMatrixCell implements Serializable 
 {
 	/*--------------------
 	 * Member Variables
-	 *--------------------*/	
-	private int id;	
-	@OneToMany
-	private StudyDesign studyDesign;
-	@Column(name="alpha_value")
-	private double alphaValue;	
+	 *--------------------*/
+	 private int id;
+	 @Column(name="row")
+	 private int row;
+	 @Column(name="column")
+	 private int column;
+	 @Column(name="data")
+	 private double value;
+	 @ManyToOne
+	 private NamedMatrix namedMatrix = null;	
 	/*--------------------
 	 * Constructors
-	 *--------------------*/
-	public TypeIError(){}	
+	 *--------------------*/	 
+	public NamedMatrixCell() {super();}
 	/**
-	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
+	 * @param row
+	 * @param column
+	 * @param value
 	 */
-	public TypeIError(int id, StudyDesign studyDesign, double alphaValue) {
+	public NamedMatrixCell(int row, int column, double value) {
 		super();
-		this.id = id;
-		this.studyDesign = studyDesign;
-		this.alphaValue = alphaValue;
+		this.row = row;
+		this.column = column;
+		this.value = value;
 	}
 	/*--------------------
 	 * Getter/Setter Methods
-	 *--------------------*/
+	 *--------------------*/	
+	public int getRow() {
+		return row;
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
@@ -73,16 +81,25 @@ public class TypeIError implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
+	public void setRow(int row) {
+		this.row = row;
 	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
+	public int getColumn() {
+		return column;
 	}
-	public double getAlphaValue() {
-		return alphaValue;
+	public void setColumn(int column) {
+		this.column = column;
 	}
-	public void setAlphaValue(double alphaValue) {
-		this.alphaValue = alphaValue;
+	public double getValue() {
+		return value;
+	}
+	public void setValue(double value) {
+		this.value = value;
+	}
+	public NamedMatrix getNamedMatrix() {
+		return namedMatrix;
+	}
+	public void setNamedMatrix(NamedMatrix namedMatrix) {
+		this.namedMatrix = namedMatrix;
 	}	
 }

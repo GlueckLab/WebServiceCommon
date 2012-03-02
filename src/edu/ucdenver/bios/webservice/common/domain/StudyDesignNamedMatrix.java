@@ -21,7 +21,12 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 public class StudyDesignNamedMatrix extends NamedMatrix
 {
-	protected StudyDesign studyDesign;
+	public StudyDesignNamedMatrix(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	/*protected StudyDesign studyDesign;
 
 	public StudyDesignNamedMatrix(StudyDesign studyDesign, 
 			String name, int rows, int columns)
@@ -39,6 +44,6 @@ public class StudyDesignNamedMatrix extends NamedMatrix
 	{
 		this.studyDesign = studyDesign;
 	}
-	
+	*/
 	
 }

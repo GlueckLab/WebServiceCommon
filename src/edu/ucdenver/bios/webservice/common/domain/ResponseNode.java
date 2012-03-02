@@ -19,44 +19,39 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 /**
- * This is a wrapper for the test list object information.
+ * This is a wrapper for the lists of different types.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="TEST_LIST")
-public class Test 
+public class ResponseNode implements Serializable 
 {
 	/*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
-	private StudyDesign studyDesign;
+	@ManyToOne
+	private StudyDesign studyDesign;	
 	@Column(name="name")
-	private String value;	
+	private String name = null;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public Test(){}	
-	/**
-	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
-	 */
-	public Test(int id, StudyDesign studyDesign, String value) {
-		super();
-		this.id = id;
-		this.studyDesign = studyDesign;
-		this.value = value;
+	public ResponseNode(){}
+	
+	public ResponseNode(String name)
+	{			
+		this.name = name;	
 	}
 	/*--------------------
 	 * Getter/Setter Methods
@@ -70,17 +65,21 @@ public class Test
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public StudyDesign getStudyDesign() {
 		return studyDesign;
 	}
+
 	public void setStudyDesign(StudyDesign studyDesign) {
 		this.studyDesign = studyDesign;
 	}
-	public String getValue() {
-		return value;
+
+	public String getName() {
+		return name;
 	}
-	public void setValue(String value) {
-		this.value = value;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-		
+	
 }

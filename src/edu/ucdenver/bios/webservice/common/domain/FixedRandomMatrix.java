@@ -19,6 +19,8 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 /**
  * Matrix which contains fixed and random components.  The combined
  * matrix may be produced by concatenating the fixed and random
@@ -27,7 +29,7 @@ package edu.ucdenver.bios.webservice.common.domain;
  * @author Sarah Kreidler
  *
  */
-public class FixedRandomMatrix
+public class FixedRandomMatrix implements Serializable
 {
 	protected String name;
 	protected NamedMatrix fixedMatrix;

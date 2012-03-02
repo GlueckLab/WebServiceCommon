@@ -26,15 +26,15 @@ package edu.ucdenver.bios.webservice.common.domain;
 public class WithinParticipantFactor 
 {
 	// response list
-	private ResponseList responseList;
+	private ResponseNode responseList;
 	// repeated measures
 	private RepeatedMeasuresNode repeatedMeasures;
 	// clustering
 	//private Cluster clustering;
-	public ResponseList getResponseList() {
+	public ResponseNode getResponseList() {
 		return responseList;
 	}
-	public void setResponseList(ResponseList responseList) {
+	public void setResponseList(ResponseNode responseList) {
 		this.responseList = responseList;
 	}
 	public RepeatedMeasuresNode getRepeatedMeasures() {

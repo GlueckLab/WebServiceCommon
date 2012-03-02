@@ -19,6 +19,8 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +35,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="TEST_LIST")
-public class StatisticalTest 
+public class StatisticalTest implements Serializable 
 {
 	/*--------------------
 	 * Member Variables
@@ -81,6 +83,5 @@ public class StatisticalTest
 	}
 	public void setValue(String value) {
 		this.value = value;
-	}
-		
+	}		
 }

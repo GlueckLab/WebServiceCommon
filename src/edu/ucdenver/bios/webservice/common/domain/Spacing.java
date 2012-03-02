@@ -26,41 +26,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * This is a wrapper for the TypeIError information.
+ * This is a wrapper for the Spacing information
+ * required for RepeatedMeasuresNode.
  * @author Uttara Sakhadeo
  *
  */
 @Entity
-@Table(name="ALPHA_LIST")
-public class TypeIError implements Serializable 
+@Table(name="REPEATED_MEASURES_SPACING")
+public class Spacing implements Serializable 
 {
 	/*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
-	private StudyDesign studyDesign;
-	@Column(name="alpha_value")
-	private double alphaValue;	
+	@ManyToOne
+	@Column(name="idRepeatedMeasures")
+	private RepeatedMeasuresNode repeatedMeasuresNode;
+	@Column(name="data")
+	private int value;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public TypeIError(){}	
-	/**
-	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
-	 */
-	public TypeIError(int id, StudyDesign studyDesign, double alphaValue) {
-		super();
-		this.id = id;
-		this.studyDesign = studyDesign;
-		this.alphaValue = alphaValue;
-	}
+	public Spacing(){}	
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -73,16 +64,17 @@ public class TypeIError implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
+	public RepeatedMeasuresNode getRepeatedMeasuresNode() {
+		return repeatedMeasuresNode;
 	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
+	public void setRepeatedMeasuresNode(RepeatedMeasuresNode repeatedMeasuresNode) {
+		this.repeatedMeasuresNode = repeatedMeasuresNode;
 	}
-	public double getAlphaValue() {
-		return alphaValue;
+	public int getValue() {
+		return value;
 	}
-	public void setAlphaValue(double alphaValue) {
-		this.alphaValue = alphaValue;
-	}	
+	public void setValue(int value) {
+		this.value = value;
+	}
+	
 }

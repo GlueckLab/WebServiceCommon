@@ -19,61 +19,73 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
-public class NamedMatrix
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+/**
+ * This is a wrapper for the Matrix information.
+ * @author Uttara Sakhadeo
+ *
+ */
+public class NamedMatrix implements Serializable
 {
-    protected String name;
-    protected int rows;
-    protected int columns;
-    protected double[][] data;
+	/*--------------------
+	 * Member Variables
+	 *--------------------*/
+	private int id;
+	@Column(name="name")
+    private String name=null;   
+	@ManyToMany
+    private List<NamedMatrixCell> matrixCellList=null;
+    @ManyToOne
+    private StudyDesign studyDesign = null;
 
-    public NamedMatrix(String name, int rows, int columns)
+    /*--------------------
+	 * Constructors
+	 *--------------------*/
+    public NamedMatrix(){}
+    public NamedMatrix(String name)
     {
-        this.name = name;
-        this.rows = rows;
-        this.columns = columns;
-        data = new double[rows][columns];
-    }
-
-    public NamedMatrix(String name, int rows, int columns, double[][] data)
-    {
-        this.name = name;
-        this.rows = rows;
-        this.columns = columns;
-        this.data = data;
-    }
-
+        this.name = name;                
+    }    
+    /*--------------------
+	 * Getter/Setter Methods
+	 *--------------------*/
+    @Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
     public String getName()
     {
         return name;
     }
-
     public void setName(String name)
     {
         this.name = name;
-    }
-
-    public int getRows()
-    {
-        return rows;
-    }
-
-    public int getColumns()
-    {
-        return columns;
-    }
-
-    public void setCellData(int row, int column, double value)
-    {
-        if (row >= 0 && row < rows && 
-                column >= 0 && column < columns)
-        {
-            data[row][column] = value;
-        }
-    }
-
-    public Double getCellData(int row, int column)
-    {
-        return data[row][column];
-    }
-
+    }		
+	public List<NamedMatrixCell> getMatrixCellList() {
+		return matrixCellList;
+	}
+	public void setMatrixCellList(List<NamedMatrixCell> matrixCellList) {
+		this.matrixCellList = matrixCellList;
+	}
+	public StudyDesign getStudyDesign() {
+		return studyDesign;
+	}
+	public void setStudyDesign(StudyDesign studyDesign) {
+		this.studyDesign = studyDesign;
+	}
+	
 }

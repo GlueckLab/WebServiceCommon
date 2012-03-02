@@ -19,12 +19,14 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -34,13 +36,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="BETA_SCALE_LIST")
-public class BetaScale 
+public class BetaScale implements Serializable
 {
 	/*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
+	@ManyToOne
 	private StudyDesign studyDesign;
 	@Column(name="beta_value")
 	private double value;	

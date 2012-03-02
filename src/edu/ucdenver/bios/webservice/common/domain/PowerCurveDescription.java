@@ -19,6 +19,8 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -34,7 +36,7 @@ import edu.ucdenver.bios.webservice.common.enums.StratificationVariableEnum;
  */
 @Entity
 @Table(name="POWER_CURVE_DESCRIPTION")
-public class PowerCurveDescription
+public class PowerCurveDescription implements Serializable
 {	
 	/*--------------------
 	 * Member Variables

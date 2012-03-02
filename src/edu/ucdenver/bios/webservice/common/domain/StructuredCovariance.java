@@ -1,6 +1,8 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
-public class StructuredCovariance 
+import java.io.Serializable;
+
+public class StructuredCovariance implements Serializable 
 {
 	
 }

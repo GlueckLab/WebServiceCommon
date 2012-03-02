@@ -19,68 +19,84 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
- * 
+ * This is a wrapper for the BetweenParticipantFactor information.
  * @author Uttara Sakhadeo
  *
  */
-public class BetweenParticipantFactor
+@Entity
+@Table(name="BETWEEN_SUBJECT_EFFECTS")
+public class BetweenParticipantFactor implements Serializable
 {
+	/*--------------------
+	 * Member Variables
+	 *--------------------*/
 	private int id;
-	private StudyDesign studyDesign = null;
+	@ManyToOne	
+	private StudyDesign studyDesign;
+	@Column(name="predictorName")
 	private String predictorName = null;
-	private List<String> categoryList = new ArrayList<String>();
+	@OneToMany
+	private List<Category> categoryList = new ArrayList<Category>();
+	/*--------------------
+	 * Constructors
+	 *--------------------*/
+	public BetweenParticipantFactor() {}
 	
-	public BetweenParticipantFactor() 
-	{
-	}
-	
-	public BetweenParticipantFactor(String predictorName, List<String> categoryList)
+	public BetweenParticipantFactor(String predictorName, List<Category> categoryList)
 	{
 		this.predictorName = predictorName;
 		this.categoryList = categoryList;
 	}
-	
-	public StudyDesign getstudyDesign() {
-		return studyDesign;
-	} 
-	
-	public void setstudyDesign(StudyDesign studyDesign) 
-	{
-		this.studyDesign = studyDesign;
-	}
-	
+	/*--------------------
+	 * Getter/Setter Methods
+	 *--------------------*/
 	public String getPredictorName() 
 	{
 		return predictorName;
-	}
-	
+	}	
 	public void setPredictorName(String predictorName) 
 	{
 		this.predictorName = predictorName;
+	}	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+	public int getId() {
+		return id;
 	}
-	
-	public List<String> getCategoryList() 
-	{
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public StudyDesign getStudyDesign() {
+		return studyDesign;
+	}
+
+	public void setStudyDesign(StudyDesign studyDesign) {
+		this.studyDesign = studyDesign;
+	}
+
+	public List<Category> getCategoryList() {
 		return categoryList;
 	}
-	
-	public void setCategoryList(List<String> dataList) 
-	{
-	    if (dataList != null)	this.categoryList = dataList;
-	}
-	
-	public void addCategory(String category)
-	{
-	    this.categoryList.add(category);
-	}
-	
-	public void clearCategories()
-	{
-	    this.categoryList.clear();
-	}
+
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
+	}	
 	
 }

@@ -19,6 +19,8 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +38,7 @@ import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
  */
 @Entity
 @Table(name="STUDY_HYPOTHESIS")
-public class Hypothesis 
+public class Hypothesis implements Serializable 
 {
 	/*--------------------
 	 * Member Variables

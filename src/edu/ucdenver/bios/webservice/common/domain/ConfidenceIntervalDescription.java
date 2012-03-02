@@ -19,6 +19,7 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -37,7 +38,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="CONFIDENCE_INTERVAL")
-public class ConfidenceIntervalDescription 
+public class ConfidenceIntervalDescription implements Serializable 
 {
 	/*--------------------
 	 * Member Variables

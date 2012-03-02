@@ -19,18 +19,23 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapKey;
+import javax.persistence.MapKeyClass;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
 import edu.ucdenver.bios.webservice.common.enums.SolutionTypeEnum;
 
 
@@ -42,7 +47,7 @@ import edu.ucdenver.bios.webservice.common.enums.SolutionTypeEnum;
  */
 @Entity
 @Table(name="STUDY_DESIGN")
-public class StudyDesign
+public class StudyDesign implements Serializable
 {	
 	/*--------------------
 	 * Member Variables
@@ -54,50 +59,59 @@ public class StudyDesign
 	@Column(name="name")
 	private String name = null;		
 	@Column(name="gaussianCovariate")
-	private boolean gaussianCovariate = false;
-	@Column(name="powerMethod")
-	private PowerMethodEnum powerMethodEnum;
+	private boolean gaussianCovariate = false;	
 	@Column(name="solutionType")
 	private SolutionTypeEnum solutionTypeEnum;
+	@Column(name="participantLabel")
+	private String participantLabel = null;
 	
 	@OneToOne
-	private Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions = new HashSet<ConfidenceIntervalDescription>();
+	/*private Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions = new HashSet<ConfidenceIntervalDescription>();*/
+	private Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions = null;
 	@OneToOne
-	private Set<PowerCurveDescription> powerCurveDescriptions = new HashSet<PowerCurveDescription>();		
+	/*private Set<PowerCurveDescription> powerCurveDescriptions = new HashSet<PowerCurveDescription>();*/
+	private Set<PowerCurveDescription> powerCurveDescriptions = null;
 	@OneToMany
-    private List<ClusterNode> clusteringTree;        
+    private List<ClusterNode> clusteringTree = null;        
 	
 	/* separate sets for list objects */
 	@OneToMany
-	private List<TypeIError> alphaList;
+	//private List<TypeIError> alphaList;
+	private List<TypeIError> alphaList = null;
 	@OneToMany
-	private List<BetaScale> betaScaleList;
+	private List<BetaScale> betaScaleList = null;
 	@OneToMany
-	private List<SigmaScale> sigmaScaleList;
+	private List<SigmaScale> sigmaScaleList = null;
 	@OneToMany
-	private List<RelativeGroupSize> relativeGroupSizeList;
+	private List<RelativeGroupSize> relativeGroupSizeList = null;
 	@OneToMany
-	private List<Test> testList;
+	private List<StatisticalTest> testList = null;
 	@OneToMany
-	private List<PowerMethod> powerMethodList;
+	private List<PowerMethod> powerMethodList = null;
 	@OneToMany
-	private List<Quantile> quantileList;
+	private List<Quantile> quantileList = null;
 	@OneToMany
-	private List<NominalPower> nominalPower;
+	private List<NominalPower> nominalPower = null;
 	
-	private List<String> responseList;	
-	private List<Double> perGroupSampleSizeList;
+	private List<ResponseNode> responseList = null;	
+	private List<Double> perGroupSampleSizeList = null;
 		
+	@MapKey(name="name")
+	@ManyToMany
+	/*private Map<String,NamedMatrix> matrixMap = new HashMap<String,NamedMatrix>();*/
+	private Map<String,NamedMatrix> matrixMap = null;
+	
 	// fixed between subject effects
-    private Set<BetweenParticipantFactor> betweenParticipantFactorSet = new HashSet<BetweenParticipantFactor>();   
+    private List<BetweenParticipantFactor> betweenParticipantFactorList = null;   
     //	private Set<NamedList> listSet = new HashSet<NamedList>();
 	// Instead of Set -> HashMap() .... for matrices,
-	private Set<StudyDesignNamedMatrix> matrixSet = new HashSet<StudyDesignNamedMatrix>();
+	/*private Set<StudyDesignNamedMatrix> matrixSet = new HashSet<StudyDesignNamedMatrix>();*/
+    private Set<StudyDesignNamedMatrix> matrixSet = null;
 	@OneToMany
-	private List<RepeatedMeasuresNode> repeatedMeasuresTree;
+	private List<RepeatedMeasuresNode> repeatedMeasuresTree = null;
 	// primary study hypothesis
 	@OneToOne
-	private Set<Hypothesis> hypotheses;	
+	private Set<Hypothesis> hypotheses = null;	
 		
 	/*--------------------
 	 * Constructors
@@ -135,17 +149,11 @@ public class StudyDesign
 	}
 	public void setGaussianCovariate(boolean gaussianCovariate) {
 		this.gaussianCovariate = gaussianCovariate;
-	}
-	public List<TypeIError> getAlphaList() {
-		return alphaList;
-	}
-	public void setAlphaList(List<TypeIError> alphaList) {
-		this.alphaList = alphaList;
-	}		
-	public List<String> getResponseList() {
+	}			
+	public List<ResponseNode> getResponseList() {
 		return responseList;
 	}
-	public void setResponseList(List<String> responseList) {
+	public void setResponseList(List<ResponseNode> responseList) {
 		this.responseList = responseList;
 	}
 	/*public List<PowerMethod> getPowerMethodList() {
@@ -160,14 +168,7 @@ public class StudyDesign
 	public void setRepeatedMeasuresTree(
 			List<RepeatedMeasuresNode> repeatedMeasuresTree) {
 		this.repeatedMeasuresTree = repeatedMeasuresTree;
-	}
-	public Set<BetweenParticipantFactor> getBetweenParticipantFactorSet() {
-		return betweenParticipantFactorSet;
-	}
-	public void setBetweenParticipantFactorSet(
-			Set<BetweenParticipantFactor> betweenParticipantFactorSet) {
-		this.betweenParticipantFactorSet = betweenParticipantFactorSet;
-	}
+	}	
 	public Set<StudyDesignNamedMatrix> getMatrixSet() {
 		return matrixSet;
 	}
@@ -199,13 +200,7 @@ public class StudyDesign
 	}
 	public void setClusteringTree(List<ClusterNode> clusteringTree) {
 		this.clusteringTree = clusteringTree;
-	}
-	public PowerMethodEnum getPowerMethodEnum() {
-		return powerMethodEnum;
-	}
-	public void setPowerMethodEnum(PowerMethodEnum powerMethodEnum) {
-		this.powerMethodEnum = powerMethodEnum;
-	}
+	}	
 	public SolutionTypeEnum getSolutionTypeEnum() {
 		return solutionTypeEnum;
 	}
@@ -231,10 +226,10 @@ public class StudyDesign
 			List<RelativeGroupSize> relativeGroupSizeList) {
 		this.relativeGroupSizeList = relativeGroupSizeList;
 	}
-	public List<Test> getTestList() {
+	public List<StatisticalTest> getTestList() {
 		return testList;
 	}
-	public void setTestList(List<Test> testList) {
+	public void setTestList(List<StatisticalTest> testList) {
 		this.testList = testList;
 	}
 	public List<PowerMethod> getPowerMethodList() {
@@ -261,7 +256,31 @@ public class StudyDesign
 	public void setNominalPower(List<NominalPower> nominalPower) {
 		this.nominalPower = nominalPower;
 	}
-		
+	public List<TypeIError> getAlphaList() {
+		return alphaList;
+	}
+	public void setAlphaList(List<TypeIError> alphaList) {
+		this.alphaList = alphaList;
+	}
+	public Map<String, NamedMatrix> getMatrixMap() {
+		return matrixMap;
+	}
+	public void setMatrixMap(Map<String, NamedMatrix> matrixMap) {
+		this.matrixMap = matrixMap;
+	}
+	public List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
+		return betweenParticipantFactorList;
+	}
+	public void setBetweenParticipantFactorList(
+			List<BetweenParticipantFactor> betweenParticipantFactorList) {
+		this.betweenParticipantFactorList = betweenParticipantFactorList;
+	}
+	public String getParticipantLabel() {
+		return participantLabel;
+	}
+	public void setParticipantLabel(String participantLabel) {
+		this.participantLabel = participantLabel;
+	}		
 }
 /*{
 

@@ -19,6 +19,8 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +35,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="QUANTILE_LIST")
-public class Quantile 
+public class Quantile implements Serializable 
 {
 	/*--------------------
 	 * Member Variables

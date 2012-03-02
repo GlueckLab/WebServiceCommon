@@ -19,48 +19,48 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
-/**
- * This is a wrapper for the spacing in repeated measures.
- * @author Uttara Sakhadeo
- *
- */
-/*class Spacing
-{
-	protected List<Integer> spacingList = null;
-	
-	public Spacing()
-	{
-		spacingList = new ArrayList<Integer>();
-	}		
-	public Spacing(List<Integer> spacingList) {
-		//super();
-		this.spacingList = spacingList;
-	}
-	public List<Integer> getSpacingList() {
-		return spacingList;
-	}		
-	public void setSpacingList(List<Integer> spacingList) {
-		this.spacingList = spacingList;
-	}		
-}*/
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import edu.ucdenver.bios.webservice.common.enums.RepeatedMeasuresDimensionType;
 
 /**
  * This is a wrapper for the repeated measures information.
  * @author Uttara Sakhadeo
  *
  */
-public class RepeatedMeasuresNode 
+public class RepeatedMeasuresNode implements Serializable 
 {
+	/*--------------------
+	 * Member Variables
+	 *--------------------*/
+	private int id;	
+	@ManyToOne
+	@Column(name="uuid")
+	private StudyDesign studyDesign;
+	@Column(name="name")
 	private String dimension = null;
-	private String type = null;
+	@Column(name="repeatType")
+	private RepeatedMeasuresDimensionType repeatedMeasuresDimensionType = null;
+	@Column(name="units")
 	private Integer numberOfMeasurements = null;
+	@Column(name="node")
 	private int node;
-	private int parent;
-	private List<Integer> spacingList = null;
+	@Column(name="parent")
+	private Integer parent;	
+	@OneToMany
+	private List<Spacing> spacingList = null;
 	//private Spacing spacingList = null;
-	
+	/*--------------------
+	 * Constructors
+	 *--------------------*/
 	public RepeatedMeasuresNode()
 	{
 		//spacingList = new Spacing();
@@ -70,60 +70,80 @@ public class RepeatedMeasuresNode
 		//super();
 		this.dimension = name;		
 	}		
-	public RepeatedMeasuresNode(String name, String type, Integer count,int node, int parent) 
+	public RepeatedMeasuresNode(String name, RepeatedMeasuresDimensionType type, Integer count,int node, int parent) 
 	{
 		//super();
 		this.dimension = name;
-		this.type = type;
+		this.repeatedMeasuresDimensionType = type;
 		this.numberOfMeasurements = count;		
 		this.node = node;
 		this.parent = parent;		
 	}			
-	public RepeatedMeasuresNode(String name, String type, Integer count,
-			List<Integer> spacingList, int node, int parent) 
+	public RepeatedMeasuresNode(String name, RepeatedMeasuresDimensionType type, Integer count,
+			List<Spacing> spacingList, int node, int parent) 
 	{
 		//super();
 		this.dimension = name;
-		this.type = type;
+		this.repeatedMeasuresDimensionType = type;
 		this.numberOfMeasurements = count;
 		this.node = node;
 		this.parent = parent;
 		this.setSpacingList(spacingList);
+	}
+	/*--------------------
+	 * Getter/Setter Methods
+	 *--------------------*/
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id")
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public StudyDesign getStudyDesign() {
+		return studyDesign;
+	}
+	public void setStudyDesign(StudyDesign studyDesign) {
+		this.studyDesign = studyDesign;
 	}
 	public String getDimension() {
 		return dimension;
 	}
 	public void setDimension(String dimension) {
 		this.dimension = dimension;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	}	
 	public Integer getNumberOfMeasurements() {
 		return numberOfMeasurements;
 	}
 	public void setNumberOfMeasurements(Integer numberOfMeasurements) {
 		this.numberOfMeasurements = numberOfMeasurements;
-	}	
-	public List<Integer> getSpacingList() {
-		return spacingList;
-	}
-	public void setSpacingList(List<Integer> spacingList) {
-		this.spacingList = spacingList;
-	}
+	}		
 	public int getNode() {
 		return node;
 	}
 	public void setNode(int node) {
 		this.node = node;
 	}
-	public int getParent() {
+	public Integer getParent() {
 		return parent;
 	}
-	public void setParent(int parent) {
+	public void setParent(Integer parent) {
 		this.parent = parent;
+	}
+	public List<Spacing> getSpacingList() {
+		return spacingList;
+	}
+	public void setSpacingList(List<Spacing> spacingList) {
+		this.spacingList = spacingList;
+	}
+	public RepeatedMeasuresDimensionType getRepeatedMeasuresDimensionType() {
+		return repeatedMeasuresDimensionType;
+	}
+	public void setRepeatedMeasuresDimensionType(
+			RepeatedMeasuresDimensionType repeatedMeasuresDimensionType) {
+		this.repeatedMeasuresDimensionType = repeatedMeasuresDimensionType;
 	}	
+	
 }
