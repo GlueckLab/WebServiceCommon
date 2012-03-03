@@ -19,7 +19,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
  -->
-<project name="WebServiceCommon" default="compress">
+<project name="WebServiceCommon" default="compress.gwt">
 	<property name="module.version" value="1.0.0" />	
 	<property name="module.name" value="edu.ucdenver.bios.webservice.common" />
 	<property name="debug" value="TRUE" />
@@ -53,12 +53,15 @@
 		
     <target name="clean">
     	<delete dir="${target.dir}"/>
+        <delete dir="${gwt.dir}"/>
+        <delete dir="${javadoc.dir}"/>
     </target>
 
     <target name="setup" depends="clean">
         <mkdir dir="${target.dir}"/>
         <mkdir dir="${target.dir}/classes"/>
         <mkdir dir="${gwt.dir}"/>
+        <mkdir dir="${javadoc.dir}"/>
     </target>
 	
 	<target name="javadoc">
@@ -111,10 +114,12 @@
   		<!-- Copy the required class, source, and gwt.xml files -->
 		<copy todir="${gwt.dir}">
 			<fileset dir="${target.dir}/classes"  
-			  		includes="edu/ucdenver/bios/webservice/common/domain/**" />
+			  		includes="edu/ucdenver/bios/webservice/common/domain/**,
+							edu/ucdenver/bios/webservice/common/enums/**" />
 			<fileset dir="${source.dir}"  
 			  		includes="edu/ucdenver/bios/webservice/common/common.gwt.xml,
-						edu/ucdenver/bios/webservice/common/domain/**" />
+						edu/ucdenver/bios/webservice/common/domain/**,
+						edu/ucdenver/bios/webservice/common/enums/**" />
 		</copy>
   		<!-- Create the GWT jar file -->
 		<jar destfile="${target.dir}/${module.name}-gwt-${module.version}.jar" 
