@@ -36,7 +36,9 @@ import javax.persistence.ManyToOne;
  */
 public class ResponseNode implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = 3762348477235977637L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

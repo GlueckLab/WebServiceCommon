@@ -21,7 +21,9 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 public class StudyDesignNamedMatrix extends NamedMatrix
 {
-	public StudyDesignNamedMatrix(String name) {
+    private static final long serialVersionUID = 2398153089756322021L;
+
+    public StudyDesignNamedMatrix(String name) {
 		super(name);
 		// TODO Auto-generated constructor stub
 	}

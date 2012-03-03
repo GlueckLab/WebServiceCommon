@@ -18,14 +18,19 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author Uttara Sakhadeo
  *
  */
-public class WithinParticipantFactor 
+public class WithinParticipantFactor implements Serializable
 {
-	// response list
+    private static final long serialVersionUID = 2529637170725647962L;
+    
+    // response list
 	private ResponseNode responseList;
 	// repeated measures
 	private RepeatedMeasuresNode repeatedMeasures;

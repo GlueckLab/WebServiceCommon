@@ -38,7 +38,9 @@ import javax.persistence.Table;
 @Table(name="SIGMA_SCALE_LIST")
 public class SigmaScale implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = -3573281687667302009L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

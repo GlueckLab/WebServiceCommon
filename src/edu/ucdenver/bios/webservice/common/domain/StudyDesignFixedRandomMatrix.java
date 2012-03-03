@@ -29,7 +29,9 @@ package edu.ucdenver.bios.webservice.common.domain;
  */
 public class StudyDesignFixedRandomMatrix extends FixedRandomMatrix
 {
-	protected StudyDesign studyDesign;
+    private static final long serialVersionUID = -7365369949623340929L;
+    
+    protected StudyDesign studyDesign;
 
     /**
      * Constructor, create a fixed/random matrix from the specified data arrays

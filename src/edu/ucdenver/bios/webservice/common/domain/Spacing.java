@@ -39,7 +39,9 @@ import javax.persistence.Table;
 @Table(name="REPEATED_MEASURES_SPACING")
 public class Spacing implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = 5598549066957591425L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

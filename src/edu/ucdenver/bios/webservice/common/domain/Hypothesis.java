@@ -40,7 +40,9 @@ import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 @Table(name="STUDY_HYPOTHESIS")
 public class Hypothesis implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = 570635778188633231L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

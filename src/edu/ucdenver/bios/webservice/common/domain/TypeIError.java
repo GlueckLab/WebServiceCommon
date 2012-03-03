@@ -38,7 +38,9 @@ import javax.persistence.Table;
 @Table(name="ALPHA_LIST")
 public class TypeIError implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = -5142097237939251003L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

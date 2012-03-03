@@ -38,7 +38,9 @@ import javax.persistence.Table;
 @Table(name="RELATIVE_GROUP_SIZE_LIST")
 public class RelativeGroupSize implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = 5881947477812713919L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

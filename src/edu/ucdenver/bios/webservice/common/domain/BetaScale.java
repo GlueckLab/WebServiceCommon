@@ -38,7 +38,9 @@ import javax.persistence.Table;
 @Table(name="BETA_SCALE_LIST")
 public class BetaScale implements Serializable
 {
-	/*--------------------
+    private static final long serialVersionUID = -2759158339433707691L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

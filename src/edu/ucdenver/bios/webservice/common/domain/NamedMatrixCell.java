@@ -39,7 +39,9 @@ import javax.persistence.OneToMany;
  */
 public class NamedMatrixCell implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = 7862808361354856467L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/
 	 private int id;

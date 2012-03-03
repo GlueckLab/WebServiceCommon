@@ -37,7 +37,9 @@ import javax.persistence.Table;
 @Table(name="QUANTILE_LIST")
 public class Quantile implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = 7498358054750918337L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

@@ -38,7 +38,9 @@ import edu.ucdenver.bios.webservice.common.enums.RepeatedMeasuresDimensionType;
  */
 public class RepeatedMeasuresNode implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = -714204384820498167L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/
 	private int id;	

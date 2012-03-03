@@ -34,7 +34,8 @@ import javax.persistence.ManyToOne;
  */
 public class ClusterNode implements Serializable 
 {		
-	/*--------------------
+    private static final long serialVersionUID = -8859192442862759392L;
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/
 	private int id;

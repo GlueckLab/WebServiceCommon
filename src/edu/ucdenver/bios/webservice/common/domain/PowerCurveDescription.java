@@ -38,7 +38,9 @@ import edu.ucdenver.bios.webservice.common.enums.StratificationVariableEnum;
 @Table(name="POWER_CURVE_DESCRIPTION")
 public class PowerCurveDescription implements Serializable
 {	
-	/*--------------------
+    private static final long serialVersionUID = 701214126222753261L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/		
 	@Id

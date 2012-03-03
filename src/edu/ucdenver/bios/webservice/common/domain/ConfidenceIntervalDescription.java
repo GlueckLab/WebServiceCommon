@@ -40,7 +40,9 @@ import javax.persistence.Table;
 @Table(name="CONFIDENCE_INTERVAL")
 public class ConfidenceIntervalDescription implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = 3510470585624009610L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

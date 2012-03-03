@@ -36,7 +36,9 @@ import javax.persistence.ManyToOne;
  */
 public class NamedMatrix implements Serializable
 {
-	/*--------------------
+    private static final long serialVersionUID = 7392545585998026017L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/
 	private int id;
@@ -87,5 +89,4 @@ public class NamedMatrix implements Serializable
 	public void setStudyDesign(StudyDesign studyDesign) {
 		this.studyDesign = studyDesign;
 	}
-	
 }

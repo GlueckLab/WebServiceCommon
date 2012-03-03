@@ -31,7 +31,9 @@ import java.io.Serializable;
  */
 public class FixedRandomMatrix implements Serializable
 {
-	protected String name;
+    private static final long serialVersionUID = 2934275326333182945L;
+    
+    protected String name;
 	protected NamedMatrix fixedMatrix;
 	protected NamedMatrix randomMatrix;
 	protected boolean combineHorizontal = true;

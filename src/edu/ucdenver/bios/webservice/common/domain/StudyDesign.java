@@ -49,7 +49,8 @@ import edu.ucdenver.bios.webservice.common.enums.SolutionTypeEnum;
 @Table(name="STUDY_DESIGN")
 public class StudyDesign implements Serializable
 {	
-	/*--------------------
+    private static final long serialVersionUID = -2761124691778704875L;
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/
 	// UUID for the study design.  Main unique identifier for the design

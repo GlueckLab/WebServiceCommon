@@ -37,7 +37,9 @@ import javax.persistence.Table;
 @Table(name="TEST_LIST")
 public class StatisticalTest implements Serializable 
 {
-	/*--------------------
+    private static final long serialVersionUID = 9105215653008294947L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

@@ -41,7 +41,9 @@ import javax.persistence.Table;
 @Table(name="BETWEEN_SUBJECT_EFFECTS")
 public class BetweenParticipantFactor implements Serializable
 {
-	/*--------------------
+    private static final long serialVersionUID = 3373126132690287186L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/
 	private int id;

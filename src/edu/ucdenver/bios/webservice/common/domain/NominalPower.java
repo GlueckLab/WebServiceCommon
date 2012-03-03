@@ -38,7 +38,9 @@ import javax.persistence.Table;
 @Table(name="NOMINAL_POWER_LIST")
 public class NominalPower implements Serializable
 {
-	/*--------------------
+    private static final long serialVersionUID = 1419240960874002525L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	

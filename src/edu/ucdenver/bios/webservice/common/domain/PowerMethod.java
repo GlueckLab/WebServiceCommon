@@ -40,7 +40,9 @@ import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
 @Table(name="POWER_METHOD_LIST")
 public class PowerMethod implements Serializable
 {
-	/*--------------------
+    private static final long serialVersionUID = 2312611754070134629L;
+    
+    /*--------------------
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
