@@ -1,15 +1,6 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 public class Category implements Serializable
 {
@@ -19,10 +10,7 @@ public class Category implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	private int id;
-	@ManyToOne
-	@Column(name="idBetweenParticipant")
 	private BetweenParticipantFactor betweenParticipantFactor;
-	@Column(name="category")
 	private String category = null;	
 	/*--------------------
 	 * Constructors
@@ -36,9 +24,6 @@ public class Category implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
