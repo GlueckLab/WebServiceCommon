@@ -21,22 +21,12 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 /**
  * This is a wrapper for the Spacing information
  * required for RepeatedMeasuresNode.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="REPEATED_MEASURES_SPACING")
 public class Spacing implements Serializable 
 {
     private static final long serialVersionUID = 5598549066957591425L;
@@ -45,10 +35,7 @@ public class Spacing implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@ManyToOne
-	@Column(name="idRepeatedMeasures")
 	private RepeatedMeasuresNode repeatedMeasuresNode;
-	@Column(name="data")
 	private int value;
 	/*--------------------
 	 * Constructors
@@ -57,9 +44,6 @@ public class Spacing implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
