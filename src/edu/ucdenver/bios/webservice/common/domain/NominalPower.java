@@ -21,21 +21,11 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
  * This is a wrapper for the NominalPower object information.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="NOMINAL_POWER_LIST")
 public class NominalPower implements Serializable
 {
     private static final long serialVersionUID = 1419240960874002525L;
@@ -44,9 +34,7 @@ public class NominalPower implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
 	private StudyDesign studyDesign;
-	@Column(name="nominal_power_value")
 	private double value;	
 	/*--------------------
 	 * Constructors
@@ -66,9 +54,6 @@ public class NominalPower implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
