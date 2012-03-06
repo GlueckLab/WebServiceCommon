@@ -23,22 +23,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
  * This is a wrapper for the BetweenParticipantFactor information.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="BETWEEN_SUBJECT_EFFECTS")
 public class BetweenParticipantFactor implements Serializable
 {
     private static final long serialVersionUID = 3373126132690287186L;
@@ -47,11 +36,8 @@ public class BetweenParticipantFactor implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	private int id;
-	@ManyToOne	
 	private StudyDesign studyDesign;
-	@Column(name="predictorName")
 	private String predictorName = null;
-	@OneToMany
 	private List<Category> categoryList = new ArrayList<Category>();
 	/*--------------------
 	 * Constructors
@@ -74,9 +60,6 @@ public class BetweenParticipantFactor implements Serializable
 	{
 		this.predictorName = predictorName;
 	}	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
