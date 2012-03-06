@@ -21,12 +21,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
 /**
  * This is a wrapper for the clustering information.
  * @author Uttara Sakhadeo
@@ -39,19 +33,13 @@ public class ClusterNode implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	private int id;
-	@ManyToOne
 	private StudyDesign studyDesign = null;
-	/*@Column(name="position")
+	/*
 	private Integer position = null;*/
-	@Column(name="group")
 	private String groupName = null;
-	@Column(name="size")
 	private Integer groupSize = null;
-	@Column(name="icc")
 	private Double intraClusterCorrelation = null;
-	@Column(name="node")
 	private int node;
-	@Column(name="parent")
 	private int parent;
 	/*--------------------
 	 * Constructors
@@ -76,9 +64,6 @@ public class ClusterNode implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
