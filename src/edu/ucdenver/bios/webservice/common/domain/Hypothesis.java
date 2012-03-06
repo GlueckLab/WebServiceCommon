@@ -21,14 +21,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 
 /**
@@ -36,8 +28,6 @@ import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="STUDY_HYPOTHESIS")
 public class Hypothesis implements Serializable 
 {
     private static final long serialVersionUID = 570635778188633231L;
@@ -46,9 +36,7 @@ public class Hypothesis implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
 	private StudyDesign studyDesign;
-	@Column(name="beta_value")
 	private HypothesisTypeEnum type;
 	/*--------------------
 	 * Constructors
@@ -57,9 +45,6 @@ public class Hypothesis implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
