@@ -20,15 +20,6 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.UUID;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 
 /**
@@ -36,8 +27,6 @@ import javax.persistence.Table;
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="CONFIDENCE_INTERVAL")
 public class ConfidenceIntervalDescription implements Serializable 
 {
     private static final long serialVersionUID = 3510470585624009610L;
@@ -46,17 +35,12 @@ public class ConfidenceIntervalDescription implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToOne
 	private StudyDesign studyDesign;	
-	@Column(name="isBetaFixed")
 	private boolean betaFixed;
-	@Column(name="isSigmaFixed")
 	private boolean sigmaFixed;
 	private float lowerTrailProbability;
 	private float upperTrailProbability;
-	@Column(name="sampleSize")
 	private int sampleSize;
-	@Column(name="rankOfDesignMatrix")
 	private  int rankOfDesignMatrix;	
 	/*--------------------
 	 * Constructors
@@ -106,9 +90,6 @@ public class ConfidenceIntervalDescription implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
