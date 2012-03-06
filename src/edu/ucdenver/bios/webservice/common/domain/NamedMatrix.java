@@ -22,13 +22,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-
 /**
  * This is a wrapper for the Matrix information.
  * @author Uttara Sakhadeo
@@ -42,11 +35,8 @@ public class NamedMatrix implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	private int id;
-	@Column(name="name")
-    private String name=null;   
-	@ManyToMany
-    private List<NamedMatrixCell> matrixCellList=null;
-    @ManyToOne
+	private String name=null;   
+	private List<NamedMatrixCell> matrixCellList=null;
     private StudyDesign studyDesign = null;
 
     /*--------------------
@@ -60,9 +50,6 @@ public class NamedMatrix implements Serializable
     /*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-    @Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
     public int getId() {
 		return id;
 	}
