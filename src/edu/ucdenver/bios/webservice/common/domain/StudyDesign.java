@@ -20,21 +20,11 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.MapKey;
-import javax.persistence.MapKeyClass;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import edu.ucdenver.bios.webservice.common.enums.SolutionTypeEnum;
 
@@ -45,8 +35,6 @@ import edu.ucdenver.bios.webservice.common.enums.SolutionTypeEnum;
  * 
  * @author Uttara Sakhadeo
  */
-@Entity
-@Table(name="STUDY_DESIGN")
 public class StudyDesign implements Serializable
 {	
     private static final long serialVersionUID = -2761124691778704875L;
@@ -54,16 +42,10 @@ public class StudyDesign implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	// UUID for the study design.  Main unique identifier for the design
-	@Id
-	@Column(name="uuid")
 	private byte[] uuid = null;
-	@Column(name="name")
 	private String name = null;		
-	@Column(name="gaussianCovariate")
 	private boolean gaussianCovariate = false;	
-	@Column(name="solutionType")
 	private SolutionTypeEnum solutionTypeEnum;
-	@Column(name="participantLabel")
 	private String participantLabel = null;
 	
 	@OneToOne
@@ -72,33 +54,24 @@ public class StudyDesign implements Serializable
 	@OneToOne
 	/*private Set<PowerCurveDescription> powerCurveDescriptions = new HashSet<PowerCurveDescription>();*/
 	private Set<PowerCurveDescription> powerCurveDescriptions = null;
-	@OneToMany
+	
+	
     private List<ClusterNode> clusteringTree = null;        
 	
-	/* separate sets for list objects */
-	@OneToMany
+	/* separate sets for list objects */	
 	//private List<TypeIError> alphaList;
 	private List<TypeIError> alphaList = null;
-	@OneToMany
 	private List<BetaScale> betaScaleList = null;
-	@OneToMany
 	private List<SigmaScale> sigmaScaleList = null;
-	@OneToMany
 	private List<RelativeGroupSize> relativeGroupSizeList = null;
-	@OneToMany
 	private List<StatisticalTest> testList = null;
-	@OneToMany
 	private List<PowerMethod> powerMethodList = null;
-	@OneToMany
 	private List<Quantile> quantileList = null;
-	@OneToMany
 	private List<NominalPower> nominalPower = null;
 	
 	private List<ResponseNode> responseList = null;	
 	private List<Double> perGroupSampleSizeList = null;
 		
-	@MapKey(name="name")
-	@ManyToMany
 	/*private Map<String,NamedMatrix> matrixMap = new HashMap<String,NamedMatrix>();*/
 	private Map<String,NamedMatrix> matrixMap = null;
 	
@@ -108,10 +81,8 @@ public class StudyDesign implements Serializable
 	// Instead of Set -> HashMap() .... for matrices,
 	/*private Set<StudyDesignNamedMatrix> matrixSet = new HashSet<StudyDesignNamedMatrix>();*/
     private Set<StudyDesignNamedMatrix> matrixSet = null;
-	@OneToMany
 	private List<RepeatedMeasuresNode> repeatedMeasuresTree = null;
 	// primary study hypothesis
-	@OneToOne
 	private Set<Hypothesis> hypotheses = null;	
 		
 	/*--------------------
