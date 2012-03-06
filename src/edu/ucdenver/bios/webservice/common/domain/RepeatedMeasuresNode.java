@@ -22,13 +22,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
 import edu.ucdenver.bios.webservice.common.enums.RepeatedMeasuresDimensionType;
 
 /**
@@ -44,20 +37,12 @@ public class RepeatedMeasuresNode implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	private int id;	
-	@ManyToOne
-	@Column(name="uuid")
 	private StudyDesign studyDesign;
-	@Column(name="name")
 	private String dimension = null;
-	@Column(name="repeatType")
 	private RepeatedMeasuresDimensionType repeatedMeasuresDimensionType = null;
-	@Column(name="units")
 	private Integer numberOfMeasurements = null;
-	@Column(name="node")
 	private int node;
-	@Column(name="parent")
 	private Integer parent;	
-	@OneToMany
 	private List<Spacing> spacingList = null;
 	//private Spacing spacingList = null;
 	/*--------------------
@@ -95,9 +80,6 @@ public class RepeatedMeasuresNode implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
