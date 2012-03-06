@@ -21,21 +21,11 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
  * This is a wrapper for the TypeIError information.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="ALPHA_LIST")
 public class TypeIError implements Serializable 
 {
     private static final long serialVersionUID = -5142097237939251003L;
@@ -44,9 +34,7 @@ public class TypeIError implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
 	private StudyDesign studyDesign;
-	@Column(name="alpha_value")
 	private double alphaValue;	
 	/*--------------------
 	 * Constructors
@@ -66,9 +54,6 @@ public class TypeIError implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
