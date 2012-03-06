@@ -20,22 +20,11 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
 /**
  * This is a wrapper for the BetaScale information.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="BETA_SCALE_LIST")
 public class BetaScale implements Serializable
 {
     private static final long serialVersionUID = -2759158339433707691L;
@@ -43,10 +32,8 @@ public class BetaScale implements Serializable
     /*--------------------
 	 * Member Variables
 	 *--------------------*/	
-	private int id;	
-	@ManyToOne
+	private int id;		
 	private StudyDesign studyDesign;
-	@Column(name="beta_value")
 	private double value;	
 	/*--------------------
 	 * Constructors
@@ -66,9 +53,6 @@ public class BetaScale implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
