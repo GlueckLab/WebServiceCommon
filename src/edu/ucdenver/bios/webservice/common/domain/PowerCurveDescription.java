@@ -21,11 +21,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import edu.ucdenver.bios.webservice.common.enums.HorizontalAxisLabelEnum;
 import edu.ucdenver.bios.webservice.common.enums.StratificationVariableEnum;
 
@@ -34,8 +29,6 @@ import edu.ucdenver.bios.webservice.common.enums.StratificationVariableEnum;
  * 
  * @author Uttara Sakhadeo
  */
-@Entity
-@Table(name="POWER_CURVE_DESCRIPTION")
 public class PowerCurveDescription implements Serializable
 {	
     private static final long serialVersionUID = 701214126222753261L;
@@ -43,25 +36,15 @@ public class PowerCurveDescription implements Serializable
     /*--------------------
 	 * Member Variables
 	 *--------------------*/		
-	@Id
 	private int id;
-	@Column(name="sampleSize")
 	private int sampleSize;
-	@Column(name="powerCurveDescription")
 	private String powerCurveDescription;
-	@Column(name="statisticalTest")
 	private String statisticalTest;
-	@Column(name="regressionCoeeficientScaleFactor")
 	private float regressionCoeeficientScaleFactor;
-	@Column(name="variabilityScaleFactor")
 	private float variabilityScaleFactor;
-	@Column(name="typeIError")
 	private float typeIError;
-	@Column(name="uuid")
 	private StudyDesign studyDesign;
-	@Column(name="horizontalAxisLabel")
 	private HorizontalAxisLabelEnum horizontalAxisLabelEnum;
-	@Column(name="stratificationVariable")
 	private StratificationVariableEnum stratificationVarEnum;	
 	/*--------------------
 	 * Constructors
