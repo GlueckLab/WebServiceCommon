@@ -20,16 +20,6 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  * This is a wrapper for the Matrix information.
@@ -45,13 +35,9 @@ public class NamedMatrixCell implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	 private int id;
-	 @Column(name="row")
 	 private int row;
-	 @Column(name="column")
 	 private int column;
-	 @Column(name="data")
 	 private double value;
-	 @ManyToOne
 	 private NamedMatrix namedMatrix = null;	
 	/*--------------------
 	 * Constructors
@@ -74,9 +60,6 @@ public class NamedMatrixCell implements Serializable
 	public int getRow() {
 		return row;
 	}
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
