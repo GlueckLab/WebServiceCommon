@@ -34,13 +34,12 @@ public class Spacing implements Serializable
     /*--------------------
 	 * Member Variables
 	 *--------------------*/	
-	private int id;	
-	private RepeatedMeasuresNode repeatedMeasuresNode;
+	private int id;
 	private int value;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public Spacing(){}	
+	public Spacing(){}		
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -50,17 +49,17 @@ public class Spacing implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public RepeatedMeasuresNode getRepeatedMeasuresNode() {
-		return repeatedMeasuresNode;
-	}
-	public void setRepeatedMeasuresNode(RepeatedMeasuresNode repeatedMeasuresNode) {
-		this.repeatedMeasuresNode = repeatedMeasuresNode;
-	}
 	public int getValue() {
 		return value;
 	}
 	public void setValue(int value) {
 		this.value = value;
 	}
-	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "Spacing [id=" + id + ", value=" + value + "]";
+	}
 }
