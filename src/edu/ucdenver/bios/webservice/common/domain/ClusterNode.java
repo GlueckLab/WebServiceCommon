@@ -32,15 +32,12 @@ public class ClusterNode implements Serializable
     /*--------------------
 	 * Member Variables
 	 *--------------------*/
-	private int id;
-	private StudyDesign studyDesign = null;
-	/*
-	private Integer position = null;*/
+	private int id;	
 	private String groupName = null;
 	private Integer groupSize = null;
 	private Double intraClusterCorrelation = null;
-	private int node;
-	private int parent;
+	private Integer node;
+	private Integer parent;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/	
@@ -55,7 +52,7 @@ public class ClusterNode implements Serializable
 	 * @param clusterName
 	 * @param sampleSize
 	 */
-	public ClusterNode(String groupName, Integer groupSize, int node, int parent) {
+	public ClusterNode(String groupName, Integer groupSize, Integer node, Integer parent) {
 		this.groupName = groupName;
 		this.groupSize = groupSize;
 		this.node = node;
@@ -70,24 +67,6 @@ public class ClusterNode implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
-	public int getNode() {
-		return node;
-	}
-	public void setNode(int node) {
-		this.node = node;
-	}
-	public int getParent() {
-		return parent;
-	}
-	public void setParent(int parent) {
-		this.parent = parent;
-	}
 	public String getGroupName() {
 		return groupName;
 	}
@@ -99,5 +78,33 @@ public class ClusterNode implements Serializable
 	}
 	public void setGroupSize(Integer groupSize) {
 		this.groupSize = groupSize;
-	}			
+	}
+	public Double getIntraClusterCorrelation() {
+		return intraClusterCorrelation;
+	}
+	public void setIntraClusterCorrelation(Double intraClusterCorrelation) {
+		this.intraClusterCorrelation = intraClusterCorrelation;
+	}
+	public Integer getNode() {
+		return node;
+	}
+	public void setNode(Integer node) {
+		this.node = node;
+	}
+	public Integer getParent() {
+		return parent;
+	}
+	public void setParent(Integer parent) {
+		this.parent = parent;
+	}
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "ClusterNode [id=" + id + ", groupName=" + groupName
+				+ ", groupSize=" + groupSize + ", intraClusterCorrelation="
+				+ intraClusterCorrelation + ", node=" + node + ", parent="
+				+ parent + "]";
+	}	
 }
