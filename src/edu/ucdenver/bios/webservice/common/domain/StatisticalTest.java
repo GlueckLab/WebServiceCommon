@@ -21,20 +21,12 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import edu.ucdenver.bios.webservice.common.enums.StatisticalTestType;
 /**
  * This is a wrapper for the test list object information.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="TEST_LIST")
 public class StatisticalTest implements Serializable 
 {
     private static final long serialVersionUID = 9105215653008294947L;
@@ -43,47 +35,31 @@ public class StatisticalTest implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
-	private StudyDesign studyDesign;
-	@Column(name="name")
-	private String value;	
+	private StatisticalTestType type;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public StatisticalTest(){}	
-	/**
-	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
-	 */
-	public StatisticalTest(int id, StudyDesign studyDesign, String value) {
-		super();
-		this.id = id;
-		this.studyDesign = studyDesign;
-		this.value = value;
-	}
+	public StatisticalTest(){}		
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
+	public StatisticalTestType getType() {
+		return type;
 	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
-	public String getValue() {
-		return value;
-	}
-	public void setValue(String value) {
-		this.value = value;
-	}		
+	public void setType(StatisticalTestType type) {
+		this.type = type;
+	}	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "StatisticalTest [id=" + id + ", type=" + type + "]";
+	}	
 }
