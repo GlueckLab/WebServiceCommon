@@ -20,6 +20,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 
@@ -36,8 +37,9 @@ public class Hypothesis implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	private StudyDesign studyDesign;
 	private HypothesisTypeEnum type;
+	private List<BetweenParticipantFactor> betweenParticipantFactorList = null;
+	private List<RepeatedMeasuresNode> repeatedMeasuresTree= null;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -51,17 +53,34 @@ public class Hypothesis implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
 	public HypothesisTypeEnum getType() {
 		return type;
 	}
 	public void setType(HypothesisTypeEnum type) {
 		this.type = type;
 	}
-	
+	public List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
+		return betweenParticipantFactorList;
+	}
+	public void setBetweenParticipantFactorList(
+			List<BetweenParticipantFactor> betweenParticipantFactorList) {
+		this.betweenParticipantFactorList = betweenParticipantFactorList;
+	}
+	public List<RepeatedMeasuresNode> getRepeatedMeasuresTree() {
+		return repeatedMeasuresTree;
+	}
+	public void setRepeatedMeasuresTree(
+			List<RepeatedMeasuresNode> repeatedMeasuresTree) {
+		this.repeatedMeasuresTree = repeatedMeasuresTree;
+	}	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "Hypothesis [id=" + id + ", type=" + type
+				+ ", betweenParticipantFactorList="
+				+ betweenParticipantFactorList + ", repeatedMeasuresTree="
+				+ repeatedMeasuresTree + "]";
+	}	
 }
