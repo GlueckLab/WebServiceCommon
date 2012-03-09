@@ -53,7 +53,7 @@ public class PowerCurveDescription implements Serializable
 	 * Create an empty Power Curve Description object
 	 */
 	public PowerCurveDescription()
-	{}
+	{}	
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -119,6 +119,20 @@ public class PowerCurveDescription implements Serializable
 	public void setHorizontalAxisLabelEnum(
 			HorizontalAxisLabelEnum horizontalAxisLabelEnum) {
 		this.horizontalAxisLabelEnum = horizontalAxisLabelEnum;
+	}	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "PowerCurveDescription [id=" + id + ", sampleSize=" + sampleSize
+				+ ", powerCurveDescription=" + powerCurveDescription
+				+ ", statisticalTest=" + statisticalTest
+				+ ", regressionCoeeficientScaleFactor="
+				+ regressionCoeeficientScaleFactor
+				+ ", variabilityScaleFactor=" + variabilityScaleFactor
+				+ ", typeIError=" + typeIError + ", studyDesign=" + studyDesign
+				+ ", horizontalAxisLabelEnum=" + horizontalAxisLabelEnum
+				+ ", stratificationVarEnum=" + stratificationVarEnum + "]";
 	}
-	
 }
