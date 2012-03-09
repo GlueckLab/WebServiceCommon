@@ -36,15 +36,13 @@ public class RepeatedMeasuresNode implements Serializable
     /*--------------------
 	 * Member Variables
 	 *--------------------*/
-	private int id;	
-	private StudyDesign studyDesign;
+	private int id;
 	private String dimension = null;
 	private RepeatedMeasuresDimensionType repeatedMeasuresDimensionType = null;
 	private Integer numberOfMeasurements = null;
 	private int node;
 	private Integer parent;	
 	private List<Spacing> spacingList = null;
-	//private Spacing spacingList = null;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -76,7 +74,7 @@ public class RepeatedMeasuresNode implements Serializable
 		this.node = node;
 		this.parent = parent;
 		this.setSpacingList(spacingList);
-	}
+	}	
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -85,13 +83,7 @@ public class RepeatedMeasuresNode implements Serializable
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
+	}	
 	public String getDimension() {
 		return dimension;
 	}
@@ -129,5 +121,15 @@ public class RepeatedMeasuresNode implements Serializable
 			RepeatedMeasuresDimensionType repeatedMeasuresDimensionType) {
 		this.repeatedMeasuresDimensionType = repeatedMeasuresDimensionType;
 	}	
-	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "RepeatedMeasuresNode [id=" + id + ", dimension=" + dimension
+				+ ", repeatedMeasuresDimensionType="
+				+ repeatedMeasuresDimensionType + ", numberOfMeasurements="
+				+ numberOfMeasurements + ", node=" + node + ", parent="
+				+ parent + ", spacingList=" + spacingList + "]";
+	}	
 }
