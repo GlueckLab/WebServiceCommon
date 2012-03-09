@@ -33,7 +33,6 @@ public class BetaScale implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;		
-	private StudyDesign studyDesign;
 	private double value;	
 	/*--------------------
 	 * Constructors
@@ -44,12 +43,12 @@ public class BetaScale implements Serializable
 	 * @param studyDesign
 	 * @param alphaValue
 	 */
-	public BetaScale(int id, StudyDesign studyDesign, double value) {
+	public BetaScale(int id, double value) {
 		super();
 		this.id = id;
-		this.studyDesign = studyDesign;
+		//this.studyDesign = studyDesign;
 		this.value = value;
-	}
+	}	
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -58,17 +57,18 @@ public class BetaScale implements Serializable
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
+	}	
 	public double getValue() {
 		return value;
 	}
 	public void setValue(double value) {
 		this.value = value;
+	}		
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "BetaScale [id=" + id + ", value=" + value + "]";
 	}	
 }
