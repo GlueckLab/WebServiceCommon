@@ -10,7 +10,6 @@ public class Category implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	private int id;
-	private BetweenParticipantFactor betweenParticipantFactor;
 	private String category = null;	
 	/*--------------------
 	 * Constructors
@@ -20,7 +19,7 @@ public class Category implements Serializable
 	public Category(String category)
 	{
 		this.category = category;
-	}
+	}	
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -31,16 +30,7 @@ public class Category implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public BetweenParticipantFactor getBetweenParticipantFactor() {
-		return betweenParticipantFactor;
-	}
-
-	public void setBetweenParticipantFactor(
-			BetweenParticipantFactor betweenParticipantFactor) {
-		this.betweenParticipantFactor = betweenParticipantFactor;
-	}
-
+	
 	public String getCategory() {
 		return category;
 	}
@@ -48,4 +38,11 @@ public class Category implements Serializable
 	public void setCategory(String category) {
 		this.category = category;
 	}	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", category=" + category + "]";
+	}
 }
