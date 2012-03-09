@@ -34,6 +34,7 @@ public class Covariance implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;		
+	private String name;
 	private double sd;
 	private double roh;
 	private double delta;
@@ -88,14 +89,21 @@ public class Covariance implements Serializable
 	}
 	public void setData(double[][] data) {
 		this.data = data;
-	}			
+	}		
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	/*--------------------
 	 * toString()
 	 *--------------------*/
 	@Override
 	public String toString() {
-		return "Covariance [id=" + id + ", sd=" + sd + ", roh=" + roh
-				+ ", delta=" + delta + ", rows=" + rows + ", columns="
-				+ columns + ", data=" + Arrays.toString(data) + "]";
+		return "Covariance [id=" + id + ", name=" + name + ", sd=" + sd
+				+ ", roh=" + roh + ", delta=" + delta + ", rows=" + rows
+				+ ", columns=" + columns + ", data=" + Arrays.toString(data)
+				+ "]";
 	}	
 }
