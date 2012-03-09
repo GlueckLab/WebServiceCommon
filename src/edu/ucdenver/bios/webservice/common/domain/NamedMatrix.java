@@ -20,7 +20,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * This is a wrapper for the Matrix information.
@@ -35,10 +35,10 @@ public class NamedMatrix implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	private int id;
-	private String name=null;   
-	private List<NamedMatrixCell> matrixCellList=null;
-    private StudyDesign studyDesign = null;
-
+	private String name=null; 
+	private int rows;
+	private int columns;
+	private double[][] data;    
     /*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -63,17 +63,32 @@ public class NamedMatrix implements Serializable
     public void setName(String name)
     {
         this.name = name;
-    }		
-	public List<NamedMatrixCell> getMatrixCellList() {
-		return matrixCellList;
+    }
+	public double[][] getData() {
+		return data;
 	}
-	public void setMatrixCellList(List<NamedMatrixCell> matrixCellList) {
-		this.matrixCellList = matrixCellList;
+	public void setData(double[][] data) {
+		this.data = data;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
+	public int getRows() {
+		return rows;
 	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
+	public void setRows(int rows) {
+		this.rows = rows;
 	}
+	public int getColumns() {
+		return columns;
+	}
+	public void setColumns(int columns) {
+		this.columns = columns;
+	}	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "NamedMatrix [id=" + id + ", name=" + name + ", rows=" + rows
+				+ ", columns=" + columns + ", data=" + Arrays.toString(data)
+				+ "]";
+	}			
 }
