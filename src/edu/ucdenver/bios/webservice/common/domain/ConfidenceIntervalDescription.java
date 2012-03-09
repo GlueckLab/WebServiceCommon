@@ -35,7 +35,6 @@ public class ConfidenceIntervalDescription implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	private StudyDesign studyDesign;	
 	private boolean betaFixed;
 	private boolean sigmaFixed;
 	private float lowerTrailProbability;
@@ -120,12 +119,12 @@ public class ConfidenceIntervalDescription implements Serializable
 	public void setRankOfDesignMatrix(int rankOfDesignMatrix) {
 		this.rankOfDesignMatrix = rankOfDesignMatrix;
 	}
-	public StudyDesign getStudyDesign() {
+	/*public StudyDesign getStudyDesign() {
 		return studyDesign;
 	}
 	public void setStudyDesign(StudyDesign studyDesign) {
 		this.studyDesign = studyDesign;
-	}
+	}*/
 	public float getLowerTrailProbability() {
 		return lowerTrailProbability;
 	}
@@ -137,5 +136,18 @@ public class ConfidenceIntervalDescription implements Serializable
 	}
 	public void setUpperTrailProbability(float upperTrailProbability) {
 		this.upperTrailProbability = upperTrailProbability;
+	}
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "ConfidenceIntervalDescription [id=" + id + ", betaFixed="
+				+ betaFixed + ", sigmaFixed=" + sigmaFixed
+				+ ", lowerTrailProbability=" + lowerTrailProbability
+				+ ", upperTrailProbability=" + upperTrailProbability
+				+ ", sampleSize=" + sampleSize + ", rankOfDesignMatrix="
+				+ rankOfDesignMatrix + "]";
 	}	
+	
 }
