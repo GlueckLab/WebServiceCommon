@@ -36,9 +36,8 @@ public class BetweenParticipantFactor implements Serializable
 	 * Member Variables
 	 *--------------------*/
 	private int id;
-	private StudyDesign studyDesign;
 	private String predictorName = null;
-	private List<Category> categoryList = new ArrayList<Category>();
+	private List<Category> categoryList = null;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -48,7 +47,7 @@ public class BetweenParticipantFactor implements Serializable
 	{
 		this.predictorName = predictorName;
 		this.categoryList = categoryList;
-	}
+	}		
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
@@ -67,15 +66,7 @@ public class BetweenParticipantFactor implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
-
+	
 	public List<Category> getCategoryList() {
 		return categoryList;
 	}
@@ -83,5 +74,12 @@ public class BetweenParticipantFactor implements Serializable
 	public void setCategoryList(List<Category> categoryList) {
 		this.categoryList = categoryList;
 	}	
-	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "BetweenParticipantFactor [id=" + id + ", predictorName="
+				+ predictorName + ", categoryList=" + categoryList + "]";
+	}
 }
