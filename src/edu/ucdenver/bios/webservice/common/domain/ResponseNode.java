@@ -20,15 +20,6 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 /**
  * This is a wrapper for the lists of different types.
  * @author Uttara Sakhadeo
@@ -42,9 +33,6 @@ public class ResponseNode implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@ManyToOne
-	private StudyDesign studyDesign;	
-	@Column(name="name")
 	private String name = null;
 	/*--------------------
 	 * Constructors
@@ -58,30 +46,23 @@ public class ResponseNode implements Serializable
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "ResponseNode [id=" + id + ", name=" + name + "]";
+	}	
 }
