@@ -34,7 +34,6 @@ public class NominalPower implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	private StudyDesign studyDesign;
 	private double value;	
 	/*--------------------
 	 * Constructors
@@ -45,10 +44,9 @@ public class NominalPower implements Serializable
 	 * @param studyDesign
 	 * @param alphaValue
 	 */
-	public NominalPower(int id, StudyDesign studyDesign, double value) {
+	public NominalPower(int id, double value) {
 		super();
 		this.id = id;
-		this.studyDesign = studyDesign;
 		this.value = value;
 	}
 	/*--------------------
@@ -60,16 +58,17 @@ public class NominalPower implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
 	public double getValue() {
 		return value;
 	}
 	public void setValue(double value) {
 		this.value = value;
-	}	
+	}
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "NominalPower [id=" + id + ", value=" + value + "]";
+	}
 }
