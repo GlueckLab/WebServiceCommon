@@ -90,8 +90,7 @@ public class TestJSONRepresentation extends TestCase
 		studyDesign.setName(STUDY_NAME);
 		studyDesign.setUuid(uuid);
     	List<BetweenParticipantFactor> betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>();		
-		BetweenParticipantFactor betweenParticipantFactor = new BetweenParticipantFactor();		
-			betweenParticipantFactor.setStudyDesign(studyDesign);			
+		BetweenParticipantFactor betweenParticipantFactor = new BetweenParticipantFactor();				
 			betweenParticipantFactor.setPredictorName("Medicine");
 				List<Category> categoryList = new ArrayList<Category>();
 				categoryList.add(new Category("A"));
@@ -99,7 +98,7 @@ public class TestJSONRepresentation extends TestCase
 			betweenParticipantFactor.setCategoryList(categoryList);
 		betweenParticipantFactorList.add(betweenParticipantFactor);	
 			betweenParticipantFactor = new BetweenParticipantFactor();							
-				betweenParticipantFactor.setStudyDesign(studyDesign);			
+			
 				betweenParticipantFactor.setPredictorName("Natural Food");
 					categoryList = new ArrayList<Category>();
 					categoryList.add(new Category("Fruits"));
