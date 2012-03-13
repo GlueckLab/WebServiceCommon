@@ -21,7 +21,7 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import edu.ucdenver.bios.webservice.common.enums.StatisticalTestType;
+import edu.ucdenver.bios.webservice.common.enums.StatisticalTestTypeEnum;
 /**
  * This is a wrapper for the test list object information.
  * @author Uttara Sakhadeo
@@ -35,7 +35,7 @@ public class StatisticalTest implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	private StatisticalTestType type;	
+	private StatisticalTestTypeEnum type;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -49,10 +49,10 @@ public class StatisticalTest implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StatisticalTestType getType() {
+	public StatisticalTestTypeEnum getType() {
 		return type;
 	}
-	public void setType(StatisticalTestType type) {
+	public void setType(StatisticalTestTypeEnum type) {
 		this.type = type;
 	}	
 	/*--------------------
