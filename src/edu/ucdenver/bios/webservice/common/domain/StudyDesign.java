@@ -20,6 +20,8 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -47,43 +49,33 @@ public class StudyDesign implements Serializable
 	private boolean gaussianCovariate = false;	
 	private SolutionTypeEnum solutionTypeEnum;
 	private String participantLabel = null;
-	
-	@OneToOne
-	/*private Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions = new HashSet<ConfidenceIntervalDescription>();*/
-	private Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions = null;
-	@OneToOne
-	/*private Set<PowerCurveDescription> powerCurveDescriptions = new HashSet<PowerCurveDescription>();*/
-	private Set<PowerCurveDescription> powerCurveDescriptions = null;
-	
-	
-    private List<ClusterNode> clusteringTree = null;        
+		
+	private ConfidenceIntervalDescription confidenceIntervalDescriptions = null;	
+	private PowerCurveDescription powerCurveDescriptions = null;
 	
 	/* separate sets for list objects */	
-	//private List<TypeIError> alphaList;
 	private List<TypeIError> alphaList = null;
 	private List<BetaScale> betaScaleList = null;
 	private List<SigmaScale> sigmaScaleList = null;
 	private List<RelativeGroupSize> relativeGroupSizeList = null;
-	private List<StatisticalTest> testList = null;
+	private List<StatisticalTest> statisticalTestList = null;
 	private List<PowerMethod> powerMethodList = null;
 	private List<Quantile> quantileList = null;
-	private List<NominalPower> nominalPower = null;
-	
+	private List<NominalPower> nominalPower = null;	
 	private List<ResponseNode> responseList = null;	
 	private List<Double> perGroupSampleSizeList = null;
 		
 	/*private Map<String,NamedMatrix> matrixMap = new HashMap<String,NamedMatrix>();*/
 	private Map<String,NamedMatrix> matrixMap = null;
-	
-	// fixed between subject effects
+		
     private List<BetweenParticipantFactor> betweenParticipantFactorList = null;   
-    //	private Set<NamedList> listSet = new HashSet<NamedList>();
-	// Instead of Set -> HashMap() .... for matrices,
-	/*private Set<StudyDesignNamedMatrix> matrixSet = new HashSet<StudyDesignNamedMatrix>();*/
-    private Set<StudyDesignNamedMatrix> matrixSet = null;
+   		
+    //private Set<StudyDesignNamedMatrix> matrixSet = null;
 	private List<RepeatedMeasuresNode> repeatedMeasuresTree = null;
-	// primary study hypothesis
+	private List<ClusterNode> clusteringTree = null; 
+	
 	private Set<Hypothesis> hypotheses = null;	
+	private Set<Covariance> covariance = null;
 		
 	/*--------------------
 	 * Constructors
@@ -127,38 +119,26 @@ public class StudyDesign implements Serializable
 	}
 	public void setResponseList(List<ResponseNode> responseList) {
 		this.responseList = responseList;
-	}
-	/*public List<PowerMethod> getPowerMethodList() {
-		return powerMethodList;
-	}
-	public void setPowerMethodList(List<PowerMethod> powerMethodList) {
-		this.powerMethodList = powerMethodList;
-	}*/	
+	}	
 	public List<RepeatedMeasuresNode> getRepeatedMeasuresTree() {
 		return repeatedMeasuresTree;
 	}
 	public void setRepeatedMeasuresTree(
 			List<RepeatedMeasuresNode> repeatedMeasuresTree) {
 		this.repeatedMeasuresTree = repeatedMeasuresTree;
-	}	
-	public Set<StudyDesignNamedMatrix> getMatrixSet() {
-		return matrixSet;
-	}
-	public void setMatrixSet(Set<StudyDesignNamedMatrix> matrixSet) {
-		this.matrixSet = matrixSet;
-	}
-	public Set<ConfidenceIntervalDescription> getConfidenceIntervalDescriptions() {
+	}			
+	public ConfidenceIntervalDescription getConfidenceIntervalDescriptions() {
 		return confidenceIntervalDescriptions;
 	}
 	public void setConfidenceIntervalDescriptions(
-			Set<ConfidenceIntervalDescription> confidenceIntervalDescriptions) {
+			ConfidenceIntervalDescription confidenceIntervalDescriptions) {
 		this.confidenceIntervalDescriptions = confidenceIntervalDescriptions;
-	}
-	public Set<PowerCurveDescription> getPowerCurveDescriptions() {
+	}	
+	public PowerCurveDescription getPowerCurveDescriptions() {
 		return powerCurveDescriptions;
 	}
 	public void setPowerCurveDescriptions(
-			Set<PowerCurveDescription> powerCurveDescriptions) {
+			PowerCurveDescription powerCurveDescriptions) {
 		this.powerCurveDescriptions = powerCurveDescriptions;
 	}
 	public Set<Hypothesis> getHypotheses() {
@@ -197,12 +177,12 @@ public class StudyDesign implements Serializable
 	public void setRelativeGroupSizeList(
 			List<RelativeGroupSize> relativeGroupSizeList) {
 		this.relativeGroupSizeList = relativeGroupSizeList;
+	}	
+	public List<StatisticalTest> getStatisticalTestList() {
+		return statisticalTestList;
 	}
-	public List<StatisticalTest> getTestList() {
-		return testList;
-	}
-	public void setTestList(List<StatisticalTest> testList) {
-		this.testList = testList;
+	public void setStatisticalTestList(List<StatisticalTest> statisticalTestList) {
+		this.statisticalTestList = statisticalTestList;
 	}
 	public List<PowerMethod> getPowerMethodList() {
 		return powerMethodList;
@@ -252,101 +232,58 @@ public class StudyDesign implements Serializable
 	}
 	public void setParticipantLabel(String participantLabel) {
 		this.participantLabel = participantLabel;
-	}		
+	}
+	public Set<Covariance> getCovariance() {
+		return covariance;
+	}
+	public void setCovariance(Set<Covariance> covariance) {
+		this.covariance = covariance;
+	}	
+	/*--------------------
+	 * Return/Store ResponseList names
+	 *--------------------*/
+	public List<String> getResponseListNames() 
+	{
+		List<String> responses = new ArrayList<String>(this.getResponseList().size());
+		for(ResponseNode node: this.getResponseList())
+		{
+			responses.add(node.getName());
+		}
+		return responses;
+	}
+	public void setResponseListNames(List<String> responseList) 
+	{
+		this.responseList = new ArrayList<ResponseNode>(responseList.size());
+		for(String name : responseList)
+		{
+			this.responseList.add(new ResponseNode(name));
+		}
+		
+	}	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "StudyDesign [\nuuid=" + Arrays.toString(uuid) + ", name=" + name
+				+ ", gaussianCovariate=" + gaussianCovariate
+				+ ", solutionTypeEnum=" + solutionTypeEnum
+				+ ", participantLabel=" + participantLabel
+				+ ", \nconfidenceIntervalDescriptions="
+				+ confidenceIntervalDescriptions + ", \npowerCurveDescriptions="
+				+ powerCurveDescriptions + ", \nalphaList=" + alphaList
+				+ ", \nbetaScaleList=" + betaScaleList + ", \nsigmaScaleList="
+				+ sigmaScaleList + ", \nrelativeGroupSizeList="
+				+ relativeGroupSizeList + ", \nstatisticalTestList=" + statisticalTestList
+				+ ", \npowerMethodList=" + powerMethodList + ", \nquantileList="
+				+ quantileList + ", \nnominalPower=" + nominalPower
+				+ ", \nresponseList=" + responseList
+				+ ", \nperGroupSampleSizeList=" + perGroupSampleSizeList
+				+ ", \nmatrixMap=" + matrixMap
+				+ ", \nbetweenParticipantFactorList="
+				+ betweenParticipantFactorList + ", \nrepeatedMeasuresTree="
+				+ repeatedMeasuresTree + ", \nclusteringTree=" + clusteringTree
+				+ ", \nhypotheses=" + hypotheses + ", \ncovariance=" + covariance
+				+ "\n]";
+	}	
 }
-/*{
-
-// UUID for the study design.  Main unique identifier for the design
-@Id
-@Column(name="uuid")
-private byte[] uuid = null;
-private UUID studyUUID = null;
-// name of the study design
-@Column(name="name")
-private String name = null;	
-// flag indicating whether we are solving for power or sample size	
-//private SolvingFor flagSolveFor = null;
-@Column(name="flagSolveFor")
-private String flagSolveFor =null;
-// flag indicating if the design includes a baseline covariate
-@Column(name="hasGaussianCovariate")
-private boolean hasGaussianCovariate = false;
-//private ConfidenceInterval confidenceIntervalDescription = null;
-private Set<ConfidenceInterval> confidenceIntervalDescriptions = new HashSet<ConfidenceInterval>();
-
-public StudyDesign() 
-{}	
-
-
-public StudyDesign(UUID studyUUID) 
-{
-	this.studyUUID = studyUUID;
-	this.uuid = UUIDConversion.asByteArray(studyUUID);
-}
-
-public UUID getStudyUUID() 
-{
-	return studyUUID;
-}
-	
-public byte[] getUuid() 
-{
-	return uuid;
-}
-
-   public void setUuid(byte [] uuid) 
-    {
-        this.uuid = uuid;
-    }
-
-public void setStudyUUID(UUID studyUuid) 
-{
-	this.studyUUID = studyUuid;
-	this.uuid = UUIDConversion.asByteArray(studyUUID);
-}
-	
-public String getName() 
-{
-	return name;
-}
-
-public void setName(String name) 
-{
-	this.name = name;
-}
-	
-public boolean isHasGaussianCovariate() {
-	return hasGaussianCovariate;
-}
-
-public void setHasGaussianCovariate(boolean hasGaussianCovariate) {
-	this.hasGaussianCovariate = hasGaussianCovariate;
-}
-
-public SolvingFor getFlagSolvingFor() {
-	return SolvingFor.fromValue(this.flagSolveFor);
-}
-
-public void setFlagSolvingFor(SolvingFor flagSolvingFor) {
-	this.flagSolveFor = flagSolvingFor.toValue();
-}
-
-public Set<ConfidenceInterval> getConfidenceIntervalDescriptions() {
-	return confidenceIntervalDescriptions;
-}
-
-public void setConfidenceIntervalDescriptions(
-		Set<ConfidenceInterval> confidenceIntervalDescriptions) {
-	this.confidenceIntervalDescriptions = confidenceIntervalDescriptions;
-}
-
-public ConfidenceInterval getConfidenceIntervalDescription() {
-	return confidenceIntervalDescription;
-}
-
-public void setConfidenceIntervalDescription(
-		ConfidenceInterval confidenceIntervalDescription) {
-	this.confidenceIntervalDescription = confidenceIntervalDescription;
-}
-
-}*/
