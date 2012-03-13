@@ -24,9 +24,9 @@ package edu.ucdenver.bios.webservice.common.enums;
  */
 public enum RepeatedMeasuresDimensionType
 {
-	NUMERIC("Numeric"),
+	NUMERICAL("Numerical"),
 	ORDINAL("Ordinal"),
-	NOMINAL("Nominal");
+	CATEGORICAL("Categorical");
 	
 	final String id;
 	
