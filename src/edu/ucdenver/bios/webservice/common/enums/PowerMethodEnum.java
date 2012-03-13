@@ -20,7 +20,7 @@
 package edu.ucdenver.bios.webservice.common.enums;
 
 /**
- * Enum object referred in 'StudyDesign' class.
+ * Enum object referred in 'PowerMethod' class.
  * 
  * @author Uttara Sakhadeo
  */
