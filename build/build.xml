@@ -76,6 +76,7 @@
         <fileset dir="${source.dir}" defaultexcludes="yes">
             <include name="**/*.java"/>
         </fileset>
+      	<classpath refid="library.path"/>
       </javadoc>
 	</target>
 	
