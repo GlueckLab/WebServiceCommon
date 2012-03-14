@@ -29,4 +29,5 @@
 
   <!-- Specify the paths for translatable code                    -->
   <source path='domain'/>
+  <source path='enums'/>
 </module>
