@@ -36,11 +36,23 @@ public class Blob2DArray implements Serializable
 	 *--------------------*/
 	private double[][] data;
 	/*--------------------
+	 * Constructors
+	 *--------------------*/
+	public Blob2DArray(){}
+	/**
+	 * @param data
+	 */
+	public Blob2DArray(double[][] data) 
+	{
+		super();
+		this.data = data;
+	}
+	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
 	public double[][] getData() {
 		return data;
-	}
+	}	
 	public void setData(double[][] data) {
 		this.data = data;
 	}
