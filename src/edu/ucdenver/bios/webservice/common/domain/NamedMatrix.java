@@ -38,7 +38,7 @@ public class NamedMatrix implements Serializable
 	private String name=null; 
 	private int rows;
 	private int columns;
-	private double[][] data;    
+	private Blob2DArray data;   
     /*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -63,13 +63,7 @@ public class NamedMatrix implements Serializable
     public void setName(String name)
     {
         this.name = name;
-    }
-	public double[][] getData() {
-		return data;
-	}
-	public void setData(double[][] data) {
-		this.data = data;
-	}
+    }	
 	public int getRows() {
 		return rows;
 	}
@@ -81,14 +75,31 @@ public class NamedMatrix implements Serializable
 	}
 	public void setColumns(int columns) {
 		this.columns = columns;
+	}
+	public Blob2DArray getData() {
+		return data;
+	}
+	public void setData(Blob2DArray data) {
+		this.data = data;
 	}	
+	/*--------------------
+	 * Return/Store data[][]
+	 *--------------------*/
+	public void setData(double[][] data) 
+	{
+		Blob2DArray blob = new  Blob2DArray(data);
+		setData(blob);
+	} 
+	public double[][] getDataFromBlob() 
+	{
+		return data.getData();
+	}
 	/*--------------------
 	 * toString()
 	 *--------------------*/
 	@Override
 	public String toString() {
 		return "NamedMatrix [id=" + id + ", name=" + name + ", rows=" + rows
-				+ ", columns=" + columns + ", data=" + Arrays.toString(data)
-				+ "]";
-	}			
+				+ ", columns=" + columns + ", data=" + data + "]";
+	}	
 }
