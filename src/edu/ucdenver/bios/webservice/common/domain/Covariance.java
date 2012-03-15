@@ -20,6 +20,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Arrays;
 
 /**
@@ -39,8 +40,8 @@ public class Covariance implements Serializable
 	private double roh;
 	private double delta;
 	private int rows;
-	private int columns;
-	private double[][] data;	
+	private int columns;			
+	private Blob2DArray blob;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
@@ -83,18 +84,18 @@ public class Covariance implements Serializable
 	}
 	public void setColumns(int columns) {
 		this.columns = columns;
-	}
-	public double[][] getData() {
-		return data;
-	}
-	public void setData(double[][] data) {
-		this.data = data;
+	}	
+	public void setName(String name) {
+		this.name = name;
 	}		
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public Blob2DArray getBlob() {
+		return blob;
+	}
+	public void setBlob(Blob2DArray blob) {
+		this.blob = blob;
 	}
 	/*--------------------
 	 * toString()
@@ -103,7 +104,6 @@ public class Covariance implements Serializable
 	public String toString() {
 		return "Covariance [id=" + id + ", name=" + name + ", sd=" + sd
 				+ ", roh=" + roh + ", delta=" + delta + ", rows=" + rows
-				+ ", columns=" + columns + ", data=" + Arrays.toString(data)
-				+ "]";
+				+ ", columns=" + columns + ", blob=" + blob + "]";
 	}	
 }
