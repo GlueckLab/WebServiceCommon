@@ -98,6 +98,18 @@ public class Covariance implements Serializable
 		this.blob = blob;
 	}
 	/*--------------------
+	 * Return/Store data[][]
+	 *--------------------*/
+	public void setBlob(double[][] data) 
+	{
+		Blob2DArray blob = new  Blob2DArray(data);
+		setBlob(blob);
+	} 
+	public double[][] getDoubleArrayFromBlob() 
+	{
+		return blob.getData();
+	}
+	/*--------------------
 	 * toString()
 	 *--------------------*/
 	@Override
