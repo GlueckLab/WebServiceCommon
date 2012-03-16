@@ -21,21 +21,11 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
  * This is a wrapper for the RelativeGroupSize object information.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="RELATIVE_GROUP_SIZE_LIST")
 public class RelativeGroupSize implements Serializable 
 {
     private static final long serialVersionUID = 5881947477812713919L;
@@ -44,42 +34,26 @@ public class RelativeGroupSize implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
-	private StudyDesign studyDesign;
-	@Column(name="relative_group_size_value")
 	private int value;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public RelativeGroupSize(){}	
+	public RelativeGroupSize(){}		
 	/**
-	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
+	 * @param value
 	 */
-	public RelativeGroupSize(int id, StudyDesign studyDesign, int value) {
+	public RelativeGroupSize(int value) {
 		super();
-		this.id = id;
-		this.studyDesign = studyDesign;
 		this.value = value;
 	}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
 	}
 	public int getValue() {
 		return value;
@@ -87,4 +61,11 @@ public class RelativeGroupSize implements Serializable
 	public void setValue(int value) {
 		this.value = value;
 	}
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "RelativeGroupSize [id=" + id + ", value=" + value + "]";
+	}	
 }

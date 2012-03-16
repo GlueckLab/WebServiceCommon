@@ -22,13 +22,14 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.OneToOne;
-
+import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
 import edu.ucdenver.bios.webservice.common.enums.SolutionTypeEnum;
+import edu.ucdenver.bios.webservice.common.enums.StatisticalTestTypeEnum;
 
 
 /**
@@ -61,12 +62,11 @@ public class StudyDesign implements Serializable
 	private List<StatisticalTest> statisticalTestList = null;
 	private List<PowerMethod> powerMethodList = null;
 	private List<Quantile> quantileList = null;
-	private List<NominalPower> nominalPower = null;	
+	private List<NominalPower> nominalPowerList = null;	
 	private List<ResponseNode> responseList = null;	
 	private List<Double> perGroupSampleSizeList = null;
-		
-	/*private Map<String,NamedMatrix> matrixMap = new HashMap<String,NamedMatrix>();*/
-	private Map<String,NamedMatrix> matrixMap = null;
+			
+	/*private Map<String,NamedMatrix> matrixMap = null;*/
 		
     private List<BetweenParticipantFactor> betweenParticipantFactorList = null;   
    		
@@ -74,8 +74,9 @@ public class StudyDesign implements Serializable
 	private List<RepeatedMeasuresNode> repeatedMeasuresTree = null;
 	private List<ClusterNode> clusteringTree = null; 
 	
-	private Set<Hypothesis> hypotheses = null;	
+	private Set<Hypothesis> hypotheses = new HashSet<Hypothesis>();	
 	private Set<Covariance> covariance = null;
+	private Set<NamedMatrix> matrixSet = null;
 		
 	/*--------------------
 	 * Constructors
@@ -201,25 +202,19 @@ public class StudyDesign implements Serializable
 	}
 	public void setPerGroupSampleSizeList(List<Double> perGroupSampleSizeList) {
 		this.perGroupSampleSizeList = perGroupSampleSizeList;
+	}	
+	public List<NominalPower> getNominalPowerList() {
+		return nominalPowerList;
 	}
-	public List<NominalPower> getNominalPower() {
-		return nominalPower;
-	}
-	public void setNominalPower(List<NominalPower> nominalPower) {
-		this.nominalPower = nominalPower;
+	public void setNominalPowerList(List<NominalPower> nominalPowerList) {
+		this.nominalPowerList = nominalPowerList;
 	}
 	public List<TypeIError> getAlphaList() {
 		return alphaList;
 	}
 	public void setAlphaList(List<TypeIError> alphaList) {
 		this.alphaList = alphaList;
-	}
-	public Map<String, NamedMatrix> getMatrixMap() {
-		return matrixMap;
-	}
-	public void setMatrixMap(Map<String, NamedMatrix> matrixMap) {
-		this.matrixMap = matrixMap;
-	}
+	}	
 	public List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
 		return betweenParticipantFactorList;
 	}
@@ -238,52 +233,307 @@ public class StudyDesign implements Serializable
 	}
 	public void setCovariance(Set<Covariance> covariance) {
 		this.covariance = covariance;
-	}	
+	}		
+	public Set<NamedMatrix> getMatrixSet() {
+		return matrixSet;
+	}
+	public void setMatrixSet(Set<NamedMatrix> matrixSet) {
+		this.matrixSet = matrixSet;
+	}
+	/*--------------------
+	 * Return/Store AlphaList values
+	 *--------------------*/
+		public List<Double> getAlphaListValues() 
+		{
+			List<TypeIError> list = this.getAlphaList();
+			List<Double> values = new ArrayList<Double>(list.size());		
+			for(TypeIError node: list)
+			{
+				values.add(node.getAlphaValue());
+			}
+			return values;
+		}
+		public void setAlphaListValues(List<Double> values) 
+		{
+			List<TypeIError> list = new ArrayList<TypeIError>(values.size());
+			for(double value : values)
+			{
+				list.add(new TypeIError(value));
+			}
+			this.setAlphaList(list);
+		}
+	/*--------------------
+	 * Return/Store BetaScaleList values
+	 *--------------------*/
+		public List<Double> getBetaScaleListValues() 
+		{
+			List<BetaScale> list = this.getBetaScaleList();
+			List<Double> values = new ArrayList<Double>(list.size());		
+			for(BetaScale node: list)
+			{
+				values.add(node.getValue());
+			}
+			return values;
+		}
+		public void setBetaScaleListValues(List<Double> values) 
+		{
+			List<BetaScale> list = new ArrayList<BetaScale>(values.size());
+			for(double value : values)
+			{
+				list.add(new BetaScale(value));
+			}
+			this.setBetaScaleList(list);
+		}	
+	/*--------------------
+	 * Return/Store SigmaScaleList values
+	 *--------------------*/
+		public List<Double> getSigmaScaleListValues() 
+		{
+			List<SigmaScale> list = this.getSigmaScaleList();
+			List<Double> values = new ArrayList<Double>(list.size());		
+			for(SigmaScale node: list)
+			{
+				values.add(node.getValue());
+			}
+			return values;
+		}
+		public void setSigmaScaleListValues(List<Double> values) 
+		{
+			List<SigmaScale> list = new ArrayList<SigmaScale>(values.size());
+			for(double value : values)
+			{
+				list.add(new SigmaScale(value));
+			}
+			this.setSigmaScaleList(list);
+		}
+	/*--------------------
+	 * Return/Store RelativeGroupSizeList values
+	 *--------------------*/
+		public List<Integer> getRelativeGroupSizeListValues() 
+		{
+			List<RelativeGroupSize> list = this.getRelativeGroupSizeList();
+			List<Integer> values = new ArrayList<Integer>(list.size());		
+			for(RelativeGroupSize node: list)
+			{
+				values.add(node.getValue());
+			}
+			return values;
+		}
+		public void setRelativeGroupSizeListValues(List<Integer> values) 
+		{
+			List<RelativeGroupSize> list = new ArrayList<RelativeGroupSize>(values.size());
+			for(int value : values)
+			{
+				list.add(new RelativeGroupSize(value));
+			}
+			this.setRelativeGroupSizeList(list);
+		}
+	/*--------------------
+	 * Return/Store StatisticalTestList values
+	 *--------------------*/
+		public List<StatisticalTestTypeEnum> getStatisticalTestListValues() 
+		{
+			List<StatisticalTest> list = this.getStatisticalTestList();
+			List<StatisticalTestTypeEnum> values = new ArrayList<StatisticalTestTypeEnum>(list.size());		
+			for(StatisticalTest node: list)
+			{
+				values.add(node.getType());
+			}
+			return values;
+		}
+		public void setStatisticalTestListValues(List<StatisticalTestTypeEnum> values) 
+		{
+			List<StatisticalTest> list = new ArrayList<StatisticalTest>(values.size());
+			for(StatisticalTestTypeEnum value : values)
+			{
+				list.add(new StatisticalTest(value));
+			}
+			this.setStatisticalTestList(list);
+		}
+	/*--------------------
+	 * Return/Store PowerMethodList values
+	 *--------------------*/
+		public List<PowerMethodEnum> getPowerMethodListValues() 
+		{
+			List<PowerMethod> list = this.getPowerMethodList();
+			List<PowerMethodEnum> values = new ArrayList<PowerMethodEnum>(list.size());		
+			for(PowerMethod node: list)
+			{
+				values.add(node.getPowerMethodEnum());
+			}
+			return values;
+		}
+		public void setPowerMethodListValues(List<PowerMethodEnum> values) 
+		{
+			List<PowerMethod> list = new ArrayList<PowerMethod>(values.size());
+			for(PowerMethodEnum value : values)
+			{
+				list.add(new PowerMethod(value));
+			}
+			this.setPowerMethodList(list);
+		}
+	/*--------------------
+	 * Return/Store QuantileList names
+	 *--------------------*/
+		public List<Double> getQuantileListValues() 
+		{
+			List<Quantile> list = this.getQuantileList();
+			List<Double> values = new ArrayList<Double>(list.size());		
+			for(Quantile node: quantileList)
+			{
+				values.add(node.getValue());
+			}
+			return values;
+		}
+		public void setQuantileListValues(List<Double> values) 
+		{
+			List<Quantile> list = new ArrayList<Quantile>(values.size());
+			for(double value : values)
+			{
+				list.add(new Quantile(value));
+			}
+			this.setQuantileList(list);
+		}
+	/*--------------------
+	 * Return/Store NominalPowerList values
+	 *--------------------*/
+		public List<Double> getNominalPowerListValues() 
+		{
+			List<NominalPower> list = this.getNominalPowerList();
+			List<Double> values = new ArrayList<Double>(list.size());		
+			for(NominalPower node: list)
+			{
+				values.add(node.getValue());
+			}
+			return values;
+		}
+		public void setNominalPowerListValues(List<Double> values) 
+		{
+			List<NominalPower> list = new ArrayList<NominalPower>(values.size());
+			for(double value : values)
+			{
+				list.add(new NominalPower(value));
+			}
+			this.setNominalPowerList(list);
+		}
 	/*--------------------
 	 * Return/Store ResponseList names
 	 *--------------------*/
-	public List<String> getResponseListNames() 
-	{
-		List<String> responses = new ArrayList<String>(this.getResponseList().size());
-		for(ResponseNode node: this.getResponseList())
+		public List<String> getResponseListNames() 
 		{
-			responses.add(node.getName());
+			List<ResponseNode> list = this.getResponseList();
+			List<String> responses = new ArrayList<String>(list.size());		
+			for(ResponseNode node: responseList)
+			{
+				responses.add(node.getName());
+			}
+			return responses;
 		}
-		return responses;
-	}
-	public void setResponseListNames(List<String> responseList) 
-	{
-		this.responseList = new ArrayList<ResponseNode>(responseList.size());
-		for(String name : responseList)
+		public void setResponseListNames(List<String> values) 
 		{
-			this.responseList.add(new ResponseNode(name));
+			List<ResponseNode> list = new ArrayList<ResponseNode>(values.size());
+			for(String name : values)
+			{
+				list.add(new ResponseNode(name));
+			}
+			this.setResponseList(list);
+		}	
+	/*--------------------
+	 * Return specific Matrix
+	 *--------------------*/
+		/*
+		 * Convinience method for checking existance
+		 * of a matrix.
+		 */
+		public boolean hasNamedMatrix(String name)
+		{
+			boolean flag = false;
+			Set<NamedMatrix> matrixSet = this.getMatrixSet();
+			if(matrixSet!=null)
+			{			
+				Iterator<NamedMatrix> iterator = matrixSet.iterator();
+				while(iterator.hasNext())
+				{		
+					NamedMatrix matrix = iterator.next();
+					if (matrix==null) {
+						/*
+						 * 
+						 */
+					}
+					String matrixName = matrix.getName();
+					if(matrixName!=null && name.equals(matrixName))
+						flag = true;				
+				}
+			}		
+			return flag;
 		}
-		
-	}	
+		/*
+		 * Convinience method for retrieving a matrix
+		 * by its name.
+		 */
+		public NamedMatrix getNamedMatrix(String name)
+		{
+			NamedMatrix matrix = null;	
+			Set<NamedMatrix> matrixSet = this.getMatrixSet();
+			if(matrixSet!=null)
+			{						
+				Iterator<NamedMatrix> iterator = matrixSet.iterator();
+				while(iterator.hasNext())
+				{
+					matrix = iterator.next();
+					String matrixName = matrix.getName();
+					if(matrixName!=null && name.equals(matrixName))
+					{
+						break;
+					}
+					else if(matrixName==null || !name.equals(matrixName));
+						matrix = null;									
+				}						
+			}			
+			return matrix;
+		}	
+		/*
+		 * Convinience method for setting particular matrix
+		 * in a Set.
+		 */
+		public void setNamedMatrix(NamedMatrix matrix) 
+		{		
+			Set<NamedMatrix> matrixSet = this.getMatrixSet();
+			
+			if(hasNamedMatrix(matrix.getName()))
+			{
+				NamedMatrix originalMatrix = this.getNamedMatrix(name);
+				matrixSet.remove(originalMatrix);						
+			}
+			
+			matrixSet.add(matrix);	
+			this.setMatrixSet(matrixSet);
+		}		
 	/*--------------------
 	 * toString()
-	 *--------------------*/
+	 *--------------------*/	
 	@Override
 	public String toString() {
-		return "StudyDesign [\nuuid=" + Arrays.toString(uuid) + ", name=" + name
-				+ ", gaussianCovariate=" + gaussianCovariate
+		return "StudyDesign [uuid=" + Arrays.toString(uuid) + ", name="
+				+ name + ", gaussianCovariate=" + gaussianCovariate
 				+ ", solutionTypeEnum=" + solutionTypeEnum
 				+ ", participantLabel=" + participantLabel
-				+ ", \nconfidenceIntervalDescriptions="
-				+ confidenceIntervalDescriptions + ", \npowerCurveDescriptions="
-				+ powerCurveDescriptions + ", \nalphaList=" + alphaList
-				+ ", \nbetaScaleList=" + betaScaleList + ", \nsigmaScaleList="
-				+ sigmaScaleList + ", \nrelativeGroupSizeList="
-				+ relativeGroupSizeList + ", \nstatisticalTestList=" + statisticalTestList
-				+ ", \npowerMethodList=" + powerMethodList + ", \nquantileList="
-				+ quantileList + ", \nnominalPower=" + nominalPower
-				+ ", \nresponseList=" + responseList
-				+ ", \nperGroupSampleSizeList=" + perGroupSampleSizeList
-				+ ", \nmatrixMap=" + matrixMap
-				+ ", \nbetweenParticipantFactorList="
-				+ betweenParticipantFactorList + ", \nrepeatedMeasuresTree="
-				+ repeatedMeasuresTree + ", \nclusteringTree=" + clusteringTree
-				+ ", \nhypotheses=" + hypotheses + ", \ncovariance=" + covariance
-				+ "\n]";
-	}	
+				+ ", confidenceIntervalDescriptions="
+				+ confidenceIntervalDescriptions
+				+ ", powerCurveDescriptions=" + powerCurveDescriptions
+				+ ", alphaList=" + alphaList + ", betaScaleList="
+				+ betaScaleList + ", sigmaScaleList=" + sigmaScaleList
+				+ ", relativeGroupSizeList=" + relativeGroupSizeList
+				+ ", statisticalTestList=" + statisticalTestList
+				+ ", powerMethodList=" + powerMethodList
+				+ ", quantileList=" + quantileList + ", nominalPowerList="
+				+ nominalPowerList + ", responseList=" + responseList
+				+ ", perGroupSampleSizeList=" + perGroupSampleSizeList
+				+ ", betweenParticipantFactorList="
+				+ betweenParticipantFactorList + ", repeatedMeasuresTree="
+				+ repeatedMeasuresTree + ", clusteringTree="
+				+ clusteringTree + ", hypotheses=" + hypotheses
+				+ ", covariance=" + covariance + ", matrixSet=" + matrixSet
+				+ "]";
+	}
 }

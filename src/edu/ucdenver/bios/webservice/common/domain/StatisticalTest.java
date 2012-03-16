@@ -40,6 +40,13 @@ public class StatisticalTest implements Serializable
 	 * Constructors
 	 *--------------------*/
 	public StatisticalTest(){}		
+	/**
+	 * @param type
+	 */
+	public StatisticalTest(StatisticalTestTypeEnum type) {
+		super();
+		this.type = type;
+	}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/

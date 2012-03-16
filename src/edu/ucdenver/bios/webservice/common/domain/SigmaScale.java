@@ -21,21 +21,11 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
  * This is a wrapper for the SigmaScale information.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="SIGMA_SCALE_LIST")
 public class SigmaScale implements Serializable 
 {
     private static final long serialVersionUID = -3573281687667302009L;
@@ -44,42 +34,26 @@ public class SigmaScale implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
-	private StudyDesign studyDesign;
-	@Column(name="sigma_scale_value")
 	private double value;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public SigmaScale(){}	
+	public SigmaScale(){}		
 	/**
-	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
+	 * @param value
 	 */
-	public SigmaScale(int id, StudyDesign studyDesign, double value) {
+	public SigmaScale(double value) {
 		super();
-		this.id = id;
-		this.studyDesign = studyDesign;
 		this.value = value;
 	}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
 	}
 	public double getValue() {
 		return value;
@@ -87,4 +61,11 @@ public class SigmaScale implements Serializable
 	public void setValue(double value) {
 		this.value = value;
 	}
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "SigmaScale [id=" + id + ", value=" + value + "]";
+	}	
 }

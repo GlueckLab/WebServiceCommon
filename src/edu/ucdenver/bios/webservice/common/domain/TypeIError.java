@@ -34,21 +34,16 @@ public class TypeIError implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	private StudyDesign studyDesign;
 	private double alphaValue;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public TypeIError(){}	
+	public TypeIError(){}		
 	/**
-	 * @param id
-	 * @param studyDesign
 	 * @param alphaValue
 	 */
-	public TypeIError(int id, StudyDesign studyDesign, double alphaValue) {
+	public TypeIError(double alphaValue) {
 		super();
-		this.id = id;
-		this.studyDesign = studyDesign;
 		this.alphaValue = alphaValue;
 	}
 	/*--------------------
@@ -60,16 +55,17 @@ public class TypeIError implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
 	public double getAlphaValue() {
 		return alphaValue;
 	}
 	public void setAlphaValue(double alphaValue) {
 		this.alphaValue = alphaValue;
+	}	
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "TypeIError [id=" + id + ", alphaValue=" + alphaValue + "]";
 	}	
 }

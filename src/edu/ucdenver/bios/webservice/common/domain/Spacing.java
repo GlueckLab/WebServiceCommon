@@ -40,6 +40,13 @@ public class Spacing implements Serializable
 	 * Constructors
 	 *--------------------*/
 	public Spacing(){}		
+	/**
+	 * @param value
+	 */
+	public Spacing(int value) {
+		super();
+		this.value = value;
+	}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
