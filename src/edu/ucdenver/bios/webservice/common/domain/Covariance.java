@@ -20,8 +20,6 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.sql.Blob;
-import java.util.Arrays;
 
 /**
  * This is a wrapper for the Covariance information.
