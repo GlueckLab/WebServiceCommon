@@ -20,21 +20,11 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 /**
  * This is a wrapper for the Quantile a list object information.
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="QUANTILE_LIST")
 public class Quantile implements Serializable 
 {
     private static final long serialVersionUID = 7498358054750918337L;
@@ -42,43 +32,36 @@ public class Quantile implements Serializable
     /*--------------------
 	 * Member Variables
 	 *--------------------*/	
-	private int id;	
-	@OneToMany
-	private StudyDesign studyDesign;
-	@Column(name="quantile_value")
+	private int id;		
 	private double value;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
 	public Quantile(){}	
 	/**
-	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
+	 * @param value
 	 */
-	public Quantile(int id, StudyDesign studyDesign, double value) {
+	public Quantile(double value) {
+		super();
+		this.value = value;
+	}
+	/**
+	 * @param id
+	 * @param value
+	 */
+	public Quantile(int id, double value) {
 		super();
 		this.id = id;
-		this.studyDesign = studyDesign;
 		this.value = value;
 	}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
 	}
 	public double getValue() {
 		return value;
@@ -86,4 +69,11 @@ public class Quantile implements Serializable
 	public void setValue(double value) {
 		this.value = value;
 	}
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "Quantile [id=" + id + ", value=" + value + "]";
+	}	
 }
