@@ -39,14 +39,19 @@ public class BetaScale implements Serializable
 	 *--------------------*/
 	public BetaScale(){}	
 	/**
+	 * @param value
+	 */
+	public BetaScale(double value) {
+		super();
+		this.value = value;
+	}
+	/**
 	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
+	 * @param value
 	 */
 	public BetaScale(int id, double value) {
 		super();
 		this.id = id;
-		//this.studyDesign = studyDesign;
 		this.value = value;
 	}	
 	/*--------------------
