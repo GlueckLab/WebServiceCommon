@@ -40,9 +40,15 @@ public class NominalPower implements Serializable
 	 *--------------------*/
 	public NominalPower(){}	
 	/**
+	 * @param value
+	 */
+	public NominalPower(double value) {
+		super();
+		this.value = value;
+	}
+	/**
 	 * @param id
-	 * @param studyDesign
-	 * @param alphaValue
+	 * @param value
 	 */
 	public NominalPower(int id, double value) {
 		super();
