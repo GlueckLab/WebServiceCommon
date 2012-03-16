@@ -21,14 +21,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
 
 /**
@@ -36,8 +28,6 @@ import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
  * @author Uttara Sakhadeo
  *
  */
-@Entity
-@Table(name="POWER_METHOD_LIST")
 public class PowerMethod implements Serializable
 {
     private static final long serialVersionUID = 2312611754070134629L;
@@ -46,36 +36,39 @@ public class PowerMethod implements Serializable
 	 * Member Variables
 	 *--------------------*/	
 	private int id;	
-	@OneToMany
-	private StudyDesign studyDesign;
-	@Column(name="method")
 	private PowerMethodEnum powerMethodEnum;	
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public PowerMethod(){}
+	public PowerMethod(){}	
+	/**
+	 * @param powerMethodEnum
+	 */
+	public PowerMethod(PowerMethodEnum powerMethodEnum) {
+		super();
+		this.powerMethodEnum = powerMethodEnum;
+	}
 	/*--------------------
 	 * Getter/Setter Methods
 	 *--------------------*/
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public StudyDesign getStudyDesign() {
-		return studyDesign;
-	}
-	public void setStudyDesign(StudyDesign studyDesign) {
-		this.studyDesign = studyDesign;
-	}
 	public PowerMethodEnum getPowerMethodEnum() {
 		return powerMethodEnum;
 	}
 	public void setPowerMethodEnum(PowerMethodEnum powerMethodEnum) {
 		this.powerMethodEnum = powerMethodEnum;
-	}	
+	}
+	/*--------------------
+	 * toString()
+	 *--------------------*/
+	@Override
+	public String toString() {
+		return "PowerMethod [id=" + id + ", powerMethodEnum=" + powerMethodEnum
+				+ "]";
+	}		
 }
