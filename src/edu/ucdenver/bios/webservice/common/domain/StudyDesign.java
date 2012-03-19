@@ -76,7 +76,7 @@ public class StudyDesign implements Serializable
 	
 	private Set<Hypothesis> hypotheses = new HashSet<Hypothesis>();	
 	private Set<Covariance> covariance = null;
-	private Set<NamedMatrix> matrixSet = null;
+	private Set<NamedMatrix> matrixSet = new HashSet<NamedMatrix>();
 		
 	/*--------------------
 	 * Constructors
@@ -475,14 +475,14 @@ public class StudyDesign implements Serializable
 		{
 			NamedMatrix matrix = null;	
 			Set<NamedMatrix> matrixSet = this.getMatrixSet();
-			if(matrixSet!=null)
+			if (matrixSet!=null)
 			{						
 				Iterator<NamedMatrix> iterator = matrixSet.iterator();
-				while(iterator.hasNext())
+				while (iterator.hasNext())
 				{
 					matrix = iterator.next();
 					String matrixName = matrix.getName();
-					if(matrixName!=null && name.equals(matrixName))
+					if (matrixName != null && name.equals(matrixName))
 					{
 						break;
 					}
@@ -500,14 +500,11 @@ public class StudyDesign implements Serializable
 		{		
 			Set<NamedMatrix> matrixSet = this.getMatrixSet();
 			
-			if(hasNamedMatrix(matrix.getName()))
-			{
-				NamedMatrix originalMatrix = this.getNamedMatrix(name);
-				matrixSet.remove(originalMatrix);						
-			}
+			NamedMatrix originalMatrix = this.getNamedMatrix(matrix.getName());
+			if (originalMatrix != null) matrixSet.remove(originalMatrix);						
 			
 			matrixSet.add(matrix);	
-			this.setMatrixSet(matrixSet);
+			//this.setMatrixSet(matrixSet);
 		}		
 	/*--------------------
 	 * toString()
