@@ -20,6 +20,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
@@ -38,49 +39,104 @@ public class Hypothesis implements Serializable
 	 *--------------------*/	
 	private int id;	
 	private HypothesisTypeEnum type;
-	private List<BetweenParticipantFactor> betweenParticipantFactorList = null;
-	private List<RepeatedMeasuresNode> repeatedMeasuresTree= null;
+	private List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList = null;
+	private List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree= null;
 	/*--------------------
 	 * Constructors
 	 *--------------------*/
-	public Hypothesis(){}
-	/*--------------------
+	public Hypothesis(){}    
+    /**
+     * @param type
+     * @param betweenParticipantFactorMapList
+     * @param repeatedMeasuresMapTree
+     */
+    public Hypothesis(
+            HypothesisTypeEnum type,
+            List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList,
+            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree)
+    {
+        super();
+        this.type = type;
+        this.betweenParticipantFactorMapList = betweenParticipantFactorMapList;
+        this.repeatedMeasuresMapTree = repeatedMeasuresMapTree;
+    }
+    /*--------------------
 	 * Getter/Setter Methods
-	 *--------------------*/
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public HypothesisTypeEnum getType() {
-		return type;
-	}
-	public void setType(HypothesisTypeEnum type) {
-		this.type = type;
-	}
-	public List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
-		return betweenParticipantFactorList;
-	}
-	public void setBetweenParticipantFactorList(
-			List<BetweenParticipantFactor> betweenParticipantFactorList) {
-		this.betweenParticipantFactorList = betweenParticipantFactorList;
-	}
-	public List<RepeatedMeasuresNode> getRepeatedMeasuresTree() {
-		return repeatedMeasuresTree;
-	}
-	public void setRepeatedMeasuresTree(
-			List<RepeatedMeasuresNode> repeatedMeasuresTree) {
-		this.repeatedMeasuresTree = repeatedMeasuresTree;
-	}	
-	/*--------------------
+	 *--------------------*/  	
+	public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public HypothesisTypeEnum getType()
+    {
+        return type;
+    }
+
+    public void setType(HypothesisTypeEnum type)
+    {
+        this.type = type;
+    }
+
+    public List<HypothesisBetweenParticipantMapping> getBetweenParticipantFactorMapList()
+    {
+        return betweenParticipantFactorMapList;
+    }
+
+    public void setBetweenParticipantFactorMapList(
+            List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList)
+    {
+        this.betweenParticipantFactorMapList = betweenParticipantFactorMapList;
+    }    
+    public List<HypothesisRepeatedMeasuresMapping> getRepeatedMeasuresMapTree()
+    {
+        return repeatedMeasuresMapTree;
+    }
+    public void setRepeatedMeasuresMapTree(
+            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree)
+    {
+        this.repeatedMeasuresMapTree = repeatedMeasuresMapTree;
+    }
+    /*--------------------
+     * Return BetweenParticipantFactor list
+     *--------------------*/
+        public List<BetweenParticipantFactor> getBetweenParticipantFactorList()
+        {
+            List<HypothesisBetweenParticipantMapping> list = this.getBetweenParticipantFactorMapList();
+            List<BetweenParticipantFactor> betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>();
+            for(HypothesisBetweenParticipantMapping m : list)
+            {
+                betweenParticipantFactorList.add(m.getBetweenParticipantFactor());
+            }
+            return betweenParticipantFactorList;
+        } 
+    /*--------------------
+     * Return RepeatedMeasures list
+     *--------------------*/
+        public List<RepeatedMeasuresNode> getRepeatedMeasuresList()
+        {
+            List<HypothesisRepeatedMeasuresMapping> list = this.getRepeatedMeasuresMapTree();
+            List<RepeatedMeasuresNode> betweenParticipantFactorList = new ArrayList<RepeatedMeasuresNode>();
+            for(HypothesisRepeatedMeasuresMapping m : list)
+            {
+                betweenParticipantFactorList.add(m.getRepeatedMeasuresNode());
+            }
+            return betweenParticipantFactorList;
+        } 
+    /*--------------------
 	 * toString()
 	 *--------------------*/
-	@Override
-	public String toString() {
-		return "Hypothesis [id=" + id + ", type=" + type
-				+ ", betweenParticipantFactorList="
-				+ betweenParticipantFactorList + ", repeatedMeasuresTree="
-				+ repeatedMeasuresTree + "]";
-	}	
+	 @Override
+	    public String toString()
+	    {
+	        return "Hypothesis [id=" + id + ", type=" + type
+	                + ", betweenParticipantFactorMapList="
+	                + betweenParticipantFactorMapList + ", repeatedMeasuresMapTree="
+	                + repeatedMeasuresMapTree + "]";
+	    }	
 }
