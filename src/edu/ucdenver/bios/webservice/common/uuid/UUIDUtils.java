@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,34 +15,51 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.uuid;
 
 import java.util.UUID;
 
 /**
- * Convenience routines for handling UUID's
+ * Convenience routines for handling UUID's.
  */
-public class UUIDUtils
-{
-	/**
-	 * Return a java.util.UUID as a byte array.
-	 * @param uuid the uuid
-	 * @return byte array
-	 */
-	public static byte[] asByteArray(UUID uuid) 
-	 {
-	    long msb = uuid.getMostSignificantBits();
-	    long lsb = uuid.getLeastSignificantBits();
-	    byte[] buffer = new byte[16];
+public class UUIDUtils {
+    /**
+     * Return a java.util.UUID as a byte array.
+     *
+     * @param uuid
+     *            the uuid
+     * @return byte array
+     */
+    public static byte[] asByteArray(final UUID uuid) {
+        long msb = uuid.getMostSignificantBits();
+        long lsb = uuid.getLeastSignificantBits();
+        byte[] buffer = new byte[16];
 
-	    for (int i = 0; i < 8; i++) {
-	            buffer[i] = (byte) (msb >>> 8 * (7 - i));
-	    }
-	    for (int i = 8; i < 16; i++) {
-	            buffer[i] = (byte) (lsb >>> 8 * (7 - i));
-	    }
-	    return buffer;
-	}
+        for (int i = 0; i < 8; i++) {
+            buffer[i] = (byte) (msb >>> 8 * (7 - i));
+        }
+        for (int i = 8; i < 16; i++) {
+            buffer[i] = (byte) (lsb >>> 8 * (7 - i));
+        }
+        return buffer;
+    }
+
+    /*
+     * public static byte[] hexToBytes(String uuid) { int len = uuid.length();
+     * byte[] data = new byte[len / 2]; for (int i = 0; i < len; i += 2) {
+     * data[i / 2] = (byte) ((Character.digit(uuid.charAt(i), 16) << 4) +
+     * Character.digit(uuid.charAt(i+1), 16)); } return data;
+     *
+     * }
+     *
+     * public static String bytesToHex(byte[] uuid) { StringBuffer strbuf = new
+     * StringBuffer(uuid.length * 2);
+     *
+     * for(int i=0; i< uuid.length; i++) { if(((int) uuid[i] & 0xff) < 0x10)
+     * strbuf.append("0"); strbuf.append(Long.toString((int) uuid[i] & 0xff,
+     * 16)); } return strbuf.toString(); }
+     */
 }
