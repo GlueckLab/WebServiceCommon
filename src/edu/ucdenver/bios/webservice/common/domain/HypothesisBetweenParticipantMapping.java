@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,9 +15,11 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
+
 /**
  * This is a wrapper for the Hypothesis information.
  * @author Uttara Sakhadeo
@@ -27,64 +29,100 @@ import java.io.Serializable;
 
 import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 
-public class HypothesisBetweenParticipantMapping implements Serializable
-{
-    /**
-     * 
-     */
+/**
+ * The Class HypothesisBetweenParticipantMapping.
+ */
+public class HypothesisBetweenParticipantMapping implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
     /*--------------------
      * Member Variables
      *--------------------*/
+    /** The type. */
     private HypothesisTypeEnum type;
+
+    /** The between participant factor. */
     private BetweenParticipantFactor betweenParticipantFactor = null;
+
     /*--------------------
      * Constructors
      *--------------------*/
-    public HypothesisBetweenParticipantMapping(){}
-        
     /**
-     * @param type
-     * @param betweenParticipantFactor
+     * Instantiates a new hypothesis between participant mapping.
      */
-    public HypothesisBetweenParticipantMapping(HypothesisTypeEnum type,
-            BetweenParticipantFactor betweenParticipantFactor)
-    {
+    public HypothesisBetweenParticipantMapping() {
+    }
+
+    /**
+     * Instantiates a new hypothesis between participant mapping.
+     *
+     * @param type
+     *            the type
+     * @param betweenParticipantFactor
+     *            the between participant factor
+     */
+    public HypothesisBetweenParticipantMapping(final HypothesisTypeEnum type,
+            final BetweenParticipantFactor betweenParticipantFactor) {
         super();
         this.type = type;
         this.betweenParticipantFactor = betweenParticipantFactor;
     }
+
     /*--------------------
      * Getter/Setter Methods
      *--------------------*/
-    public HypothesisTypeEnum getType()
-    {
+    /**
+     * Gets the type.
+     *
+     * @return the type
+     */
+    public final HypothesisTypeEnum getType() {
         return type;
     }
 
-    public void setType(HypothesisTypeEnum type)
-    {
+    /**
+     * Sets the type.
+     *
+     * @param type
+     *            the new type
+     */
+    public final void setType(final HypothesisTypeEnum type) {
         this.type = type;
     }
 
-    public BetweenParticipantFactor getBetweenParticipantFactor()
-    {
+    /**
+     * Gets the between participant factor.
+     *
+     * @return the between participant factor
+     */
+    public final BetweenParticipantFactor getBetweenParticipantFactor() {
         return betweenParticipantFactor;
     }
 
-    public void setBetweenParticipantFactor(
-            BetweenParticipantFactor betweenParticipantFactor)
-    {
+    /**
+     * Sets the between participant factor.
+     *
+     * @param betweenParticipantFactor
+     *            the new between participant factor
+     */
+    public final void setBetweenParticipantFactor(
+            final BetweenParticipantFactor betweenParticipantFactor) {
         this.betweenParticipantFactor = betweenParticipantFactor;
     }
+
     /*--------------------
      * toString()
      *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
     @Override
-    public String toString()
-    {
+    public final String toString() {
         return "HypothesisBetweenParticipantMapping [type=" + type
                 + ", betweenParticipantFactor=" + betweenParticipantFactor
                 + "]";
-    }       
+    }
 }

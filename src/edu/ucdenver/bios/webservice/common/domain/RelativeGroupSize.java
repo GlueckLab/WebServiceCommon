@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,7 +15,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
@@ -23,49 +24,95 @@ import java.io.Serializable;
 
 /**
  * This is a wrapper for the RelativeGroupSize object information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class RelativeGroupSize implements Serializable 
-{
+public class RelativeGroupSize implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 5881947477812713919L;
-    
+
     /*--------------------
-	 * Member Variables
-	 *--------------------*/	
-	private int id;	
-	private int value;	
-	/*--------------------
-	 * Constructors
-	 *--------------------*/
-	public RelativeGroupSize(){}		
-	/**
-	 * @param value
-	 */
-	public RelativeGroupSize(int value) {
-		super();
-		this.value = value;
-	}
-	/*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public int getValue() {
-		return value;
-	}
-	public void setValue(int value) {
-		this.value = value;
-	}
-	/*--------------------
-	 * toString()
-	 *--------------------*/
-	@Override
-	public String toString() {
-		return "RelativeGroupSize [id=" + id + ", value=" + value + "]";
-	}	
+     * Member Variables
+     *--------------------*/
+    /** The id. */
+    private int id;
+
+    /** The value. */
+    private int value;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new relative group size.
+     */
+    public RelativeGroupSize() {
+    }
+
+    /**
+     * Instantiates a new relative group size.
+     *
+     * @param value
+     *            the value
+     */
+    public RelativeGroupSize(final int value) {
+        super();
+        this.value = value;
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public final int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param id
+     *            the new id
+     */
+    public final void setId(final int id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the value.
+     *
+     * @return the value
+     */
+    public final int getValue() {
+        return value;
+    }
+
+    /**
+     * Sets the value.
+     *
+     * @param value
+     *            the new value
+     */
+    public final void setValue(final int value) {
+        this.value = value;
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return "RelativeGroupSize [id=" + id + ", value=" + value + "]";
+    }
 }

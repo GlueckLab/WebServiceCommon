@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,7 +15,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
@@ -23,58 +24,109 @@ import java.io.Serializable;
 
 /**
  * This is a wrapper for the SampleSize a list object information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class SampleSize implements Serializable 
-{
+public class SampleSize implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 7498358054750918337L;
-    
+
     /*--------------------
      * Member Variables
-     *--------------------*/    
-    private int id;     
-    private int value;   
+     *--------------------*/
+    /** The id. */
+    private int id;
+
+    /** The value. */
+    private int value;
+
     /*--------------------
      * Constructors
      *--------------------*/
-    public SampleSize(){} 
     /**
-     * @param value
+     * Instantiates a new sample size.
      */
-    public SampleSize(int value) {
+    public SampleSize() {
+    }
+
+    /**
+     * Instantiates a new sample size.
+     *
+     * @param value
+     *            the value
+     */
+    public SampleSize(final int value) {
         super();
         this.value = value;
     }
+
     /**
+     * Instantiates a new sample size.
+     *
      * @param id
+     *            the id
      * @param value
+     *            the value
      */
-    public SampleSize(int id, int value) {
+    public SampleSize(final int id, final int value) {
         super();
         this.id = id;
         this.value = value;
     }
+
     /*--------------------
      * Getter/Setter Methods
      *--------------------*/
-    public int getId() {
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public final int getId() {
         return id;
     }
-    public void setId(int id) {
+
+    /**
+     * Sets the id.
+     *
+     * @param id
+     *            the new id
+     */
+    public final void setId(final int id) {
         this.id = id;
     }
-    public int getValue() {
+
+    /**
+     * Gets the value.
+     *
+     * @return the value
+     */
+    public final int getValue() {
         return value;
     }
-    public void setValue(int value) {
+
+    /**
+     * Sets the value.
+     *
+     * @param value
+     *            the new value
+     */
+    public final void setValue(final int value) {
         this.value = value;
     }
+
     /*--------------------
      * toString()
      *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
     @Override
-    public String toString() {
+    public final String toString() {
         return "Quantile [id=" + id + ", value=" + value + "]";
-    }   
+    }
 }

@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,7 +15,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
@@ -23,44 +24,70 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 /**
- * Convenience routines for handling blobs
+ * Convenience routines for handling blobs.
  */
-public class Blob2DArray implements Serializable 
-{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	/*--------------------
-	 * Member Variables
-	 *--------------------*/
-	private double[][] data;
-	/*--------------------
-	 * Constructors
-	 *--------------------*/
-	public Blob2DArray(){}
-	/**
-	 * @param data
-	 */
-	public Blob2DArray(double[][] data) 
-	{
-		super();
-		this.data = data;
-	}
-	/*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/
-	public double[][] getData() {
-		return data;
-	}	
-	public void setData(double[][] data) {
-		this.data = data;
-	}
-	/*--------------------
-	 * toString()
-	 *--------------------*/
-	@Override
-	public String toString() {
-		return "Blob2DArray [data=" + Arrays.toString(data) + "]";
-	}	
+public class Blob2DArray implements Serializable {
+
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 1L;
+    /*--------------------
+     * Member Variables
+     *--------------------*/
+    /** The data. */
+    private double[][] data;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new blob2 d array.
+     */
+    public Blob2DArray() {
+    }
+
+    /**
+     * Instantiates a new blob2 d array.
+     *
+     * @param dataValue
+     *            the data
+     */
+    public Blob2DArray(final double[][] dataValue) {
+        super();
+        this.data = dataValue;
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the data.
+     *
+     * @return the data
+     */
+    public final double[][] getData() {
+        return data;
+    }
+
+    /**
+     * Sets the data.
+     *
+     * @param dataValue
+     *            the new data
+     */
+    public final void setData(final double[][] dataValue) {
+        this.data = dataValue;
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return "Blob2DArray [data=" + Arrays.toString(data) + "]";
+    }
 }

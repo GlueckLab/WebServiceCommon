@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,65 +15,118 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+
 /**
  * This is a wrapper for the Quantile a list object information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class Quantile implements Serializable 
-{
+public class Quantile implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 7498358054750918337L;
-    
+
     /*--------------------
-	 * Member Variables
-	 *--------------------*/	
-	private int id;		
-	private double value;	
-	/*--------------------
-	 * Constructors
-	 *--------------------*/
-	public Quantile(){}	
-	/**
-	 * @param value
-	 */
-	public Quantile(double value) {
-		super();
-		this.value = value;
-	}
-	/**
-	 * @param id
-	 * @param value
-	 */
-	public Quantile(int id, double value) {
-		super();
-		this.id = id;
-		this.value = value;
-	}
-	/*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public double getValue() {
-		return value;
-	}
-	public void setValue(double value) {
-		this.value = value;
-	}
-	/*--------------------
-	 * toString()
-	 *--------------------*/
-	@Override
-	public String toString() {
-		return "Quantile [id=" + id + ", value=" + value + "]";
-	}	
+     * Member Variables
+     *--------------------*/
+    /** The id. */
+    private int id;
+
+    /** The value. */
+    private double value;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new quantile.
+     */
+    public Quantile() {
+    }
+
+    /**
+     * Instantiates a new quantile.
+     *
+     * @param value
+     *            the value
+     */
+    public Quantile(final double value) {
+        super();
+        this.value = value;
+    }
+
+    /**
+     * Instantiates a new quantile.
+     *
+     * @param id
+     *            the id
+     * @param value
+     *            the value
+     */
+    public Quantile(final int id, final double value) {
+        super();
+        this.id = id;
+        this.value = value;
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public final int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param id
+     *            the new id
+     */
+    public final void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the value.
+     *
+     * @return the value
+     */
+    public final double getValue() {
+        return value;
+    }
+
+    /**
+     * Sets the value.
+     *
+     * @param value
+     *            the new value
+     */
+    public final void setValue(final double value) {
+        this.value = value;
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return "Quantile [id=" + id + ", value=" + value + "]";
+    }
 }

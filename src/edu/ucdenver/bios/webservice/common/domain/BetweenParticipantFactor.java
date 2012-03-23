@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,71 +15,131 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * This is a wrapper for the BetweenParticipantFactor information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class BetweenParticipantFactor implements Serializable
-{
+public class BetweenParticipantFactor implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 3373126132690287186L;
-    
+
     /*--------------------
-	 * Member Variables
-	 *--------------------*/
-	private int id;
-	private String predictorName = null;
-	private List<Category> categoryList = null;
-	/*--------------------
-	 * Constructors
-	 *--------------------*/
-	public BetweenParticipantFactor() {}
-	
-	public BetweenParticipantFactor(String predictorName, List<Category> categoryList)
-	{
-		this.predictorName = predictorName;
-		this.categoryList = categoryList;
-	}		
-	/*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/
-	public String getPredictorName() 
-	{
-		return predictorName;
-	}	
-	public void setPredictorName(String predictorName) 
-	{
-		this.predictorName = predictorName;
-	}	
-	public int getId() {
-		return id;
-	}
+     * Member Variables
+     *--------------------*/
+    /** The id. */
+    private int id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public List<Category> getCategoryList() {
-		return categoryList;
-	}
+    /** The predictor name. */
+    private String predictorName = null;
 
-	public void setCategoryList(List<Category> categoryList) {
-		this.categoryList = categoryList;
-	}	
-	/*--------------------
-	 * toString()
-	 *--------------------*/
-	@Override
-	public String toString() {
-		return "BetweenParticipantFactor [id=" + id + ", predictorName="
-				+ predictorName + ", categoryList=" + categoryList + "]";
-	}
+    /** The category list. */
+    private List<Category> categoryList = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new between participant factor.
+     */
+    public BetweenParticipantFactor() {
+    }
+
+    /**
+     * Instantiates a new between participant factor.
+     *
+     * @param predictorNameValue
+     *            the predictor name
+     * @param categoryList
+     *            the category list
+     */
+    public BetweenParticipantFactor(final String predictorNameValue,
+            final List<Category> categoryList) {
+        this.predictorName = predictorNameValue;
+        this.categoryList = categoryList;
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the predictor name.
+     *
+     * @return the predictor name
+     */
+    public final String getPredictorName() {
+        return predictorName;
+    }
+
+    /**
+     * Sets the predictor name.
+     *
+     * @param predictorNameValue
+     *            the new predictor name
+     */
+    public final void setPredictorName(final String predictorNameValue) {
+        this.predictorName = predictorNameValue;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public final int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param idValue
+     *            the new id
+     */
+    public final void setId(final int idValue) {
+        this.id = idValue;
+    }
+
+    /**
+     * Gets the category list.
+     *
+     * @return the category list
+     */
+    public final List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    /**
+     * Sets the category list.
+     *
+     * @param categoryList
+     *            the new category list
+     */
+    public final void setCategoryList(final List<Category> categoryList) {
+        this.categoryList = categoryList;
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return "BetweenParticipantFactor [id=" + id + ", predictorName="
+                + predictorName + ", categoryList=" + categoryList + "]";
+    }
 }

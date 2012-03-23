@@ -23,58 +23,109 @@ import java.io.Serializable;
 
 /**
  * This is a wrapper for the NominalPower object information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class NominalPower implements Serializable
-{
+public class NominalPower implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1419240960874002525L;
-    
+
     /*--------------------
-	 * Member Variables
-	 *--------------------*/	
-	private int id;	
-	private double value;	
-	/*--------------------
-	 * Constructors
-	 *--------------------*/
-	public NominalPower(){}	
-	/**
-	 * @param value
-	 */
-	public NominalPower(double value) {
-		super();
-		this.value = value;
-	}
-	/**
-	 * @param id
-	 * @param value
-	 */
-	public NominalPower(int id, double value) {
-		super();
-		this.id = id;
-		this.value = value;
-	}
-	/*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public double getValue() {
-		return value;
-	}
-	public void setValue(double value) {
-		this.value = value;
-	}
-	/*--------------------
-	 * toString()
-	 *--------------------*/
-	@Override
-	public String toString() {
-		return "NominalPower [id=" + id + ", value=" + value + "]";
-	}
+     * Member Variables
+     *--------------------*/
+    /** The id. */
+    private int id;
+
+    /** The value. */
+    private double value;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new nominal power.
+     */
+    public NominalPower() {
+    }
+
+    /**
+     * Instantiates a new nominal power.
+     *
+     * @param value
+     *            the value
+     */
+    public NominalPower(final double value) {
+        super();
+        this.value = value;
+    }
+
+    /**
+     * Instantiates a new nominal power.
+     *
+     * @param id
+     *            the id
+     * @param value
+     *            the value
+     */
+    public NominalPower(final int id, final double value) {
+        super();
+        this.id = id;
+        this.value = value;
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public final int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param id
+     *            the new id
+     */
+    public final void setId(final int id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the value.
+     *
+     * @return the value
+     */
+    public final double getValue() {
+        return value;
+    }
+
+    /**
+     * Sets the value.
+     *
+     * @param value
+     *            the new value
+     */
+    public final void setValue(final double value) {
+        this.value = value;
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return "NominalPower [id=" + id + ", value=" + value + "]";
+    }
 }

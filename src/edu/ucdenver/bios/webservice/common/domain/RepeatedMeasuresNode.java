@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,7 +15,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
@@ -26,110 +27,264 @@ import edu.ucdenver.bios.webservice.common.enums.RepeatedMeasuresDimensionType;
 
 /**
  * This is a wrapper for the repeated measures information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class RepeatedMeasuresNode implements Serializable 
-{
+public class RepeatedMeasuresNode implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -714204384820498167L;
-    
+
     /*--------------------
-	 * Member Variables
-	 *--------------------*/
-	private int id;
-	private String dimension = null;
-	private RepeatedMeasuresDimensionType repeatedMeasuresDimensionType = null;
-	private Integer numberOfMeasurements = null;
-	private int node;
-	private Integer parent;	
-	private List<Spacing> spacingList = null;
-	/*--------------------
-	 * Constructors
-	 *--------------------*/
-	public RepeatedMeasuresNode()
-	{
-		//spacingList = new Spacing();
-	}	
-	public RepeatedMeasuresNode(String name) 
-	{
-		//super();
-		this.dimension = name;		
-	}		
-	public RepeatedMeasuresNode(String name, RepeatedMeasuresDimensionType type, Integer count,int node, int parent) 
-	{
-		//super();
-		this.dimension = name;
-		this.repeatedMeasuresDimensionType = type;
-		this.numberOfMeasurements = count;		
-		this.node = node;
-		this.parent = parent;		
-	}			
-	public RepeatedMeasuresNode(String name, RepeatedMeasuresDimensionType type, Integer count,
-			List<Spacing> spacingList, int node, int parent) 
-	{
-		//super();
-		this.dimension = name;
-		this.repeatedMeasuresDimensionType = type;
-		this.numberOfMeasurements = count;
-		this.node = node;
-		this.parent = parent;
-		this.setSpacingList(spacingList);
-	}	
-	/*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}	
-	public String getDimension() {
-		return dimension;
-	}
-	public void setDimension(String dimension) {
-		this.dimension = dimension;
-	}	
-	public Integer getNumberOfMeasurements() {
-		return numberOfMeasurements;
-	}
-	public void setNumberOfMeasurements(Integer numberOfMeasurements) {
-		this.numberOfMeasurements = numberOfMeasurements;
-	}		
-	public int getNode() {
-		return node;
-	}
-	public void setNode(int node) {
-		this.node = node;
-	}
-	public Integer getParent() {
-		return parent;
-	}
-	public void setParent(Integer parent) {
-		this.parent = parent;
-	}
-	public List<Spacing> getSpacingList() {
-		return spacingList;
-	}
-	public void setSpacingList(List<Spacing> spacingList) {
-		this.spacingList = spacingList;
-	}
-	public RepeatedMeasuresDimensionType getRepeatedMeasuresDimensionType() {
-		return repeatedMeasuresDimensionType;
-	}
-	public void setRepeatedMeasuresDimensionType(
-			RepeatedMeasuresDimensionType repeatedMeasuresDimensionType) {
-		this.repeatedMeasuresDimensionType = repeatedMeasuresDimensionType;
-	}	
-	/*--------------------
-	 * toString()
-	 *--------------------*/
-	@Override
-	public String toString() {
-		return "RepeatedMeasuresNode [id=" + id + ", dimension=" + dimension
-				+ ", repeatedMeasuresDimensionType="
-				+ repeatedMeasuresDimensionType + ", numberOfMeasurements="
-				+ numberOfMeasurements + ", node=" + node + ", parent="
-				+ parent + ", spacingList=" + spacingList + "]";
-	}	
+     * Member Variables
+     *--------------------*/
+    /** The id. */
+    private int id;
+
+    /** The dimension. */
+    private String dimension = null;
+
+    /** The repeated measures dimension type. */
+    private RepeatedMeasuresDimensionType repeatedMeasuresDimensionType = null;
+
+    /** The number of measurements. */
+    private Integer numberOfMeasurements = null;
+
+    /** The node. */
+    private int node;
+
+    /** The parent. */
+    private Integer parent;
+
+    /** The spacing list. */
+    private List<Spacing> spacingList = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new repeated measures node.
+     */
+    public RepeatedMeasuresNode() {
+        // spacingList = new Spacing();
+    }
+
+    /**
+     * Instantiates a new repeated measures node.
+     *
+     * @param name
+     *            the name
+     */
+    public RepeatedMeasuresNode(final String name) {
+        // super();
+        this.dimension = name;
+    }
+
+    /**
+     * Instantiates a new repeated measures node.
+     *
+     * @param name
+     *            the name
+     * @param type
+     *            the type
+     * @param count
+     *            the count
+     * @param node
+     *            the node
+     * @param parent
+     *            the parent
+     */
+    public RepeatedMeasuresNode(final String name,
+            final RepeatedMeasuresDimensionType type, final Integer count,
+            final int node, final int parent) {
+        // super();
+        this.dimension = name;
+        this.repeatedMeasuresDimensionType = type;
+        this.numberOfMeasurements = count;
+        this.node = node;
+        this.parent = parent;
+    }
+
+    /**
+     * Instantiates a new repeated measures node.
+     *
+     * @param name
+     *            the name
+     * @param type
+     *            the type
+     * @param count
+     *            the count
+     * @param spacingList
+     *            the spacing list
+     * @param node
+     *            the node
+     * @param parent
+     *            the parent
+     */
+    public RepeatedMeasuresNode(final String name,
+            final RepeatedMeasuresDimensionType type, final Integer count,
+            final List<Spacing> spacingList, int node, int parent) {
+        // super();
+        this.dimension = name;
+        this.repeatedMeasuresDimensionType = type;
+        this.numberOfMeasurements = count;
+        this.node = node;
+        this.parent = parent;
+        this.setSpacingList(spacingList);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public final int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param id
+     *            the new id
+     */
+    public final void setId(final int id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the dimension.
+     *
+     * @return the dimension
+     */
+    public final String getDimension() {
+        return dimension;
+    }
+
+    /**
+     * Sets the dimension.
+     *
+     * @param dimension
+     *            the new dimension
+     */
+    public final void setDimension(final String dimension) {
+        this.dimension = dimension;
+    }
+
+    /**
+     * Gets the number of measurements.
+     *
+     * @return the number of measurements
+     */
+    public final Integer getNumberOfMeasurements() {
+        return numberOfMeasurements;
+    }
+
+    /**
+     * Sets the number of measurements.
+     *
+     * @param numberOfMeasurements
+     *            the new number of measurements
+     */
+    public final void setNumberOfMeasurements(final Integer numberOfMeasurements) {
+        this.numberOfMeasurements = numberOfMeasurements;
+    }
+
+    /**
+     * Gets the node.
+     *
+     * @return the node
+     */
+    public final int getNode() {
+        return node;
+    }
+
+    /**
+     * Sets the node.
+     *
+     * @param node
+     *            the new node
+     */
+    public final void setNode(final int node) {
+        this.node = node;
+    }
+
+    /**
+     * Gets the parent.
+     *
+     * @return the parent
+     */
+    public final Integer getParent() {
+        return parent;
+    }
+
+    /**
+     * Sets the parent.
+     *
+     * @param parent
+     *            the new parent
+     */
+    public final void setParent(final Integer parent) {
+        this.parent = parent;
+    }
+
+    /**
+     * Gets the spacing list.
+     *
+     * @return the spacing list
+     */
+    public final List<Spacing> getSpacingList() {
+        return spacingList;
+    }
+
+    /**
+     * Sets the spacing list.
+     *
+     * @param spacingList
+     *            the new spacing list
+     */
+    public final void setSpacingList(final List<Spacing> spacingList) {
+        this.spacingList = spacingList;
+    }
+
+    /**
+     * Gets the repeated measures dimension type.
+     * 
+     * @return the repeated measures dimension type
+     */
+    public final RepeatedMeasuresDimensionType getRepeatedMeasuresDimensionType() {
+        return repeatedMeasuresDimensionType;
+    }
+
+    /**
+     * Sets the repeated measures dimension type.
+     * 
+     * @param repeatedMeasuresDimensionType
+     *            the new repeated measures dimension type
+     */
+    public final void setRepeatedMeasuresDimensionType(
+            final RepeatedMeasuresDimensionType repeatedMeasuresDimensionType) {
+        this.repeatedMeasuresDimensionType = repeatedMeasuresDimensionType;
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return "RepeatedMeasuresNode [id=" + id + ", dimension=" + dimension
+                + ", repeatedMeasuresDimensionType="
+                + repeatedMeasuresDimensionType + ", numberOfMeasurements="
+                + numberOfMeasurements + ", node=" + node + ", parent="
+                + parent + ", spacingList=" + spacingList + "]";
+    }
 }

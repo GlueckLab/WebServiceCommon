@@ -25,118 +25,192 @@ import java.util.List;
 
 import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 
+// TODO: Auto-generated Javadoc
 /**
  * This is a wrapper for the Hypothesis information.
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
-public class Hypothesis implements Serializable 
-{
+public class Hypothesis implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 570635778188633231L;
-    
+
     /*--------------------
-	 * Member Variables
-	 *--------------------*/	
-	private int id;	
-	private HypothesisTypeEnum type;
-	private List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList = null;
-	private List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree= null;
-	/*--------------------
-	 * Constructors
-	 *--------------------*/
-	public Hypothesis(){}    
+     * Member Variables
+     *--------------------*/
+    /** The id. */
+    private int id;
+
+    /** The type. */
+    private HypothesisTypeEnum type;
+
+    /** The between participant factor map list. */
+    private List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList = null;
+
+    /** The repeated measures map tree. */
+    private List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
     /**
+     * Instantiates a new hypothesis.
+     */
+    public Hypothesis() {
+    }
+
+    /**
+     * Instantiates a new hypothesis.
+     * 
      * @param type
+     *            the type
      * @param betweenParticipantFactorMapList
+     *            the between participant factor map list
      * @param repeatedMeasuresMapTree
+     *            the repeated measures map tree
      */
     public Hypothesis(
             HypothesisTypeEnum type,
             List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList,
-            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree)
-    {
+            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
         super();
         this.type = type;
         this.betweenParticipantFactorMapList = betweenParticipantFactorMapList;
         this.repeatedMeasuresMapTree = repeatedMeasuresMapTree;
     }
+
     /*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/  	
-	public int getId()
-    {
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the id.
+     * 
+     * @return the id
+     */
+    public int getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    /**
+     * Sets the id.
+     * 
+     * @param id
+     *            the new id
+     */
+    public void setId(int id) {
         this.id = id;
     }
 
-    public HypothesisTypeEnum getType()
-    {
+    /**
+     * Gets the type.
+     * 
+     * @return the type
+     */
+    public HypothesisTypeEnum getType() {
         return type;
     }
 
-    public void setType(HypothesisTypeEnum type)
-    {
+    /**
+     * Sets the type.
+     * 
+     * @param type
+     *            the new type
+     */
+    public void setType(HypothesisTypeEnum type) {
         this.type = type;
     }
 
-    public List<HypothesisBetweenParticipantMapping> getBetweenParticipantFactorMapList()
-    {
+    /**
+     * Gets the between participant factor map list.
+     * 
+     * @return the between participant factor map list
+     */
+    public List<HypothesisBetweenParticipantMapping> getBetweenParticipantFactorMapList() {
         return betweenParticipantFactorMapList;
     }
 
+    /**
+     * Sets the between participant factor map list.
+     * 
+     * @param betweenParticipantFactorMapList
+     *            the new between participant factor map list
+     */
     public void setBetweenParticipantFactorMapList(
-            List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList)
-    {
+            List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList) {
         this.betweenParticipantFactorMapList = betweenParticipantFactorMapList;
-    }    
-    public List<HypothesisRepeatedMeasuresMapping> getRepeatedMeasuresMapTree()
-    {
+    }
+
+    /**
+     * Gets the repeated measures map tree.
+     * 
+     * @return the repeated measures map tree
+     */
+    public List<HypothesisRepeatedMeasuresMapping> getRepeatedMeasuresMapTree() {
         return repeatedMeasuresMapTree;
     }
+
+    /**
+     * Sets the repeated measures map tree.
+     * 
+     * @param repeatedMeasuresMapTree
+     *            the new repeated measures map tree
+     */
     public void setRepeatedMeasuresMapTree(
-            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree)
-    {
+            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
         this.repeatedMeasuresMapTree = repeatedMeasuresMapTree;
     }
+
     /*--------------------
      * Return BetweenParticipantFactor list
      *--------------------*/
-        public List<BetweenParticipantFactor> getBetweenParticipantFactorList()
-        {
-            List<HypothesisBetweenParticipantMapping> list = this.getBetweenParticipantFactorMapList();
-            List<BetweenParticipantFactor> betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>();
-            for(HypothesisBetweenParticipantMapping m : list)
-            {
-                betweenParticipantFactorList.add(m.getBetweenParticipantFactor());
-            }
-            return betweenParticipantFactorList;
-        } 
+    /**
+     * Gets the between participant factor list.
+     * 
+     * @return the between participant factor list
+     */
+    public List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
+        List<HypothesisBetweenParticipantMapping> list = this
+                .getBetweenParticipantFactorMapList();
+        List<BetweenParticipantFactor> betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>();
+        for (HypothesisBetweenParticipantMapping m : list) {
+            betweenParticipantFactorList.add(m.getBetweenParticipantFactor());
+        }
+        return betweenParticipantFactorList;
+    }
+
     /*--------------------
      * Return RepeatedMeasures list
      *--------------------*/
-        public List<RepeatedMeasuresNode> getRepeatedMeasuresList()
-        {
-            List<HypothesisRepeatedMeasuresMapping> list = this.getRepeatedMeasuresMapTree();
-            List<RepeatedMeasuresNode> betweenParticipantFactorList = new ArrayList<RepeatedMeasuresNode>();
-            for(HypothesisRepeatedMeasuresMapping m : list)
-            {
-                betweenParticipantFactorList.add(m.getRepeatedMeasuresNode());
-            }
-            return betweenParticipantFactorList;
-        } 
+    /**
+     * Gets the repeated measures list.
+     * 
+     * @return the repeated measures list
+     */
+    public List<RepeatedMeasuresNode> getRepeatedMeasuresList() {
+        List<HypothesisRepeatedMeasuresMapping> list = this
+                .getRepeatedMeasuresMapTree();
+        List<RepeatedMeasuresNode> betweenParticipantFactorList = new ArrayList<RepeatedMeasuresNode>();
+        for (HypothesisRepeatedMeasuresMapping m : list) {
+            betweenParticipantFactorList.add(m.getRepeatedMeasuresNode());
+        }
+        return betweenParticipantFactorList;
+    }
+
     /*--------------------
-	 * toString()
-	 *--------------------*/
-	 @Override
-	    public String toString()
-	    {
-	        return "Hypothesis [id=" + id + ", type=" + type
-	                + ", betweenParticipantFactorMapList="
-	                + betweenParticipantFactorMapList + ", repeatedMeasuresMapTree="
-	                + repeatedMeasuresMapTree + "]";
-	    }	
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "Hypothesis [id=" + id + ", type=" + type
+                + ", betweenParticipantFactorMapList="
+                + betweenParticipantFactorMapList
+                + ", repeatedMeasuresMapTree=" + repeatedMeasuresMapTree + "]";
+    }
 }

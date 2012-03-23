@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,65 +15,118 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+
 /**
  * This is a wrapper for the BetaScale information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class BetaScale implements Serializable
-{
+public class BetaScale implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -2759158339433707691L;
-    
+
     /*--------------------
-	 * Member Variables
-	 *--------------------*/	
-	private int id;		
-	private double value;	
-	/*--------------------
-	 * Constructors
-	 *--------------------*/
-	public BetaScale(){}	
-	/**
-	 * @param value
-	 */
-	public BetaScale(double value) {
-		super();
-		this.value = value;
-	}
-	/**
-	 * @param id
-	 * @param value
-	 */
-	public BetaScale(int id, double value) {
-		super();
-		this.id = id;
-		this.value = value;
-	}	
-	/*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}	
-	public double getValue() {
-		return value;
-	}
-	public void setValue(double value) {
-		this.value = value;
-	}		
-	/*--------------------
-	 * toString()
-	 *--------------------*/
-	@Override
-	public String toString() {
-		return "BetaScale [id=" + id + ", value=" + value + "]";
-	}	
+     * Member Variables
+     *--------------------*/
+    /** The id. */
+    private int id;
+
+    /** The value. */
+    private double value;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new beta scale.
+     */
+    public BetaScale() {
+    }
+
+    /**
+     * Instantiates a new beta scale.
+     *
+     * @param dataValue
+     *            the value
+     */
+    public BetaScale(final double dataValue) {
+        super();
+        this.value = dataValue;
+    }
+
+    /**
+     * Instantiates a new beta scale.
+     *
+     * @param idValue
+     *            the id
+     * @param dataValue
+     *            the value
+     */
+    public BetaScale(final int idValue, final double dataValue) {
+        super();
+        this.id = idValue;
+        this.value = dataValue;
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public final int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param idValue
+     *            the new id
+     */
+    public final void setId(final int idValue) {
+        this.id = idValue;
+    }
+
+    /**
+     * Gets the value.
+     *
+     * @return the value
+     */
+    public final double getValue() {
+        return value;
+    }
+
+    /**
+     * Sets the value.
+     *
+     * @param dataValue
+     *            the new value
+     */
+    public final void setValue(final double dataValue) {
+        this.value = dataValue;
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return "BetaScale [id=" + id + ", value=" + value + "]";
+    }
 }

@@ -23,82 +23,184 @@ import java.io.Serializable;
 
 /**
  * This is a wrapper for the Matrix information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class NamedMatrix implements Serializable
-{
+public class NamedMatrix implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 7392545585998026017L;
-    
+
     /*--------------------
-	 * Member Variables
-	 *--------------------*/
-	private int id;
-	private String name=null; 
-	private int rows;
-	private int columns;
-	private Blob2DArray data;   
+     * Member Variables
+     *--------------------*/
+    /** The id. */
+    private int id;
+
+    /** The name. */
+    private String name = null;
+
+    /** The rows. */
+    private int rows;
+
+    /** The columns. */
+    private int columns;
+
+    /** The data. */
+    private Blob2DArray data;
+
     /*--------------------
-	 * Constructors
-	 *--------------------*/
-    public NamedMatrix(){}
-    public NamedMatrix(String name)
-    {
-        this.name = name;                
-    }    
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new named matrix.
+     */
+    public NamedMatrix() {
+    }
+
+    /**
+     * Instantiates a new named matrix.
+     *
+     * @param name
+     *            the name
+     */
+    public NamedMatrix(final String name) {
+        this.name = name;
+    }
+
     /*--------------------
-	 * Getter/Setter Methods
-	 *--------------------*/
-    public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-    public String getName()
-    {
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public final int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param id
+     *            the new id
+     */
+    public final void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
+    public final String getName() {
         return name;
     }
-    public void setName(String name)
-    {
+
+    /**
+     * Sets the name.
+     *
+     * @param name
+     *            the new name
+     */
+    public final void setName(final String name) {
         this.name = name;
-    }	
-	public int getRows() {
-		return rows;
-	}
-	public void setRows(int rows) {
-		this.rows = rows;
-	}
-	public int getColumns() {
-		return columns;
-	}
-	public void setColumns(int columns) {
-		this.columns = columns;
-	}
-	public Blob2DArray getData() {
-		return data;
-	}
-	public void setData(Blob2DArray data) {
-		this.data = data;
-	}	
-	/*--------------------
-	 * Return/Store data[][]
-	 *--------------------*/
-	public void setData(double[][] data) 
-	{
-		Blob2DArray blob = new  Blob2DArray(data);
-		setData(blob);
-	} 
-	public double[][] getDataFromBlob() 
-	{
-		return data.getData();
-	}
-	/*--------------------
-	 * toString()
-	 *--------------------*/
-	@Override
-	public String toString() {
-		return "NamedMatrix [id=" + id + ", name=" + name + ", rows=" + rows
-				+ ", columns=" + columns + ", data=" + data + "]";
-	}	
+    }
+
+    /**
+     * Gets the rows.
+     *
+     * @return the rows
+     */
+    public final int getRows() {
+        return rows;
+    }
+
+    /**
+     * Sets the rows.
+     *
+     * @param rows
+     *            the new rows
+     */
+    public final void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    /**
+     * Gets the columns.
+     *
+     * @return the columns
+     */
+    public final int getColumns() {
+        return columns;
+    }
+
+    /**
+     * Sets the columns.
+     *
+     * @param columns
+     *            the new columns
+     */
+    public final void setColumns(final int columns) {
+        this.columns = columns;
+    }
+
+    /**
+     * Gets the data.
+     *
+     * @return the data
+     */
+    public final Blob2DArray getData() {
+        return data;
+    }
+
+    /**
+     * Sets the data.
+     *
+     * @param data
+     *            the new data
+     */
+    public final void setData(final Blob2DArray data) {
+        this.data = data;
+    }
+
+    /*--------------------
+     * Return/Store data[][]
+     *--------------------*/
+    /**
+     * Sets the data.
+     *
+     * @param data
+     *            the new data
+     */
+    public final void setData(final double[][] data) {
+        Blob2DArray blob = new Blob2DArray(data);
+        setData(blob);
+    }
+
+    /**
+     * Gets the data from blob.
+     *
+     * @return the data from blob
+     */
+    public final double[][] getDataFromBlob() {
+        return data.getData();
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public final String toString() {
+        return "NamedMatrix [id=" + id + ", name=" + name + ", rows=" + rows
+                + ", columns=" + columns + ", data=" + data + "]";
+    }
 }

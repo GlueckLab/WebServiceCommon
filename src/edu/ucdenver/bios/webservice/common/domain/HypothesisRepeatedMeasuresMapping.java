@@ -25,62 +25,101 @@ import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 
 /**
  * This is a wrapper for the Hypothesis information.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class HypothesisRepeatedMeasuresMapping implements Serializable
-{
-    /**
-     * 
-     */
+public class HypothesisRepeatedMeasuresMapping implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
-   
+
     /*--------------------
      * Member Variables
      *--------------------*/
+    /** The type. */
     private HypothesisTypeEnum type;
+
+    /** The repeated measures node. */
     private RepeatedMeasuresNode repeatedMeasuresNode = null;
+
     /*--------------------
      * Constructors
      *--------------------*/
-    public HypothesisRepeatedMeasuresMapping(){}           
     /**
-     * @param type
-     * @param repeatedMeasuresNode
+     * Instantiates a new hypothesis repeated measures mapping.
      */
-    public HypothesisRepeatedMeasuresMapping(HypothesisTypeEnum type,
-            RepeatedMeasuresNode repeatedMeasuresNode)
-    {
+    public HypothesisRepeatedMeasuresMapping() {
+    }
+
+    /**
+     * Instantiates a new hypothesis repeated measures mapping.
+     *
+     * @param type
+     *            the type
+     * @param repeatedMeasuresNode
+     *            the repeated measures node
+     */
+    public HypothesisRepeatedMeasuresMapping(final HypothesisTypeEnum type,
+            final RepeatedMeasuresNode repeatedMeasuresNode) {
         super();
         this.type = type;
         this.repeatedMeasuresNode = repeatedMeasuresNode;
     }
+
     /*--------------------
      * Getter/Setter Methods
      *--------------------*/
-    public HypothesisTypeEnum getType()
-    {
+    /**
+     * Gets the type.
+     *
+     * @return the type
+     */
+    public final HypothesisTypeEnum getType() {
         return type;
     }
-    public void setType(HypothesisTypeEnum type)
-    {
+
+    /**
+     * Sets the type.
+     *
+     * @param type
+     *            the new type
+     */
+    public final void setType(final HypothesisTypeEnum type) {
         this.type = type;
     }
-    public RepeatedMeasuresNode getRepeatedMeasuresNode()
-    {
+
+    /**
+     * Gets the repeated measures node.
+     *
+     * @return the repeated measures node
+     */
+    public final RepeatedMeasuresNode getRepeatedMeasuresNode() {
         return repeatedMeasuresNode;
     }
-    public void setRepeatedMeasuresNode(RepeatedMeasuresNode repeatedMeasuresNode)
-    {
+
+    /**
+     * Sets the repeated measures node.
+     *
+     * @param repeatedMeasuresNode
+     *            the new repeated measures node
+     */
+    public final void setRepeatedMeasuresNode(
+            final RepeatedMeasuresNode repeatedMeasuresNode) {
         this.repeatedMeasuresNode = repeatedMeasuresNode;
-    } 
+    }
+
     /*--------------------
      * toString()
      *--------------------*/
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Object#toString()
+     */
     @Override
-    public String toString()
-    {
+    public final String toString() {
         return "HypothesisRepeatedMeasuresMapping [type=" + type
                 + ", repeatedMeasuresNode=" + repeatedMeasuresNode + "]";
-    }    
+    }
 }

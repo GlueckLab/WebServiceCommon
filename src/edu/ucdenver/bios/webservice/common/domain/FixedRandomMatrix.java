@@ -21,60 +21,79 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
+// TODO: Auto-generated Javadoc
 /**
- * Matrix which contains fixed and random components.  The combined
- * matrix may be produced by concatenating the fixed and random
- * submatrices either vertically or horizontally.
+ * Matrix which contains fixed and random components. The combined matrix may be
+ * produced by concatenating the fixed and random submatrices either vertically
+ * or horizontally.
  * 
  * @author Sarah Kreidler
- *
+ * 
  */
-public class FixedRandomMatrix implements Serializable
-{
+public class FixedRandomMatrix implements Serializable {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 2934275326333182945L;
-    
+
+    /** The name. */
     protected String name;
-	protected NamedMatrix fixedMatrix;
-	protected NamedMatrix randomMatrix;
-	protected boolean combineHorizontal = true;
 
-	/**
-	 * Constructor, create a fixed/random matrix from the specified data arrays
-	 */
-	public FixedRandomMatrix(String name, NamedMatrix fixedMatrix, 
-			NamedMatrix randomMatrix, boolean combineHorizontal) 
-	throws IllegalArgumentException
-	{
-		this.name = name;
-		this.fixedMatrix = fixedMatrix;
-		this.randomMatrix = randomMatrix;
-	}
+    /** The fixed matrix. */
+    protected NamedMatrix fixedMatrix;
 
-	/**
-	 * Get the fixed submatrix
-	 * @return fixed submatrix
-	 */
-	public NamedMatrix getFixedMatrix()
-	{
-		return fixedMatrix;
-	}
+    /** The random matrix. */
+    protected NamedMatrix randomMatrix;
 
-	/**
-	 * Get the random submatrix
-	 * @return random submatrix
-	 */
-	public NamedMatrix getRandomMatrix()
-	{
-		return randomMatrix;
-	}    
+    /** The combine horizontal. */
+    protected boolean combineHorizontal = true;
 
-	/**
-	 * Get the matrix name
-	 * @return name
-	 */
-	public String getName()
-	{
-		return name;
-	}  
+    /**
+     * Constructor, create a fixed/random matrix from the specified data arrays.
+     *
+     * @param name
+     *            the name
+     * @param fixedMatrix
+     *            the fixed matrix
+     * @param randomMatrix
+     *            the random matrix
+     * @param combineHorizontal
+     *            the combine horizontal
+     * @throws IllegalArgumentException
+     *             the illegal argument exception
+     */
+    public FixedRandomMatrix(final String name, final NamedMatrix fixedMatrix,
+            final NamedMatrix randomMatrix, final boolean combineHorizontal)
+            throws IllegalArgumentException {
+        this.name = name;
+        this.fixedMatrix = fixedMatrix;
+        this.randomMatrix = randomMatrix;
+    }
+
+    /**
+     * Get the fixed submatrix.
+     *
+     * @return fixed submatrix
+     */
+    public final NamedMatrix getFixedMatrix() {
+        return fixedMatrix;
+    }
+
+    /**
+     * Get the random submatrix.
+     *
+     * @return random submatrix
+     */
+    public final NamedMatrix getRandomMatrix() {
+        return randomMatrix;
+    }
+
+    /**
+     * Get the matrix name.
+     *
+     * @return name
+     */
+    public final String getName() {
+        return name;
+    }
 
 }
