@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,7 +15,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.hibernate;
 
@@ -24,67 +25,77 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 /**
- * Singleton class for creating a hibernate session factory 
- * object
- * 
+ * Singleton class for creating a hibernate session factory object.
+ *
  * @author Uttara Sakhadeo
  */
-public class SessionContext 
-{
-	// singleton instance variable
+public final class SessionContext {
+    // singleton instance variable
+    /** The instance. */
     private static SessionContext instance = null;
 
+    /** The session factory. */
     private SessionFactory sessionFactory = null;
-    
-    private SessionContext() throws SessionContextException
-    {       
-    	/*
-         * Build a SessionFactory object from session-factory configuration
-         * defined in the hibernate.cfg.xml file. In this file we register
-         * the JDBC connection information, connection pool, the hibernate
-         * dialect that we used and the mapping to our hbm.xml file for each
-    	 * POJO (Plain Old Java Object).
-    	 */
-    	Configuration configuration =  new Configuration();
-    	sessionFactory = configuration.configure().buildSessionFactory();
-    	
-    }
-    
+
     /**
-     * Get the hibernate session factory object
+     * Instantiates a new session context.
+     *
+     * @throws SessionContextException
+     *             the session context exception
+     */
+    private SessionContext() throws SessionContextException {
+        /*
+         * Build a SessionFactory object from session-factory configuration
+         * defined in the hibernate.cfg.xml file. In this file we register the
+         * JDBC connection information, connection pool, the hibernate dialect
+         * that we used and the mapping to our hbm.xml file for each POJO (Plain
+         * Old Java Object).
+         */
+        Configuration configuration = new Configuration();
+        sessionFactory = configuration.configure().buildSessionFactory();
+
+    }
+
+    /**
+     * Get the hibernate session factory object.
+     *
      * @return session factory
      */
-    public SessionFactory getSessionFactory()
-    {
+    public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-    
+
     /**
-     * Get the current hibernate session
+     * Get the current hibernate session.
+     *
      * @return session
      */
-    public Session getCurrentSession()
-    {
-    	return sessionFactory.getCurrentSession();    	
+    public Session getCurrentSession() {
+        return sessionFactory.getCurrentSession();
     }
-    
+
     /**
-     * Open a new hibernate session
+     * Open a new hibernate session.
+     *
      * @return session
      */
-    public Session openSession()
-    {
+    public Session openSession() {
         return sessionFactory.openSession();
     }
 
     /*
      * Get an instance of the session context
      */
-    synchronized public static SessionContext getInstance() 
-    throws SessionContextException
-    {
-        if (instance == null) 
-        {
+    /**
+     * Gets the single instance of SessionContext.
+     *
+     * @return single instance of SessionContext
+     * @throws SessionContextException
+     *             the session context exception
+     */
+    public static synchronized SessionContext getInstance()
+            throws SessionContextException {
+        if (instance == null) {
             instance = new SessionContext();
         }
         return instance;
