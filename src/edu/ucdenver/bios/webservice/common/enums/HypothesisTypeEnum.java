@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,35 +15,63 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
+
 /**
  * Enum object referred in 'Hypothesis' class.
- * 
+ *
  * @author Uttara Sakhadeo
  */
-public enum HypothesisTypeEnum 
-{
-	MAIN_EFFECT("Main Effect"),
-	INTERACTION("Interaction"),
-	TREND("Trend");
-	
-	final String id;
-	
-	HypothesisTypeEnum(String id){this.id=id;}
+public enum HypothesisTypeEnum {
 
-	public String getId() {return id;}
-	
-	public static HypothesisTypeEnum parseId(String id)
-	{					 								
-		HypothesisTypeEnum hypothesisType = null;			
-		for (HypothesisTypeEnum type : HypothesisTypeEnum.values()) 
-		{				
-	        if (id.equalsIgnoreCase(type.id)) {
-	        	hypothesisType = type;
-	        }		
-		}
-		return hypothesisType;
-	}
+    /** The MAIN EFFECT. */
+    MAIN_EFFECT("Main Effect"),
+
+    /** The INTERACTION. */
+    INTERACTION("Interaction"),
+
+    /** The TREND. */
+    TREND("Trend");
+
+    /** The id. */
+    private final String id;
+
+    /**
+     * Instantiates a new hypothesis type enum.
+     *
+     * @param id
+     *            the id
+     */
+    HypothesisTypeEnum(final String id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Parses the id.
+     *
+     * @param id
+     *            the id
+     * @return the hypothesis type enum
+     */
+    public static HypothesisTypeEnum parseId(final String id) {
+        HypothesisTypeEnum hypothesisType = null;
+        for (HypothesisTypeEnum type : HypothesisTypeEnum.values()) {
+            if (id.equalsIgnoreCase(type.id)) {
+                hypothesisType = type;
+            }
+        }
+        return hypothesisType;
+    }
 }

@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,38 +15,63 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
 
 /**
  * Enum object referred in 'StudyDesign' class.
- * 
+ *
  * @author Uttara Sakhadeo
  */
-public enum SolutionTypeEnum
-{
-	POWER("Power"),
-	SAMPLE_SIZE("Sample Size"),
-	DETECTABLE_DIFFERENCE("Detectable Difference");
-	
-	final String id;
-	
-	SolutionTypeEnum(String id){this.id=id;}
+public enum SolutionTypeEnum {
 
-	public String getId() {		
-		return id;
-	}
-	
-	public static SolutionTypeEnum parseId(String id)
-	{					 						
-		SolutionTypeEnum soulutionTypeEnum = null;			
-		for (SolutionTypeEnum b : SolutionTypeEnum.values()) 
-		{				
-	        if (id.equalsIgnoreCase(b.id)) {
-	        	soulutionTypeEnum = b;
-	        }		
-		}		
-		return soulutionTypeEnum;
-	}	
+    /** The POWER. */
+    POWER("Power"),
+
+    /** The SAMPLE SIZE. */
+    SAMPLE_SIZE("Sample Size"),
+
+    /** The DETECTABLE DIFFERENCE. */
+    DETECTABLE_DIFFERENCE("Detectable Difference");
+
+    /** The id. */
+    private final String id;
+
+    /**
+     * Instantiates a new solution type enum.
+     *
+     * @param id
+     *            the id
+     */
+    SolutionTypeEnum(final String id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Parses the id.
+     *
+     * @param id
+     *            the id
+     * @return the solution type enum
+     */
+    public static SolutionTypeEnum parseId(final String id) {
+        SolutionTypeEnum soulutionTypeEnum = null;
+        for (SolutionTypeEnum b : SolutionTypeEnum.values()) {
+            if (id.equalsIgnoreCase(b.id)) {
+                soulutionTypeEnum = b;
+            }
+        }
+        return soulutionTypeEnum;
+    }
 };

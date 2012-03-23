@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,34 +15,62 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
 
 /**
- * Enum of types of repeated measures
+ * Enum of types of repeated measures.
  */
-public enum RepeatedMeasuresDimensionType
-{
-	NUMERICAL("Numerical"),
-	ORDINAL("Ordinal"),
-	CATEGORICAL("Categorical");
-	
-	final String id;
-	
-	RepeatedMeasuresDimensionType(String id){this.id=id;}
+public enum RepeatedMeasuresDimensionType {
 
-	public String getId() {return id;}
-	
-	public static RepeatedMeasuresDimensionType parseId(String id)
-	{					 								
-		RepeatedMeasuresDimensionType dimensionType = null;			
-		for (RepeatedMeasuresDimensionType type : RepeatedMeasuresDimensionType.values()) 
-		{				
-	        if (id.equalsIgnoreCase(type.id)) {
-	        	dimensionType = type;
-	        }		
-		}
-		return dimensionType;
-	}
+    /** The NUMERICAL. */
+    NUMERICAL("Numerical"),
+
+    /** The ORDINAL. */
+    ORDINAL("Ordinal"),
+
+    /** The CATEGORICAL. */
+    CATEGORICAL("Categorical");
+
+    /** The id. */
+    private final String id;
+
+    /**
+     * Instantiates a new repeated measures dimension type.
+     *
+     * @param id
+     *            the id
+     */
+    RepeatedMeasuresDimensionType(final String id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Parses the id.
+     *
+     * @param id
+     *            the id
+     * @return the repeated measures dimension type
+     */
+    public static RepeatedMeasuresDimensionType parseId(final String id) {
+        RepeatedMeasuresDimensionType dimensionType = null;
+        for (RepeatedMeasuresDimensionType type : RepeatedMeasuresDimensionType
+                .values()) {
+            if (id.equalsIgnoreCase(type.id)) {
+                dimensionType = type;
+            }
+        }
+        return dimensionType;
+    }
 }

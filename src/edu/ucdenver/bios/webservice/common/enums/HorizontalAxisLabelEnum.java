@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,36 +15,63 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
 
 /**
  * Enum object referred in 'PowerCurveDescription' class.
- * 
+ *
  * @author Uttara Sakhadeo
  */
-public enum HorizontalAxisLabelEnum
-{		
-	VARIABILITY_SCALE_FACTOR("Variability Scale Factor"),
-	TOTAL_SAMPLE_SIZE("Total Sample Size"),
-	REGRESSION_COEEFICIENT_SCALE_FACTOR("Regression Coefficient Scale Factor");
-	
-	final String id;
-	
-	HorizontalAxisLabelEnum(String id){this.id=id;}
+public enum HorizontalAxisLabelEnum {
 
-	public String getId() {return id;}
-	
-	public static HorizontalAxisLabelEnum parseId(String id)
-	{					 								
-		HorizontalAxisLabelEnum horizontalAxisLabel = null;			
-		for (HorizontalAxisLabelEnum b : HorizontalAxisLabelEnum.values()) 
-		{				
-	        if (id.equalsIgnoreCase(b.id)) {
-	        	horizontalAxisLabel = b;
-	        }		
-		}
-		return horizontalAxisLabel;
-	}
+    /** The VARIABILITY SCALE FACTOR. */
+    VARIABILITY_SCALE_FACTOR("Variability Scale Factor"),
+
+    /** The TOTAL SAMPLE SIZE. */
+    TOTAL_SAMPLE_SIZE("Total Sample Size"),
+
+    /** The REGRESSION COEEFICIENT SCALE FACTOR. */
+    REGRESSION_COEEFICIENT_SCALE_FACTOR("Regression Coefficient Scale Factor");
+
+    /** The id. */
+    private final String id;
+
+    /**
+     * Instantiates a new horizontal axis label enum.
+     *
+     * @param id
+     *            the id
+     */
+    HorizontalAxisLabelEnum(final String id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Parses the id.
+     *
+     * @param id
+     *            the id
+     * @return the horizontal axis label enum
+     */
+    public static HorizontalAxisLabelEnum parseId(final String id) {
+        HorizontalAxisLabelEnum horizontalAxisLabel = null;
+        for (HorizontalAxisLabelEnum b : HorizontalAxisLabelEnum.values()) {
+            if (id.equalsIgnoreCase(b.id)) {
+                horizontalAxisLabel = b;
+            }
+        }
+        return horizontalAxisLabel;
+    }
 }

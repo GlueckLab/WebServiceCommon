@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,39 +15,63 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
 
 /**
  * Enum object referred in 'PowerMethod' class.
- * 
+ *
  * @author Uttara Sakhadeo
  */
-public enum PowerMethodEnum
-{
-	CONDITIONAL("Conditional"),
-	UNCONDITIONAL("Unconditional"),
-	QUANTILE("Quantile");
-	
-	final String id;
-	
-	PowerMethodEnum(String id){		
-		this.id=id;}
+public enum PowerMethodEnum {
 
-	public String getId() {		
-		return id;
-	}
-	
-	public static PowerMethodEnum parseId(String id)
-	{					 						
-		PowerMethodEnum powerMethodEnum = null;			
-		for (PowerMethodEnum b : PowerMethodEnum.values()) 
-		{				
-	        if (id.equalsIgnoreCase(b.id)) {
-	        	powerMethodEnum = b;
-	        }		
-		}		
-		return powerMethodEnum;
-	}
+    /** The CONDITIONAL. */
+    CONDITIONAL("Conditional"),
+
+    /** The UNCONDITIONAL. */
+    UNCONDITIONAL("Unconditional"),
+
+    /** The QUANTILE. */
+    QUANTILE("Quantile");
+
+    /** The id. */
+    private final String id;
+
+    /**
+     * Instantiates a new power method enum.
+     *
+     * @param id
+     *            the id
+     */
+    PowerMethodEnum(final String id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Parses the id.
+     *
+     * @param id
+     *            the id
+     * @return the power method enum
+     */
+    public static PowerMethodEnum parseId(final String id) {
+        PowerMethodEnum powerMethodEnum = null;
+        for (PowerMethodEnum b : PowerMethodEnum.values()) {
+            if (id.equalsIgnoreCase(b.id)) {
+                powerMethodEnum = b;
+            }
+        }
+        return powerMethodEnum;
+    }
 };

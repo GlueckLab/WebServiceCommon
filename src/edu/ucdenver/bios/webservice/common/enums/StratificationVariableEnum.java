@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,35 +15,60 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
 
 /**
  * Enum object referred in 'PowerCurveDescription' class.
- * 
+ *
  * @author Uttara Sakhadeo
  */
-public enum StratificationVariableEnum 
-{
-	TYPE_I_ERROR("Type I error"),
-	STATISTICAL_TEST("Statistical Test");
-	
-	final String id;
-	
-	StratificationVariableEnum(String id){this.id=id;}
-	
-	public String getId() {return id;}
-		
-	public static StratificationVariableEnum parseId(String id)
-	{					 
-		StratificationVariableEnum stratificationVarEnum = null;			
-		for (StratificationVariableEnum b : StratificationVariableEnum.values()) 
-		{				
-	        if (id.equalsIgnoreCase(b.id)) {
-	        	stratificationVarEnum = b;
-	        }		
-		}		
-		return stratificationVarEnum;
-	}
+public enum StratificationVariableEnum {
+
+    /** The TYP e_ i_ error. */
+    TYPE_I_ERROR("Type I error"),
+
+    /** The STATISTICA l_ test. */
+    STATISTICAL_TEST("Statistical Test");
+
+    /** The id. */
+    private final String id;
+
+    /**
+     * Instantiates a new stratification variable enum.
+     *
+     * @param id
+     *            the id
+     */
+    StratificationVariableEnum(final String id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Parses the id.
+     *
+     * @param id
+     *            the id
+     * @return the stratification variable enum
+     */
+    public static StratificationVariableEnum parseId(final String id) {
+        StratificationVariableEnum stratificationVarEnum = null;
+        for (StratificationVariableEnum b : StratificationVariableEnum.values()) {
+            if (id.equalsIgnoreCase(b.id)) {
+                stratificationVarEnum = b;
+            }
+        }
+        return stratificationVarEnum;
+    }
 }

@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,34 +15,62 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.enums;
+
 /**
  * Enum object referred in 'StudyDesign' class.
- * 
+ *
  * @author Uttara Sakhadeo
  */
-public enum StudyDesignViewTypeEnum
-{
-    GUIDED_MODE("Guided Mode"),
-    MATRIX_MODE("Matrix Mode"),
-    UPLOAD("Upload");
-    
-    final String id;
-    
-    StudyDesignViewTypeEnum(String id){this.id=id;}
+public enum StudyDesignViewTypeEnum {
 
-    public String getId() {return id;}
-    
-    public static StudyDesignViewTypeEnum parseId(String id)
-    {                                                   
-        StudyDesignViewTypeEnum studyDesignViewTypeEnum = null;         
-        for (StudyDesignViewTypeEnum b : StudyDesignViewTypeEnum.values()) 
-        {               
+    /** The GUIDE d_ mode. */
+    GUIDED_MODE("Guided Mode"),
+
+    /** The MATRI x_ mode. */
+    MATRIX_MODE("Matrix Mode"),
+
+    /** The UPLOAD. */
+    UPLOAD("Upload");
+
+    /** The id. */
+    private final String id;
+
+    /**
+     * Instantiates a new study design view type enum.
+     *
+     * @param id
+     *            the id
+     */
+    StudyDesignViewTypeEnum(final String id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Parses the id.
+     *
+     * @param id
+     *            the id
+     * @return the study design view type enum
+     */
+    public static StudyDesignViewTypeEnum parseId(final String id) {
+        StudyDesignViewTypeEnum studyDesignViewTypeEnum = null;
+        for (StudyDesignViewTypeEnum b : StudyDesignViewTypeEnum.values()) {
             if (id.equalsIgnoreCase(b.id)) {
                 studyDesignViewTypeEnum = b;
-            }       
+            }
         }
         return studyDesignViewTypeEnum;
     }
