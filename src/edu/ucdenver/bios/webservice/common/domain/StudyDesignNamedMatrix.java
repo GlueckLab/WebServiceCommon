@@ -19,33 +19,37 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
-public class StudyDesignNamedMatrix extends NamedMatrix
-{
+// TODO: Auto-generated Javadoc
+/**
+ * The Class StudyDesignNamedMatrix.
+ */
+public class StudyDesignNamedMatrix extends NamedMatrix {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 2398153089756322021L;
 
+    /**
+     * Instantiates a new study design named matrix.
+     * 
+     * @param name
+     *            the name
+     */
     public StudyDesignNamedMatrix(String name) {
-		super(name);
-		// TODO Auto-generated constructor stub
-	}
+        super(name);
+        // TODO Auto-generated constructor stub
+    }
 
-	/*protected StudyDesign studyDesign;
+    /*
+     * protected StudyDesign studyDesign;
+     * 
+     * public StudyDesignNamedMatrix(StudyDesign studyDesign, String name, int
+     * rows, int columns) { super(name, rows, columns); this.studyDesign =
+     * studyDesign; }
+     * 
+     * public StudyDesign getStudyDesign() { return studyDesign; }
+     * 
+     * public void setStudyDesign(StudyDesign studyDesign) { this.studyDesign =
+     * studyDesign; }
+     */
 
-	public StudyDesignNamedMatrix(StudyDesign studyDesign, 
-			String name, int rows, int columns)
-	{
-		super(name, rows, columns);
-		this.studyDesign = studyDesign;
-	}
-	
-	public StudyDesign getStudyDesign()
-	{
-		return studyDesign;
-	}
-
-	public void setStudyDesign(StudyDesign studyDesign)
-	{
-		this.studyDesign = studyDesign;
-	}
-	*/
-	
 }

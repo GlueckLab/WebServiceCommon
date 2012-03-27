@@ -19,29 +19,44 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+// TODO: Auto-generated Javadoc
 /**
- * Matrix which contains fixed and random components.  The combined
- * matrix may be produced by concatenating the fixed and random
- * submatrices either vertically or horizontally.
+ * Matrix which contains fixed and random components. The combined matrix may be
+ * produced by concatenating the fixed and random submatrices either vertically
+ * or horizontally.
  * 
  * @author Sarah Kreidler
- *
+ * 
  */
-public class StudyDesignFixedRandomMatrix extends FixedRandomMatrix
-{
+public class StudyDesignFixedRandomMatrix extends FixedRandomMatrix {
+
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -7365369949623340929L;
-    
+
+    /** The study design. */
     protected StudyDesign studyDesign;
 
     /**
-     * Constructor, create a fixed/random matrix from the specified data arrays
+     * Constructor, create a fixed/random matrix from the specified data arrays.
+     * 
+     * @param design
+     *            the design
+     * @param name
+     *            the name
+     * @param fixedMatrix
+     *            the fixed matrix
+     * @param randomMatrix
+     *            the random matrix
+     * @param combineHorizontal
+     *            the combine horizontal
+     * @throws IllegalArgumentException
+     *             the illegal argument exception
      */
     public StudyDesignFixedRandomMatrix(StudyDesign design, String name,
-    		NamedMatrix fixedMatrix, NamedMatrix randomMatrix, boolean combineHorizontal) 
-    throws IllegalArgumentException
-    {
-    	super(name, fixedMatrix, randomMatrix, combineHorizontal);
-    	this.studyDesign = studyDesign;
+            NamedMatrix fixedMatrix, NamedMatrix randomMatrix,
+            boolean combineHorizontal) throws IllegalArgumentException {
+        super(name, fixedMatrix, randomMatrix, combineHorizontal);
+        this.studyDesign = studyDesign;
     }
 
 }
