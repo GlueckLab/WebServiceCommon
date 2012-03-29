@@ -121,9 +121,6 @@ public class StudyDesign implements Serializable {
 
     /** The matrix set. */
     private Set<NamedMatrix> matrixSet = null;
-
-    /** indicates if the StudyDesign is built directly on matrices. */
-    private boolean matrixOnly = false;
     
     /*--------------------
      * Constructors
@@ -1044,27 +1041,6 @@ public class StudyDesign implements Serializable {
                 + repeatedMeasuresTree + ", clusteringTree=" + clusteringTree
                 + ", hypothesis=" + hypothesis + ", covariance=" + covariance
                 + ", matrixSet=" + matrixSet + "]";
-    }
-    
-    /**
-     * Checks if the StudyDesign is built via matrices or
-     * as a "guided" design with variable names, etc.
-     *
-     * @return true, if matrix only design
-     */
-    public final boolean isMatrixOnly() {
-        return matrixOnly;
-    }
-
-    /**
-     * Sets the flag indicating the StudyDesign is specified via
-     * matrices only.
-     *
-     * @param gaussianCovariate
-     *            the new gaussian covariate
-     */
-    public final void setMatrixOnly(final boolean matrixOnly) {
-        this.matrixOnly = matrixOnly;
     }
     
 }
