@@ -122,6 +122,9 @@ public class StudyDesign implements Serializable {
     /** The matrix set. */
     private Set<NamedMatrix> matrixSet = null;
 
+    /** indicates if the StudyDesign is built directly on matrices. */
+    private boolean matrixOnly = false;
+    
     /*--------------------
      * Constructors
      *--------------------*/
@@ -976,7 +979,6 @@ public class StudyDesign implements Serializable {
      */
     public final NamedMatrix getNamedMatrix(final String name) {
         NamedMatrix matrix = null;
-        Set<NamedMatrix> matrixSet = this.getMatrixSet();
         if (matrixSet != null) {
             Iterator<NamedMatrix> iterator = matrixSet.iterator();
             while (iterator.hasNext()) {
@@ -1002,15 +1004,15 @@ public class StudyDesign implements Serializable {
      *            the new named matrix
      */
     public final void setNamedMatrix(final NamedMatrix matrix) {
-        Set<NamedMatrix> matrixSet = this.getMatrixSet();
-
-        if (hasNamedMatrix(matrix.getName())) {
-            NamedMatrix originalMatrix = this.getNamedMatrix(name);
-            matrixSet.remove(originalMatrix);
+        if (matrixSet == null) {
+            matrixSet = new HashSet<NamedMatrix>();
+        } else {
+            if (hasNamedMatrix(matrix.getName())) {
+                NamedMatrix originalMatrix = this.getNamedMatrix(name);
+                matrixSet.remove(originalMatrix);
+            }
         }
-
         matrixSet.add(matrix);
-        this.setMatrixSet(matrixSet);
     }
 
     /*--------------------
@@ -1043,4 +1045,26 @@ public class StudyDesign implements Serializable {
                 + ", hypothesis=" + hypothesis + ", covariance=" + covariance
                 + ", matrixSet=" + matrixSet + "]";
     }
+    
+    /**
+     * Checks if the StudyDesign is built via matrices or
+     * as a "guided" design with variable names, etc.
+     *
+     * @return true, if matrix only design
+     */
+    public final boolean isMatrixOnly() {
+        return matrixOnly;
+    }
+
+    /**
+     * Sets the flag indicating the StudyDesign is specified via
+     * matrices only.
+     *
+     * @param gaussianCovariate
+     *            the new gaussian covariate
+     */
+    public final void setMatrixOnly(final boolean matrixOnly) {
+        this.matrixOnly = matrixOnly;
+    }
+    
 }
