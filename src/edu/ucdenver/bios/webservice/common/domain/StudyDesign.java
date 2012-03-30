@@ -1003,11 +1003,12 @@ public class StudyDesign implements Serializable {
     public final void setNamedMatrix(final NamedMatrix matrix) {
         if (matrixSet == null) {
             matrixSet = new HashSet<NamedMatrix>();
-        } else {
-            if (hasNamedMatrix(matrix.getName())) {
-                NamedMatrix originalMatrix = this.getNamedMatrix(name);
-                matrixSet.remove(originalMatrix);
-            }
+        } 
+
+        String matrixName = matrix.getName();
+        NamedMatrix originalMatrix = getNamedMatrix(matrixName);
+        if (originalMatrix != null) {
+            matrixSet.remove(originalMatrix);
         }
         matrixSet.add(matrix);
     }
