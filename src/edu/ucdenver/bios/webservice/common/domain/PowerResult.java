@@ -55,6 +55,11 @@ public class PowerResult implements Serializable
 	// only available if solving for power in a random design
 	ConfidenceInterval confidenceInterval = null;
 	
+	   /**
+     * Create an empty Power result object.
+     */
+    public PowerResult() {}
+	
 	/**
 	 * Create a new Power result object.
 	 * 
