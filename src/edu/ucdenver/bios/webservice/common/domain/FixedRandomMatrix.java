@@ -47,6 +47,9 @@ public class FixedRandomMatrix implements Serializable {
     /** The combine horizontal. */
     protected boolean combineHorizontal = true;
 
+    /** Default constructor. */
+    public FixedRandomMatrix() {}
+    
     /**
      * Constructor, create a fixed/random matrix from the specified data arrays.
      *

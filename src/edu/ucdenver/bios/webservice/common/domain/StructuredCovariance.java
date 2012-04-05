@@ -14,4 +14,5 @@ public class StructuredCovariance implements Serializable {
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 6585822291189651566L;
 
+    public StructuredCovariance() {}
 }

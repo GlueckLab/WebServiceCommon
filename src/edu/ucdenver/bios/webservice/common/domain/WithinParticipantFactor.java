@@ -36,6 +36,10 @@ public class WithinParticipantFactor implements Serializable
 	private RepeatedMeasuresNode repeatedMeasures;
 	// clustering
 	//private Cluster clustering;
+	
+	/** Default constructor */
+	public WithinParticipantFactor() {}
+	
 	public ResponseNode getResponseList() {
 		return responseList;
 	}
