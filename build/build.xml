@@ -116,11 +116,13 @@
 		<copy todir="${gwt.dir}">
 			<fileset dir="${target.dir}/classes"  
 			  		includes="edu/ucdenver/bios/webservice/common/domain/**,
-							edu/ucdenver/bios/webservice/common/enums/**" />
+							edu/ucdenver/bios/webservice/common/enums/**" 
+					excludes="edu/ucdenver/bios/webservice/common/domain/test/**"/>
 			<fileset dir="${source.dir}"  
 			  		includes="edu/ucdenver/bios/webservice/common/common.gwt.xml,
 						edu/ucdenver/bios/webservice/common/domain/**,
-						edu/ucdenver/bios/webservice/common/enums/**" />
+						edu/ucdenver/bios/webservice/common/enums/**" 
+					excludes="edu/ucdenver/bios/webservice/common/domain/test/**"/>
 		</copy>
   		<!-- Create the GWT jar file -->
 		<jar destfile="${target.dir}/${module.name}-gwt-${module.version}.jar" 
