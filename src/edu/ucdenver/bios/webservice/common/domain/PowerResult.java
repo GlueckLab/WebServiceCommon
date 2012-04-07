@@ -1,8 +1,7 @@
 /*
- * Java Statistics.  A java library providing power/sample size estimation for 
- * the general linear model.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ * Web service utility functions for managing hibernate, json, etc.
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -16,7 +15,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
