@@ -21,7 +21,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 
@@ -47,10 +46,10 @@ public class Hypothesis implements Serializable {
     private HypothesisTypeEnum type;
 
     /** The between participant factor map list. */
-    private List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList = null;
+    private ArrayList<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList = null;
 
     /** The repeated measures map tree. */
-    private List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree = null;
+    private ArrayList<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree = null;
 
     /*--------------------
      * Constructors
@@ -73,8 +72,8 @@ public class Hypothesis implements Serializable {
      */
     public Hypothesis(
             HypothesisTypeEnum type,
-            List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList,
-            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
+            ArrayList<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList,
+            ArrayList<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
         super();
         this.type = type;
         this.betweenParticipantFactorMapList = betweenParticipantFactorMapList;
@@ -127,7 +126,7 @@ public class Hypothesis implements Serializable {
      * 
      * @return the between participant factor map list
      */
-    public List<HypothesisBetweenParticipantMapping> getBetweenParticipantFactorMapList() {
+    public ArrayList<HypothesisBetweenParticipantMapping> getBetweenParticipantFactorMapList() {
         return betweenParticipantFactorMapList;
     }
 
@@ -138,7 +137,7 @@ public class Hypothesis implements Serializable {
      *            the new between participant factor map list
      */
     public void setBetweenParticipantFactorMapList(
-            List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList) {
+            ArrayList<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList) {
         this.betweenParticipantFactorMapList = betweenParticipantFactorMapList;
     }
 
@@ -147,7 +146,7 @@ public class Hypothesis implements Serializable {
      * 
      * @return the repeated measures map tree
      */
-    public List<HypothesisRepeatedMeasuresMapping> getRepeatedMeasuresMapTree() {
+    public ArrayList<HypothesisRepeatedMeasuresMapping> getRepeatedMeasuresMapTree() {
         return repeatedMeasuresMapTree;
     }
 
@@ -158,7 +157,7 @@ public class Hypothesis implements Serializable {
      *            the new repeated measures map tree
      */
     public void setRepeatedMeasuresMapTree(
-            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
+            ArrayList<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
         this.repeatedMeasuresMapTree = repeatedMeasuresMapTree;
     }
 
@@ -170,10 +169,10 @@ public class Hypothesis implements Serializable {
      * 
      * @return the between participant factor list
      */
-    public List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
-        List<HypothesisBetweenParticipantMapping> list = this
+    public ArrayList<BetweenParticipantFactor> getBetweenParticipantFactorList() {
+        ArrayList<HypothesisBetweenParticipantMapping> list = this
                 .getBetweenParticipantFactorMapList();
-        List<BetweenParticipantFactor> betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>();
+        ArrayList<BetweenParticipantFactor> betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>();
         for (HypothesisBetweenParticipantMapping m : list) {
             betweenParticipantFactorList.add(m.getBetweenParticipantFactor());
         }
@@ -188,10 +187,10 @@ public class Hypothesis implements Serializable {
      * 
      * @return the repeated measures list
      */
-    public List<RepeatedMeasuresNode> getRepeatedMeasuresList() {
-        List<HypothesisRepeatedMeasuresMapping> list = this
+    public ArrayList<RepeatedMeasuresNode> getRepeatedMeasuresList() {
+        ArrayList<HypothesisRepeatedMeasuresMapping> list = this
                 .getRepeatedMeasuresMapTree();
-        List<RepeatedMeasuresNode> betweenParticipantFactorList = new ArrayList<RepeatedMeasuresNode>();
+        ArrayList<RepeatedMeasuresNode> betweenParticipantFactorList = new ArrayList<RepeatedMeasuresNode>();
         for (HypothesisRepeatedMeasuresMapping m : list) {
             betweenParticipantFactorList.add(m.getRepeatedMeasuresNode());
         }

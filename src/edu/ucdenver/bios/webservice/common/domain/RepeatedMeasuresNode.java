@@ -21,7 +21,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.ArrayList;
 
 import edu.ucdenver.bios.webservice.common.enums.RepeatedMeasuresDimensionType;
 
@@ -58,7 +58,7 @@ public class RepeatedMeasuresNode implements Serializable {
     private Integer parent;
 
     /** The spacing list. */
-    private List<Spacing> spacingList = null;
+    private ArrayList<Spacing> spacingList = null;
 
     /*--------------------
      * Constructors
@@ -124,7 +124,7 @@ public class RepeatedMeasuresNode implements Serializable {
      */
     public RepeatedMeasuresNode(final String name,
             final RepeatedMeasuresDimensionType type, final Integer count,
-            final List<Spacing> spacingList, int node, int parent) {
+            final ArrayList<Spacing> spacingList, int node, int parent) {
         // super();
         this.dimension = name;
         this.repeatedMeasuresDimensionType = type;
@@ -237,7 +237,7 @@ public class RepeatedMeasuresNode implements Serializable {
      *
      * @return the spacing list
      */
-    public final List<Spacing> getSpacingList() {
+    public final ArrayList<Spacing> getSpacingList() {
         return spacingList;
     }
 
@@ -247,7 +247,7 @@ public class RepeatedMeasuresNode implements Serializable {
      * @param spacingList
      *            the new spacing list
      */
-    public final void setSpacingList(final List<Spacing> spacingList) {
+    public final void setSpacingList(final ArrayList<Spacing> spacingList) {
         this.spacingList = spacingList;
     }
 
