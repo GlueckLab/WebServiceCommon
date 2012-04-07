@@ -44,8 +44,8 @@ public class Covariance implements Serializable {
     /** The sd. */
     private double sd;
 
-    /** The roh. */
-    private double roh;
+    /** The rho. */
+    private double rho;
 
     /** The delta. */
     private double delta;
@@ -110,22 +110,22 @@ public class Covariance implements Serializable {
     }
 
     /**
-     * Gets the roh.
+     * Gets the rho.
      * 
-     * @return the roh
+     * @return the rho
      */
-    public double getRoh() {
-        return roh;
+    public double getRho() {
+        return rho;
     }
 
     /**
-     * Sets the roh.
+     * Sets the rho.
      * 
-     * @param roh
-     *            the new roh
+     * @param rho
+     *            the new rho
      */
-    public void setRoh(double roh) {
-        this.roh = roh;
+    public void setRho(double rho) {
+        this.rho = rho;
     }
 
     /**
@@ -232,7 +232,7 @@ public class Covariance implements Serializable {
      * @param data
      *            the new blob
      */
-    public void setBlob(double[][] data) {
+    public void setBlobFromArray(double[][] data) {
         Blob2DArray blob = new Blob2DArray(data);
         setBlob(blob);
     }
@@ -257,7 +257,7 @@ public class Covariance implements Serializable {
     @Override
     public String toString() {
         return "Covariance [id=" + id + ", name=" + name + ", sd=" + sd
-                + ", roh=" + roh + ", delta=" + delta + ", rows=" + rows
+                + ", rho=" + rho + ", delta=" + delta + ", rows=" + rows
                 + ", columns=" + columns + ", blob=" + blob + "]";
     }
 }
