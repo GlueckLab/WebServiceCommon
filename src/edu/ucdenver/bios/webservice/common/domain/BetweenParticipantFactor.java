@@ -21,7 +21,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is a wrapper for the BetweenParticipantFactor information.
@@ -44,7 +44,7 @@ public class BetweenParticipantFactor implements Serializable {
     private String predictorName = null;
 
     /** The category list. */
-    private ArrayList<Category> categoryList = null;
+    private List<Category> categoryList = null;
 
     /*--------------------
      * Constructors
@@ -64,7 +64,7 @@ public class BetweenParticipantFactor implements Serializable {
      *            the category list
      */
     public BetweenParticipantFactor(final String predictorNameValue,
-            final ArrayList<Category> categoryList) {
+            final List<Category> categoryList) {
         this.predictorName = predictorNameValue;
         this.categoryList = categoryList;
     }
@@ -115,7 +115,7 @@ public class BetweenParticipantFactor implements Serializable {
      *
      * @return the category list
      */
-    public final ArrayList<Category> getCategoryList() {
+    public final List<Category> getCategoryList() {
         return categoryList;
     }
 
@@ -125,17 +125,19 @@ public class BetweenParticipantFactor implements Serializable {
      * @param categoryList
      *            the new category list
      */
-    public final void setCategoryList(final ArrayList<Category> categoryList) {
+    public final void setCategoryList(final List<Category> categoryList) {
         this.categoryList = categoryList;
     }
 
     /*--------------------
      * toString()
      *--------------------*/
-    /*
-     * (non-Javadoc)
+    /**
+     * Intended only for debugging.
      *
-     * @see java.lang.Object#toString()
+     * <P>Here, a generic implementation uses reflection to print
+     * names and values of all fields <em>declared in this class</em>. Note that
+     * superclass fields are left out of this implementation.
      */
     @Override
     public final String toString() {
