@@ -27,7 +27,7 @@ package edu.ucdenver.bios.webservice.common.domain;
  */
 import java.io.Serializable;
 
-import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
+import edu.ucdenver.bios.webservice.common.enums.HypothesisTrendTypeEnum;
 
 /**
  * The Class HypothesisBetweenParticipantMapping.
@@ -40,7 +40,7 @@ public class HypothesisBetweenParticipantMapping implements Serializable {
      * Member Variables
      *--------------------*/
     /** The type. */
-    private HypothesisTypeEnum type;
+    private HypothesisTrendTypeEnum type;
 
     /** The between participant factor. */
     private BetweenParticipantFactor betweenParticipantFactor = null;
@@ -62,7 +62,7 @@ public class HypothesisBetweenParticipantMapping implements Serializable {
      * @param betweenParticipantFactor
      *            the between participant factor
      */
-    public HypothesisBetweenParticipantMapping(final HypothesisTypeEnum type,
+    public HypothesisBetweenParticipantMapping(final HypothesisTrendTypeEnum type,
             final BetweenParticipantFactor betweenParticipantFactor) {
         super();
         this.type = type;
@@ -77,7 +77,7 @@ public class HypothesisBetweenParticipantMapping implements Serializable {
      *
      * @return the type
      */
-    public final HypothesisTypeEnum getType() {
+    public final HypothesisTrendTypeEnum getType() {
         return type;
     }
 
@@ -87,7 +87,7 @@ public class HypothesisBetweenParticipantMapping implements Serializable {
      * @param type
      *            the new type
      */
-    public final void setType(final HypothesisTypeEnum type) {
+    public final void setType(final HypothesisTrendTypeEnum type) {
         this.type = type;
     }
 
@@ -114,10 +114,12 @@ public class HypothesisBetweenParticipantMapping implements Serializable {
     /*--------------------
      * toString()
      *--------------------*/
-    /*
-     * (non-Javadoc)
+    /**
+     * Intended only for debugging.
      *
-     * @see java.lang.Object#toString()
+     * <P>Here, a generic implementation uses reflection to print
+     * names and values of all fields <em>declared in this class</em>. Note that
+     * superclass fields are left out of this implementation.
      */
     @Override
     public final String toString() {
