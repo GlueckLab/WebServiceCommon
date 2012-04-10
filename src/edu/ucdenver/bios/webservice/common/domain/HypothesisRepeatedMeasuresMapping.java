@@ -21,7 +21,7 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
-import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
+import edu.ucdenver.bios.webservice.common.enums.HypothesisTrendTypeEnum;
 
 /**
  * This is a wrapper for the Hypothesis information.
@@ -38,7 +38,7 @@ public class HypothesisRepeatedMeasuresMapping implements Serializable {
      * Member Variables
      *--------------------*/
     /** The type. */
-    private HypothesisTypeEnum type;
+    private HypothesisTrendTypeEnum type;
 
     /** The repeated measures node. */
     private RepeatedMeasuresNode repeatedMeasuresNode = null;
@@ -60,7 +60,7 @@ public class HypothesisRepeatedMeasuresMapping implements Serializable {
      * @param repeatedMeasuresNode
      *            the repeated measures node
      */
-    public HypothesisRepeatedMeasuresMapping(final HypothesisTypeEnum type,
+    public HypothesisRepeatedMeasuresMapping(final HypothesisTrendTypeEnum type,
             final RepeatedMeasuresNode repeatedMeasuresNode) {
         super();
         this.type = type;
@@ -75,7 +75,7 @@ public class HypothesisRepeatedMeasuresMapping implements Serializable {
      *
      * @return the type
      */
-    public final HypothesisTypeEnum getType() {
+    public final HypothesisTrendTypeEnum getType() {
         return type;
     }
 
@@ -85,7 +85,7 @@ public class HypothesisRepeatedMeasuresMapping implements Serializable {
      * @param type
      *            the new type
      */
-    public final void setType(final HypothesisTypeEnum type) {
+    public final void setType(final HypothesisTrendTypeEnum type) {
         this.type = type;
     }
 
