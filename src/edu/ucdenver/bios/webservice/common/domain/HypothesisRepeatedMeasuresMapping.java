@@ -38,7 +38,7 @@ public class HypothesisRepeatedMeasuresMapping implements Serializable {
      * Member Variables
      *--------------------*/
     /** The type. */
-    private HypothesisTrendTypeEnum type;
+    private HypothesisTrendTypeEnum type = null;
 
     /** The repeated measures node. */
     private RepeatedMeasuresNode repeatedMeasuresNode = null;

@@ -40,7 +40,7 @@ public class HypothesisBetweenParticipantMapping implements Serializable {
      * Member Variables
      *--------------------*/
     /** The type. */
-    private HypothesisTrendTypeEnum type;
+    private HypothesisTrendTypeEnum type = null;
 
     /** The between participant factor. */
     private BetweenParticipantFactor betweenParticipantFactor = null;
