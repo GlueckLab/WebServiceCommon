@@ -109,10 +109,12 @@ public class PowerMethod implements Serializable {
     /*--------------------
      * toString()
      *--------------------*/
-    /*
-     * (non-Javadoc)
+    /**
+     * Intended only for debugging.
      *
-     * @see java.lang.Object#toString()
+     * <P>Here, a generic implementation uses reflection to print
+     * names and values of all fields <em>declared in this class</em>. Note that
+     * superclass fields are left out of this implementation.
      */
     @Override
     public final String toString() {

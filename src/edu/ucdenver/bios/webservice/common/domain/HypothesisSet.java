@@ -22,27 +22,72 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+
+// TO-DO: Auto-generated Javadoc
 /**
  * List of Hypothesis objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class HypothesisSet extends HashSet<Hypothesis> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public HypothesisSet(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new hypothesis set.
+     */
+    public HypothesisSet() {
+
     }
-    
-    public HypothesisSet(int size){
+
+    /**
+     * Instantiates a new hypothesis set.
+     *
+     * @param size
+     *            the size
+     */
+    public HypothesisSet(final int size) {
         super(size);
     }
-    
-    public HypothesisSet(Set<Hypothesis> set){
+
+    /**
+     * Instantiates a new hypothesis set.
+     *
+     * @param set
+     *            the set
+     */
+    public HypothesisSet(final Set<Hypothesis> set) {
         super(set);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

@@ -20,29 +20,66 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+// TO-DO: Auto-generated Javadoc
 /**
  * List of beta scale objects to work around Jackson serializaiton issues.
  * @author Uttara Sakhadeo
  *
  */
-public class BetaScaleList extends ArrayList<BetaScale> {
+public class BetaScaleList extends ArrayList<BetaScale>
+implements Serializable {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public BetaScaleList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new beta scale list.
+     */
+    public BetaScaleList() {
     }
-    
-    public BetaScaleList(List<BetaScale> list){
+    /**
+     * Instantiates a new beta scale list.
+     *
+     * @param list the list
+     */
+    public BetaScaleList(final List<BetaScale> list) {
         super(list);
     }
-    
-    public BetaScaleList(int size) {
+    /**
+     * Instantiates a new beta scale list.
+     *
+     * @param size the size
+     */
+    public BetaScaleList(final int size) {
         super(size);
+    }
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

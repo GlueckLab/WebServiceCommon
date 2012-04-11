@@ -21,10 +21,72 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
+// TO-DO: Auto-generated Javadoc
 /**
- * List of named matrix objects to work around Jackson serializaiton issues
- * @author Sarah Kreidler
+ * List of named matrix objects to work around Jackson serializaiton issues.
  *
+ * @author Sarah Kreidler
  */
-public class NamedMatrixList extends ArrayList<NamedMatrix> {}
+public class NamedMatrixList extends ArrayList<NamedMatrix> {
+
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 1L;
+
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new named matrix list.
+     */
+    public NamedMatrixList() {
+
+    }
+
+    /**
+     * Instantiates a new named matrix list.
+     *
+     * @param size
+     *            the size
+     */
+    public NamedMatrixList(final int size) {
+        super(size);
+    }
+
+    /**
+     * Instantiates a new named matrix list.
+     *
+     * @param list
+     *            the list
+     */
+    public NamedMatrixList(final List<NamedMatrix> list) {
+        super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+}

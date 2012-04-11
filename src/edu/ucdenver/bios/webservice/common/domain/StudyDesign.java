@@ -666,7 +666,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new beta scale list values
      */
-    public final void setBetaScaleListValues(final List<Double> values) {
+    public final void setBetaScaleListValues(final ArrayList<Double> values) {
         List<BetaScale> list = new ArrayList<BetaScale>(values.size());
         for (double value : values) {
             list.add(new BetaScale(value));
@@ -1016,10 +1016,12 @@ public class StudyDesign implements Serializable {
     /*--------------------
      * toString()
      *--------------------*/
-    /*
-     * (non-Javadoc)
+    /**
+     * Intended only for debugging.
      *
-     * @see java.lang.Object#toString()
+     * <P>Here, a generic implementation uses reflection to print
+     * names and values of all fields <em>declared in this class</em>. Note that
+     * superclass fields are left out of this implementation.
      */
     @Override
     public final String toString() {

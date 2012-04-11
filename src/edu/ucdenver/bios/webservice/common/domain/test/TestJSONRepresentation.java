@@ -95,7 +95,7 @@ public class TestJSONRepresentation extends TestCase
 				List<Category> categoryList = new ArrayList<Category>();
 				categoryList.add(new Category("A"));
 				categoryList.add(new Category("B"));
-			betweenParticipantFactor.setCategoryList(categoryList);
+			/*betweenParticipantFactor.setCategoryList(categoryList);*/
 		betweenParticipantFactorList.add(betweenParticipantFactor);	
 			betweenParticipantFactor = new BetweenParticipantFactor();							
 			
@@ -103,7 +103,7 @@ public class TestJSONRepresentation extends TestCase
 					categoryList = new ArrayList<Category>();
 					categoryList.add(new Category("Fruits"));
 					categoryList.add(new Category("Grains"));
-				betweenParticipantFactor.setCategoryList(categoryList);	
+				/*betweenParticipantFactor.setCategoryList(categoryList);*/	
 		betweenParticipantFactorList.add(betweenParticipantFactor);
 		
 		Gson gson = new Gson();

@@ -22,27 +22,72 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TO-DO: Auto-generated Javadoc
 /**
  * List of quantile objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class QuantileList extends ArrayList<Quantile> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public QuantileList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new quantile list.
+     */
+    public QuantileList() {
+
     }
-    
-    public QuantileList(int size){
+
+    /**
+     * Instantiates a new quantile list.
+     *
+     * @param size
+     *            the size
+     */
+    public QuantileList(final int size) {
         super(size);
     }
-    
-    public QuantileList(List<Quantile> list){
+
+    /**
+     * Instantiates a new quantile list.
+     *
+     * @param list
+     *            the list
+     */
+    public QuantileList(final List<Quantile> list) {
         super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

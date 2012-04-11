@@ -21,12 +21,72 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
+// TO-DO: Auto-generated Javadoc
 /**
- * List of power result objects to work around Jackson serializaiton issues
- * @author Sarah Kreidler
+ * List of power result objects to work around Jackson serializaiton issues.
  *
+ * @author Sarah Kreidler
  */
 public class PowerResultList extends ArrayList<PowerResult> {
 
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 1L;
+
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new power result list.
+     */
+    public PowerResultList() {
+
+    }
+
+    /**
+     * Instantiates a new power result list.
+     *
+     * @param size
+     *            the size
+     */
+    public PowerResultList(final int size) {
+        super(size);
+    }
+
+    /**
+     * Instantiates a new power result list.
+     *
+     * @param list
+     *            the list
+     */
+    public PowerResultList(final List<PowerResult> list) {
+        super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
+    }
 }

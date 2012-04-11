@@ -22,27 +22,72 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TO-DO: Auto-generated Javadoc
 /**
  * List of study design objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class StudyDesignList extends ArrayList<StudyDesign> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public StudyDesignList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new study design list.
+     */
+    public StudyDesignList() {
+
     }
-    
-    public StudyDesignList(int size){
+
+    /**
+     * Instantiates a new study design list.
+     *
+     * @param size
+     *            the size
+     */
+    public StudyDesignList(final int size) {
         super(size);
     }
-    
-    public StudyDesignList(List<StudyDesign> list){
+
+    /**
+     * Instantiates a new study design list.
+     *
+     * @param list
+     *            the list
+     */
+    public StudyDesignList(final List<StudyDesign> list) {
         super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

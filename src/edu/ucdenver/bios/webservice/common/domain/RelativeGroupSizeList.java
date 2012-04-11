@@ -22,27 +22,73 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TO-DO: Auto-generated Javadoc
 /**
- * List of relative group size objects to work around Jackson serializaiton issues.
+ * List of relative group size objects to work around Jackson serializaiton
+ * issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class RelativeGroupSizeList extends ArrayList<RelativeGroupSize> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public RelativeGroupSizeList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new relative group size list.
+     */
+    public RelativeGroupSizeList() {
+
     }
-    
-    public RelativeGroupSizeList(int size){
+
+    /**
+     * Instantiates a new relative group size list.
+     *
+     * @param size
+     *            the size
+     */
+    public RelativeGroupSizeList(final int size) {
         super(size);
     }
-    
-    public RelativeGroupSizeList(List<RelativeGroupSize> list){
+
+    /**
+     * Instantiates a new relative group size list.
+     *
+     * @param list
+     *            the list
+     */
+    public RelativeGroupSizeList(final List<RelativeGroupSize> list) {
         super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

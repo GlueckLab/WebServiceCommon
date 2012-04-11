@@ -22,27 +22,72 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+
+// TO-DO: Auto-generated Javadoc
 /**
  * List of covariance objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class CovarianceSet extends HashSet<Covariance> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public CovarianceSet(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new covariance set.
+     */
+    public CovarianceSet() {
+
     }
-    
-    public CovarianceSet(int size){
+
+    /**
+     * Instantiates a new covariance set.
+     *
+     * @param size
+     *            the size
+     */
+    public CovarianceSet(final int size) {
         super(size);
     }
-    
-    public CovarianceSet(Set<Covariance> set){
+
+    /**
+     * Instantiates a new covariance set.
+     *
+     * @param set
+     *            the set
+     */
+    public CovarianceSet(final Set<Covariance> set) {
         super(set);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

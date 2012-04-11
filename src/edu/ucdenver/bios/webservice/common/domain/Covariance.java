@@ -249,10 +249,12 @@ public class Covariance implements Serializable {
     /*--------------------
      * toString()
      *--------------------*/
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
+    /**
+     * Intended only for debugging.
+     *
+     * <P>Here, a generic implementation uses reflection to print
+     * names and values of all fields <em>declared in this class</em>. Note that
+     * superclass fields are left out of this implementation.
      */
     @Override
     public String toString() {

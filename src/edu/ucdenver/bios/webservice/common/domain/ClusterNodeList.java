@@ -22,27 +22,72 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TO-DO: Auto-generated Javadoc
 /**
  * List of cluster node objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class ClusterNodeList extends ArrayList<ClusterNode> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public ClusterNodeList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new cluster node list.
+     */
+    public ClusterNodeList() {
+
     }
-    
-    public ClusterNodeList(int size){
+
+    /**
+     * Instantiates a new cluster node list.
+     *
+     * @param size
+     *            the size
+     */
+    public ClusterNodeList(final int size) {
         super(size);
     }
-    
-    public ClusterNodeList(List<ClusterNode> list){
+
+    /**
+     * Instantiates a new cluster node list.
+     *
+     * @param list
+     *            the list
+     */
+    public ClusterNodeList(final List<ClusterNode> list) {
         super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

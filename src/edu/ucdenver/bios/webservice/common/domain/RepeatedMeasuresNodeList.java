@@ -22,27 +22,73 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TO-DO: Auto-generated Javadoc
 /**
- * List of repeated measures node objects to work around Jackson serializaiton issues.
+ * List of repeated measures node objects to work around Jackson serializaiton
+ * issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class RepeatedMeasuresNodeList extends ArrayList<RepeatedMeasuresNode> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public RepeatedMeasuresNodeList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new repeated measures node list.
+     */
+    public RepeatedMeasuresNodeList() {
+
     }
-    
-    public RepeatedMeasuresNodeList(int size){
+
+    /**
+     * Instantiates a new repeated measures node list.
+     *
+     * @param size
+     *            the size
+     */
+    public RepeatedMeasuresNodeList(final int size) {
         super(size);
     }
-    
-    public RepeatedMeasuresNodeList(List<RepeatedMeasuresNode> list){
+
+    /**
+     * Instantiates a new repeated measures node list.
+     *
+     * @param list
+     *            the list
+     */
+    public RepeatedMeasuresNodeList(final List<RepeatedMeasuresNode> list) {
         super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

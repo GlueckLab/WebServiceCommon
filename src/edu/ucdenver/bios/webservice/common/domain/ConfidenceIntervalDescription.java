@@ -266,11 +266,7 @@ public class ConfidenceIntervalDescription implements Serializable {
     /*--------------------
      * toString()
      *--------------------*/
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
+    
     @Override
     public String toString() {
         return "ConfidenceIntervalDescription [id=" + id + ", betaFixed="

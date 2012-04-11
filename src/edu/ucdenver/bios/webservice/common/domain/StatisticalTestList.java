@@ -22,27 +22,72 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TO-DO: Auto-generated Javadoc
 /**
  * List of statistical test objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class StatisticalTestList extends ArrayList<StatisticalTest> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public StatisticalTestList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new statistical test list.
+     */
+    public StatisticalTestList() {
+
     }
-    
-    public StatisticalTestList(int size){
+
+    /**
+     * Instantiates a new statistical test list.
+     *
+     * @param size
+     *            the size
+     */
+    public StatisticalTestList(final int size) {
         super(size);
     }
-    
-    public StatisticalTestList(List<StatisticalTest> list){
+
+    /**
+     * Instantiates a new statistical test list.
+     *
+     * @param list
+     *            the list
+     */
+    public StatisticalTestList(final List<StatisticalTest> list) {
         super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

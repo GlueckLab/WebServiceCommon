@@ -22,27 +22,74 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TO-DO: Auto-generated Javadoc
 /**
- * List of between participant factor objects to work around Jackson serializaiton issues.
+ * List of between participant factor objects to work around Jackson
+ * serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class BetweenParticipantFactorList extends ArrayList<BetweenParticipantFactor>{
+public class BetweenParticipantFactorList extends
+        ArrayList<BetweenParticipantFactor> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public BetweenParticipantFactorList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+    /**
+     * Instantiates a new between participant factor list.
+     */
+    public BetweenParticipantFactorList() {
+
     }
-    
-    public BetweenParticipantFactorList(int size){
+
+    /**
+     * Instantiates a new between participant factor list.
+     *
+     * @param size
+     *            the size
+     */
+    public BetweenParticipantFactorList(final int size) {
         super(size);
     }
-    
-    public BetweenParticipantFactorList(List<BetweenParticipantFactor> list){
-        super(list);        
+
+    /**
+     * Instantiates a new between participant factor list.
+     *
+     * @param list
+     *            the list
+     */
+    public BetweenParticipantFactorList(
+            final List<BetweenParticipantFactor> list) {
+        super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

@@ -22,27 +22,72 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TO-DO: Auto-generated Javadoc
 /**
  * List of nominal power objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class NominalPowerList extends ArrayList<NominalPower> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public NominalPowerList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new nominal power list.
+     */
+    public NominalPowerList() {
+
     }
-    
-    public NominalPowerList(int size){
+
+    /**
+     * Instantiates a new nominal power list.
+     *
+     * @param size
+     *            the size
+     */
+    public NominalPowerList(final int size) {
         super(size);
     }
-    
-    public NominalPowerList(List<NominalPower> list){
+
+    /**
+     * Instantiates a new nominal power list.
+     *
+     * @param list
+     *            the list
+     */
+    public NominalPowerList(final List<NominalPower> list) {
         super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }

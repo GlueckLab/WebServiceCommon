@@ -25,7 +25,14 @@ import java.util.UUID;
 /**
  * Convenience routines for handling UUID's.
  */
-public class UUIDUtils {
+public final class UUIDUtils {
+
+    /**
+     * Instantiates a new uUID utils.
+     */
+    private UUIDUtils() {
+    }
+
     /**
      * Return a java.util.UUID as a byte array.
      *

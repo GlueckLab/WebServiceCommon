@@ -25,12 +25,12 @@ import java.util.List;
 
 // TO-DO: Auto-generated Javadoc
 /**
- * List of response objects to work around Jackson serializaiton issues.
+ * List of category objects to work around Jackson serializaiton issues.
  *
  * @author Uttara Sakhadeo
  *
  */
-public class ResponseList extends ArrayList<ResponseNode> {
+public class CategoryList extends ArrayList<Category> {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
@@ -43,29 +43,27 @@ public class ResponseList extends ArrayList<ResponseNode> {
      *--------------------*/
 
     /**
-     * Instantiates a new response list.
+     * Instantiates a new category list.
      */
-    public ResponseList() {
+    public CategoryList() {
 
     }
 
     /**
-     * Instantiates a new response list.
+     * Instantiates a new category list.
      *
-     * @param size
-     *            the size
+     * @param size the size
      */
-    public ResponseList(final int size) {
+    public CategoryList(final int size) {
         super(size);
     }
 
     /**
-     * Instantiates a new response list.
+     * Instantiates a new category list.
      *
-     * @param list
-     *            the list
+     * @param list the list
      */
-    public ResponseList(final List<ResponseNode> list) {
+    public CategoryList(final List<Category> list) {
         super(list);
     }
 

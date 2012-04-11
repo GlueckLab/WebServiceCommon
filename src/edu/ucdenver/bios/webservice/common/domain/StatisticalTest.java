@@ -24,6 +24,7 @@ import java.io.Serializable;
 
 import edu.ucdenver.bios.webservice.common.enums.StatisticalTestTypeEnum;
 
+// TODO: Auto-generated Javadoc
 /**
  * This is a wrapper for the test list object information.
  *
@@ -108,10 +109,14 @@ public class StatisticalTest implements Serializable {
     /*--------------------
      * toString()
      *--------------------*/
-    /*
-     * (non-Javadoc)
+    /**
+     * Intended only for debugging.
+     * 
+     * <P>Here, a generic implementation uses reflection to print
+     * names and values of all fields <em>declared in this class</em>. Note that
+     * superclass fields are left out of this implementation.
      *
-     * @see java.lang.Object#toString()
+     * @return the string
      */
     @Override
     public final String toString() {

@@ -22,27 +22,72 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 /**
  * List of sample size objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
 public class SampleSizeList extends ArrayList<SampleSize> {
 
-    /**
-     * 
-     */
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    public SampleSizeList(){
-        
+    /** The uuid. */
+    private byte[] uuid = null;
+
+    /*--------------------
+     * Constructors
+     *--------------------*/
+
+    /**
+     * Instantiates a new sample size list.
+     */
+    public SampleSizeList() {
+
     }
-    
-    public SampleSizeList(int size){
+
+    /**
+     * Instantiates a new sample size list.
+     *
+     * @param size
+     *            the size
+     */
+    public SampleSizeList(final int size) {
         super(size);
     }
-    
-    public SampleSizeList(List<SampleSize> list){
+
+    /**
+     * Instantiates a new sample size list.
+     *
+     * @param list
+     *            the list
+     */
+    public SampleSizeList(final List<SampleSize> list) {
         super(list);
+    }
+
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
+    /**
+     * Gets the uuid.
+     *
+     * @return the uuid
+     */
+    public final byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     *
+     * @param uuid
+     *            the new uuid
+     */
+    public final void setUuid(final byte[] uuid) {
+        this.uuid = uuid;
     }
 }
