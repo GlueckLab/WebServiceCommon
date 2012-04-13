@@ -23,20 +23,23 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-// TO-DO: Auto-generated Javadoc
+// TODO: Auto-generated Javadoc
 /**
  * List of nominal power objects to work around Jackson serializaiton issues.
  *
  * @author Uttara Sakhadeo
  *
  */
-public class NominalPowerList extends ArrayList<NominalPower> {
+public class NominalPowerList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+    
+    /** The nominal power list. */
+    private List<NominalPower> nominalPowerList = null;
 
     /*--------------------
      * Constructors
@@ -48,6 +51,27 @@ public class NominalPowerList extends ArrayList<NominalPower> {
     public NominalPowerList() {
 
     }
+    
+    /**
+     * Instantiates a new nominal power list.
+     *
+     * @param uuid the uuid
+     */
+    public NominalPowerList(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+    
+    /**
+     * Instantiates a new nominal power list.
+     *
+     * @param uuid the uuid
+     * @param list the list
+     */
+    public NominalPowerList(final byte[] uuid,
+        final List<NominalPower> list) {
+        this.uuid = uuid;
+        this.nominalPowerList = list;
+    }
 
     /**
      * Instantiates a new nominal power list.
@@ -56,7 +80,7 @@ public class NominalPowerList extends ArrayList<NominalPower> {
      *            the size
      */
     public NominalPowerList(final int size) {
-        super(size);
+        this.nominalPowerList = new ArrayList<NominalPower>(size);
     }
 
     /**
@@ -66,7 +90,7 @@ public class NominalPowerList extends ArrayList<NominalPower> {
      *            the list
      */
     public NominalPowerList(final List<NominalPower> list) {
-        super(list);
+        this.nominalPowerList =  list;
     }
 
     /*--------------------
@@ -90,4 +114,23 @@ public class NominalPowerList extends ArrayList<NominalPower> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the nominal power list.
+     *
+     * @return the nominal power list
+     */
+    public final List<NominalPower> getNominalPowerList() {
+        return nominalPowerList;
+    }
+
+    /**
+     * Sets the nominal power list.
+     *
+     * @param nominalPowerList the new nominal power list
+     */
+    public final void setNominalPowerList(List<NominalPower> nominalPowerList) {
+        this.nominalPowerList = nominalPowerList;
+    }
+        
 }

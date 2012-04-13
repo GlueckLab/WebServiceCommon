@@ -26,17 +26,20 @@ import java.util.List;
 // TO-DO: Auto-generated Javadoc
 /**
  * List of response objects to work around Jackson serializaiton issues.
- *
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
-public class ResponseList extends ArrayList<ResponseNode> {
+public class ResponseList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The response node list. */
+    private List<ResponseNode> responseNodeList = null;
 
     /*--------------------
      * Constructors
@@ -51,22 +54,45 @@ public class ResponseList extends ArrayList<ResponseNode> {
 
     /**
      * Instantiates a new response list.
-     *
-     * @param size
-     *            the size
+     * 
+     * @param uuid
+     *            the uuid
      */
-    public ResponseList(final int size) {
-        super(size);
+    public ResponseList(final byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /**
      * Instantiates a new response list.
-     *
+     * 
+     * @param uuid
+     *            the uuid
+     * @param list
+     *            the list
+     */
+    public ResponseList(final byte[] uuid, final List<ResponseNode> list) {
+        this.uuid = uuid;
+        this.responseNodeList = list;
+    }
+
+    /**
+     * Instantiates a new response list.
+     * 
+     * @param size
+     *            the size
+     */
+    public ResponseList(final int size) {
+        this.responseNodeList = new ArrayList<ResponseNode>(size);
+    }
+
+    /**
+     * Instantiates a new response list.
+     * 
      * @param list
      *            the list
      */
     public ResponseList(final List<ResponseNode> list) {
-        super(list);
+        this.responseNodeList = list;
     }
 
     /*--------------------
@@ -74,7 +100,7 @@ public class ResponseList extends ArrayList<ResponseNode> {
      *--------------------*/
     /**
      * Gets the uuid.
-     *
+     * 
      * @return the uuid
      */
     public final byte[] getUuid() {
@@ -83,11 +109,31 @@ public class ResponseList extends ArrayList<ResponseNode> {
 
     /**
      * Sets the uuid.
-     *
+     * 
      * @param uuid
      *            the new uuid
      */
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the response node list.
+     * 
+     * @return the response node list
+     */
+    public final List<ResponseNode> getResponseNodeList() {
+        return responseNodeList;
+    }
+
+    /**
+     * Sets the response node list.
+     * 
+     * @param responseNodeList
+     *            the new response node list
+     */
+    public final void setResponseNodeList(List<ResponseNode> responseNodeList) {
+        this.responseNodeList = responseNodeList;
+    }
+
 }

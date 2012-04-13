@@ -30,13 +30,16 @@ import java.util.List;
  * @author Uttara Sakhadeo
  *
  */
-public class StatisticalTestList extends ArrayList<StatisticalTest> {
+public class StatisticalTestList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The statistical test list. */
+    private List<StatisticalTest> statisticalTestList = null;
 
     /*--------------------
      * Constructors
@@ -52,11 +55,32 @@ public class StatisticalTestList extends ArrayList<StatisticalTest> {
     /**
      * Instantiates a new statistical test list.
      *
+     * @param uuid the uuid
+     */
+    public StatisticalTestList(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+
+    /**
+     * Instantiates a new statistical test list.
+     *
+     * @param uuid the uuid
+     * @param list the list
+     */
+    public StatisticalTestList(final byte[] uuid,
+        final List<StatisticalTest> list) {
+        this.uuid = uuid;
+        this.statisticalTestList = list;
+    }
+
+    /**
+     * Instantiates a new statistical test list.
+     *
      * @param size
      *            the size
      */
     public StatisticalTestList(final int size) {
-        super(size);
+        this.statisticalTestList = new ArrayList<StatisticalTest>(size);
     }
 
     /**
@@ -66,7 +90,7 @@ public class StatisticalTestList extends ArrayList<StatisticalTest> {
      *            the list
      */
     public StatisticalTestList(final List<StatisticalTest> list) {
-        super(list);
+        this.statisticalTestList = list;
     }
 
     /*--------------------
@@ -90,4 +114,24 @@ public class StatisticalTestList extends ArrayList<StatisticalTest> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the statistical test list.
+     *
+     * @return the statistical test list
+     */
+    public final List<StatisticalTest> getStatisticalTestList() {
+        return statisticalTestList;
+    }
+
+    /**
+     * Sets the statistical test list.
+     *
+     * @param statisticalTestList the new statistical test list
+     */
+    public final void setStatisticalTestList(
+            List<StatisticalTest> statisticalTestList) {
+        this.statisticalTestList = statisticalTestList;
+    }
+
 }

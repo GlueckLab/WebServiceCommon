@@ -23,6 +23,7 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+// TODO: Auto-generated Javadoc
 // TO-DO: Auto-generated Javadoc
 /**
  * List of Hypothesis objects to work around Jackson serializaiton issues.
@@ -30,13 +31,16 @@ import java.util.Set;
  * @author Uttara Sakhadeo
  *
  */
-public class HypothesisSet extends HashSet<Hypothesis> {
+public class HypothesisSet {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+    
+    /** The hypothesis set. */
+    private Set<Hypothesis> hypothesisSet = null;
 
     /*--------------------
      * Constructors
@@ -48,6 +52,27 @@ public class HypothesisSet extends HashSet<Hypothesis> {
     public HypothesisSet() {
 
     }
+    
+    /**
+     * Instantiates a new hypothesis set.
+     *
+     * @param uuid the uuid
+     */
+    public HypothesisSet(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+    
+    /**
+     * Instantiates a new hypothesis set.
+     *
+     * @param uuid the uuid
+     * @param set the set
+     */
+    public HypothesisSet(final byte[] uuid,
+        final Set<Hypothesis> set) {
+        this.uuid = uuid;
+        this.hypothesisSet = set;
+    }
 
     /**
      * Instantiates a new hypothesis set.
@@ -56,7 +81,7 @@ public class HypothesisSet extends HashSet<Hypothesis> {
      *            the size
      */
     public HypothesisSet(final int size) {
-        super(size);
+        this.hypothesisSet = new HashSet<Hypothesis>(size);
     }
 
     /**
@@ -66,7 +91,7 @@ public class HypothesisSet extends HashSet<Hypothesis> {
      *            the set
      */
     public HypothesisSet(final Set<Hypothesis> set) {
-        super(set);
+        this.hypothesisSet = set;
     }
 
     /*--------------------
@@ -90,4 +115,23 @@ public class HypothesisSet extends HashSet<Hypothesis> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the hypothesis set.
+     *
+     * @return the hypothesis set
+     */
+    public final Set<Hypothesis> getHypothesisSet() {
+        return hypothesisSet;
+    }
+
+    /**
+     * Sets the hypothesis set.
+     *
+     * @param hypothesisSet the new hypothesis set
+     */
+    public final void setHypothesisSet(Set<Hypothesis> hypothesisSet) {
+        this.hypothesisSet = hypothesisSet;
+    }
+        
 }

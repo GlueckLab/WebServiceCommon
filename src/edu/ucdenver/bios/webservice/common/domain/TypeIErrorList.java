@@ -26,9 +26,9 @@ import java.util.List;
 // TODO: Auto-generated Javadoc
 /**
  * List of Type I Error objects to work around Jackson serializaiton issues.
- *
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
 public class TypeIErrorList {
 
@@ -37,7 +37,7 @@ public class TypeIErrorList {
 
     /** The uuid. */
     private byte[] uuid = null;
-    
+
     /** The type i error list. */
     List<TypeIError> typeIErrorList = null;
 
@@ -50,12 +50,13 @@ public class TypeIErrorList {
      */
     public TypeIErrorList() {
 
-    }       
+    }
 
     /**
      * Instantiates a new type i error list.
-     *
-     * @param uuid the uuid
+     * 
+     * @param uuid
+     *            the uuid
      */
     public TypeIErrorList(byte[] uuid) {
         super();
@@ -64,9 +65,11 @@ public class TypeIErrorList {
 
     /**
      * Instantiates a new type i error list.
-     *
-     * @param uuid the uuid
-     * @param typeIErrorList the type i error list
+     * 
+     * @param uuid
+     *            the uuid
+     * @param typeIErrorList
+     *            the type i error list
      */
     public TypeIErrorList(byte[] uuid, List<TypeIError> typeIErrorList) {
         super();
@@ -76,7 +79,7 @@ public class TypeIErrorList {
 
     /**
      * Instantiates a new type i error list.
-     *
+     * 
      * @param size
      *            the size
      */
@@ -86,7 +89,7 @@ public class TypeIErrorList {
 
     /**
      * Instantiates a new type i error list.
-     *
+     * 
      * @param list
      *            the list
      */
@@ -99,7 +102,7 @@ public class TypeIErrorList {
      *--------------------*/
     /**
      * Gets the uuid.
-     *
+     * 
      * @return the uuid
      */
     public final byte[] getUuid() {
@@ -108,7 +111,7 @@ public class TypeIErrorList {
 
     /**
      * Sets the uuid.
-     *
+     * 
      * @param uuid
      *            the new uuid
      */
@@ -118,7 +121,7 @@ public class TypeIErrorList {
 
     /**
      * Gets the type i error list.
-     *
+     * 
      * @return the type i error list
      */
     public List<TypeIError> getTypeIErrorList() {
@@ -127,11 +130,12 @@ public class TypeIErrorList {
 
     /**
      * Sets the type i error list.
-     *
-     * @param typeIErrorList the new type i error list
+     * 
+     * @param typeIErrorList
+     *            the new type i error list
      */
     public void setTypeIErrorList(List<TypeIError> typeIErrorList) {
         this.typeIErrorList = typeIErrorList;
     }
-        
+
 }

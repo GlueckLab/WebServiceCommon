@@ -24,19 +24,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * List of sample size objects to work around Jackson serializaiton issues.
  *
  * @author Uttara Sakhadeo
  *
  */
-public class SampleSizeList extends ArrayList<SampleSize> {
+public class SampleSizeList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The sample size list. */
+    private List<SampleSize> sampleSizeList = null;
 
     /*--------------------
      * Constructors
@@ -52,11 +56,32 @@ public class SampleSizeList extends ArrayList<SampleSize> {
     /**
      * Instantiates a new sample size list.
      *
+     * @param uuid the uuid
+     */
+    public SampleSizeList(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+
+    /**
+     * Instantiates a new sample size list.
+     *
+     * @param uuid the uuid
+     * @param list the list
+     */
+    public SampleSizeList(final byte[] uuid,
+            final List<SampleSize> list) {
+        this.uuid = uuid;
+        this.sampleSizeList = list;
+    }
+
+    /**
+     * Instantiates a new sample size list.
+     *
      * @param size
      *            the size
      */
     public SampleSizeList(final int size) {
-        super(size);
+        this.sampleSizeList =  new ArrayList<SampleSize>(size);
     }
 
     /**
@@ -66,7 +91,7 @@ public class SampleSizeList extends ArrayList<SampleSize> {
      *            the list
      */
     public SampleSizeList(final List<SampleSize> list) {
-        super(list);
+        this.sampleSizeList =  list;
     }
 
     /*--------------------
@@ -90,4 +115,23 @@ public class SampleSizeList extends ArrayList<SampleSize> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the sample size list.
+     *
+     * @return the sample size list
+     */
+    public final List<SampleSize> getSampleSizeList() {
+        return sampleSizeList;
+    }
+
+    /**
+     * Sets the sample size list.
+     *
+     * @param sampleSizeList the new sample size list
+     */
+    public final void setSampleSizeList(List<SampleSize> sampleSizeList) {
+        this.sampleSizeList = sampleSizeList;
+    }
+
 }

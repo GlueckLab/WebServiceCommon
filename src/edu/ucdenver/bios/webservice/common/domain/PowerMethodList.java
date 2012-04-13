@@ -23,20 +23,24 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
 // TO-DO: Auto-generated Javadoc
 /**
  * List of power method objects to work around Jackson serializaiton issues.
- *
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
-public class PowerMethodList extends ArrayList<PowerMethod> {
+public class PowerMethodList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The power method list. */
+    private List<PowerMethod> powerMethodList = null;
 
     /*--------------------
      * Constructors
@@ -51,22 +55,45 @@ public class PowerMethodList extends ArrayList<PowerMethod> {
 
     /**
      * Instantiates a new power method list.
-     *
-     * @param size
-     *            the size
+     * 
+     * @param uuid
+     *            the uuid
      */
-    public PowerMethodList(final int size) {
-        super(size);
+    public PowerMethodList(final byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /**
      * Instantiates a new power method list.
-     *
+     * 
+     * @param uuid
+     *            the uuid
+     * @param list
+     *            the list
+     */
+    public PowerMethodList(final byte[] uuid, final List<PowerMethod> list) {
+        this.uuid = uuid;
+        this.powerMethodList = list;
+    }
+
+    /**
+     * Instantiates a new power method list.
+     * 
+     * @param size
+     *            the size
+     */
+    public PowerMethodList(final int size) {
+        this.powerMethodList = new ArrayList<PowerMethod>(size);
+    }
+
+    /**
+     * Instantiates a new power method list.
+     * 
      * @param list
      *            the list
      */
     public PowerMethodList(final List<PowerMethod> list) {
-        super(list);
+        this.powerMethodList = list;
     }
 
     /*--------------------
@@ -74,7 +101,7 @@ public class PowerMethodList extends ArrayList<PowerMethod> {
      *--------------------*/
     /**
      * Gets the uuid.
-     *
+     * 
      * @return the uuid
      */
     public final byte[] getUuid() {
@@ -83,7 +110,7 @@ public class PowerMethodList extends ArrayList<PowerMethod> {
 
     /**
      * Sets the uuid.
-     *
+     * 
      * @param uuid
      *            the new uuid
      */

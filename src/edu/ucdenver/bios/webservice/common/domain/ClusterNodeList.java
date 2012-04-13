@@ -23,20 +23,23 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-// TO-DO: Auto-generated Javadoc
+// TODO: Auto-generated Javadoc
 /**
  * List of cluster node objects to work around Jackson serializaiton issues.
- *
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
-public class ClusterNodeList extends ArrayList<ClusterNode> {
+public class ClusterNodeList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The cluster node list. */
+    private List<ClusterNode> clusterNodeList = null;
 
     /*--------------------
      * Constructors
@@ -51,22 +54,45 @@ public class ClusterNodeList extends ArrayList<ClusterNode> {
 
     /**
      * Instantiates a new cluster node list.
-     *
-     * @param size
-     *            the size
+     * 
+     * @param uuid
+     *            the uuid
      */
-    public ClusterNodeList(final int size) {
-        super(size);
+    public ClusterNodeList(final byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /**
      * Instantiates a new cluster node list.
-     *
+     * 
+     * @param uuid
+     *            the uuid
+     * @param list
+     *            the list
+     */
+    public ClusterNodeList(final byte[] uuid, final List<ClusterNode> list) {
+        this.uuid = uuid;
+        this.clusterNodeList = list;
+    }
+
+    /**
+     * Instantiates a new cluster node list.
+     * 
+     * @param size
+     *            the size
+     */
+    public ClusterNodeList(final int size) {
+        this.clusterNodeList = new ArrayList<ClusterNode>(size);
+    }
+
+    /**
+     * Instantiates a new cluster node list.
+     * 
      * @param list
      *            the list
      */
     public ClusterNodeList(final List<ClusterNode> list) {
-        super(list);
+        this.clusterNodeList = list;
     }
 
     /*--------------------
@@ -74,7 +100,7 @@ public class ClusterNodeList extends ArrayList<ClusterNode> {
      *--------------------*/
     /**
      * Gets the uuid.
-     *
+     * 
      * @return the uuid
      */
     public final byte[] getUuid() {
@@ -83,11 +109,31 @@ public class ClusterNodeList extends ArrayList<ClusterNode> {
 
     /**
      * Sets the uuid.
-     *
+     * 
      * @param uuid
      *            the new uuid
      */
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the cluster node list.
+     * 
+     * @return the cluster node list
+     */
+    public List<ClusterNode> getClusterNodeList() {
+        return clusterNodeList;
+    }
+
+    /**
+     * Sets the cluster node list.
+     * 
+     * @param clusterNodeList
+     *            the new cluster node list
+     */
+    public void setClusterNodeList(List<ClusterNode> clusterNodeList) {
+        this.clusterNodeList = clusterNodeList;
+    }
+
 }

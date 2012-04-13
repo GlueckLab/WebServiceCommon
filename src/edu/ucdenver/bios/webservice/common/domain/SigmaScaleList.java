@@ -20,6 +20,7 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,13 +31,16 @@ import java.util.List;
  * @author Uttara Sakhadeo
  *
  */
-public class SigmaScaleList extends ArrayList<SigmaScale> {
+public class SigmaScaleList implements Serializable{
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+    
+    /** The sigma scale list. */
+    private List<SigmaScale> sigmaScaleList = null;
 
     /*--------------------
      * Constructors
@@ -48,6 +52,27 @@ public class SigmaScaleList extends ArrayList<SigmaScale> {
     public SigmaScaleList() {
 
     }
+    
+    /**
+     * Instantiates a new sigma scale list.
+     *
+     * @param uuid the uuid
+     */
+    public SigmaScaleList(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+    
+    /**
+     * Instantiates a new sigma scale list.
+     *
+     * @param uuid the uuid
+     * @param list the list
+     */
+    public SigmaScaleList(final byte[] uuid,
+        final List<SigmaScale> list) {
+        this.uuid = uuid;
+        this.sigmaScaleList = list;
+    }
 
     /**
      * Instantiates a new sigma scale list.
@@ -56,7 +81,7 @@ public class SigmaScaleList extends ArrayList<SigmaScale> {
      *            the size
      */
     public SigmaScaleList(final int size) {
-        super(size);
+        this.sigmaScaleList = new ArrayList<SigmaScale>(size);
     }
 
     /**
@@ -66,7 +91,7 @@ public class SigmaScaleList extends ArrayList<SigmaScale> {
      *            the list
      */
     public SigmaScaleList(final List<SigmaScale> list) {
-        super(list);
+        this.sigmaScaleList =  list;
     }
 
     /*--------------------
@@ -90,4 +115,23 @@ public class SigmaScaleList extends ArrayList<SigmaScale> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the sigma scale list.
+     *
+     * @return the sigma scale list
+     */
+    public List<SigmaScale> getSigmaScaleList() {
+        return sigmaScaleList;
+    }
+
+    /**
+     * Sets the sigma scale list.
+     *
+     * @param sigmaScaleList the new sigma scale list
+     */
+    public void setSigmaScaleList(List<SigmaScale> sigmaScaleList) {
+        this.sigmaScaleList = sigmaScaleList;
+    }
+        
 }

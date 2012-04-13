@@ -23,7 +23,7 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-// TO-DO: Auto-generated Javadoc
+// TODO: Auto-generated Javadoc
 /**
  * List of relative group size objects to work around Jackson serializaiton
  * issues.
@@ -31,13 +31,16 @@ import java.util.List;
  * @author Uttara Sakhadeo
  *
  */
-public class RelativeGroupSizeList extends ArrayList<RelativeGroupSize> {
+public class RelativeGroupSizeList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+    
+    /** The relative group size list. */
+    private List<RelativeGroupSize> relativeGroupSizeList = null;
 
     /*--------------------
      * Constructors
@@ -49,6 +52,27 @@ public class RelativeGroupSizeList extends ArrayList<RelativeGroupSize> {
     public RelativeGroupSizeList() {
 
     }
+    
+    /**
+     * Instantiates a new relative group size list.
+     *
+     * @param uuid the uuid
+     */
+    public RelativeGroupSizeList(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+    
+    /**
+     * Instantiates a new relative group size list.
+     *
+     * @param uuid the uuid
+     * @param list the list
+     */
+    public RelativeGroupSizeList(final byte[] uuid,
+        final List<RelativeGroupSize> list) {
+        this.uuid = uuid;
+        this.relativeGroupSizeList = list;
+    }
 
     /**
      * Instantiates a new relative group size list.
@@ -57,7 +81,7 @@ public class RelativeGroupSizeList extends ArrayList<RelativeGroupSize> {
      *            the size
      */
     public RelativeGroupSizeList(final int size) {
-        super(size);
+        this.relativeGroupSizeList = new ArrayList<RelativeGroupSize>(size);
     }
 
     /**
@@ -67,7 +91,7 @@ public class RelativeGroupSizeList extends ArrayList<RelativeGroupSize> {
      *            the list
      */
     public RelativeGroupSizeList(final List<RelativeGroupSize> list) {
-        super(list);
+        this.relativeGroupSizeList = list;
     }
 
     /*--------------------
@@ -91,4 +115,24 @@ public class RelativeGroupSizeList extends ArrayList<RelativeGroupSize> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the relative group size list.
+     *
+     * @return the relative group size list
+     */
+    public final List<RelativeGroupSize> getRelativeGroupSizeList() {
+        return relativeGroupSizeList;
+    }
+
+    /**
+     * Sets the relative group size list.
+     *
+     * @param relativeGroupSizeList the new relative group size list
+     */
+    public final void setRelativeGroupSizeList(
+            List<RelativeGroupSize> relativeGroupSizeList) {
+        this.relativeGroupSizeList = relativeGroupSizeList;
+    }
+        
 }

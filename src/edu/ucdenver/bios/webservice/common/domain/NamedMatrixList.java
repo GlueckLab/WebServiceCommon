@@ -23,19 +23,22 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-// TO-DO: Auto-generated Javadoc
+// TODO: Auto-generated Javadoc
 /**
  * List of named matrix objects to work around Jackson serializaiton issues.
- *
+ * 
  * @author Sarah Kreidler
  */
-public class NamedMatrixList extends ArrayList<NamedMatrix> {
+public class NamedMatrixList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The matrix list. */
+    private List<NamedMatrix> matrixList = null;
 
     /*--------------------
      * Constructors
@@ -50,22 +53,45 @@ public class NamedMatrixList extends ArrayList<NamedMatrix> {
 
     /**
      * Instantiates a new named matrix list.
-     *
-     * @param size
-     *            the size
+     * 
+     * @param uuid
+     *            the uuid
      */
-    public NamedMatrixList(final int size) {
-        super(size);
+    public NamedMatrixList(final byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /**
      * Instantiates a new named matrix list.
-     *
+     * 
+     * @param uuid
+     *            the uuid
+     * @param list
+     *            the list
+     */
+    public NamedMatrixList(final byte[] uuid, final List<NamedMatrix> list) {
+        this.uuid = uuid;
+        this.matrixList = list;
+    }
+
+    /**
+     * Instantiates a new named matrix list.
+     * 
+     * @param size
+     *            the size
+     */
+    public NamedMatrixList(final int size) {
+        this.matrixList = new ArrayList<NamedMatrix>(size);
+    }
+
+    /**
+     * Instantiates a new named matrix list.
+     * 
      * @param list
      *            the list
      */
     public NamedMatrixList(final List<NamedMatrix> list) {
-        super(list);
+        this.matrixList = list;
     }
 
     /*--------------------
@@ -73,7 +99,7 @@ public class NamedMatrixList extends ArrayList<NamedMatrix> {
      *--------------------*/
     /**
      * Gets the uuid.
-     *
+     * 
      * @return the uuid
      */
     public final byte[] getUuid() {
@@ -82,11 +108,31 @@ public class NamedMatrixList extends ArrayList<NamedMatrix> {
 
     /**
      * Sets the uuid.
-     *
+     * 
      * @param uuid
      *            the new uuid
      */
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the matrix list.
+     * 
+     * @return the matrix list
+     */
+    public final List<NamedMatrix> getMatrixList() {
+        return matrixList;
+    }
+
+    /**
+     * Sets the matrix list.
+     * 
+     * @param matrixList
+     *            the new matrix list
+     */
+    public final void setMatrixList(List<NamedMatrix> matrixList) {
+        this.matrixList = matrixList;
+    }
+
 }

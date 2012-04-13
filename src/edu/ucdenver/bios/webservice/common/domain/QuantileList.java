@@ -23,20 +23,26 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-// TO-DO: Auto-generated Javadoc
+import org.hibernate.mapping.Array;
+
+// TODO: Auto-generated Javadoc
+
 /**
  * List of quantile objects to work around Jackson serializaiton issues.
- *
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
-public class QuantileList extends ArrayList<Quantile> {
+public class QuantileList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The quantile list. */
+    private List<Quantile> quantileList = null;
 
     /*--------------------
      * Constructors
@@ -51,22 +57,45 @@ public class QuantileList extends ArrayList<Quantile> {
 
     /**
      * Instantiates a new quantile list.
-     *
-     * @param size
-     *            the size
+     * 
+     * @param uuid
+     *            the uuid
      */
-    public QuantileList(final int size) {
-        super(size);
+    public QuantileList(final byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /**
      * Instantiates a new quantile list.
-     *
+     * 
+     * @param uuid
+     *            the uuid
+     * @param list
+     *            the list
+     */
+    public QuantileList(final byte[] uuid, final List<Quantile> list) {
+        this.uuid = uuid;
+        this.quantileList = list;
+    }
+
+    /**
+     * Instantiates a new quantile list.
+     * 
+     * @param size
+     *            the size
+     */
+    public QuantileList(final int size) {
+        this.quantileList = new ArrayList<Quantile>(size);
+    }
+
+    /**
+     * Instantiates a new quantile list.
+     * 
      * @param list
      *            the list
      */
     public QuantileList(final List<Quantile> list) {
-        super(list);
+        this.quantileList = list;
     }
 
     /*--------------------
@@ -74,7 +103,7 @@ public class QuantileList extends ArrayList<Quantile> {
      *--------------------*/
     /**
      * Gets the uuid.
-     *
+     * 
      * @return the uuid
      */
     public final byte[] getUuid() {
@@ -83,11 +112,31 @@ public class QuantileList extends ArrayList<Quantile> {
 
     /**
      * Sets the uuid.
-     *
+     * 
      * @param uuid
      *            the new uuid
      */
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the quantile list.
+     * 
+     * @return the quantile list
+     */
+    public final List<Quantile> getQuantileList() {
+        return quantileList;
+    }
+
+    /**
+     * Sets the quantile list.
+     * 
+     * @param quantileList
+     *            the new quantile list
+     */
+    public final void setQuantileList(List<Quantile> quantileList) {
+        this.quantileList = quantileList;
+    }
+
 }

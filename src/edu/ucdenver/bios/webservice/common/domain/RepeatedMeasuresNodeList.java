@@ -20,10 +20,11 @@
  */
 package edu.ucdenver.bios.webservice.common.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-// TO-DO: Auto-generated Javadoc
+// TODO: Auto-generated Javadoc
 /**
  * List of repeated measures node objects to work around Jackson serializaiton
  * issues.
@@ -31,13 +32,16 @@ import java.util.List;
  * @author Uttara Sakhadeo
  *
  */
-public class RepeatedMeasuresNodeList extends ArrayList<RepeatedMeasuresNode> {
+public class RepeatedMeasuresNodeList implements Serializable{
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The repeated measures list. */
+    private List<RepeatedMeasuresNode> repeatedMeasuresList = null;
 
     /*--------------------
      * Constructors
@@ -53,11 +57,32 @@ public class RepeatedMeasuresNodeList extends ArrayList<RepeatedMeasuresNode> {
     /**
      * Instantiates a new repeated measures node list.
      *
+     * @param uuid the uuid
+     */
+    public RepeatedMeasuresNodeList(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+
+    /**
+     * Instantiates a new repeated measures node list.
+     *
+     * @param uuid the uuid
+     * @param list the list
+     */
+    public RepeatedMeasuresNodeList(final byte[] uuid,
+        final List<RepeatedMeasuresNode> list) {
+        this.uuid = uuid;
+        this.repeatedMeasuresList = list;
+    }
+
+    /**
+     * Instantiates a new repeated measures node list.
+     *
      * @param size
      *            the size
      */
     public RepeatedMeasuresNodeList(final int size) {
-        super(size);
+        this.repeatedMeasuresList = new ArrayList<RepeatedMeasuresNode>(size);
     }
 
     /**
@@ -67,7 +92,7 @@ public class RepeatedMeasuresNodeList extends ArrayList<RepeatedMeasuresNode> {
      *            the list
      */
     public RepeatedMeasuresNodeList(final List<RepeatedMeasuresNode> list) {
-        super(list);
+        this.repeatedMeasuresList = list;
     }
 
     /*--------------------
@@ -91,4 +116,23 @@ public class RepeatedMeasuresNodeList extends ArrayList<RepeatedMeasuresNode> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the repeated measures list.
+     *
+     * @return the repeated measures list
+     */
+    public final List<RepeatedMeasuresNode> getRepeatedMeasuresList() {
+        return repeatedMeasuresList;
+    }
+
+    /**
+     * Sets the repeated measures list.
+     *
+     * @param repeatedMeasuresList the new repeated measures list
+     */
+    public final void setRepeatedMeasuresList(
+            List<RepeatedMeasuresNode> repeatedMeasuresList) {
+        this.repeatedMeasuresList = repeatedMeasuresList;
+    }      
 }

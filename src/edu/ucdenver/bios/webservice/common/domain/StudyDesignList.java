@@ -30,13 +30,16 @@ import java.util.List;
  * @author Uttara Sakhadeo
  *
  */
-public class StudyDesignList extends ArrayList<StudyDesign> {
+public class StudyDesignList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The study design list. */
+    private List<StudyDesign> studyDesignList = null;
 
     /*--------------------
      * Constructors
@@ -52,11 +55,32 @@ public class StudyDesignList extends ArrayList<StudyDesign> {
     /**
      * Instantiates a new study design list.
      *
+     * @param uuid the uuid
+     */
+    public StudyDesignList(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+
+    /**
+     * Instantiates a new study design list.
+     *
+     * @param uuid the uuid
+     * @param list the list
+     */
+    public StudyDesignList(final byte[] uuid,
+            final List<StudyDesign> list) {
+        this.uuid = uuid;
+        this.studyDesignList = list;
+    }
+
+    /**
+     * Instantiates a new study design list.
+     *
      * @param size
      *            the size
      */
     public StudyDesignList(final int size) {
-        super(size);
+        this.studyDesignList = new ArrayList<StudyDesign>(size);
     }
 
     /**
@@ -66,7 +90,7 @@ public class StudyDesignList extends ArrayList<StudyDesign> {
      *            the list
      */
     public StudyDesignList(final List<StudyDesign> list) {
-        super(list);
+        this.studyDesignList = list;
     }
 
     /*--------------------
@@ -90,4 +114,23 @@ public class StudyDesignList extends ArrayList<StudyDesign> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the study design list.
+     *
+     * @return the study design list
+     */
+    public final List<StudyDesign> getStudyDesignList() {
+        return studyDesignList;
+    }
+
+    /**
+     * Sets the study design list.
+     *
+     * @param studyDesignList the new study design list
+     */
+    public final void setStudyDesignList(final List<StudyDesign> studyDesignList) {
+        this.studyDesignList = studyDesignList;
+    }
+
 }
