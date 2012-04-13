@@ -23,20 +23,25 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+// TODO: Auto-generated Javadoc
 // TO-DO: Auto-generated Javadoc
+
 /**
  * List of beta scale objects to work around Jackson serializaiton issues.
+ *
  * @author Uttara Sakhadeo
  *
  */
-public class BetaScaleList extends ArrayList<BetaScale>
-implements Serializable {
-
+public class BetaScaleList {
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The beta scale list. */
+    private List<BetaScale> betaScaleList = null;
 
     /*--------------------
      * Constructors
@@ -45,23 +50,51 @@ implements Serializable {
      * Instantiates a new beta scale list.
      */
     public BetaScaleList() {
+
     }
+
     /**
      * Instantiates a new beta scale list.
      *
+     * @param uuid
+     *            the uuid
+     */
+    public BetaScaleList(final byte[] uuid) {
+        this.uuid = uuid;
+    }
+    
+    /**
+     * Instantiates a new beta scale list.
+     *
+     * @param uuid the uuid
      * @param list the list
      */
-    public BetaScaleList(final List<BetaScale> list) {
-        super(list);
+    public BetaScaleList(final byte[] uuid,
+            final List<BetaScale> list) {
+        this.betaScaleList = list;
+        this.uuid = uuid;
     }
+
     /**
      * Instantiates a new beta scale list.
      *
-     * @param size the size
+     * @param list
+     *            the list
+     */
+    public BetaScaleList(final List<BetaScale> list) {
+        this.betaScaleList = list;
+    }
+
+    /**
+     * Instantiates a new beta scale list.
+     *
+     * @param size
+     *            the size
      */
     public BetaScaleList(final int size) {
-        super(size);
+        this.betaScaleList = new ArrayList<BetaScale>(size);
     }
+
     /*--------------------
      * Getter/Setter Methods
      *--------------------*/
@@ -73,6 +106,7 @@ implements Serializable {
     public final byte[] getUuid() {
         return uuid;
     }
+
     /**
      * Sets the uuid.
      *
@@ -82,4 +116,24 @@ implements Serializable {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the beta scale list.
+     *
+     * @return the beta scale list
+     */
+    public final List<BetaScale> getBetaScaleList() {
+        return betaScaleList;
+    }
+
+    /**
+     * Sets the beta scale list.
+     *
+     * @param betaScaleList
+     *            the new beta scale list
+     */
+    public void setBetaScaleList(final List<BetaScale> betaScaleList) {
+        this.betaScaleList = betaScaleList;
+    }
+
 }

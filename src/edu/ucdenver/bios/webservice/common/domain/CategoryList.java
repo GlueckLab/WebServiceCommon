@@ -30,13 +30,16 @@ import java.util.List;
  * @author Uttara Sakhadeo
  *
  */
-public class CategoryList extends ArrayList<Category> {
+public class CategoryList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The category list. */
+    private List<Category> categoryList = null;
 
     /*--------------------
      * Constructors
@@ -52,19 +55,44 @@ public class CategoryList extends ArrayList<Category> {
     /**
      * Instantiates a new category list.
      *
-     * @param size the size
+     * @param uuid
+     *            the uuid
      */
-    public CategoryList(final int size) {
-        super(size);
+    public CategoryList(final byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /**
      * Instantiates a new category list.
      *
-     * @param list the list
+     * @param size
+     *            the size
+     */
+    public CategoryList(final int size) {
+        this.categoryList = new ArrayList<Category>(size);
+    }
+
+    /**
+     * Instantiates a new category list.
+     *
+     * @param list
+     *            the list
      */
     public CategoryList(final List<Category> list) {
-        super(list);
+        this.categoryList = list;
+    }
+
+    /**
+     * Instantiates a new category list.
+     *
+     * @param uuid
+     *            the uuid
+     * @param list
+     *            the list
+     */
+    public CategoryList(final byte[] uuid, final List<Category> list) {
+        this.categoryList = list;
+        this.uuid = uuid;
     }
 
     /*--------------------
@@ -88,4 +116,24 @@ public class CategoryList extends ArrayList<Category> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the category list.
+     *
+     * @return the category list
+     */
+    public final List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    /**
+     * Sets the category list.
+     *
+     * @param categoryList
+     *            the new category list
+     */
+    public final void setCategoryList(List<Category> categoryList) {
+        this.categoryList = categoryList;
+    }
+
 }

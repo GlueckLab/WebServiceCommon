@@ -31,14 +31,16 @@ import java.util.List;
  * @author Uttara Sakhadeo
  *
  */
-public class BetweenParticipantFactorList extends
-        ArrayList<BetweenParticipantFactor> {
+public class BetweenParticipantFactorList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+
+    /** The between participant factor list. */
+    List<BetweenParticipantFactor> betweenParticipantFactorList = null;
 
     /*--------------------
      * Constructors
@@ -47,7 +49,16 @@ public class BetweenParticipantFactorList extends
      * Instantiates a new between participant factor list.
      */
     public BetweenParticipantFactorList() {
+    }
 
+    /**
+     * Instantiates a new between participant factor list.
+     *
+     * @param uuid
+     *            the uuid
+     */
+    public BetweenParticipantFactorList(final byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /**
@@ -57,7 +68,22 @@ public class BetweenParticipantFactorList extends
      *            the size
      */
     public BetweenParticipantFactorList(final int size) {
-        super(size);
+        this.betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>(
+                size);
+    }
+
+    /**
+     * Instantiates a new between participant factor list.
+     *
+     * @param uuid
+     *            the uuid
+     * @param list
+     *            the list
+     */
+    public BetweenParticipantFactorList(final byte[] uuid,
+            final List<BetweenParticipantFactor> list) {
+        this.uuid = uuid;
+        this.betweenParticipantFactorList = list;
     }
 
     /**
@@ -68,7 +94,7 @@ public class BetweenParticipantFactorList extends
      */
     public BetweenParticipantFactorList(
             final List<BetweenParticipantFactor> list) {
-        super(list);
+        this.betweenParticipantFactorList = list;
     }
 
     /*--------------------
@@ -92,4 +118,25 @@ public class BetweenParticipantFactorList extends
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the between participant factor list.
+     *
+     * @return the between participant factor list
+     */
+    public final List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
+        return betweenParticipantFactorList;
+    }
+
+    /**
+     * Sets the between participant factor list.
+     *
+     * @param betweenParticipantFactorList
+     *            the new between participant factor list
+     */
+    public void setBetweenParticipantFactorList(
+            final List<BetweenParticipantFactor> betweenParticipantFactorList) {
+        this.betweenParticipantFactorList = betweenParticipantFactorList;
+    }
+
 }

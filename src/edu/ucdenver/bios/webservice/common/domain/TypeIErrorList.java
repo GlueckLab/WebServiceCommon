@@ -23,20 +23,23 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-// TO-DO: Auto-generated Javadoc
+// TODO: Auto-generated Javadoc
 /**
  * List of Type I Error objects to work around Jackson serializaiton issues.
  *
  * @author Uttara Sakhadeo
  *
  */
-public class TypeIErrorList extends ArrayList<TypeIError> {
+public class TypeIErrorList {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
     /** The uuid. */
     private byte[] uuid = null;
+    
+    /** The type i error list. */
+    List<TypeIError> typeIErrorList = null;
 
     /*--------------------
      * Constructors
@@ -47,6 +50,28 @@ public class TypeIErrorList extends ArrayList<TypeIError> {
      */
     public TypeIErrorList() {
 
+    }       
+
+    /**
+     * Instantiates a new type i error list.
+     *
+     * @param uuid the uuid
+     */
+    public TypeIErrorList(byte[] uuid) {
+        super();
+        this.uuid = uuid;
+    }
+
+    /**
+     * Instantiates a new type i error list.
+     *
+     * @param uuid the uuid
+     * @param typeIErrorList the type i error list
+     */
+    public TypeIErrorList(byte[] uuid, List<TypeIError> typeIErrorList) {
+        super();
+        this.uuid = uuid;
+        this.typeIErrorList = typeIErrorList;
     }
 
     /**
@@ -56,7 +81,7 @@ public class TypeIErrorList extends ArrayList<TypeIError> {
      *            the size
      */
     public TypeIErrorList(final int size) {
-        super(size);
+        this.typeIErrorList = new ArrayList<TypeIError>(size);
     }
 
     /**
@@ -66,7 +91,7 @@ public class TypeIErrorList extends ArrayList<TypeIError> {
      *            the list
      */
     public TypeIErrorList(final List<TypeIError> list) {
-        super(list);
+        this.typeIErrorList = list;
     }
 
     /*--------------------
@@ -90,4 +115,23 @@ public class TypeIErrorList extends ArrayList<TypeIError> {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the type i error list.
+     *
+     * @return the type i error list
+     */
+    public List<TypeIError> getTypeIErrorList() {
+        return typeIErrorList;
+    }
+
+    /**
+     * Sets the type i error list.
+     *
+     * @param typeIErrorList the new type i error list
+     */
+    public void setTypeIErrorList(List<TypeIError> typeIErrorList) {
+        this.typeIErrorList = typeIErrorList;
+    }
+        
 }
