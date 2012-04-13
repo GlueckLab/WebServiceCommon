@@ -1012,6 +1012,89 @@ public class StudyDesign implements Serializable {
         }
         matrixSet.add(matrix);
     }
+    
+    /*--------------------
+     * Return specific Covariance
+     *--------------------*/
+    /*
+     * Convinience method for checking existance of a Covariance.
+     */
+    /**
+     * Checks for named matrix.
+     *
+     * @param name
+     *            the name
+     * @return true, if successful
+     */
+    public final boolean hasCovariance(final String name) {
+        boolean flag = false;
+        Set<Covariance> covarianceSet = this.getCovariance();
+        if (covarianceSet != null) {
+            Iterator<Covariance> iterator = covarianceSet.iterator();
+            while (iterator.hasNext()) {
+                Covariance covarianceObject = iterator.next();
+                if (covarianceObject == null) {
+                    /*
+                         * 
+                         */
+                }
+                String covarianceName = covarianceObject.getName();
+                if (covarianceName != null && name.equals(covarianceName)) {
+                    flag = true;
+                }
+            }
+        }
+        return flag;
+    }
+
+    /*
+     * Convinience method for retrieving a matrix by its name.
+     */
+    /**
+     * Gets the named matrix.
+     *
+     * @param name
+     *            the name
+     * @return the named matrix
+     */
+    public final Covariance getCovariance(final String name) {
+        Covariance covarianceObject = null;
+        if (this.covariance != null) {
+            Iterator<Covariance> iterator = this.covariance.iterator();
+            while (iterator.hasNext()) {
+                covarianceObject = iterator.next();
+                String matrixName = covarianceObject.getName();
+                if (matrixName != null && name.equals(matrixName)) {
+                    break;
+                } else if (matrixName == null || !name.equals(matrixName))
+                    ;
+                covarianceObject = null;
+            }
+        }
+        return covarianceObject;
+    }
+
+    /*
+     * Convinience method for setting particular matrix in a Set.
+     */
+    /**
+     * Sets the named matrix.
+     *
+     * @param matrix
+     *            the new named matrix
+     */
+    public final void setCovariance(final Covariance covarianceObject) {
+        if (this.covariance == null) {
+            this.covariance = new HashSet<Covariance>();
+        } 
+
+        String covarianceName = covarianceObject.getName();
+        Covariance originalCovariance = getCovariance(covarianceName);
+        if (originalCovariance != null) {
+            this.covariance.remove(originalCovariance);
+        }
+        this.covariance.add(covarianceObject);
+    }
 
     /*--------------------
      * toString()
