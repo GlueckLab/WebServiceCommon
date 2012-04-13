@@ -21,13 +21,15 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import edu.ucdenver.bios.webservice.common.enums.HorizontalAxisLabelEnum;
 import edu.ucdenver.bios.webservice.common.enums.StratificationVariableEnum;
 
+// TODO: Auto-generated Javadoc
 /**
  * Object describes Power Curve Structure.
- *
+ * 
  * @author Uttara Sakhadeo
  */
 public class PowerCurveDescription implements Serializable {
@@ -68,6 +70,9 @@ public class PowerCurveDescription implements Serializable {
     /** The stratification var enum. */
     private StratificationVariableEnum stratificationVarEnum;
 
+    /** The uuid. */
+    private byte[] uuid = null;
+
     /*--------------------
      * Constructors
      *--------------------*/
@@ -85,7 +90,7 @@ public class PowerCurveDescription implements Serializable {
      *--------------------*/
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public final int getId() {
@@ -94,7 +99,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the id.
-     *
+     * 
      * @param id
      *            the new id
      */
@@ -104,7 +109,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Gets the sample size.
-     *
+     * 
      * @return the sample size
      */
     public final int getSampleSize() {
@@ -113,7 +118,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the sample size.
-     *
+     * 
      * @param sampleSize
      *            the new sample size
      */
@@ -123,7 +128,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Gets the power curve description.
-     *
+     * 
      * @return the power curve description
      */
     public final String getPowerCurveDescription() {
@@ -132,7 +137,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the power curve description.
-     *
+     * 
      * @param powerCurveDescription
      *            the new power curve description
      */
@@ -143,7 +148,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Gets the statistical test.
-     *
+     * 
      * @return the statistical test
      */
     public final String getStatisticalTest() {
@@ -152,7 +157,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the statistical test.
-     *
+     * 
      * @param statisticalTest
      *            the new statistical test
      */
@@ -162,7 +167,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Gets the regression coeeficient scale factor.
-     *
+     * 
      * @return the regression coeeficient scale factor
      */
     public final float getRegressionCoeeficientScaleFactor() {
@@ -171,19 +176,18 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the regression coeeficient scale factor.
-     *
+     * 
      * @param regressionCoeeficientScaleFactor
      *            the new regression coeeficient scale factor
      */
     public final void setRegressionCoeeficientScaleFactor(
             final float regressionCoeeficientScaleFactor) {
-        this.regressionCoeeficientScaleFactor =
-                regressionCoeeficientScaleFactor;
+        this.regressionCoeeficientScaleFactor = regressionCoeeficientScaleFactor;
     }
 
     /**
      * Gets the variability scale factor.
-     *
+     * 
      * @return the variability scale factor
      */
     public final float getVariabilityScaleFactor() {
@@ -192,7 +196,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the variability scale factor.
-     *
+     * 
      * @param variabilityScaleFactor
      *            the new variability scale factor
      */
@@ -203,7 +207,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Gets the type i error.
-     *
+     * 
      * @return the type i error
      */
     public final float getTypeIError() {
@@ -212,7 +216,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the type i error.
-     *
+     * 
      * @param typeIError
      *            the new type i error
      */
@@ -222,7 +226,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Gets the study design.
-     *
+     * 
      * @return the study design
      */
     public final StudyDesign getStudyDesign() {
@@ -231,7 +235,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the study design.
-     *
+     * 
      * @param studyDesign
      *            the new study design
      */
@@ -241,7 +245,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Gets the stratification var enum.
-     *
+     * 
      * @return the stratification var enum
      */
     public final StratificationVariableEnum getStratificationVarEnum() {
@@ -250,7 +254,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the stratification var enum.
-     *
+     * 
      * @param stratificationVarEnum
      *            the new stratification var enum
      */
@@ -261,7 +265,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Gets the horizontal axis label enum.
-     *
+     * 
      * @return the horizontal axis label enum
      */
     public final HorizontalAxisLabelEnum getHorizontalAxisLabelEnum() {
@@ -270,7 +274,7 @@ public class PowerCurveDescription implements Serializable {
 
     /**
      * Sets the horizontal axis label enum.
-     *
+     * 
      * @param horizontalAxisLabelEnum
      *            the new horizontal axis label enum
      */
@@ -279,18 +283,40 @@ public class PowerCurveDescription implements Serializable {
         this.horizontalAxisLabelEnum = horizontalAxisLabelEnum;
     }
 
+    /**
+     * Gets the uuid.
+     * 
+     * @return the uuid
+     */
+    public byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     * 
+     * @param uuid
+     *            the new uuid
+     */
+    public void setUuid(byte[] uuid) {
+        this.uuid = uuid;
+    }
+
     /*--------------------
      * toString()
      *--------------------*/
-     /**
+    /**
      * Intended only for debugging.
-     *
-     * <P>Here, a generic implementation uses reflection to print
-     * names and values of all fields <em>declared in this class</em>. Note that
-     * superclass fields are left out of this implementation.
+     * 
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     * 
+     * @return the string
      */
     @Override
-    public final String toString() {
+    public String toString() {
         return "PowerCurveDescription [id=" + id + ", sampleSize=" + sampleSize
                 + ", powerCurveDescription=" + powerCurveDescription
                 + ", statisticalTest=" + statisticalTest
@@ -299,6 +325,7 @@ public class PowerCurveDescription implements Serializable {
                 + ", variabilityScaleFactor=" + variabilityScaleFactor
                 + ", typeIError=" + typeIError + ", studyDesign=" + studyDesign
                 + ", horizontalAxisLabelEnum=" + horizontalAxisLabelEnum
-                + ", stratificationVarEnum=" + stratificationVarEnum + "]";
+                + ", stratificationVarEnum=" + stratificationVarEnum
+                + ", uuid=" + Arrays.toString(uuid) + "]";
     }
 }

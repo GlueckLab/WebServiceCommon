@@ -21,12 +21,14 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
+// TODO: Auto-generated Javadoc
 /**
  * POJO describing a confidence interval.
- *
+ * 
  * @author Sarah Kreidler
- *
+ * 
  */
 public class ConfidenceInterval implements Serializable {
     /**
@@ -41,27 +43,37 @@ public class ConfidenceInterval implements Serializable {
     private double lowerLimit;
     /** upper limit of the confidence interval. */
     private double upperLimit;
+    /** The uuid. */
+    private byte[] uuid = null;
 
+    /*--------------------
+     * Constructors
+     *--------------------*/
     /**
      * Create a confidence interval object.
-     *
-     * @param lowerLimit lower limit of confidence interval
-     * @param upperLimit upper limit of confidence interval
-     * @param alphaLower lower tail probability
-     * @param alphaUpper upper tail probability
-     * @throws IllegalArgumentException on invalid bounds or
-     * tail probabilities
+     * 
+     * @param lowerLimit
+     *            lower limit of confidence interval
+     * @param upperLimit
+     *            upper limit of confidence interval
+     * @param alphaLower
+     *            lower tail probability
+     * @param alphaUpper
+     *            upper tail probability
+     * @throws IllegalArgumentException
+     *             on invalid bounds or tail probabilities
      */
     public ConfidenceInterval(double lowerLimit, double upperLimit,
             double alphaLower, double alphaUpper)
-    throws IllegalArgumentException {
+            throws IllegalArgumentException {
         if (lowerLimit > upperLimit) {
-            throw new IllegalArgumentException("invalid bounds for confidence interval");
+            throw new IllegalArgumentException(
+                    "invalid bounds for confidence interval");
         }
-        if (alphaLower < 0 || alphaLower > 1
-                || alphaUpper < 0 || alphaUpper > 1
-                || alphaUpper + alphaLower > 1) {
-            throw new IllegalArgumentException("invalid alpha values for confidence interval");
+        if (alphaLower < 0 || alphaLower > 1 || alphaUpper < 0
+                || alphaUpper > 1 || alphaUpper + alphaLower > 1) {
+            throw new IllegalArgumentException(
+                    "invalid alpha values for confidence interval");
         }
 
         this.alphaLower = alphaLower;
@@ -73,10 +85,15 @@ public class ConfidenceInterval implements Serializable {
     /**
      * Create an empty confidence interval object.
      */
-    public ConfidenceInterval() {}
+    public ConfidenceInterval() {
+    }
 
+    /*--------------------
+     * Getter/Setter Methods
+     *--------------------*/
     /**
      * Get the lower tail probability.
+     * 
      * @return lower tail probability
      */
     public double getAlphaLower() {
@@ -85,7 +102,9 @@ public class ConfidenceInterval implements Serializable {
 
     /**
      * Set the lower tail probability.
-     * @param alphaLower lower tail probability
+     * 
+     * @param alphaLower
+     *            lower tail probability
      */
     public void setAlphaLower(double alphaLower) {
         this.alphaLower = alphaLower;
@@ -93,6 +112,7 @@ public class ConfidenceInterval implements Serializable {
 
     /**
      * Get the upper tail probability.
+     * 
      * @return lower tail probability
      */
     public double getAlphaUpper() {
@@ -101,53 +121,98 @@ public class ConfidenceInterval implements Serializable {
 
     /**
      * Set the upper tail probability.
-     * @param alphaUpper upper tail probability
+     * 
+     * @param alphaUpper
+     *            upper tail probability
      */
     public void setAlphaUpper(double alphaUpper) {
         this.alphaUpper = alphaUpper;
     }
 
     /**
-     * Get the lower limit of the confidence interval
+     * Get the lower limit of the confidence interval.
+     * 
      * @return lower limit of confidence interval
      */
-    public double getLowerLimit()
-    {
+    public double getLowerLimit() {
         return lowerLimit;
     }
 
     /**
-     * Set the lower limit of the confidence interval
-     * @param lowerLimit lower limit of the confidence interval
+     * Set the lower limit of the confidence interval.
+     * 
+     * @param lowerLimit
+     *            lower limit of the confidence interval
      */
-    public void setLowerLimit(double lowerLimit)
-    {
+    public void setLowerLimit(double lowerLimit) {
         this.lowerLimit = lowerLimit;
     }
 
     /**
-     * Get the upper limit of the confidence interval
+     * Get the upper limit of the confidence interval.
+     * 
      * @return upper limit of confidence interval
      */
-    public double getUpperLimit()
-    {
+    public double getUpperLimit() {
         return upperLimit;
     }
 
     /**
-     * Set the upper limit of the confidence interval
-     * @param upperLimit upper limit of the confidence interval
+     * Set the upper limit of the confidence interval.
+     * 
+     * @param upperLimit
+     *            upper limit of the confidence interval
      */
     public void setUpperLimit(double upperLimit) {
         this.upperLimit = upperLimit;
     }
 
     /**
-     * Get the coverage probability of the confidence interval
+     * Get the coverage probability of the confidence interval.
+     * 
      * @return coverage probability
      */
     public double getConfidenceCoefficient() {
         return 1 - alphaUpper - alphaLower;
     }
 
+    /**
+     * Gets the uuid.
+     * 
+     * @return the uuid
+     */
+    public byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     * 
+     * @param uuid
+     *            the new uuid
+     */
+    public void setUuid(byte[] uuid) {
+        this.uuid = uuid;
+    }
+
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /**
+     * Intended only for debugging.
+     * 
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     * 
+     * @return the string
+     */
+
+    @Override
+    public String toString() {
+        return "ConfidenceInterval [alphaLower=" + alphaLower + ", alphaUpper="
+                + alphaUpper + ", lowerLimit=" + lowerLimit + ", upperLimit="
+                + upperLimit + ", uuid=" + Arrays.toString(uuid) + "]";
+    }
 }

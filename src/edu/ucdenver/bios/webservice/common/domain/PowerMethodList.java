@@ -117,4 +117,24 @@ public class PowerMethodList {
     public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets the power method list.
+     * 
+     * @return the power method list
+     */
+    public final List<PowerMethod> getPowerMethodList() {
+        return powerMethodList;
+    }
+
+    /**
+     * Sets the power method list.
+     * 
+     * @param powerMethodList
+     *            the new power method list
+     */
+    public final void setPowerMethodList(List<PowerMethod> powerMethodList) {
+        this.powerMethodList = powerMethodList;
+    }
+
 }

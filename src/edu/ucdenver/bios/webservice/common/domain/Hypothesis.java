@@ -21,6 +21,7 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
@@ -51,6 +52,9 @@ public class Hypothesis implements Serializable {
 
     /** The repeated measures map tree. */
     private List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree = null;
+
+    /** The uuid. */
+    private byte[] uuid = null;
 
     /*--------------------
      * Constructors
@@ -162,6 +166,25 @@ public class Hypothesis implements Serializable {
         this.repeatedMeasuresMapTree = repeatedMeasuresMapTree;
     }
 
+    /**
+     * Gets the uuid.
+     * 
+     * @return the uuid
+     */
+    public byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     * 
+     * @param uuid
+     *            the new uuid
+     */
+    public void setUuid(byte[] uuid) {
+        this.uuid = uuid;
+    }
+
     /*--------------------
      * Return BetweenParticipantFactor list
      *--------------------*/
@@ -203,16 +226,20 @@ public class Hypothesis implements Serializable {
      *--------------------*/
     /**
      * Intended only for debugging.
-     *
-     * <P>Here, a generic implementation uses reflection to print
-     * names and values of all fields <em>declared in this class</em>. Note that
-     * superclass fields are left out of this implementation.
+     * 
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     * 
+     * @return the string
      */
     @Override
     public String toString() {
         return "Hypothesis [id=" + id + ", type=" + type
                 + ", betweenParticipantFactorMapList="
                 + betweenParticipantFactorMapList
-                + ", repeatedMeasuresMapTree=" + repeatedMeasuresMapTree + "]";
+                + ", repeatedMeasuresMapTree=" + repeatedMeasuresMapTree
+                + ", uuid=" + Arrays.toString(uuid) + "]";
     }
 }

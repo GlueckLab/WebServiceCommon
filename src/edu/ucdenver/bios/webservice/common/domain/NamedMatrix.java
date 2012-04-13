@@ -20,12 +20,14 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
+// TODO: Auto-generated Javadoc
 /**
  * This is a wrapper for the Matrix information.
- *
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
 public class NamedMatrix implements Serializable {
 
@@ -50,6 +52,9 @@ public class NamedMatrix implements Serializable {
     /** The data. */
     private Blob2DArray data;
 
+    /** The uuid. */
+    private byte[] uuid = null;
+
     /*--------------------
      * Constructors
      *--------------------*/
@@ -61,7 +66,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Instantiates a new named matrix.
-     *
+     * 
      * @param name
      *            the name
      */
@@ -74,7 +79,7 @@ public class NamedMatrix implements Serializable {
      *--------------------*/
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public final int getId() {
@@ -83,7 +88,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Sets the id.
-     *
+     * 
      * @param id
      *            the new id
      */
@@ -93,7 +98,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Gets the name.
-     *
+     * 
      * @return the name
      */
     public final String getName() {
@@ -102,7 +107,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Sets the name.
-     *
+     * 
      * @param name
      *            the new name
      */
@@ -112,7 +117,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Gets the rows.
-     *
+     * 
      * @return the rows
      */
     public final int getRows() {
@@ -121,7 +126,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Sets the rows.
-     *
+     * 
      * @param rows
      *            the new rows
      */
@@ -131,7 +136,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Gets the columns.
-     *
+     * 
      * @return the columns
      */
     public final int getColumns() {
@@ -140,7 +145,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Sets the columns.
-     *
+     * 
      * @param columns
      *            the new columns
      */
@@ -150,7 +155,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Gets the data.
-     *
+     * 
      * @return the data
      */
     public final Blob2DArray getData() {
@@ -159,7 +164,7 @@ public class NamedMatrix implements Serializable {
 
     /**
      * Sets the data.
-     *
+     * 
      * @param data
      *            the new data
      */
@@ -172,23 +177,42 @@ public class NamedMatrix implements Serializable {
      *--------------------*/
     /**
      * Sets the data.
-     *
+     * 
      * @param data
      *            the new data
      */
     public final void setDataFromArray(final double[][] data) {
         Blob2DArray blob = new Blob2DArray(data);
-       // System.out.println(blob.getData());
+        // System.out.println(blob.getData());
         setData(blob);
     }
 
     /**
      * Gets the data from blob.
-     *
+     * 
      * @return the data from blob
      */
     public final double[][] getDataAsArray() {
         return data.getData();
+    }
+
+    /**
+     * Gets the uuid.
+     * 
+     * @return the uuid
+     */
+    public byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     * 
+     * @param uuid
+     *            the new uuid
+     */
+    public void setUuid(byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /*--------------------
@@ -196,14 +220,18 @@ public class NamedMatrix implements Serializable {
      *--------------------*/
     /**
      * Intended only for debugging.
-     *
-     * <P>Here, a generic implementation uses reflection to print
-     * names and values of all fields <em>declared in this class</em>. Note that
-     * superclass fields are left out of this implementation.
+     * 
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     * 
+     * @return the string
      */
     @Override
-    public final String toString() {
+    public String toString() {
         return "NamedMatrix [id=" + id + ", name=" + name + ", rows=" + rows
-                + ", columns=" + columns + ", data=" + data + "]";
+                + ", columns=" + columns + ", data=" + data + ", uuid="
+                + Arrays.toString(uuid) + "]";
     }
 }

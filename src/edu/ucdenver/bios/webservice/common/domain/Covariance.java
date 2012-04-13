@@ -20,6 +20,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 // TODO: Auto-generated Javadoc
@@ -41,7 +42,7 @@ public class Covariance implements Serializable {
 
     /** The name. */
     private String name;
-    
+
     /** The standard deviation list. */
     private List<StandardDeviation> standardDeviationList = null;
 
@@ -59,6 +60,9 @@ public class Covariance implements Serializable {
 
     /** The blob. */
     private Blob2DArray blob;
+
+    /** The uuid. */
+    private byte[] uuid = null;
 
     /*--------------------
      * Constructors
@@ -89,7 +93,7 @@ public class Covariance implements Serializable {
      */
     public void setId(int id) {
         this.id = id;
-    }    
+    }
 
     /**
      * Gets the rho.
@@ -204,10 +208,10 @@ public class Covariance implements Serializable {
     public void setBlob(Blob2DArray blob) {
         this.blob = blob;
     }
-    
+
     /**
      * Gets the standard deviation list.
-     *
+     * 
      * @return the standard deviation list
      */
     public List<StandardDeviation> getStandardDeviationList() {
@@ -216,12 +220,32 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the standard deviation list.
-     *
-     * @param standardDeviationList the new standard deviation list
+     * 
+     * @param standardDeviationList
+     *            the new standard deviation list
      */
     public void setStandardDeviationList(
             List<StandardDeviation> standardDeviationList) {
         this.standardDeviationList = standardDeviationList;
+    }
+
+    /**
+     * Gets the uuid.
+     * 
+     * @return the uuid
+     */
+    public byte[] getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the uuid.
+     * 
+     * @param uuid
+     *            the new uuid
+     */
+    public void setUuid(byte[] uuid) {
+        this.uuid = uuid;
     }
 
     /*--------------------
@@ -253,10 +277,11 @@ public class Covariance implements Serializable {
     /**
      * Intended only for debugging.
      * 
-     * <P>Here, a generic implementation uses reflection to print
-     * names and values of all fields <em>declared in this class</em>. Note that
-     * superclass fields are left out of this implementation.
-     *
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     * 
      * @return the string
      */
     @Override
@@ -264,6 +289,8 @@ public class Covariance implements Serializable {
         return "Covariance [id=" + id + ", name=" + name
                 + ", standardDeviationList=" + standardDeviationList + ", rho="
                 + rho + ", delta=" + delta + ", rows=" + rows + ", columns="
-                + columns + ", blob=" + blob + "]";
+                + columns + ", blob=" + blob + ", uuid="
+                + Arrays.toString(uuid) + "]";
     }
+
 }
