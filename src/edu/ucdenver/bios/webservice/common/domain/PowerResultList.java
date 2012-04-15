@@ -21,118 +21,12 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.util.ArrayList;
-import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
- * List of power result objects to work around Jackson serializaiton issues.
- * 
+ * List of power result objects to work around Jackson serializaiton issues
  * @author Sarah Kreidler
+ *
  */
-public class PowerResultList {
-
-    /** The Constant serialVersionUID. */
-    private static final long serialVersionUID = 1L;
-
-    /** The uuid. */
-    private byte[] uuid = null;
-
-    /** The power result list. */
-    private List<PowerResult> powerResultList = null;
-
-    /*--------------------
-     * Constructors
-     *--------------------*/
-
-    /**
-     * Instantiates a new power result list.
-     */
-    public PowerResultList() {
-
-    }
-
-    /**
-     * Instantiates a new power result list.
-     * 
-     * @param uuid
-     *            the uuid
-     */
-    public PowerResultList(final byte[] uuid) {
-        this.uuid = uuid;
-    }
-
-    /**
-     * Instantiates a new power result list.
-     * 
-     * @param uuid
-     *            the uuid
-     * @param list
-     *            the list
-     */
-    public PowerResultList(final byte[] uuid, final List<PowerResult> list) {
-        this.uuid = uuid;
-        this.powerResultList = list;
-    }
-
-    /**
-     * Instantiates a new power result list.
-     * 
-     * @param size
-     *            the size
-     */
-    public PowerResultList(final int size) {
-        this.powerResultList = new ArrayList<PowerResult>(size);
-    }
-
-    /**
-     * Instantiates a new power result list.
-     * 
-     * @param list
-     *            the list
-     */
-    public PowerResultList(final List<PowerResult> list) {
-        this.powerResultList = list;
-    }
-
-    /*--------------------
-     * Getter/Setter Methods
-     *--------------------*/
-    /**
-     * Gets the uuid.
-     * 
-     * @return the uuid
-     */
-    public final byte[] getUuid() {
-        return uuid;
-    }
-
-    /**
-     * Sets the uuid.
-     * 
-     * @param uuid
-     *            the new uuid
-     */
-    public final void setUuid(final byte[] uuid) {
-        this.uuid = uuid;
-    }
-
-    /**
-     * Gets the power result list.
-     * 
-     * @return the power result list
-     */
-    public final List<PowerResult> getPowerResultList() {
-        return powerResultList;
-    }
-
-    /**
-     * Sets the power result list.
-     * 
-     * @param powerResultList
-     *            the new power result list
-     */
-    public final void setPowerResultList(List<PowerResult> powerResultList) {
-        this.powerResultList = powerResultList;
-    }
+public class PowerResultList extends ArrayList<PowerResult> {
 
 }
