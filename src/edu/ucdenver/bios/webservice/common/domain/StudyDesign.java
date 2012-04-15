@@ -1083,7 +1083,7 @@ public class StudyDesign implements Serializable {
      * @param matrix
      *            the new named matrix
      */
-    public final void setCovariance(final Covariance covarianceObject) {
+    public final void addCovariance(final Covariance covarianceObject) {
         if (this.covariance == null) {
             this.covariance = new HashSet<Covariance>();
         } 
