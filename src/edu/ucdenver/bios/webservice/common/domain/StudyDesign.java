@@ -622,9 +622,13 @@ public class StudyDesign implements Serializable {
      */
     public final List<Double> getAlphaListValues() {
         List<TypeIError> list = this.getAlphaList();
-        List<Double> values = new ArrayList<Double>(list.size());
-        for (TypeIError node : list) {
-            values.add(node.getAlphaValue());
+        List<Double> values = null;
+        if(list != null || !list.isEmpty())
+        {
+            values = new ArrayList<Double>(list.size());
+            for (TypeIError node : list) {
+                values.add(node.getAlphaValue());
+            }
         }
         return values;
     }
@@ -653,9 +657,13 @@ public class StudyDesign implements Serializable {
      */
     public final List<Double> getBetaScaleListValues() {
         List<BetaScale> list = this.getBetaScaleList();
-        List<Double> values = new ArrayList<Double>(list.size());
-        for (BetaScale node : list) {
-            values.add(node.getValue());
+        List<Double> values = null;
+        if(list != null || !list.isEmpty())
+        {
+            values = new ArrayList<Double>(list.size());
+            for (BetaScale node : list) {
+                values.add(node.getValue());
+            }
         }
         return values;
     }
@@ -684,9 +692,13 @@ public class StudyDesign implements Serializable {
      */
     public final List<Double> getSigmaScaleListValues() {
         List<SigmaScale> list = this.getSigmaScaleList();
-        List<Double> values = new ArrayList<Double>(list.size());
-        for (SigmaScale node : list) {
-            values.add(node.getValue());
+        List<Double> values = null;
+        if(list != null || !list.isEmpty())
+        {
+            values = new ArrayList<Double>(list.size());
+            for (SigmaScale node : list) {
+                values.add(node.getValue());
+            }
         }
         return values;
     }
@@ -715,9 +727,13 @@ public class StudyDesign implements Serializable {
      */
     public final List<Integer> getRelativeGroupSizeListValues() {
         List<RelativeGroupSize> list = this.getRelativeGroupSizeList();
-        List<Integer> values = new ArrayList<Integer>(list.size());
-        for (RelativeGroupSize node : list) {
-            values.add(node.getValue());
+        List<Integer> values = null;
+        if(list != null || !list.isEmpty())
+        {
+            values = new ArrayList<Integer>(list.size());
+            for (RelativeGroupSize node : list) {
+                values.add(node.getValue());
+            }
         }
         return values;
     }
@@ -748,11 +764,15 @@ public class StudyDesign implements Serializable {
      */
     public final List<StatisticalTestTypeEnum> getStatisticalTestListValues() {
         List<StatisticalTest> list = this.getStatisticalTestList();
-        List<StatisticalTestTypeEnum> values =
+        List<StatisticalTestTypeEnum> values =null;
+        if(list != null || !list.isEmpty())
+        {
+            values = 
                 new ArrayList<StatisticalTestTypeEnum>(
                 list.size());
-        for (StatisticalTest node : list) {
-            values.add(node.getType());
+            for (StatisticalTest node : list) {
+                values.add(node.getType());
+            }
         }
         return values;
     }
@@ -783,10 +803,14 @@ public class StudyDesign implements Serializable {
      */
     public final List<PowerMethodEnum> getPowerMethodListValues() {
         List<PowerMethod> list = this.getPowerMethodList();
-        List<PowerMethodEnum> values = new ArrayList<PowerMethodEnum>(
+        List<PowerMethodEnum> values = null;
+        if(list != null || !list.isEmpty())
+        {
+            values = new ArrayList<PowerMethodEnum>(
                 list.size());
-        for (PowerMethod node : list) {
-            values.add(node.getPowerMethodEnum());
+            for (PowerMethod node : list) {
+                values.add(node.getPowerMethodEnum());
+            }
         }
         return values;
     }
@@ -816,9 +840,13 @@ public class StudyDesign implements Serializable {
      */
     public final List<Double> getQuantileListValues() {
         List<Quantile> list = this.getQuantileList();
-        List<Double> values = new ArrayList<Double>(list.size());
-        for (Quantile node : quantileList) {
-            values.add(node.getValue());
+        List<Double> values = null;
+        if(list != null || !list.isEmpty())
+        {
+            values = new ArrayList<Double>(list.size());
+            for (Quantile node : quantileList) {
+                values.add(node.getValue());
+            }
         }
         return values;
     }
@@ -847,9 +875,13 @@ public class StudyDesign implements Serializable {
      */
     public final List<Double> getNominalPowerListValues() {
         List<NominalPower> list = this.getNominalPowerList();
-        List<Double> values = new ArrayList<Double>(list.size());
-        for (NominalPower node : list) {
-            values.add(node.getValue());
+        List<Double> values = null;
+        if(list != null || !list.isEmpty())
+        {
+            values = new ArrayList<Double>(list.size());
+            for (NominalPower node : list) {
+                values.add(node.getValue());
+            }
         }
         return values;
     }
@@ -878,9 +910,13 @@ public class StudyDesign implements Serializable {
      */
     public final List<String> getResponseListNames() {
         List<ResponseNode> list = this.getResponseList();
-        List<String> responses = new ArrayList<String>(list.size());
-        for (ResponseNode node : responseList) {
-            responses.add(node.getName());
+        List<String> responses = null;
+        if(list != null || !list.isEmpty())
+        {
+            responses = new ArrayList<String>(list.size());
+            for (ResponseNode node : responseList) {
+                responses.add(node.getName());
+            }
         }
         return responses;
     }
@@ -909,9 +945,13 @@ public class StudyDesign implements Serializable {
      */
     public final List<Integer> getSampleSizeListValues() {
         List<SampleSize> list = this.getSampleSizeList();
-        List<Integer> values = new ArrayList<Integer>(list.size());
-        for (SampleSize node : list) {
-            values.add(node.getValue());
+        List<Integer> values = null;
+        if(list != null || !list.isEmpty())
+        {
+            values = new ArrayList<Integer>(list.size());
+            for (SampleSize node : list) {
+                values.add(node.getValue());
+            }
         }
         return values;
     }
