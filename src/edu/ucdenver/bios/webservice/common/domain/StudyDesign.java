@@ -1059,7 +1059,7 @@ public class StudyDesign implements Serializable {
      *            the name
      * @return true, if successful
      */
-    public final boolean hasSingleHypothesis(final HypothesisTypeEnum hypothesisType) {
+    public final boolean hasHypothesis(final HypothesisTypeEnum hypothesisType) {
         boolean flag = false;
         Set<Hypothesis> hypothesisSet = this.getHypothesis();
         if (hypothesisSet != null) {
@@ -1088,7 +1088,7 @@ public class StudyDesign implements Serializable {
      *            the name
      * @return the named hypothesis
      */
-    public final Hypothesis getSingleHypothesis(final HypothesisTypeEnum name) {
+    public final Hypothesis getHypothesisFromSet(final HypothesisTypeEnum name) {
         Hypothesis newHypothesis = null;
         if (this.hypothesis != null) {
             Iterator<Hypothesis> iterator = this.hypothesis.iterator();
@@ -1111,13 +1111,13 @@ public class StudyDesign implements Serializable {
      * @param hypothesis
      *            the new named hypothesis
      */
-    public final void setSingleHypothesis(final Hypothesis newHypothesis) {
+    public final void setHypothesisToSet(final Hypothesis newHypothesis) {
         if (this.hypothesis == null) {
             this.hypothesis = new HashSet<Hypothesis>();
         } 
 
         HypothesisTypeEnum hypothesisType = newHypothesis.getType();
-        Hypothesis originalHypothesis = getSingleHypothesis(hypothesisType);
+        Hypothesis originalHypothesis = getHypothesisFromSet(hypothesisType);
         if (originalHypothesis != null) {
             this.hypothesis.remove(originalHypothesis);
         }
@@ -1160,7 +1160,7 @@ public class StudyDesign implements Serializable {
      *
      * 
      */
-    public final Covariance getCovariance(final String name) {
+    public final Covariance getCovarianceFromSet(final String name) {
         Covariance covarianceObject = null;
         if (this.covariance != null) {
             Iterator<Covariance> iterator = this.covariance.iterator();
@@ -1189,7 +1189,7 @@ public class StudyDesign implements Serializable {
         } 
 
         String covarianceName = covarianceObject.getName();
-        Covariance originalCovariance = getCovariance(covarianceName);
+        Covariance originalCovariance = getCovarianceFromSet(covarianceName);
         if (originalCovariance != null) {
             this.covariance.remove(originalCovariance);
         }

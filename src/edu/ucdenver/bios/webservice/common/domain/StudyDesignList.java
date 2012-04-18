@@ -35,9 +35,6 @@ public class StudyDesignList {
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
-    /** The uuid. */
-    private byte[] uuid = null;
-
     /** The study design list. */
     private List<StudyDesign> studyDesignList = null;
 
@@ -51,28 +48,7 @@ public class StudyDesignList {
     public StudyDesignList() {
 
     }
-
-    /**
-     * Instantiates a new study design list.
-     *
-     * @param uuid the uuid
-     */
-    public StudyDesignList(final byte[] uuid) {
-        this.uuid = uuid;
-    }
-
-    /**
-     * Instantiates a new study design list.
-     *
-     * @param uuid the uuid
-     * @param list the list
-     */
-    public StudyDesignList(final byte[] uuid,
-            final List<StudyDesign> list) {
-        this.uuid = uuid;
-        this.studyDesignList = list;
-    }
-
+    
     /**
      * Instantiates a new study design list.
      *
@@ -96,25 +72,6 @@ public class StudyDesignList {
     /*--------------------
      * Getter/Setter Methods
      *--------------------*/
-    /**
-     * Gets the uuid.
-     *
-     * @return the uuid
-     */
-    public final byte[] getUuid() {
-        return uuid;
-    }
-
-    /**
-     * Sets the uuid.
-     *
-     * @param uuid
-     *            the new uuid
-     */
-    public final void setUuid(final byte[] uuid) {
-        this.uuid = uuid;
-    }
-
     /**
      * Gets the study design list.
      *
