@@ -974,10 +974,8 @@ public class StudyDesign implements Serializable {
     /*--------------------
      * Return specific Matrix
      *--------------------*/
-    /*
-     * Convinience method for checking existance of a matrix.
-     */
     /**
+     * Convinience method for checking existance of a matrix.
      * Checks for named matrix.
      *
      * @param name
@@ -1005,10 +1003,8 @@ public class StudyDesign implements Serializable {
         return flag;
     }
 
-    /*
-     * Convinience method for retrieving a matrix by its name.
-     */
     /**
+     * Convinience method for retrieving a matrix by its name.
      * Gets the named matrix.
      *
      * @param name
@@ -1032,10 +1028,8 @@ public class StudyDesign implements Serializable {
         return matrix;
     }
 
-    /*
-     * Convinience method for setting particular matrix in a Set.
-     */
     /**
+     * Convinience method for setting particular matrix in a Set.
      * Sets the named matrix.
      *
      * @param matrix
@@ -1133,15 +1127,11 @@ public class StudyDesign implements Serializable {
     /*--------------------
      * Return specific Covariance
      *--------------------*/
-    /*
-     * Convinience method for checking existance of a Covariance.
-     */
     /**
+     * Convinience method for checking existance of a Covariance.
      * Checks for Covariance.
      *
-     * @param name
-     *            the name
-     * @return true, if successful
+     * 
      */
     public final boolean hasCovariance(final String name) {
         boolean flag = false;
@@ -1164,15 +1154,11 @@ public class StudyDesign implements Serializable {
         return flag;
     }
 
-    /*
-     * Convinience method for retrieving a matrix by its name.
-     */
     /**
+     * Convinience method for retrieving a Covariance by its name.
      * Gets the named matrix.
      *
-     * @param name
-     *            the name
-     * @return the named matrix
+     * 
      */
     public final Covariance getCovariance(final String name) {
         Covariance covarianceObject = null;
@@ -1191,14 +1177,11 @@ public class StudyDesign implements Serializable {
         return covarianceObject;
     }
 
-    /*
-     * Convinience method for setting particular matrix in a Set.
-     */
     /**
-     * Sets the named matrix.
+     * Convinience method for setting particular Covariance in a Set.
+     * Sets the Covariance.
      *
-     * @param matrix
-     *            the new named matrix
+     * 
      */
     public final void addCovariance(final Covariance covarianceObject) {
         if (this.covariance == null) {

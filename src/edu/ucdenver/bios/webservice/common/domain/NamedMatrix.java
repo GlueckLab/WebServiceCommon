@@ -51,10 +51,7 @@ public class NamedMatrix implements Serializable {
 
     /** The data. */
     private Blob2DArray data;
-
-    /** The uuid. */
-    private byte[] uuid = null;
-
+    
     /*--------------------
      * Constructors
      *--------------------*/
@@ -194,27 +191,7 @@ public class NamedMatrix implements Serializable {
      */
     public final double[][] getDataAsArray() {
         return data.getData();
-    }
-
-    /**
-     * Gets the uuid.
-     * 
-     * @return the uuid
-     */
-    public byte[] getUuid() {
-        return uuid;
-    }
-
-    /**
-     * Sets the uuid.
-     * 
-     * @param uuid
-     *            the new uuid
-     */
-    public void setUuid(byte[] uuid) {
-        this.uuid = uuid;
-    }
-
+    }    
     /*--------------------
      * toString()
      *--------------------*/
@@ -228,10 +205,11 @@ public class NamedMatrix implements Serializable {
      * 
      * @return the string
      */
+
     @Override
     public String toString() {
         return "NamedMatrix [id=" + id + ", name=" + name + ", rows=" + rows
-                + ", columns=" + columns + ", data=" + data + ", uuid="
-                + Arrays.toString(uuid) + "]";
+                + ", columns=" + columns + ", data=" + data + "]";
     }
+    
 }
