@@ -28,6 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
 import edu.ucdenver.bios.webservice.common.enums.SolutionTypeEnum;
 import edu.ucdenver.bios.webservice.common.enums.StatisticalTestTypeEnum;
@@ -1054,13 +1055,89 @@ public class StudyDesign implements Serializable {
     }
     
     /*--------------------
+     * Return specific Hypothesis
+     *--------------------*/
+    /**
+     * Convinience method for checking existance of a Hypothesis.
+     * Checks for Hypothesis.
+     *
+     * @param name
+     *            the name
+     * @return true, if successful
+     */
+    public final boolean hasSingleHypothesis(final HypothesisTypeEnum hypothesisType) {
+        boolean flag = false;
+        Set<Hypothesis> hypothesisSet = this.getHypothesis();
+        if (hypothesisSet != null) {
+            Iterator<Hypothesis> iterator = hypothesisSet.iterator();
+            while (iterator.hasNext()) {
+                Hypothesis hypothesis = iterator.next();
+                if (hypothesis == null) {
+                    /*
+                         * 
+                         */
+                }
+                HypothesisTypeEnum type = hypothesis.getType();
+                if (type != null && hypothesisType.equals(type)) {
+                    flag = true;
+                }
+            }
+        }
+        return flag;
+    }
+    
+    /**
+     * Convinience method for retrieving a hypothesis by its name.
+     * Gets the named hypothesis.
+     *
+     * @param name
+     *            the name
+     * @return the named hypothesis
+     */
+    public final Hypothesis getSingleHypothesis(final HypothesisTypeEnum name) {
+        Hypothesis newHypothesis = null;
+        if (this.hypothesis != null) {
+            Iterator<Hypothesis> iterator = this.hypothesis.iterator();
+            while (iterator.hasNext()) {
+                newHypothesis = iterator.next();
+                HypothesisTypeEnum hypothesisType = newHypothesis.getType();
+                if (hypothesisType != null && name.equals(hypothesisType)) {
+                    break;
+                } else if (hypothesisType == null || !name.equals(hypothesisType))
+                    ;
+                newHypothesis = null;
+            }
+        }
+        return newHypothesis;
+    }
+    /**
+     * Convinience method for setting particular hypothesis in a Set.
+     * Sets the named hypothesis.
+     *
+     * @param hypothesis
+     *            the new named hypothesis
+     */
+    public final void setSingleHypothesis(final Hypothesis newHypothesis) {
+        if (this.hypothesis == null) {
+            this.hypothesis = new HashSet<Hypothesis>();
+        } 
+
+        HypothesisTypeEnum hypothesisType = newHypothesis.getType();
+        Hypothesis originalHypothesis = getSingleHypothesis(hypothesisType);
+        if (originalHypothesis != null) {
+            this.hypothesis.remove(originalHypothesis);
+        }
+        this.hypothesis.add(newHypothesis);
+    }
+    
+    /*--------------------
      * Return specific Covariance
      *--------------------*/
     /*
      * Convinience method for checking existance of a Covariance.
      */
     /**
-     * Checks for named matrix.
+     * Checks for Covariance.
      *
      * @param name
      *            the name
