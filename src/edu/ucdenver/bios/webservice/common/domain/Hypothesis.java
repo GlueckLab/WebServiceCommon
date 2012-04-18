@@ -52,10 +52,7 @@ public class Hypothesis implements Serializable {
 
     /** The repeated measures map tree. */
     private List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree = null;
-
-    /** The uuid. */
-    private byte[] uuid = null;
-
+    
     /*--------------------
      * Constructors
      *--------------------*/
@@ -165,26 +162,7 @@ public class Hypothesis implements Serializable {
             List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
         this.repeatedMeasuresMapTree = repeatedMeasuresMapTree;
     }
-
-    /**
-     * Gets the uuid.
-     * 
-     * @return the uuid
-     */
-    public byte[] getUuid() {
-        return uuid;
-    }
-
-    /**
-     * Sets the uuid.
-     * 
-     * @param uuid
-     *            the new uuid
-     */
-    public void setUuid(byte[] uuid) {
-        this.uuid = uuid;
-    }
-
+    
     /*--------------------
      * Return BetweenParticipantFactor list
      *--------------------*/
@@ -239,7 +217,6 @@ public class Hypothesis implements Serializable {
         return "Hypothesis [id=" + id + ", type=" + type
                 + ", betweenParticipantFactorMapList="
                 + betweenParticipantFactorMapList
-                + ", repeatedMeasuresMapTree=" + repeatedMeasuresMapTree
-                + ", uuid=" + Arrays.toString(uuid) + "]";
+                + ", repeatedMeasuresMapTree=" + repeatedMeasuresMapTree + "]";
     }
 }

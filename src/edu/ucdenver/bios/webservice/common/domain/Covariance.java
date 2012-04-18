@@ -20,6 +20,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -59,11 +60,7 @@ public class Covariance implements Serializable {
     private int columns;
 
     /** The blob. */
-    private Blob2DArray blob;
-
-    /** The uuid. */
-    private byte[] uuid = null;
-
+    private Blob2DArray blob;    
     /*--------------------
      * Constructors
      *--------------------*/
@@ -227,27 +224,33 @@ public class Covariance implements Serializable {
     public void setStandardDeviationList(
             List<StandardDeviation> standardDeviationList) {
         this.standardDeviationList = standardDeviationList;
+    }    
+    
+    /*--------------------
+     * Return/Store data[]
+     *--------------------*/
+    
+    public void setStandardDeviationListFromArray(double[] data)
+    {
+        this.standardDeviationList = new ArrayList<StandardDeviation>(data.length);
+        for(int i = 0;i < data.length; i++)
+        {
+            this.standardDeviationList.add(new StandardDeviation(data[i]));
+        }
     }
-
-    /**
-     * Gets the uuid.
-     * 
-     * @return the uuid
-     */
-    public byte[] getUuid() {
-        return uuid;
+    
+    public double[] getStandardDeviationListFromArray()
+    {
+        int size = this.standardDeviationList.size();
+        double[] data = new double[size];
+        int i = 0;
+        for(StandardDeviation sd : standardDeviationList)
+        {
+            data[i++] = sd.getValue();            
+        }
+        return data;
     }
-
-    /**
-     * Sets the uuid.
-     * 
-     * @param uuid
-     *            the new uuid
-     */
-    public void setUuid(byte[] uuid) {
-        this.uuid = uuid;
-    }
-
+    
     /*--------------------
      * Return/Store data[][]
      *--------------------*/
@@ -289,8 +292,7 @@ public class Covariance implements Serializable {
         return "Covariance [id=" + id + ", name=" + name
                 + ", standardDeviationList=" + standardDeviationList + ", rho="
                 + rho + ", delta=" + delta + ", rows=" + rows + ", columns="
-                + columns + ", blob=" + blob + ", uuid="
-                + Arrays.toString(uuid) + "]";
+                + columns + ", blob=" + blob + "]";
     }
 
 }
