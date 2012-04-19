@@ -108,9 +108,12 @@ public class ResponseNode implements Serializable {
     /**
      * Intended only for debugging.
      *
-     * <P>Here, a generic implementation uses reflection to print
-     * names and values of all fields <em>declared in this class</em>. Note that
-     * superclass fields are left out of this implementation.
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     *
+     * @return the string
      */
     @Override
     public final String toString() {

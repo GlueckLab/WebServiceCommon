@@ -130,7 +130,7 @@ public class CovarianceSet {
      *
      * @param covarianceSet the new covariance set
      */
-    public final void setCovarianceSet(Set<Covariance> covarianceSet) {
+    public final void setCovarianceSet(final Set<Covariance> covarianceSet) {
         this.covarianceSet = covarianceSet;
     }
         

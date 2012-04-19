@@ -43,9 +43,7 @@ public class ConfidenceInterval implements Serializable {
     private double lowerLimit;
     /** upper limit of the confidence interval. */
     private double upperLimit;
-    /** The uuid. */
-    private byte[] uuid = null;
-
+    
     /*--------------------
      * Constructors
      *--------------------*/
@@ -175,26 +173,7 @@ public class ConfidenceInterval implements Serializable {
     public double getConfidenceCoefficient() {
         return 1 - alphaUpper - alphaLower;
     }
-
-    /**
-     * Gets the uuid.
-     * 
-     * @return the uuid
-     */
-    public byte[] getUuid() {
-        return uuid;
-    }
-
-    /**
-     * Sets the uuid.
-     * 
-     * @param uuid
-     *            the new uuid
-     */
-    public void setUuid(byte[] uuid) {
-        this.uuid = uuid;
-    }
-
+    
     /*--------------------
      * toString()
      *--------------------*/
@@ -208,11 +187,10 @@ public class ConfidenceInterval implements Serializable {
      * 
      * @return the string
      */
-
     @Override
     public String toString() {
         return "ConfidenceInterval [alphaLower=" + alphaLower + ", alphaUpper="
                 + alphaUpper + ", lowerLimit=" + lowerLimit + ", upperLimit="
-                + upperLimit + ", uuid=" + Arrays.toString(uuid) + "]";
-    }
+                + upperLimit + "]";
+    }        
 }

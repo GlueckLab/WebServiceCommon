@@ -130,7 +130,7 @@ public class HypothesisSet {
      *
      * @param hypothesisSet the new hypothesis set
      */
-    public final void setHypothesisSet(Set<Hypothesis> hypothesisSet) {
+    public final void setHypothesisSet(final Set<Hypothesis> hypothesisSet) {
         this.hypothesisSet = hypothesisSet;
     }
         

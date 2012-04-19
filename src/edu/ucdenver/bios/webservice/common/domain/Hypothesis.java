@@ -48,11 +48,13 @@ public class Hypothesis implements Serializable {
     private HypothesisTypeEnum type;
 
     /** The between participant factor map list. */
-    private List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList = null;
+    private List<HypothesisBetweenParticipantMapping>
+        betweenParticipantFactorMapList = null;
 
     /** The repeated measures map tree. */
-    private List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree = null;
-    
+    private List<HypothesisRepeatedMeasuresMapping>
+        repeatedMeasuresMapTree = null;
+
     /*--------------------
      * Constructors
      *--------------------*/
@@ -73,9 +75,11 @@ public class Hypothesis implements Serializable {
      *            the repeated measures map tree
      */
     public Hypothesis(
-            HypothesisTypeEnum type,
-            List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList,
-            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
+            final HypothesisTypeEnum type,
+            final List<HypothesisBetweenParticipantMapping>
+                betweenParticipantFactorMapList,
+            final List<HypothesisRepeatedMeasuresMapping>
+                repeatedMeasuresMapTree) {
         super();
         this.type = type;
         this.betweenParticipantFactorMapList = betweenParticipantFactorMapList;
@@ -90,7 +94,7 @@ public class Hypothesis implements Serializable {
      * 
      * @return the id
      */
-    public int getId() {
+    public final int getId() {
         return id;
     }
 
@@ -100,7 +104,7 @@ public class Hypothesis implements Serializable {
      * @param id
      *            the new id
      */
-    public void setId(int id) {
+    public final void setId(final int id) {
         this.id = id;
     }
 
@@ -109,7 +113,7 @@ public class Hypothesis implements Serializable {
      * 
      * @return the type
      */
-    public HypothesisTypeEnum getType() {
+    public final HypothesisTypeEnum getType() {
         return type;
     }
 
@@ -119,7 +123,7 @@ public class Hypothesis implements Serializable {
      * @param type
      *            the new type
      */
-    public void setType(HypothesisTypeEnum type) {
+    public final void setType(final HypothesisTypeEnum type) {
         this.type = type;
     }
 
@@ -128,7 +132,8 @@ public class Hypothesis implements Serializable {
      * 
      * @return the between participant factor map list
      */
-    public List<HypothesisBetweenParticipantMapping> getBetweenParticipantFactorMapList() {
+    public final List<HypothesisBetweenParticipantMapping>
+    getBetweenParticipantFactorMapList() {
         return betweenParticipantFactorMapList;
     }
 
@@ -138,8 +143,9 @@ public class Hypothesis implements Serializable {
      * @param betweenParticipantFactorMapList
      *            the new between participant factor map list
      */
-    public void setBetweenParticipantFactorMapList(
-            List<HypothesisBetweenParticipantMapping> betweenParticipantFactorMapList) {
+    public final void setBetweenParticipantFactorMapList(
+            final List<HypothesisBetweenParticipantMapping>
+            betweenParticipantFactorMapList) {
         this.betweenParticipantFactorMapList = betweenParticipantFactorMapList;
     }
 
@@ -148,7 +154,8 @@ public class Hypothesis implements Serializable {
      * 
      * @return the repeated measures map tree
      */
-    public List<HypothesisRepeatedMeasuresMapping> getRepeatedMeasuresMapTree() {
+    public final List<HypothesisRepeatedMeasuresMapping>
+    getRepeatedMeasuresMapTree() {
         return repeatedMeasuresMapTree;
     }
 
@@ -158,11 +165,12 @@ public class Hypothesis implements Serializable {
      * @param repeatedMeasuresMapTree
      *            the new repeated measures map tree
      */
-    public void setRepeatedMeasuresMapTree(
-            List<HypothesisRepeatedMeasuresMapping> repeatedMeasuresMapTree) {
+    public final void setRepeatedMeasuresMapTree(
+            final List<HypothesisRepeatedMeasuresMapping>
+            repeatedMeasuresMapTree) {
         this.repeatedMeasuresMapTree = repeatedMeasuresMapTree;
     }
-    
+
     /*--------------------
      * Return BetweenParticipantFactor list
      *--------------------*/
@@ -171,10 +179,12 @@ public class Hypothesis implements Serializable {
      * 
      * @return the between participant factor list
      */
-    public List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
+    public final List<BetweenParticipantFactor>
+    getBetweenParticipantFactorList() {
         List<HypothesisBetweenParticipantMapping> list = this
                 .getBetweenParticipantFactorMapList();
-        List<BetweenParticipantFactor> betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>();
+        List<BetweenParticipantFactor> betweenParticipantFactorList =
+                new ArrayList<BetweenParticipantFactor>();
         for (HypothesisBetweenParticipantMapping m : list) {
             betweenParticipantFactorList.add(m.getBetweenParticipantFactor());
         }
@@ -189,10 +199,11 @@ public class Hypothesis implements Serializable {
      * 
      * @return the repeated measures list
      */
-    public List<RepeatedMeasuresNode> getRepeatedMeasuresList() {
+    public final List<RepeatedMeasuresNode> getRepeatedMeasuresList() {
         List<HypothesisRepeatedMeasuresMapping> list = this
                 .getRepeatedMeasuresMapTree();
-        List<RepeatedMeasuresNode> betweenParticipantFactorList = new ArrayList<RepeatedMeasuresNode>();
+        List<RepeatedMeasuresNode> betweenParticipantFactorList =
+                new ArrayList<RepeatedMeasuresNode>();
         for (HypothesisRepeatedMeasuresMapping m : list) {
             betweenParticipantFactorList.add(m.getRepeatedMeasuresNode());
         }
@@ -213,7 +224,7 @@ public class Hypothesis implements Serializable {
      * @return the string
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return "Hypothesis [id=" + id + ", type=" + type
                 + ", betweenParticipantFactorMapList="
                 + betweenParticipantFactorMapList

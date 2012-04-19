@@ -121,7 +121,7 @@ public class SigmaScaleList implements Serializable{
      *
      * @return the sigma scale list
      */
-    public List<SigmaScale> getSigmaScaleList() {
+    public final List<SigmaScale> getSigmaScaleList() {
         return sigmaScaleList;
     }
 
@@ -130,7 +130,7 @@ public class SigmaScaleList implements Serializable{
      *
      * @param sigmaScaleList the new sigma scale list
      */
-    public void setSigmaScaleList(List<SigmaScale> sigmaScaleList) {
+    public final void setSigmaScaleList(final List<SigmaScale> sigmaScaleList) {
         this.sigmaScaleList = sigmaScaleList;
     }
         

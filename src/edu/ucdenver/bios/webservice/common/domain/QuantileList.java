@@ -135,7 +135,7 @@ public class QuantileList {
      * @param quantileList
      *            the new quantile list
      */
-    public final void setQuantileList(List<Quantile> quantileList) {
+    public final void setQuantileList(final List<Quantile> quantileList) {
         this.quantileList = quantileList;
     }
 

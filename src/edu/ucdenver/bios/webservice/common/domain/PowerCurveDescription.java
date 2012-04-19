@@ -69,10 +69,7 @@ public class PowerCurveDescription implements Serializable {
 
     /** The stratification var enum. */
     private StratificationVariableEnum stratificationVarEnum;
-
-    /** The uuid. */
-    private byte[] uuid = null;
-
+    
     /*--------------------
      * Constructors
      *--------------------*/
@@ -281,26 +278,7 @@ public class PowerCurveDescription implements Serializable {
     public final void setHorizontalAxisLabelEnum(
             final HorizontalAxisLabelEnum horizontalAxisLabelEnum) {
         this.horizontalAxisLabelEnum = horizontalAxisLabelEnum;
-    }
-
-    /**
-     * Gets the uuid.
-     * 
-     * @return the uuid
-     */
-    public byte[] getUuid() {
-        return uuid;
-    }
-
-    /**
-     * Sets the uuid.
-     * 
-     * @param uuid
-     *            the new uuid
-     */
-    public void setUuid(byte[] uuid) {
-        this.uuid = uuid;
-    }
+    }    
 
     /*--------------------
      * toString()
@@ -325,7 +303,6 @@ public class PowerCurveDescription implements Serializable {
                 + ", variabilityScaleFactor=" + variabilityScaleFactor
                 + ", typeIError=" + typeIError + ", studyDesign=" + studyDesign
                 + ", horizontalAxisLabelEnum=" + horizontalAxisLabelEnum
-                + ", stratificationVarEnum=" + stratificationVarEnum
-                + ", uuid=" + Arrays.toString(uuid) + "]";
+                + ", stratificationVarEnum=" + stratificationVarEnum + "]";
     }
 }

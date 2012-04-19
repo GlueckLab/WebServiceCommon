@@ -5,7 +5,12 @@ import java.util.Arrays;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class UuidHypothesis.
+ * This is a wrapper for the Hypothesis object.
+ *
+ * When user requests create/update a Hypothesis, this wrapper class serves the
+ * purpose. User can pass Uuid and Hypothesis object through this wrapper.
+ *
+ * @author Uttara Sakhadeo .
  */
 public class UuidHypothesis implements Serializable {
 
@@ -32,35 +37,35 @@ public class UuidHypothesis implements Serializable {
 
     /**
      * Instantiates a new uuid hypothesis.
-     * 
+     *
      * @param uuid
      *            the uuid
      */
-    public UuidHypothesis(byte[] uuid) {
+    public UuidHypothesis(final byte[] uuid) {
         super();
         this.uuid = uuid;
     }
 
     /**
      * Instantiates a new uuid hypothesis.
-     * 
+     *
      * @param hypothesis
      *            the hypothesis
      */
-    public UuidHypothesis(Hypothesis hypothesis) {
+    public UuidHypothesis(final Hypothesis hypothesis) {
         super();
         this.hypothesis = hypothesis;
     }
 
     /**
      * Instantiates a new uuid hypothesis.
-     * 
+     *
      * @param uuid
      *            the uuid
      * @param hypothesis
      *            the hypothesis
      */
-    public UuidHypothesis(byte[] uuid, Hypothesis hypothesis) {
+    public UuidHypothesis(final byte[] uuid, final Hypothesis hypothesis) {
         super();
         this.uuid = uuid;
         this.hypothesis = hypothesis;
@@ -71,39 +76,39 @@ public class UuidHypothesis implements Serializable {
      *--------------------*/
     /**
      * Gets the uuid.
-     * 
+     *
      * @return the uuid
      */
-    public byte[] getUuid() {
+    public final byte[] getUuid() {
         return uuid;
     }
 
     /**
      * Sets the uuid.
-     * 
+     *
      * @param uuid
      *            the new uuid
      */
-    public void setUuid(byte[] uuid) {
+    public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
 
     /**
      * Gets the hypothesis.
-     * 
+     *
      * @return the hypothesis
      */
-    public Hypothesis getHypothesis() {
+    public final Hypothesis getHypothesis() {
         return hypothesis;
     }
 
     /**
      * Sets the hypothesis.
-     * 
+     *
      * @param hypothesis
      *            the new hypothesis
      */
-    public void setHypothesis(Hypothesis hypothesis) {
+    public final void setHypothesis(final Hypothesis hypothesis) {
         this.hypothesis = hypothesis;
     }
 
@@ -112,16 +117,16 @@ public class UuidHypothesis implements Serializable {
      *--------------------*/
     /**
      * Intended only for debugging.
-     * 
+     *
      * <P>
      * Here, a generic implementation uses reflection to print names and values
      * of all fields <em>declared in this class</em>. Note that superclass
      * fields are left out of this implementation.
-     * 
+     *
      * @return the string
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return "UuidHypothesis [uuid=" + Arrays.toString(uuid)
                 + ", hypothesis=" + hypothesis + "]";
     }

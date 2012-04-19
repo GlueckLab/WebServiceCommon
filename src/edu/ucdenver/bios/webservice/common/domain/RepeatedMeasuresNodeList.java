@@ -132,7 +132,7 @@ public class RepeatedMeasuresNodeList implements Serializable{
      * @param repeatedMeasuresList the new repeated measures list
      */
     public final void setRepeatedMeasuresList(
-            List<RepeatedMeasuresNode> repeatedMeasuresList) {
+            final List<RepeatedMeasuresNode> repeatedMeasuresList) {
         this.repeatedMeasuresList = repeatedMeasuresList;
     }      
 }

@@ -122,7 +122,7 @@ public class ClusterNodeList {
      * 
      * @return the cluster node list
      */
-    public List<ClusterNode> getClusterNodeList() {
+    public final List<ClusterNode> getClusterNodeList() {
         return clusterNodeList;
     }
 
@@ -132,7 +132,8 @@ public class ClusterNodeList {
      * @param clusterNodeList
      *            the new cluster node list
      */
-    public void setClusterNodeList(List<ClusterNode> clusterNodeList) {
+    public final void setClusterNodeList(
+            final List<ClusterNode> clusterNodeList) {
         this.clusterNodeList = clusterNodeList;
     }
 

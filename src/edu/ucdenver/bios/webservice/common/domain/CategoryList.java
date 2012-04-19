@@ -132,7 +132,7 @@ public class CategoryList {
      * @param categoryList
      *            the new category list
      */
-    public final void setCategoryList(List<Category> categoryList) {
+    public final void setCategoryList(final List<Category> categoryList) {
         this.categoryList = categoryList;
     }
 

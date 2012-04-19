@@ -130,7 +130,7 @@ public class SampleSizeList {
      *
      * @param sampleSizeList the new sample size list
      */
-    public final void setSampleSizeList(List<SampleSize> sampleSizeList) {
+    public final void setSampleSizeList(final List<SampleSize> sampleSizeList) {
         this.sampleSizeList = sampleSizeList;
     }
 

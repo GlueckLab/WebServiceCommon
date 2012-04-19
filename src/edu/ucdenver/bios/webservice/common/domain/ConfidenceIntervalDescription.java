@@ -20,6 +20,7 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * This is a wrapper for the Confidence Interval information.
@@ -55,7 +56,7 @@ public class ConfidenceIntervalDescription implements Serializable {
 
     /** The rank of design matrix. */
     private int rankOfDesignMatrix;
-
+        
     /*--------------------
      * Constructors
      *--------------------*/
@@ -261,12 +262,21 @@ public class ConfidenceIntervalDescription implements Serializable {
      */
     public void setUpperTrailProbability(float upperTrailProbability) {
         this.upperTrailProbability = upperTrailProbability;
-    }
-
+    }    
     /*--------------------
      * toString()
      *--------------------*/
-    
+    /**
+     * Intended only for debugging.
+     * 
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     * 
+     * @return the string
+     */
+
     @Override
     public String toString() {
         return "ConfidenceIntervalDescription [id=" + id + ", betaFixed="
@@ -275,6 +285,5 @@ public class ConfidenceIntervalDescription implements Serializable {
                 + ", upperTrailProbability=" + upperTrailProbability
                 + ", sampleSize=" + sampleSize + ", rankOfDesignMatrix="
                 + rankOfDesignMatrix + "]";
-    }
-
+    }    
 }

@@ -57,7 +57,7 @@ public class StandardDeviation implements Serializable {
      * @param value
      *            the value
      */
-    public StandardDeviation(double value) {
+    public StandardDeviation(final double value) {
         super();
         this.value = value;
     }
@@ -70,7 +70,7 @@ public class StandardDeviation implements Serializable {
      * @param value
      *            the value
      */
-    public StandardDeviation(int id, double value) {
+    public StandardDeviation(final int id, final double value) {
         super();
         this.id = id;
         this.value = value;
@@ -85,7 +85,7 @@ public class StandardDeviation implements Serializable {
      * 
      * @return the id
      */
-    public int getId() {
+    public final int getId() {
         return id;
     }
 
@@ -95,7 +95,7 @@ public class StandardDeviation implements Serializable {
      * @param id
      *            the new id
      */
-    public void setId(int id) {
+    public final void setId(final int id) {
         this.id = id;
     }
 
@@ -104,7 +104,7 @@ public class StandardDeviation implements Serializable {
      * 
      * @return the value
      */
-    public double getValue() {
+    public final double getValue() {
         return value;
     }
 
@@ -114,7 +114,7 @@ public class StandardDeviation implements Serializable {
      * @param value
      *            the new value
      */
-    public void setValue(double value) {
+    public final void setValue(final double value) {
         this.value = value;
     }
 
@@ -132,7 +132,7 @@ public class StandardDeviation implements Serializable {
      * @return the string
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return "StandardDeviation [id=" + id + ", value=" + value + "]";
     }
 }

@@ -24,9 +24,9 @@ import java.io.Serializable;
 
 /**
  * This is a wrapper for the TypeIError information.
- *
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
 public class TypeIError implements Serializable {
 
@@ -53,7 +53,7 @@ public class TypeIError implements Serializable {
 
     /**
      * Instantiates a new type i error.
-     *
+     * 
      * @param alphaValue
      *            the alpha value
      */
@@ -67,7 +67,7 @@ public class TypeIError implements Serializable {
      *--------------------*/
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
     public final int getId() {
@@ -76,7 +76,7 @@ public class TypeIError implements Serializable {
 
     /**
      * Sets the id.
-     *
+     * 
      * @param id
      *            the new id
      */
@@ -86,7 +86,7 @@ public class TypeIError implements Serializable {
 
     /**
      * Gets the alpha value.
-     *
+     * 
      * @return the alpha value
      */
     public final double getAlphaValue() {
@@ -95,7 +95,7 @@ public class TypeIError implements Serializable {
 
     /**
      * Sets the alpha value.
-     *
+     * 
      * @param alphaValue
      *            the new alpha value
      */
@@ -106,12 +106,15 @@ public class TypeIError implements Serializable {
     /*--------------------
      * toString()
      *--------------------*/
-     /**
+    /**
      * Intended only for debugging.
      *
-     * <P>Here, a generic implementation uses reflection to print
-     * names and values of all fields <em>declared in this class</em>. Note that
-     * superclass fields are left out of this implementation.
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     *
+     * @return the string
      */
     @Override
     public final String toString() {

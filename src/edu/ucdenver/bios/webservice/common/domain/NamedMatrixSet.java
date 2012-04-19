@@ -131,7 +131,7 @@ public class NamedMatrixSet {
      * @param matrixSet
      *            the new matrix set
      */
-    public final void setMatrixSet(Set<NamedMatrix> matrixSet) {
+    public final void setMatrixSet(final Set<NamedMatrix> matrixSet) {
         this.matrixSet = matrixSet;
     }
 

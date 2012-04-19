@@ -131,7 +131,7 @@ public class RelativeGroupSizeList {
      * @param relativeGroupSizeList the new relative group size list
      */
     public final void setRelativeGroupSizeList(
-            List<RelativeGroupSize> relativeGroupSizeList) {
+            final List<RelativeGroupSize> relativeGroupSizeList) {
         this.relativeGroupSizeList = relativeGroupSizeList;
     }
         

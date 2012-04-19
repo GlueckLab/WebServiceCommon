@@ -25,7 +25,12 @@ import java.util.Arrays;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class UuidMatrixName.
+ * This is a wrapper for the NamedMatrix object.
+ *
+ * When user requests remove/retrieve a NamedMatrix, this wrapper class serves
+ * the purpose. User can pass Uuid and Name of NamedMatrix through this wrapper.
+ *
+ * @author Uttara Sakhadeo .
  */
 public class UuidMatrixName implements Serializable {
 
@@ -52,35 +57,35 @@ public class UuidMatrixName implements Serializable {
 
     /**
      * Instantiates a new uuid matrix name.
-     * 
+     *
      * @param uuid
      *            the uuid
      */
-    public UuidMatrixName(byte[] uuid) {
+    public UuidMatrixName(final byte[] uuid) {
         super();
         this.uuid = uuid;
     }
 
     /**
      * Instantiates a new uuid matrix name.
-     * 
+     *
      * @param matrixName
      *            the matrix name
      */
-    public UuidMatrixName(String matrixName) {
+    public UuidMatrixName(final String matrixName) {
         super();
         this.matrixName = matrixName;
     }
 
     /**
      * Instantiates a new uuid matrix name.
-     * 
+     *
      * @param uuid
      *            the uuid
      * @param matrixName
      *            the matrix name
      */
-    public UuidMatrixName(byte[] uuid, String matrixName) {
+    public UuidMatrixName(final byte[] uuid, final String matrixName) {
         super();
         this.uuid = uuid;
         this.matrixName = matrixName;
@@ -91,39 +96,39 @@ public class UuidMatrixName implements Serializable {
      *--------------------*/
     /**
      * Gets the uuid.
-     * 
+     *
      * @return the uuid
      */
-    public byte[] getUuid() {
+    public final byte[] getUuid() {
         return uuid;
     }
 
     /**
      * Sets the uuid.
-     * 
+     *
      * @param uuid
      *            the new uuid
      */
-    public void setUuid(byte[] uuid) {
+    public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
 
     /**
      * Gets the matrix name.
-     * 
+     *
      * @return the matrix name
      */
-    public String getMatrixName() {
+    public final String getMatrixName() {
         return matrixName;
     }
 
     /**
      * Sets the matrix name.
-     * 
+     *
      * @param matrixName
      *            the new matrix name
      */
-    public void setMatrixName(String matrixName) {
+    public final void setMatrixName(final String matrixName) {
         this.matrixName = matrixName;
     }
 
@@ -132,16 +137,16 @@ public class UuidMatrixName implements Serializable {
      *--------------------*/
     /**
      * Intended only for debugging.
-     * 
+     *
      * <P>
      * Here, a generic implementation uses reflection to print names and values
      * of all fields <em>declared in this class</em>. Note that superclass
      * fields are left out of this implementation.
-     * 
+     *
      * @return the string
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return "UuidMatrixName [uuid=" + Arrays.toString(uuid)
                 + ", matrixName=" + matrixName + "]";
     }

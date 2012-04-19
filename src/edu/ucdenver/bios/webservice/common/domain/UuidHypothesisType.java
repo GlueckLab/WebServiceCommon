@@ -27,7 +27,12 @@ import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class UuidHypothesisType.
+ * This is a wrapper for the Hypothesis object.
+ *
+ * When user requests remove/retrieve a Hypothesis, this wrapper class serves
+ * the purpose. User can pass Uuid and Type of Hypothesis through this wrapper.
+ *
+ * @author Uttara Sakhadeo .
  */
 public class UuidHypothesisType implements Serializable {
 
@@ -54,35 +59,35 @@ public class UuidHypothesisType implements Serializable {
 
     /**
      * Instantiates a new uuid hypothesis type.
-     * 
+     *
      * @param uuid
      *            the uuid
      */
-    public UuidHypothesisType(byte[] uuid) {
+    public UuidHypothesisType(final byte[] uuid) {
         super();
         this.uuid = uuid;
     }
 
     /**
      * Instantiates a new uuid hypothesis type.
-     * 
+     *
      * @param type
      *            the type
      */
-    public UuidHypothesisType(HypothesisTypeEnum type) {
+    public UuidHypothesisType(final HypothesisTypeEnum type) {
         super();
         this.type = type;
     }
 
     /**
      * Instantiates a new uuid hypothesis type.
-     * 
+     *
      * @param uuid
      *            the uuid
      * @param type
      *            the type
      */
-    public UuidHypothesisType(byte[] uuid, HypothesisTypeEnum type) {
+    public UuidHypothesisType(final byte[] uuid, final HypothesisTypeEnum type) {
         super();
         this.uuid = uuid;
         this.type = type;
@@ -93,39 +98,39 @@ public class UuidHypothesisType implements Serializable {
      *--------------------*/
     /**
      * Gets the uuid.
-     * 
+     *
      * @return the uuid
      */
-    public byte[] getUuid() {
+    public final byte[] getUuid() {
         return uuid;
     }
 
     /**
      * Sets the uuid.
-     * 
+     *
      * @param uuid
      *            the new uuid
      */
-    public void setUuid(byte[] uuid) {
+    public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
 
     /**
      * Gets the type.
-     * 
+     *
      * @return the type
      */
-    public HypothesisTypeEnum getType() {
+    public final HypothesisTypeEnum getType() {
         return type;
     }
 
     /**
      * Sets the type.
-     * 
+     *
      * @param type
      *            the new type
      */
-    public void setType(HypothesisTypeEnum type) {
+    public final void setType(final HypothesisTypeEnum type) {
         this.type = type;
     }
 
@@ -134,16 +139,16 @@ public class UuidHypothesisType implements Serializable {
      *--------------------*/
     /**
      * Intended only for debugging.
-     * 
+     *
      * <P>
      * Here, a generic implementation uses reflection to print names and values
      * of all fields <em>declared in this class</em>. Note that superclass
      * fields are left out of this implementation.
-     * 
+     *
      * @return the string
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return "UuidHypothesisType [uuid=" + Arrays.toString(uuid) + ", type="
                 + type + "]";
     }

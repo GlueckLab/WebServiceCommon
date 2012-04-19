@@ -40,7 +40,7 @@ public class BetweenParticipantFactorList {
     private byte[] uuid = null;
 
     /** The between participant factor list. */
-    List<BetweenParticipantFactor> betweenParticipantFactorList = null;
+    private List<BetweenParticipantFactor> betweenParticipantFactorList = null;
 
     /*--------------------
      * Constructors
@@ -68,7 +68,8 @@ public class BetweenParticipantFactorList {
      *            the size
      */
     public BetweenParticipantFactorList(final int size) {
-        this.betweenParticipantFactorList = new ArrayList<BetweenParticipantFactor>(
+        this.betweenParticipantFactorList =
+                new ArrayList<BetweenParticipantFactor>(
                 size);
     }
 
@@ -124,7 +125,8 @@ public class BetweenParticipantFactorList {
      *
      * @return the between participant factor list
      */
-    public final List<BetweenParticipantFactor> getBetweenParticipantFactorList() {
+    public final List<BetweenParticipantFactor>
+        getBetweenParticipantFactorList() {
         return betweenParticipantFactorList;
     }
 
@@ -134,7 +136,7 @@ public class BetweenParticipantFactorList {
      * @param betweenParticipantFactorList
      *            the new between participant factor list
      */
-    public void setBetweenParticipantFactorList(
+    public final void setBetweenParticipantFactorList(
             final List<BetweenParticipantFactor> betweenParticipantFactorList) {
         this.betweenParticipantFactorList = betweenParticipantFactorList;
     }

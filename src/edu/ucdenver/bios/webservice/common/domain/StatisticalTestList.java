@@ -130,7 +130,7 @@ public class StatisticalTestList {
      * @param statisticalTestList the new statistical test list
      */
     public final void setStatisticalTestList(
-            List<StatisticalTest> statisticalTestList) {
+            final List<StatisticalTest> statisticalTestList) {
         this.statisticalTestList = statisticalTestList;
     }
 

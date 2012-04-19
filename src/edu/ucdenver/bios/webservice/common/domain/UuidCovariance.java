@@ -5,7 +5,12 @@ import java.util.Arrays;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class UuidCovariance.
+ * This is a wrapper for the Covariance object.
+ *
+ * When user requests create/update a Covariance, this wrapper class serves the
+ * purpose. User can pass Uuid and Covariance object through this wrapper.
+ *
+ * @author Uttara Sakhadeo .
  */
 public class UuidCovariance implements Serializable {
 
@@ -32,35 +37,35 @@ public class UuidCovariance implements Serializable {
 
     /**
      * Instantiates a new uuid covariance.
-     * 
+     *
      * @param uuid
      *            the uuid
      */
-    public UuidCovariance(byte[] uuid) {
+    public UuidCovariance(final byte[] uuid) {
         super();
         this.uuid = uuid;
     }
 
     /**
      * Instantiates a new uuid covariance.
-     * 
+     *
      * @param covariance
      *            the covariance
      */
-    public UuidCovariance(Covariance covariance) {
+    public UuidCovariance(final Covariance covariance) {
         super();
         this.covariance = covariance;
     }
 
     /**
      * Instantiates a new uuid covariance.
-     * 
+     *
      * @param uuid
      *            the uuid
      * @param covariance
      *            the covariance
      */
-    public UuidCovariance(byte[] uuid, Covariance covariance) {
+    public UuidCovariance(final byte[] uuid, final Covariance covariance) {
         super();
         this.uuid = uuid;
         this.covariance = covariance;
@@ -71,39 +76,39 @@ public class UuidCovariance implements Serializable {
      *--------------------*/
     /**
      * Gets the uuid.
-     * 
+     *
      * @return the uuid
      */
-    public byte[] getUuid() {
+    public final byte[] getUuid() {
         return uuid;
     }
 
     /**
      * Sets the uuid.
-     * 
+     *
      * @param uuid
      *            the new uuid
      */
-    public void setUuid(byte[] uuid) {
+    public final void setUuid(final byte[] uuid) {
         this.uuid = uuid;
     }
 
     /**
      * Gets the covariance.
-     * 
+     *
      * @return the covariance
      */
-    public Covariance getCovariance() {
+    public final Covariance getCovariance() {
         return covariance;
     }
 
     /**
      * Sets the covariance.
-     * 
+     *
      * @param covariance
      *            the new covariance
      */
-    public void setCovariance(Covariance covariance) {
+    public final void setCovariance(final Covariance covariance) {
         this.covariance = covariance;
     }
 
@@ -112,16 +117,16 @@ public class UuidCovariance implements Serializable {
      *--------------------*/
     /**
      * Intended only for debugging.
-     * 
+     *
      * <P>
      * Here, a generic implementation uses reflection to print names and values
      * of all fields <em>declared in this class</em>. Note that superclass
      * fields are left out of this implementation.
-     * 
+     *
      * @return the string
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return "UuidCovariance [uuid=" + Arrays.toString(uuid)
                 + ", covariance=" + covariance + "]";
     }

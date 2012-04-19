@@ -1088,16 +1088,16 @@ public class StudyDesign implements Serializable {
      *            the name
      * @return the named hypothesis
      */
-    public final Hypothesis getHypothesisFromSet(final HypothesisTypeEnum name) {
-        Hypothesis newHypothesis = null;
+    public final Hypothesis getHypothesisFromSet(final HypothesisTypeEnum type) {
+        Hypothesis newHypothesis = null;     
         if (this.hypothesis != null) {
             Iterator<Hypothesis> iterator = this.hypothesis.iterator();
             while (iterator.hasNext()) {
                 newHypothesis = iterator.next();
                 HypothesisTypeEnum hypothesisType = newHypothesis.getType();
-                if (hypothesisType != null && name.equals(hypothesisType)) {
+                if (hypothesisType != null && type.equals(hypothesisType)) {
                     break;
-                } else if (hypothesisType == null || !name.equals(hypothesisType))
+                } else if (hypothesisType == null || !type.equals(hypothesisType))
                     ;
                 newHypothesis = null;
             }

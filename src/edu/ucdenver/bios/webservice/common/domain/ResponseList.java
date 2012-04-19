@@ -132,7 +132,7 @@ public class ResponseList {
      * @param responseNodeList
      *            the new response node list
      */
-    public final void setResponseNodeList(List<ResponseNode> responseNodeList) {
+    public final void setResponseNodeList(final List<ResponseNode> responseNodeList) {
         this.responseNodeList = responseNodeList;
     }
 
