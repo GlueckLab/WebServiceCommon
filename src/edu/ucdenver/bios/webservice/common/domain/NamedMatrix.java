@@ -20,7 +20,6 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -177,11 +176,11 @@ public class NamedMatrix implements Serializable {
      * 
      * @param data
      *            the new data
-     */
+     */    
     public final void setDataFromArray(final double[][] data) {
         Blob2DArray blob = new Blob2DArray(data);
         // System.out.println(blob.getData());
-        setData(blob);
+        this.setData(blob);
     }
 
     /**
@@ -189,9 +188,10 @@ public class NamedMatrix implements Serializable {
      * 
      * @return the data from blob
      */
+    /*
     public final double[][] getDataAsArray() {
-        return data.getData();
-    }    
+        return this.getData().getData();
+    }*/    
     /*--------------------
      * toString()
      *--------------------*/
