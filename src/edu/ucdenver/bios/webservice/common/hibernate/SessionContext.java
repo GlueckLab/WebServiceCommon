@@ -23,6 +23,8 @@ package edu.ucdenver.bios.webservice.common.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.jasypt.hibernate4.encryptor.HibernatePBEEncryptorRegistry;
 
 /**
  * Singleton class for creating a hibernate session factory object.
@@ -51,9 +53,21 @@ public final class SessionContext {
          * that we used and the mapping to our hbm.xml file for each POJO (Plain
          * Old Java Object).
          */
+        try
+        {
+        /* Begin : Jasypt Chnages */
+            StandardPBEStringEncryptor strongEncryptor = new StandardPBEStringEncryptor();
+            strongEncryptor.setAlgorithm("PBEWithMD5AndDES");
+            strongEncryptor.setPassword("password");
+            HibernatePBEEncryptorRegistry registry = HibernatePBEEncryptorRegistry.getInstance();
+            registry.registerPBEStringEncryptor("configurationHibernateEncryptor", strongEncryptor);
+        /* End : Jasypt Chnages */
         Configuration configuration = new Configuration();
         sessionFactory = configuration.configure().buildSessionFactory();
-
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**

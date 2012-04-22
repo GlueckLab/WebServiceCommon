@@ -21,6 +21,7 @@
 package edu.ucdenver.bios.webservice.common.hibernate;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  * Base class for interacting with a database through hibernate. The BaseManager
@@ -53,7 +54,7 @@ public class BaseManager {
                     + e.getMessage());
         }
     }
-
+        
     /**
      * Start a new transaction with the database.
      *
@@ -62,14 +63,29 @@ public class BaseManager {
      */
     public final void beginTransaction() throws BaseManagerException {
         try {
-            if (session != null) {
+            if (session != null) {               
                 session.beginTransaction();
+                transactionStarted = true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw new BaseManagerException("Failed to get database session: "
+                    + e.getMessage());
+        }
+    }
+    
+    public final Transaction getTransaction() throws BaseManagerException {
+        Transaction transaction = null;
+        try {            
+            if (session != null) {               
+                transaction = session.getTransaction();
                 transactionStarted = true;
             }
         } catch (Exception e) {
             throw new BaseManagerException("Failed to get database session: "
                     + e.getMessage());
         }
+        return transaction;
     }
 
     /**
