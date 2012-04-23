@@ -24,7 +24,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig;
 import org.jasypt.hibernate4.encryptor.HibernatePBEEncryptorRegistry;
+
 
 /**
  * Singleton class for creating a hibernate session factory object.
@@ -56,11 +58,22 @@ public final class SessionContext {
         try
         {
         /* Begin : Jasypt Chnages */
-            StandardPBEStringEncryptor strongEncryptor = new StandardPBEStringEncryptor();
-            strongEncryptor.setAlgorithm("PBEWithMD5AndDES");
+            /*StandardPBEStringEncryptor strongEncryptor = new StandardPBEStringEncryptor();
+            strongEncryptor.setAlgorithm("PBEWithMD5AndDES");           
             strongEncryptor.setPassword("password");
             HibernatePBEEncryptorRegistry registry = HibernatePBEEncryptorRegistry.getInstance();
+            registry.registerPBEStringEncryptor("configurationHibernateEncryptor", strongEncryptor);*/
+            
+            EnvironmentStringPBEConfig config = new EnvironmentStringPBEConfig();
+            config.setPasswordEnvName("ENV_VARIABLE");
+            
+            StandardPBEStringEncryptor strongEncryptor = new StandardPBEStringEncryptor();
+            strongEncryptor.setAlgorithm("PBEWithMD5AndDES");
+            strongEncryptor.setConfig(config);
+            
+            HibernatePBEEncryptorRegistry registry =  HibernatePBEEncryptorRegistry.getInstance();
             registry.registerPBEStringEncryptor("configurationHibernateEncryptor", strongEncryptor);
+            
         /* End : Jasypt Chnages */
         Configuration configuration = new Configuration();
         sessionFactory = configuration.configure().buildSessionFactory();
