@@ -624,7 +624,7 @@ public class StudyDesign implements Serializable {
     public final List<Double> getAlphaListValues() {
         List<TypeIError> list = this.getAlphaList();
         List<Double> values = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = new ArrayList<Double>(list.size());
             for (TypeIError node : list) {
@@ -659,7 +659,7 @@ public class StudyDesign implements Serializable {
     public final List<Double> getBetaScaleListValues() {
         List<BetaScale> list = this.getBetaScaleList();
         List<Double> values = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = new ArrayList<Double>(list.size());
             for (BetaScale node : list) {
@@ -694,7 +694,7 @@ public class StudyDesign implements Serializable {
     public final List<Double> getSigmaScaleListValues() {
         List<SigmaScale> list = this.getSigmaScaleList();
         List<Double> values = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = new ArrayList<Double>(list.size());
             for (SigmaScale node : list) {
@@ -729,7 +729,7 @@ public class StudyDesign implements Serializable {
     public final List<Integer> getRelativeGroupSizeListValues() {
         List<RelativeGroupSize> list = this.getRelativeGroupSizeList();
         List<Integer> values = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = new ArrayList<Integer>(list.size());
             for (RelativeGroupSize node : list) {
@@ -766,7 +766,7 @@ public class StudyDesign implements Serializable {
     public final List<StatisticalTestTypeEnum> getStatisticalTestListValues() {
         List<StatisticalTest> list = this.getStatisticalTestList();
         List<StatisticalTestTypeEnum> values =null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = 
                 new ArrayList<StatisticalTestTypeEnum>(
@@ -805,7 +805,7 @@ public class StudyDesign implements Serializable {
     public final List<PowerMethodEnum> getPowerMethodListValues() {
         List<PowerMethod> list = this.getPowerMethodList();
         List<PowerMethodEnum> values = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = new ArrayList<PowerMethodEnum>(
                 list.size());
@@ -842,7 +842,7 @@ public class StudyDesign implements Serializable {
     public final List<Double> getQuantileListValues() {
         List<Quantile> list = this.getQuantileList();
         List<Double> values = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = new ArrayList<Double>(list.size());
             for (Quantile node : quantileList) {
@@ -877,7 +877,7 @@ public class StudyDesign implements Serializable {
     public final List<Double> getNominalPowerListValues() {
         List<NominalPower> list = this.getNominalPowerList();
         List<Double> values = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = new ArrayList<Double>(list.size());
             for (NominalPower node : list) {
@@ -912,7 +912,7 @@ public class StudyDesign implements Serializable {
     public final List<String> getResponseListNames() {
         List<ResponseNode> list = this.getResponseList();
         List<String> responses = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             responses = new ArrayList<String>(list.size());
             for (ResponseNode node : responseList) {
@@ -947,7 +947,7 @@ public class StudyDesign implements Serializable {
     public final List<Integer> getSampleSizeListValues() {
         List<SampleSize> list = this.getSampleSizeList();
         List<Integer> values = null;
-        if(list != null || !list.isEmpty())
+        if(list != null && !list.isEmpty())
         {
             values = new ArrayList<Integer>(list.size());
             for (SampleSize node : list) {
