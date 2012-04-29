@@ -45,11 +45,11 @@ public class ConfidenceIntervalDescription implements Serializable {
     /** The sigma fixed. */
     private boolean sigmaFixed;
 
-    /** The lower trail probability. */
-    private float lowerTrailProbability;
+    /** The lower tail probability. */
+    private float lowerTailProbability;
 
-    /** The upper trail probability. */
-    private float upperTrailProbability;
+    /** The upper tail probability. */
+    private float upperTailProbability;
 
     /** The sample size. */
     private int sampleSize;
@@ -87,8 +87,8 @@ public class ConfidenceIntervalDescription implements Serializable {
             float upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
         this.betaFixed = isBetaFixed;
         this.sigmaFixed = isSigmaFixed;
-        this.lowerTrailProbability = lowerTailProbability;
-        this.upperTrailProbability = upperTailProbability;
+        this.lowerTailProbability = lowerTailProbability;
+        this.upperTailProbability = upperTailProbability;
         this.sampleSize = sampleSize;
         this.rankOfDesignMatrix = rankOfDesignMatrix;
     }
@@ -117,8 +117,8 @@ public class ConfidenceIntervalDescription implements Serializable {
         this.id = id;
         this.betaFixed = isBetaFixed;
         this.sigmaFixed = isSigmaFixed;
-        this.lowerTrailProbability = lowerTailProbability;
-        this.upperTrailProbability = upperTailProbability;
+        this.lowerTailProbability = lowerTailProbability;
+        this.upperTailProbability = upperTailProbability;
         this.sampleSize = sampleSize;
         this.rankOfDesignMatrix = rankOfDesignMatrix;
     }
@@ -227,41 +227,41 @@ public class ConfidenceIntervalDescription implements Serializable {
      * }
      */
     /**
-     * Gets the lower trail probability.
+     * Gets the lower Tail probability.
      * 
-     * @return the lower trail probability
+     * @return the lower Tail probability
      */
-    public float getLowerTrailProbability() {
-        return lowerTrailProbability;
+    public float getLowerTailProbability() {
+        return lowerTailProbability;
     }
 
     /**
-     * Sets the lower trail probability.
+     * Sets the lower Tail probability.
      * 
-     * @param lowerTrailProbability
-     *            the new lower trail probability
+     * @param lowerTailProbability
+     *            the new lower Tail probability
      */
-    public void setLowerTrailProbability(float lowerTrailProbability) {
-        this.lowerTrailProbability = lowerTrailProbability;
+    public void setLowerTailProbability(float lowerTailProbability) {
+        this.lowerTailProbability = lowerTailProbability;
     }
 
     /**
-     * Gets the upper trail probability.
+     * Gets the upper Tail probability.
      * 
-     * @return the upper trail probability
+     * @return the upper Tail probability
      */
-    public float getUpperTrailProbability() {
-        return upperTrailProbability;
+    public float getUpperTailProbability() {
+        return upperTailProbability;
     }
 
     /**
-     * Sets the upper trail probability.
+     * Sets the upper Tail probability.
      * 
-     * @param upperTrailProbability
-     *            the new upper trail probability
+     * @param upperTailProbability
+     *            the new upper Tail probability
      */
-    public void setUpperTrailProbability(float upperTrailProbability) {
-        this.upperTrailProbability = upperTrailProbability;
+    public void setUpperTailProbability(float upperTailProbability) {
+        this.upperTailProbability = upperTailProbability;
     }    
     /*--------------------
      * toString()
@@ -281,8 +281,8 @@ public class ConfidenceIntervalDescription implements Serializable {
     public String toString() {
         return "ConfidenceIntervalDescription [id=" + id + ", betaFixed="
                 + betaFixed + ", sigmaFixed=" + sigmaFixed
-                + ", lowerTrailProbability=" + lowerTrailProbability
-                + ", upperTrailProbability=" + upperTrailProbability
+                + ", lowerTailProbability=" + lowerTailProbability
+                + ", upperTailProbability=" + upperTailProbability
                 + ", sampleSize=" + sampleSize + ", rankOfDesignMatrix="
                 + rankOfDesignMatrix + "]";
     }    

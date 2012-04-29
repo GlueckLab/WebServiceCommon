@@ -17,5 +17,7 @@
 	<classpathentry kind="lib" path="/thirdparty/hibernate/4.0.0/lib/required/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="/thirdparty/junit/4.7/lib/junit-4.7.jar"/>
 	<classpathentry kind="lib" path="/thirdparty/gson/2.1/lib/gson-2.1.jar"/>
+	<classpathentry kind="lib" path="/thirdparty/Jasypt/1.9.0/lib/jasypt-1.9.0.jar"/>
+	<classpathentry kind="lib" path="/thirdparty/Jasypt/1.9.0/lib/jasypt-hibernate4-1.9.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
