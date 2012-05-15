@@ -24,6 +24,7 @@ import java.io.Serializable;
 
 import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
 
+// TODO: Auto-generated Javadoc
 /**
  * This is a wrapper for the power method object information.
  *

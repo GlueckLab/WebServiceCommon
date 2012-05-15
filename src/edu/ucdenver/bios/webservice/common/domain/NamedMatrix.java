@@ -57,7 +57,7 @@ public class NamedMatrix implements Serializable {
     /**
      * Instantiates a new named matrix.
      */
-    public NamedMatrix() {
+    public NamedMatrix() {       
     }
 
     /**
@@ -176,7 +176,7 @@ public class NamedMatrix implements Serializable {
      * 
      * @param data
      *            the new data
-     */    
+     */ 
     public final void setDataFromArray(final double[][] data) {
         Blob2DArray blob = new Blob2DArray(data);
         // System.out.println(blob.getData());
@@ -188,10 +188,10 @@ public class NamedMatrix implements Serializable {
      * 
      * @return the data from blob
      */
-    /*
+    
     public final double[][] getDataAsArray() {
         return this.getData().getData();
-    }*/    
+    }    
     /*--------------------
      * toString()
      *--------------------*/

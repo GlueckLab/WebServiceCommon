@@ -21,7 +21,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 // TODO: Auto-generated Javadoc
@@ -229,15 +228,27 @@ public class Covariance implements Serializable {
     /*--------------------
      * Return/Store data[]
      *--------------------*/
+    /**
+     * Sets the standard deviation list from array.
+     *
+     * @param data the new standard deviation list from array
+     */
     
     public void setStandardDeviationListFromArray(double[] data)
     {
         this.standardDeviationList = new ArrayList<StandardDeviation>(data.length);
+        System.out.println(data.length);
         for(int i = 0;i < data.length; i++)
         {
             this.standardDeviationList.add(new StandardDeviation(data[i]));
         }
     }
+    
+    /**
+     * Gets the standard deviation list from array.
+     *
+     * @return the standard deviation list from array
+     */
     
     public double[] getStandardDeviationListFromArray()
     {
@@ -260,6 +271,7 @@ public class Covariance implements Serializable {
      * @param data
      *            the new blob
      */
+   
     public void setBlobFromArray(double[][] data) {
         Blob2DArray blob = new Blob2DArray(data);
         setBlob(blob);
@@ -270,6 +282,7 @@ public class Covariance implements Serializable {
      * 
      * @return the double array from blob
      */
+    
     public double[][] getDoubleArrayFromBlob() {
         return blob.getData();
     }

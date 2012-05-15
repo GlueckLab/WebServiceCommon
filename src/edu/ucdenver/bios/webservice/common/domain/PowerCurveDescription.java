@@ -24,6 +24,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 import edu.ucdenver.bios.webservice.common.enums.HorizontalAxisLabelEnum;
+import edu.ucdenver.bios.webservice.common.enums.PowerMethodEnum;
+import edu.ucdenver.bios.webservice.common.enums.StatisticalTestTypeEnum;
 import edu.ucdenver.bios.webservice.common.enums.StratificationVariableEnum;
 
 // TODO: Auto-generated Javadoc
@@ -43,39 +45,39 @@ public class PowerCurveDescription implements Serializable {
     /** The id. */
     private int id;
 
-    /** The sample size. */
-    private int sampleSize;
-
     /** The power curve description. */
     private String powerCurveDescription;
 
-    /** The statistical test. */
-    private String statisticalTest;
-
-    /** The regression coeeficient scale factor. */
-    private float regressionCoeeficientScaleFactor;
-
-    /** The variability scale factor. */
-    private float variabilityScaleFactor;
-
-    /** The type i error. */
-    private float typeIError;
-
-    /** The study design. */
-    private StudyDesign studyDesign;
+    /** The power method enum. */
+    private PowerMethodEnum powerMethodEnum;
 
     /** The horizontal axis label enum. */
     private HorizontalAxisLabelEnum horizontalAxisLabelEnum;
 
     /** The stratification var enum. */
     private StratificationVariableEnum stratificationVarEnum;
-    
+
+    /** The statistical test. */
+    private StatisticalTestTypeEnum statisticalTestTypeEnum;
+
+    /** The beta scale. */
+    private double betaScale;
+
+    /** The sigma scale. */
+    private double sigmaScale;
+
+    /** The type i error. */
+    private double typeIError;
+
+    /** The sample size. */
+    private int sampleSize;
+
+    /** The quantile. */
+    private double quantile;
+
     /*--------------------
      * Constructors
-     *--------------------*/
-    /*
-     * Create an empty Power Curve Description object
-     */
+     *--------------------*/   
     /**
      * Instantiates a new power curve description.
      */
@@ -105,6 +107,161 @@ public class PowerCurveDescription implements Serializable {
     }
 
     /**
+     * Gets the power curve description.
+     * 
+     * @return the power curve description
+     */
+    public final String getPowerCurveDescription() {
+        return powerCurveDescription;
+    }
+
+    /**
+     * Sets the power curve description.
+     * 
+     * @param powerCurveDescription
+     *            the new power curve description
+     */
+    public final void setPowerCurveDescription(final String powerCurveDescription) {
+        this.powerCurveDescription = powerCurveDescription;
+    }
+
+    /**
+     * Gets the power method enum.
+     * 
+     * @return the power method enum
+     */
+    public final PowerMethodEnum getPowerMethodEnum() {
+        return powerMethodEnum;
+    }
+
+    /**
+     * Sets the power method enum.
+     * 
+     * @param powerMethodEnum
+     *            the new power method enum
+     */
+    public final void setPowerMethodEnum(final PowerMethodEnum powerMethodEnum) {
+        this.powerMethodEnum = powerMethodEnum;
+    }
+
+    /**
+     * Gets the horizontal axis label enum.
+     * 
+     * @return the horizontal axis label enum
+     */
+    public final HorizontalAxisLabelEnum getHorizontalAxisLabelEnum() {
+        return horizontalAxisLabelEnum;
+    }
+
+    /**
+     * Sets the horizontal axis label enum.
+     * 
+     * @param horizontalAxisLabelEnum
+     *            the new horizontal axis label enum
+     */
+    public final void setHorizontalAxisLabelEnum(final
+            HorizontalAxisLabelEnum horizontalAxisLabelEnum) {
+        this.horizontalAxisLabelEnum = horizontalAxisLabelEnum;
+    }
+
+    /**
+     * Gets the stratification var enum.
+     * 
+     * @return the stratification var enum
+     */
+    public final StratificationVariableEnum getStratificationVarEnum() {
+        return stratificationVarEnum;
+    }
+
+    /**
+     * Sets the stratification var enum.
+     * 
+     * @param stratificationVarEnum
+     *            the new stratification var enum
+     */
+    public final void setStratificationVarEnum(final
+            StratificationVariableEnum stratificationVarEnum) {
+        this.stratificationVarEnum = stratificationVarEnum;
+    }
+
+    /**
+     * Gets the statistical test type enum.
+     * 
+     * @return the statistical test type enum
+     */
+    public final StatisticalTestTypeEnum getStatisticalTestTypeEnum() {
+        return statisticalTestTypeEnum;
+    }
+
+    /**
+     * Sets the statistical test type enum.
+     * 
+     * @param statisticalTestTypeEnum
+     *            the new statistical test type enum
+     */
+    public final void setStatisticalTestTypeEnum(final
+            StatisticalTestTypeEnum statisticalTestTypeEnum) {
+        this.statisticalTestTypeEnum = statisticalTestTypeEnum;
+    }
+
+    /**
+     * Gets the beta scale.
+     * 
+     * @return the beta scale
+     */
+    public final double getBetaScale() {
+        return betaScale;
+    }
+
+    /**
+     * Sets the beta scale.
+     * 
+     * @param betaScale
+     *            the new beta scale
+     */
+    public final void setBetaScale(final double betaScale) {
+        this.betaScale = betaScale;
+    }
+
+    /**
+     * Gets the sigma scale.
+     * 
+     * @return the sigma scale
+     */
+    public final double getSigmaScale() {
+        return sigmaScale;
+    }
+
+    /**
+     * Sets the sigma scale.
+     * 
+     * @param sigmaScale
+     *            the new sigma scale
+     */
+    public final void setSigmaScale(final double sigmaScale) {
+        this.sigmaScale = sigmaScale;
+    }
+
+    /**
+     * Gets the type i error.
+     * 
+     * @return the type i error
+     */
+    public final double getTypeIError() {
+        return typeIError;
+    }
+
+    /**
+     * Sets the type i error.
+     * 
+     * @param typeIError
+     *            the new type i error
+     */
+    public final void setTypeIError(final double typeIError) {
+        this.typeIError = typeIError;
+    }
+
+    /**
      * Gets the sample size.
      * 
      * @return the sample size
@@ -124,161 +281,23 @@ public class PowerCurveDescription implements Serializable {
     }
 
     /**
-     * Gets the power curve description.
+     * Gets the quantile.
      * 
-     * @return the power curve description
+     * @return the quantile
      */
-    public final String getPowerCurveDescription() {
-        return powerCurveDescription;
+    public final double getQuantile() {
+        return quantile;
     }
 
     /**
-     * Sets the power curve description.
+     * Sets the quantile.
      * 
-     * @param powerCurveDescription
-     *            the new power curve description
+     * @param quantile
+     *            the new quantile
      */
-    public final void setPowerCurveDescription(
-            final String powerCurveDescription) {
-        this.powerCurveDescription = powerCurveDescription;
+    public final void setQuantile(final double quantile) {
+        this.quantile = quantile;
     }
-
-    /**
-     * Gets the statistical test.
-     * 
-     * @return the statistical test
-     */
-    public final String getStatisticalTest() {
-        return statisticalTest;
-    }
-
-    /**
-     * Sets the statistical test.
-     * 
-     * @param statisticalTest
-     *            the new statistical test
-     */
-    public final void setStatisticalTest(final String statisticalTest) {
-        this.statisticalTest = statisticalTest;
-    }
-
-    /**
-     * Gets the regression coeeficient scale factor.
-     * 
-     * @return the regression coeeficient scale factor
-     */
-    public final float getRegressionCoeeficientScaleFactor() {
-        return regressionCoeeficientScaleFactor;
-    }
-
-    /**
-     * Sets the regression coeeficient scale factor.
-     * 
-     * @param regressionCoeeficientScaleFactor
-     *            the new regression coeeficient scale factor
-     */
-    public final void setRegressionCoeeficientScaleFactor(
-            final float regressionCoeeficientScaleFactor) {
-        this.regressionCoeeficientScaleFactor = regressionCoeeficientScaleFactor;
-    }
-
-    /**
-     * Gets the variability scale factor.
-     * 
-     * @return the variability scale factor
-     */
-    public final float getVariabilityScaleFactor() {
-        return variabilityScaleFactor;
-    }
-
-    /**
-     * Sets the variability scale factor.
-     * 
-     * @param variabilityScaleFactor
-     *            the new variability scale factor
-     */
-    public final void setVariabilityScaleFactor(
-            final float variabilityScaleFactor) {
-        this.variabilityScaleFactor = variabilityScaleFactor;
-    }
-
-    /**
-     * Gets the type i error.
-     * 
-     * @return the type i error
-     */
-    public final float getTypeIError() {
-        return typeIError;
-    }
-
-    /**
-     * Sets the type i error.
-     * 
-     * @param typeIError
-     *            the new type i error
-     */
-    public final void setTypeIError(final float typeIError) {
-        this.typeIError = typeIError;
-    }
-
-    /**
-     * Gets the study design.
-     * 
-     * @return the study design
-     */
-    public final StudyDesign getStudyDesign() {
-        return studyDesign;
-    }
-
-    /**
-     * Sets the study design.
-     * 
-     * @param studyDesign
-     *            the new study design
-     */
-    public final void setStudyDesign(final StudyDesign studyDesign) {
-        this.studyDesign = studyDesign;
-    }
-
-    /**
-     * Gets the stratification var enum.
-     * 
-     * @return the stratification var enum
-     */
-    public final StratificationVariableEnum getStratificationVarEnum() {
-        return stratificationVarEnum;
-    }
-
-    /**
-     * Sets the stratification var enum.
-     * 
-     * @param stratificationVarEnum
-     *            the new stratification var enum
-     */
-    public final void setStratificationVarEnum(
-            final StratificationVariableEnum stratificationVarEnum) {
-        this.stratificationVarEnum = stratificationVarEnum;
-    }
-
-    /**
-     * Gets the horizontal axis label enum.
-     * 
-     * @return the horizontal axis label enum
-     */
-    public final HorizontalAxisLabelEnum getHorizontalAxisLabelEnum() {
-        return horizontalAxisLabelEnum;
-    }
-
-    /**
-     * Sets the horizontal axis label enum.
-     * 
-     * @param horizontalAxisLabelEnum
-     *            the new horizontal axis label enum
-     */
-    public final void setHorizontalAxisLabelEnum(
-            final HorizontalAxisLabelEnum horizontalAxisLabelEnum) {
-        this.horizontalAxisLabelEnum = horizontalAxisLabelEnum;
-    }    
 
     /*--------------------
      * toString()
@@ -294,15 +313,15 @@ public class PowerCurveDescription implements Serializable {
      * @return the string
      */
     @Override
-    public String toString() {
-        return "PowerCurveDescription [id=" + id + ", sampleSize=" + sampleSize
-                + ", powerCurveDescription=" + powerCurveDescription
-                + ", statisticalTest=" + statisticalTest
-                + ", regressionCoeeficientScaleFactor="
-                + regressionCoeeficientScaleFactor
-                + ", variabilityScaleFactor=" + variabilityScaleFactor
-                + ", typeIError=" + typeIError + ", studyDesign=" + studyDesign
-                + ", horizontalAxisLabelEnum=" + horizontalAxisLabelEnum
-                + ", stratificationVarEnum=" + stratificationVarEnum + "]";
+    public final String toString() {
+        return "PowerCurveDescription [id=" + id + ", powerCurveDescription="
+                + powerCurveDescription + ", powerMethodEnum="
+                + powerMethodEnum + ", horizontalAxisLabelEnum="
+                + horizontalAxisLabelEnum + ", stratificationVarEnum="
+                + stratificationVarEnum + ", statisticalTestTypeEnum="
+                + statisticalTestTypeEnum + ", betaScale=" + betaScale
+                + ", sigmaScale=" + sigmaScale + ", typeIError=" + typeIError
+                + ", sampleSize=" + sampleSize + ", quantile=" + quantile + "]";
     }
+
 }

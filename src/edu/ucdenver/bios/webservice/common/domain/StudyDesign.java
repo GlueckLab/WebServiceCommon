@@ -621,6 +621,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the alpha list values
      */
+    
     public final List<Double> getAlphaListValues() {
         List<TypeIError> list = this.getAlphaList();
         List<Double> values = null;
@@ -640,6 +641,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new alpha list values
      */
+    
     public final void setAlphaListValues(final List<Double> values) {
         List<TypeIError> list = new ArrayList<TypeIError>(values.size());
         for (double value : values) {
@@ -656,6 +658,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the beta scale list values
      */
+    
     public final List<Double> getBetaScaleListValues() {
         List<BetaScale> list = this.getBetaScaleList();
         List<Double> values = null;
@@ -675,6 +678,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new beta scale list values
      */
+    
     public final void setBetaScaleListValues(final ArrayList<Double> values) {
         List<BetaScale> list = new ArrayList<BetaScale>(values.size());
         for (double value : values) {
@@ -691,6 +695,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the sigma scale list values
      */
+    
     public final List<Double> getSigmaScaleListValues() {
         List<SigmaScale> list = this.getSigmaScaleList();
         List<Double> values = null;
@@ -710,6 +715,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new sigma scale list values
      */
+    
     public final void setSigmaScaleListValues(final List<Double> values) {
         List<SigmaScale> list = new ArrayList<SigmaScale>(values.size());
         for (double value : values) {
@@ -726,6 +732,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the relative group size list values
      */
+    
     public final List<Integer> getRelativeGroupSizeListValues() {
         List<RelativeGroupSize> list = this.getRelativeGroupSizeList();
         List<Integer> values = null;
@@ -745,6 +752,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new relative group size list values
      */
+    
     public final void setRelativeGroupSizeListValues(
             final List<Integer> values) {
         List<RelativeGroupSize> list = new ArrayList<RelativeGroupSize>(
@@ -763,6 +771,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the statistical test list values
      */
+    
     public final List<StatisticalTestTypeEnum> getStatisticalTestListValues() {
         List<StatisticalTest> list = this.getStatisticalTestList();
         List<StatisticalTestTypeEnum> values =null;
@@ -784,6 +793,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new statistical test list values
      */
+    
     public final void setStatisticalTestListValues(
             final List<StatisticalTestTypeEnum> values) {
         List<StatisticalTest> list = new ArrayList<StatisticalTest>(
@@ -802,6 +812,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the power method list values
      */
+    
     public final List<PowerMethodEnum> getPowerMethodListValues() {
         List<PowerMethod> list = this.getPowerMethodList();
         List<PowerMethodEnum> values = null;
@@ -822,6 +833,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new power method list values
      */
+    
     public final void setPowerMethodListValues(
             final List<PowerMethodEnum> values) {
         List<PowerMethod> list = new ArrayList<PowerMethod>(values.size());
@@ -839,6 +851,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the quantile list values
      */
+    
     public final List<Double> getQuantileListValues() {
         List<Quantile> list = this.getQuantileList();
         List<Double> values = null;
@@ -858,6 +871,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new quantile list values
      */
+    
     public final void setQuantileListValues(final List<Double> values) {
         List<Quantile> list = new ArrayList<Quantile>(values.size());
         for (double value : values) {
@@ -874,6 +888,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the nominal power list values
      */
+    
     public final List<Double> getNominalPowerListValues() {
         List<NominalPower> list = this.getNominalPowerList();
         List<Double> values = null;
@@ -893,6 +908,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new nominal power list values
      */
+    
     public final void setNominalPowerListValues(final List<Double> values) {
         List<NominalPower> list = new ArrayList<NominalPower>(values.size());
         for (double value : values) {
@@ -909,6 +925,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the response list names
      */
+    
     public final List<String> getResponseListNames() {
         List<ResponseNode> list = this.getResponseList();
         List<String> responses = null;
@@ -928,6 +945,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new response list names
      */
+    
     public final void setResponseListNames(final List<String> values) {
         List<ResponseNode> list = new ArrayList<ResponseNode>(values.size());
         for (String name : values) {
@@ -944,6 +962,7 @@ public class StudyDesign implements Serializable {
      *
      * @return the sample size list values
      */
+    
     public final List<Integer> getSampleSizeListValues() {
         List<SampleSize> list = this.getSampleSizeList();
         List<Integer> values = null;
@@ -963,6 +982,7 @@ public class StudyDesign implements Serializable {
      * @param values
      *            the new sample size list values
      */
+    
     public final void setSampleSizeListValues(final List<Integer> values) {
         List<SampleSize> list = new ArrayList<SampleSize>(values.size());
         for (int value : values) {
@@ -982,6 +1002,7 @@ public class StudyDesign implements Serializable {
      *            the name
      * @return true, if successful
      */
+    
     public final boolean hasNamedMatrix(final String name) {
         boolean flag = false;
         Set<NamedMatrix> matrixSet = this.getMatrixSet();
@@ -991,8 +1012,8 @@ public class StudyDesign implements Serializable {
                 NamedMatrix matrix = iterator.next();
                 if (matrix == null) {
                     /*
-						 * 
-						 */
+                         * 
+                         */
                 }
                 String matrixName = matrix.getName();
                 if (matrixName != null && name.equals(matrixName)) {
@@ -1011,6 +1032,7 @@ public class StudyDesign implements Serializable {
      *            the name
      * @return the named matrix
      */
+    
     public final NamedMatrix getNamedMatrix(final String name) {
         NamedMatrix matrix = null;
         if (matrixSet != null) {
@@ -1035,6 +1057,7 @@ public class StudyDesign implements Serializable {
      * @param matrix
      *            the new named matrix
      */
+    
     public final void setNamedMatrix(final NamedMatrix matrix) {
         if (matrixSet == null) {
             matrixSet = new HashSet<NamedMatrix>();
@@ -1059,6 +1082,7 @@ public class StudyDesign implements Serializable {
      *            the name
      * @return true, if successful
      */
+    
     public final boolean hasHypothesis(final HypothesisTypeEnum hypothesisType) {
         boolean flag = false;
         Set<Hypothesis> hypothesisSet = this.getHypothesis();
@@ -1088,6 +1112,7 @@ public class StudyDesign implements Serializable {
      *            the name
      * @return the named hypothesis
      */
+    
     public final Hypothesis getHypothesisFromSet(final HypothesisTypeEnum type) {
         Hypothesis newHypothesis = null;     
         if (this.hypothesis != null) {
@@ -1111,6 +1136,7 @@ public class StudyDesign implements Serializable {
      * @param hypothesis
      *            the new named hypothesis
      */
+    
     public final void setHypothesisToSet(final Hypothesis newHypothesis) {
         if (this.hypothesis == null) {
             this.hypothesis = new HashSet<Hypothesis>();
@@ -1133,6 +1159,7 @@ public class StudyDesign implements Serializable {
      *
      * 
      */
+    
     public final boolean hasCovariance(final String name) {
         boolean flag = false;
         Set<Covariance> covarianceSet = this.getCovariance();
@@ -1160,6 +1187,7 @@ public class StudyDesign implements Serializable {
      *
      * 
      */
+    
     public final Covariance getCovarianceFromSet(final String name) {
         Covariance covarianceObject = null;
         if (this.covariance != null) {
@@ -1183,6 +1211,7 @@ public class StudyDesign implements Serializable {
      *
      * 
      */
+    
     public final void addCovariance(final Covariance covarianceObject) {
         if (this.covariance == null) {
             this.covariance = new HashSet<Covariance>();
