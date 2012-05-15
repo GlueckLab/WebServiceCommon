@@ -21,7 +21,8 @@
 package edu.ucdenver.bios.webservice.common.enums;
 
 /**
- * Enum object referred in 'StatisticalTest' class.
+ * Enum object referred in 'StatisticalTest' and
+ * 'PowerCurveDescription'class.
  *
  * @author Uttara Sakhadeo
  */

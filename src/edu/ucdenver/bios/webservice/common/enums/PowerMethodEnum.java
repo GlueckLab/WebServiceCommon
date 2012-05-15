@@ -21,7 +21,8 @@
 package edu.ucdenver.bios.webservice.common.enums;
 
 /**
- * Enum object referred in 'PowerMethod' class.
+ * Enum object referred in 'PowerMethod' and
+ * 'PowerCurveDescription'class.
  *
  * @author Uttara Sakhadeo
  */
