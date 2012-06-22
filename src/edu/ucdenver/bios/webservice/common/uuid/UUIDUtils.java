@@ -55,6 +55,12 @@ public final class UUIDUtils {
         return buffer;
     }
 
+    /**
+     * Hex to bytes.
+     *
+     * @param uuid the uuid
+     * @return the byte[]
+     */
     public static byte[] hexToBytes(String uuid) {
         int len = uuid.length();
         byte[] data = new byte[len / 2];
