@@ -23,9 +23,6 @@ package edu.ucdenver.bios.webservice.common.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
-import org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig;
-import org.jasypt.hibernate4.encryptor.HibernatePBEEncryptorRegistry;
 
 
 /**
@@ -64,7 +61,7 @@ public final class SessionContext {
             HibernatePBEEncryptorRegistry registry = HibernatePBEEncryptorRegistry.getInstance();
             registry.registerPBEStringEncryptor("configurationHibernateEncryptor", strongEncryptor);*/
             
-            EnvironmentStringPBEConfig config = new EnvironmentStringPBEConfig();
+            /*EnvironmentStringPBEConfig config = new EnvironmentStringPBEConfig();
             config.setPasswordEnvName("ENV_VARIABLE");
             
             StandardPBEStringEncryptor strongEncryptor = new StandardPBEStringEncryptor();
@@ -72,7 +69,7 @@ public final class SessionContext {
             strongEncryptor.setConfig(config);
             
             HibernatePBEEncryptorRegistry registry =  HibernatePBEEncryptorRegistry.getInstance();
-            registry.registerPBEStringEncryptor("configurationHibernateEncryptor", strongEncryptor);
+            registry.registerPBEStringEncryptor("configurationHibernateEncryptor", strongEncryptor);*/
             
         /* End : Jasypt Chnages */
         Configuration configuration = new Configuration();
