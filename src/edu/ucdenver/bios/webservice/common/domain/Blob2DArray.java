@@ -42,8 +42,8 @@ public class Blob2DArray implements Serializable {
     /**
      * Instantiates a new blob2 d array.
      */
-    public Blob2DArray() {
- 
+    public Blob2DArray() {   
+        super();
     }
 
     /**
@@ -53,7 +53,7 @@ public class Blob2DArray implements Serializable {
      *            the data
      */
     public Blob2DArray(final double[][] dataValue) {
-        super();
+        super();        
         this.data = dataValue;
     }
 
