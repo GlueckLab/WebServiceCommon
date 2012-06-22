@@ -178,9 +178,12 @@ public class NamedMatrix implements Serializable {
      *            the new data
      */ 
     public final void setDataFromArray(final double[][] data) {
-        Blob2DArray blob = new Blob2DArray(data);
-        // System.out.println(blob.getData());
-        this.setData(blob);
+        if(data != null && !(data.length==0))
+        {
+            Blob2DArray blob = new Blob2DArray(data);
+            // System.out.println(blob.getData());
+            this.setData(blob);
+        }
     }
 
     /**
@@ -188,10 +191,19 @@ public class NamedMatrix implements Serializable {
      * 
      * @return the data from blob
      */
-    
-    public final double[][] getDataAsArray() {
-        return this.getData().getData();
-    }    
+    /*
+     * JSON argument exception.
+     * To-Do : Need to handle it.
+     */    
+    /*public final double[][] getDataAsArray() {
+        Blob2DArray blob = this.getData();
+        double[][] value = null;
+        if(blob != null)
+        {
+            value = blob.getData();           
+        }        
+        return value;       
+    } */   
     /*--------------------
      * toString()
      *--------------------*/
