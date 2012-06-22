@@ -643,11 +643,14 @@ public class StudyDesign implements Serializable {
      */
     
     public final void setAlphaListValues(final List<Double> values) {
-        List<TypeIError> list = new ArrayList<TypeIError>(values.size());
-        for (double value : values) {
-            list.add(new TypeIError(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<TypeIError> list = new ArrayList<TypeIError>(values.size());
+            for (double value : values) {
+                list.add(new TypeIError(value));
+            }
+            this.setAlphaList(list);
         }
-        this.setAlphaList(list);
     }
 
     /*--------------------
@@ -680,11 +683,14 @@ public class StudyDesign implements Serializable {
      */
     
     public final void setBetaScaleListValues(final ArrayList<Double> values) {
-        List<BetaScale> list = new ArrayList<BetaScale>(values.size());
-        for (double value : values) {
-            list.add(new BetaScale(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<BetaScale> list = new ArrayList<BetaScale>(values.size());
+            for (double value : values) {
+                list.add(new BetaScale(value));
+            }
+            this.setBetaScaleList(list);
         }
-        this.setBetaScaleList(list);
     }
 
     /*--------------------
@@ -717,11 +723,14 @@ public class StudyDesign implements Serializable {
      */
     
     public final void setSigmaScaleListValues(final List<Double> values) {
-        List<SigmaScale> list = new ArrayList<SigmaScale>(values.size());
-        for (double value : values) {
-            list.add(new SigmaScale(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<SigmaScale> list = new ArrayList<SigmaScale>(values.size());
+            for (double value : values) {
+                list.add(new SigmaScale(value));
+            }
+            this.setSigmaScaleList(list);
         }
-        this.setSigmaScaleList(list);
     }
 
     /*--------------------
@@ -755,12 +764,15 @@ public class StudyDesign implements Serializable {
     
     public final void setRelativeGroupSizeListValues(
             final List<Integer> values) {
-        List<RelativeGroupSize> list = new ArrayList<RelativeGroupSize>(
-                values.size());
-        for (int value : values) {
-            list.add(new RelativeGroupSize(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<RelativeGroupSize> list = new ArrayList<RelativeGroupSize>(
+                    values.size());
+            for (int value : values) {
+                list.add(new RelativeGroupSize(value));
+            }
+            this.setRelativeGroupSizeList(list);
         }
-        this.setRelativeGroupSizeList(list);
     }
 
     /*--------------------
@@ -796,12 +808,15 @@ public class StudyDesign implements Serializable {
     
     public final void setStatisticalTestListValues(
             final List<StatisticalTestTypeEnum> values) {
-        List<StatisticalTest> list = new ArrayList<StatisticalTest>(
-                values.size());
-        for (StatisticalTestTypeEnum value : values) {
-            list.add(new StatisticalTest(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<StatisticalTest> list = new ArrayList<StatisticalTest>(
+                    values.size());
+            for (StatisticalTestTypeEnum value : values) {
+                list.add(new StatisticalTest(value));
+            }
+            this.setStatisticalTestList(list);
         }
-        this.setStatisticalTestList(list);
     }
 
     /*--------------------
@@ -836,11 +851,14 @@ public class StudyDesign implements Serializable {
     
     public final void setPowerMethodListValues(
             final List<PowerMethodEnum> values) {
-        List<PowerMethod> list = new ArrayList<PowerMethod>(values.size());
-        for (PowerMethodEnum value : values) {
-            list.add(new PowerMethod(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<PowerMethod> list = new ArrayList<PowerMethod>(values.size());
+            for (PowerMethodEnum value : values) {
+                list.add(new PowerMethod(value));
+            }
+            this.setPowerMethodList(list);
         }
-        this.setPowerMethodList(list);
     }
 
     /*--------------------
@@ -873,11 +891,14 @@ public class StudyDesign implements Serializable {
      */
     
     public final void setQuantileListValues(final List<Double> values) {
-        List<Quantile> list = new ArrayList<Quantile>(values.size());
-        for (double value : values) {
-            list.add(new Quantile(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<Quantile> list = new ArrayList<Quantile>(values.size());
+            for (double value : values) {
+                list.add(new Quantile(value));
+            }
+            this.setQuantileList(list);
         }
-        this.setQuantileList(list);
     }
 
     /*--------------------
@@ -910,11 +931,14 @@ public class StudyDesign implements Serializable {
      */
     
     public final void setNominalPowerListValues(final List<Double> values) {
-        List<NominalPower> list = new ArrayList<NominalPower>(values.size());
-        for (double value : values) {
-            list.add(new NominalPower(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<NominalPower> list = new ArrayList<NominalPower>(values.size());
+            for (double value : values) {
+                list.add(new NominalPower(value));
+            }
+            this.setNominalPowerList(list);
         }
-        this.setNominalPowerList(list);
     }
 
     /*--------------------
@@ -947,11 +971,14 @@ public class StudyDesign implements Serializable {
      */
     
     public final void setResponseListNames(final List<String> values) {
-        List<ResponseNode> list = new ArrayList<ResponseNode>(values.size());
-        for (String name : values) {
-            list.add(new ResponseNode(name));
+        if(values != null && !values.isEmpty())
+        {
+            List<ResponseNode> list = new ArrayList<ResponseNode>(values.size());
+            for (String name : values) {
+                list.add(new ResponseNode(name));
+            }
+            this.setResponseList(list);
         }
-        this.setResponseList(list);
     }
 
     /*--------------------
@@ -984,11 +1011,14 @@ public class StudyDesign implements Serializable {
      */
     
     public final void setSampleSizeListValues(final List<Integer> values) {
-        List<SampleSize> list = new ArrayList<SampleSize>(values.size());
-        for (int value : values) {
-            list.add(new SampleSize(value));
+        if(values != null && !values.isEmpty())
+        {
+            List<SampleSize> list = new ArrayList<SampleSize>(values.size());
+            for (int value : values) {
+                list.add(new SampleSize(value));
+            }
+            this.setSampleSizeList(list);
         }
-        this.setSampleSizeList(list);
     }
 
     /*--------------------
