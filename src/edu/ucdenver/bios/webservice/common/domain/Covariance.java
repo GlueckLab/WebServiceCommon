@@ -20,7 +20,6 @@
 package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 // TODO: Auto-generated Javadoc
@@ -236,11 +235,22 @@ public class Covariance implements Serializable {
     
     public void setStandardDeviationListFromArray(double[] data)
     {
-        this.standardDeviationList = new ArrayList<StandardDeviation>(data.length);
-        System.out.println(data.length);
-        for(int i = 0;i < data.length; i++)
+        if(data != null)
         {
-            this.standardDeviationList.add(new StandardDeviation(data[i]));
+            /*this.standardDeviationList = new ArrayList<StandardDeviation>(data.length);
+            for(int i = 0;i < data.length; i++)
+            {
+                this.standardDeviationList.add(new StandardDeviation(data[i]));
+            }*/
+            
+            List<StandardDeviation> list = this.getStandardDeviationList();
+            if(list != null && !list.isEmpty())
+            {
+                for (double value : data) {
+                    list.add(new StandardDeviation(value));
+                }
+                this.setStandardDeviationList(list);
+            }
         }
     }
     
@@ -249,18 +259,25 @@ public class Covariance implements Serializable {
      *
      * @return the standard deviation list from array
      */
-    
-    public double[] getStandardDeviationListFromArray()
+    /*
+     * JSON argument exception.
+     * To-Do : Need to handle it.
+     */
+    /*public double[] getStandardDeviationFromArray()
     {
-        int size = this.standardDeviationList.size();
-        double[] data = new double[size];
-        int i = 0;
-        for(StandardDeviation sd : standardDeviationList)
-        {
-            data[i++] = sd.getValue();            
+        List<StandardDeviation> list = this.getStandardDeviationList();
+        double[] data = null;
+        if(list != null && !list.isEmpty())
+        {            
+            data = new double[list.size()];
+            int i = 0;
+            for(StandardDeviation sd : list)
+            {
+                data[i++] = sd.getValue();            
+            }            
         }
         return data;
-    }
+    }*/
     
     /*--------------------
      * Return/Store data[][]
@@ -270,11 +287,14 @@ public class Covariance implements Serializable {
      * 
      * @param data
      *            the new blob
-     */
-   
+     */   
     public void setBlobFromArray(double[][] data) {
-        Blob2DArray blob = new Blob2DArray(data);
-        setBlob(blob);
+        if(data != null)
+        {
+            System.out.println("setBlobFromArray() : ");            
+            Blob2DArray blob = new Blob2DArray(data);
+            this.setBlob(blob);
+        }
     }
 
     /**
@@ -282,10 +302,19 @@ public class Covariance implements Serializable {
      * 
      * @return the double array from blob
      */
-    
-    public double[][] getDoubleArrayFromBlob() {
-        return blob.getData();
-    }
+    /*
+     * JSON argument exception.
+     * To-Do : Need to handle it.
+     */
+    /*public double[][] getBlobAsArray() {
+        Blob2DArray blob = this.getBlob();
+        double[][] data = null;
+        if(blob != null)
+        {
+            data = blob.getData();           
+        }        
+        return data;
+    }*/
 
     /*--------------------
      * toString()
