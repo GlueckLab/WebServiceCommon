@@ -27,6 +27,9 @@ package edu.ucdenver.bios.webservice.common.enums;
  */
 public enum HypothesisTypeEnum {
 
+    /** Grand Mean hypothesis. */
+    GRAND_MEAN("Grand Mean"),
+    
     /** The MAIN EFFECT. */
     MAIN_EFFECT("Main Effect"),
 
