@@ -40,25 +40,25 @@ public class Covariance implements Serializable {
     private int id;
 
     /** The name. */
-    private String name;
+    private String name = null;
 
     /** The standard deviation list. */
     private List<StandardDeviation> standardDeviationList = null;
 
     /** The rho. */
-    private double rho;
+    private double rho = Double.NaN;
 
     /** The delta. */
-    private double delta;
+    private double delta = Double.NaN;
 
     /** The rows. */
-    private int rows;
+    private int rows = -1;
 
     /** The columns. */
-    private int columns;
+    private int columns = -1;
 
     /** The blob. */
-    private Blob2DArray blob;    
+    private Blob2DArray blob = null;
     /*--------------------
      * Constructors
      *--------------------*/
