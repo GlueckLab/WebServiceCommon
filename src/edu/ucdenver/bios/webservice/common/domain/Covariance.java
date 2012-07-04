@@ -52,10 +52,10 @@ public class Covariance implements Serializable {
     private List<StandardDeviation> standardDeviationList = null;
 
     /** The rho. */
-    private double rho = Double.NaN;
+    private double rho = -2;
 
     /** The delta. */
-    private double delta = Double.NaN;
+    private double delta = -1;
 
     /** The rows. */
     private int rows = -1;
