@@ -41,22 +41,25 @@ public class PowerCurveDataSeries {
     private StatisticalTestTypeEnum statisticalTestTypeEnum = null;
 
     /** The beta scale. */
-    private double betaScale = Double.NaN;
+    private double betaScale = 0;
 
     /** The sigma scale. */
-    private double sigmaScale = Double.NaN;
+    private double sigmaScale = 0;
 
     /** The type i error. */
-    private double typeIError = Double.NaN;
+    private double typeIError = -1;
 
     /** The sample size. */
     private int sampleSize = -1;
+    
+    /** The nominal power. */
+    private double nominalPower = -1;
     
     /** power method */
     private PowerMethodEnum powerMethod = null;
 
     /** The quantile. */
-    private double quantile = Double.NaN;
+    private double quantile = -1;
 
     public PowerCurveDataSeries() {}
        
@@ -131,6 +134,14 @@ public class PowerCurveDataSeries {
 
     public void setQuantile(double quantile) {
         this.quantile = quantile;
+    }
+
+    public double getNominalPower() {
+        return nominalPower;
+    }
+
+    public void setNominalPower(double nominalPower) {
+        this.nominalPower = nominalPower;
     }
     
     
