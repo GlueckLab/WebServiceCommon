@@ -58,11 +58,8 @@ public class PowerCurveDescription implements Serializable {
     /** The power curve description. */
     private String title = null;
 
-    /** The power method enum. */
-    private PowerMethodEnum powerMethodEnum;
-
     /** The horizontal axis label enum. */
-    private HorizontalAxisLabelEnum horizontalAxisLabelEnum;
+    private HorizontalAxisLabelEnum horizontalAxisLabelEnum = null;
 
     /** List of data series included in the plot */
     private List<PowerCurveDataSeries> dataSeriesList = null;
@@ -128,25 +125,6 @@ public class PowerCurveDescription implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    /**
-     * Gets the power method enum.
-     * 
-     * @return the power method enum
-     */
-    public final PowerMethodEnum getPowerMethodEnum() {
-        return powerMethodEnum;
-    }
-
-    /**
-     * Sets the power method enum.
-     * 
-     * @param powerMethodEnum
-     *            the new power method enum
-     */
-    public final void setPowerMethodEnum(final PowerMethodEnum powerMethodEnum) {
-        this.powerMethodEnum = powerMethodEnum;
     }
 
     /**
