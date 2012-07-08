@@ -57,7 +57,7 @@ public class StudyDesign implements Serializable {
     private boolean gaussianCovariate = false;
 
     /** The solution type enum. */
-    private SolutionTypeEnum solutionTypeEnum;
+    private SolutionTypeEnum solutionTypeEnum = null;
 
     /** The participant label. */
     private String participantLabel = null;
