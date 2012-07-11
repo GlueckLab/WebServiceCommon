@@ -48,11 +48,11 @@ public class PowerCurveDescription implements Serializable {
     /** The id. */
     private int id;
 
-    /** boolean indicating if the legend should be displayed */
+    /** boolean indicating if the legend should be displayed. */
     private boolean legend = false;
     
-    /** width and height of image */
-    private int width = 300;
+    /** width and height of image. */
+    private int width = 300;   
     private int height = 300;
     
     /** The power curve description. */
@@ -61,7 +61,7 @@ public class PowerCurveDescription implements Serializable {
     /** The horizontal axis label enum. */
     private HorizontalAxisLabelEnum horizontalAxisLabelEnum = null;
 
-    /** List of data series included in the plot */
+    /** List of data series included in the plot. */
     private List<PowerCurveDataSeries> dataSeriesList = null;
     
     /*--------------------
@@ -95,39 +95,81 @@ public class PowerCurveDescription implements Serializable {
         this.id = id;
     }
     
+    /**
+     * Checks if is legend.
+     *
+     * @return true, if is legend
+     */
     public boolean isLegend() {
         return legend;
     }
 
+    /**
+     * Sets the legend.
+     *
+     * @param legend the new legend
+     */
     public void setLegend(boolean legend) {
         this.legend = legend;
     }
 
+    /**
+     * Gets the width.
+     *
+     * @return the width
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Sets the width.
+     *
+     * @param width the new width
+     */
     public void setWidth(int width) {
         this.width = width;
     }
 
+    /**
+     * Gets the height.
+     *
+     * @return the height
+     */
     public int getHeight() {
         return height;
     }
 
+    /**
+     * Sets the height.
+     *
+     * @param height the new height
+     */
     public void setHeight(int height) {
         this.height = height;
     }
 
+    /**
+
+     * Gets the title.
+     *
+     * @return the title
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Sets the title.
+     *
+     * @param title the new title
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
     /**
+
      * Gets the horizontal axis label enum.
      * 
      * @return the horizontal axis label enum
@@ -147,14 +189,45 @@ public class PowerCurveDescription implements Serializable {
         this.horizontalAxisLabelEnum = horizontalAxisLabelEnum;
     }
 
+    /**
+     * Gets the data series list.
+     *
+     * @return the data series list
+     */
     public List<PowerCurveDataSeries> getDataSeriesList() {
         return dataSeriesList;
     }
 
+    /**
+     * Sets the data series list.
+     *
+     * @param dataSeriesList the new data series list
+     */
     public void setDataSeriesList(List<PowerCurveDataSeries> dataSeriesList) {
         this.dataSeriesList = dataSeriesList;
     }
-
+    
+    /*--------------------
+     * toString()
+     *--------------------*/
+    /**
+     * Intended only for debugging.
+     *
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     *
+     * @return the string
+     */
+    @Override
+    public String toString() {
+        return "PowerCurveDescription [id=" + id + ", legend=" + legend
+                + ", width=" + width + ", height=" + height + ", title="
+                + title + ", horizontalAxisLabelEnum="
+                + horizontalAxisLabelEnum + ", dataSeriesList="
+                + dataSeriesList + "]";
+    }
 
 
 }
