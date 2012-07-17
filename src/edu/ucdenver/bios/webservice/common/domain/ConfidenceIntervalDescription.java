@@ -40,22 +40,22 @@ public class ConfidenceIntervalDescription implements Serializable {
     private int id;
 
     /** The beta fixed. */
-    private boolean betaFixed;
+    private boolean betaFixed = false;
 
     /** The sigma fixed. */
-    private boolean sigmaFixed;
+    private boolean sigmaFixed = false;
 
     /** The lower tail probability. */
-    private float lowerTailProbability;
+    private float lowerTailProbability = -1;
 
     /** The upper tail probability. */
-    private float upperTailProbability;
+    private float upperTailProbability = -1;
 
     /** The sample size. */
-    private int sampleSize;
+    private int sampleSize = -1;
 
     /** The rank of design matrix. */
-    private int rankOfDesignMatrix;
+    private int rankOfDesignMatrix = -1;
         
     /*--------------------
      * Constructors
@@ -286,4 +286,18 @@ public class ConfidenceIntervalDescription implements Serializable {
                 + ", sampleSize=" + sampleSize + ", rankOfDesignMatrix="
                 + rankOfDesignMatrix + "]";
     }    
+    
+    /**
+     * Returns true if this confidence interval description is fully specified.
+     * @return true if complete, false otherwise
+     */
+    public boolean isComplete() {
+        return (
+                (betaFixed == true || sigmaFixed == true) &&
+                lowerTailProbability >= 0 &&
+                upperTailProbability >= 0 &&
+                sampleSize > 1 &&
+                rankOfDesignMatrix > 0
+                );
+    }
 }

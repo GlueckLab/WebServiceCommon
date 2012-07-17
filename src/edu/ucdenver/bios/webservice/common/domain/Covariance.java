@@ -22,6 +22,9 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import edu.ucdenver.bios.webservice.common.enums.CovarianceTypeEnum;
+import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
+
 // TODO: Auto-generated Javadoc
 /**
  * This is a wrapper for the Covariance information.
@@ -39,26 +42,29 @@ public class Covariance implements Serializable {
     /** The id. */
     private int id;
 
+    /** The type. */
+    private CovarianceTypeEnum type;
+    
     /** The name. */
-    private String name;
+    private String name = null;
 
     /** The standard deviation list. */
     private List<StandardDeviation> standardDeviationList = null;
 
     /** The rho. */
-    private double rho;
+    private double rho = -2;
 
     /** The delta. */
-    private double delta;
+    private double delta = -1;
 
     /** The rows. */
-    private int rows;
+    private int rows = -1;
 
     /** The columns. */
-    private int columns;
+    private int columns = -1;
 
     /** The blob. */
-    private Blob2DArray blob;    
+    private Blob2DArray blob = null;
     /*--------------------
      * Constructors
      *--------------------*/
@@ -88,6 +94,22 @@ public class Covariance implements Serializable {
      */
     public void setId(int id) {
         this.id = id;
+    }
+    
+    /**
+     * Get the type of covariance described.
+     * @return covariance type
+     */
+    public CovarianceTypeEnum getType() {
+        return type;
+    }
+
+    /**
+     * Set the covariance type.  
+     * @param type covariance type.
+     */
+    public void setType(CovarianceTypeEnum type) {
+        this.type = type;
     }
 
     /**
