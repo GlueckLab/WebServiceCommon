@@ -312,8 +312,7 @@ public class Covariance implements Serializable {
      */   
     public void setBlobFromArray(double[][] data) {
         if(data != null)
-        {
-            System.out.println("setBlobFromArray() : ");            
+        {        
             Blob2DArray blob = new Blob2DArray(data);
             this.setBlob(blob);
         }
