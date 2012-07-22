@@ -32,7 +32,7 @@ public enum HypothesisTrendTypeEnum {
     CHANGE_FROM_BASELINE("Change from baseline"),
 
     /** The AL l_ poynomial. */
-    ALL_POYNOMIAL("All polynomial trends"),
+    ALL_POLYNOMIAL("All polynomial trends"),
 
     /** The LINEAR. */
     LINEAR("Linear trend"),
