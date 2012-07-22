@@ -29,6 +29,7 @@ import com.google.gson.Gson;
 
 import edu.ucdenver.bios.webservice.common.domain.BetweenParticipantFactor;
 import edu.ucdenver.bios.webservice.common.domain.Category;
+import edu.ucdenver.bios.webservice.common.domain.NamedMatrix;
 import edu.ucdenver.bios.webservice.common.domain.StudyDesign;
 import edu.ucdenver.bios.webservice.common.uuid.UUIDUtils;
 
@@ -48,17 +49,20 @@ public class TestJSONRepresentation extends TestCase
 	public void setUp()
 	{uuid = UUIDUtils.asByteArray(STUDY_UUID);}
 	
-    /*private void testNamedMatrixToJSON()
+    public void testNamedMatrixToJSON()
     {
         double data[][] = {{1,2},{3,4},{5,6}};
         NamedMatrix obj = new NamedMatrix("My Matrix");
+        obj.setRows(3);
+        obj.setColumns(2);
+        obj.setDataFromArray(data);
         //NamedMatrix obj = new NamedMatrix("My Matrix", 3, 2, data);
 
         Gson gson = new Gson();
         String json = gson.toJson(obj);  
         System.out.println(json);
         assertTrue(true);
-    }*/
+    }
 	
 	public void testUUIDToJSON()
 	{
