@@ -19,7 +19,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
  -->
-<project name="Web Service Common Library" default="build-distributions">
+<project name="Web Service Common Library" default="distributions">
 	<property name="owner" value="University of Colorado Denver, 
 		Department of Biostatistics and Informatics" />
 	<property name="author" value="Uttara Sakhadeo and Sarah Kreidler" />
@@ -147,7 +147,7 @@
 	</target>
 
 	<!-- Create the javadoc distribution  -->	
-	<target name="javadoc-distribution" >
+	<target name="distribution.javadoc" >
 		<zip destfile="${artifacts.dir}/${module.name}-${module.version}-javadoc.zip" 
 			basedir="${javadoc.dir}/.." >
 			<zipfileset dir="${javadoc.dir}" />
@@ -157,7 +157,7 @@
 	</target>
 	
 	<!-- Create the source distribution -->
-	<target name="source-distribution">
+	<target name="distribution.source">
 		<zip destfile="${artifacts.dir}/${module.name}-${module.version}-source.zip"  >
 			<zipfileset dir="${basedir}/../.."  includes="WebServiceCommon/*,
 				WebServiceCommon/build/build.xml,
@@ -168,7 +168,7 @@
 	</target>
 	
 	<!-- Create the binary distribution -->
-	<target name="binary-distribution">
+	<target name="distribution.binary">
 		<zip destfile="${artifacts.dir}/${module.name}-${module.version}-binary.zip" >
 			<zipfileset dir="${artifacts.dir}"
 				includes="${module.name}-gwt-${module.version}.jar,
@@ -179,11 +179,11 @@
 	</target>
 	
 	<!-- build all distributions -->
-	<target name="build-distributions" 
+	<target name="distributions" 
 		depends="compress.gwt,javadoc,
-		binary-distribution,
-		javadoc-distribution,
-		source-distribution"/>
+		distribution.binary,
+		distribution.javadoc,
+		distribution.source"/>
 	
 	
 			
