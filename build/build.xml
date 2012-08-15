@@ -77,7 +77,8 @@
            author="true"
            version="true"
            use="true"
-           windowtitle="${owner}: Web Service Common Library (${version}) API Specification"
+           windowtitle="${owner}: Web Service Common Library (${module.version}) API Specification"
+        	doctitle="${owner}: Web Service Common Library (${module.version}) API Specification"
          >
         <fileset dir="${source.dir}" defaultexcludes="yes">
             <include name="**/*.java"/>
