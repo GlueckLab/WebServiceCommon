@@ -36,8 +36,8 @@ public class Quantile implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The value. */
     private double value;
@@ -72,7 +72,7 @@ public class Quantile implements Serializable {
      */
     public Quantile(final int id, final double value) {
         super();
-        this.id = id;
+        this.idx = id;
         this.value = value;
     }
 
@@ -85,7 +85,7 @@ public class Quantile implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -95,7 +95,7 @@ public class Quantile implements Serializable {
      *            the new id
      */
     public final void setId(int id) {
-        this.id = id;
+        this.idx = id;
     }
 
     /**
@@ -132,6 +132,6 @@ public class Quantile implements Serializable {
      */
     @Override
     public final String toString() {
-        return "Quantile [id=" + id + ", value=" + value + "]";
+        return "Quantile [id=" + idx + ", value=" + value + "]";
     }
 }

@@ -39,8 +39,8 @@ public class PowerMethod implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The power method enum. */
     private PowerMethodEnum powerMethodEnum;
@@ -74,7 +74,7 @@ public class PowerMethod implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -84,7 +84,7 @@ public class PowerMethod implements Serializable {
      *            the new id
      */
     public final void setId(final int id) {
-        this.id = id;
+        this.idx = id;
     }
 
     /**
@@ -122,7 +122,7 @@ public class PowerMethod implements Serializable {
      */
     @Override
     public final String toString() {
-        return "PowerMethod [id=" + id + ", powerMethodEnum=" + powerMethodEnum
+        return "PowerMethod [id=" + idx + ", powerMethodEnum=" + powerMethodEnum
                 + "]";
     }
 }

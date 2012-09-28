@@ -36,8 +36,8 @@ public class ConfidenceIntervalDescription implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The beta fixed. */
     private boolean betaFixed = false;
@@ -114,7 +114,7 @@ public class ConfidenceIntervalDescription implements Serializable {
     public ConfidenceIntervalDescription(int id, boolean isBetaFixed,
             boolean isSigmaFixed, float lowerTailProbability,
             float upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
-        this.id = id;
+        this.idx = id;
         this.betaFixed = isBetaFixed;
         this.sigmaFixed = isSigmaFixed;
         this.lowerTailProbability = lowerTailProbability;
@@ -132,7 +132,7 @@ public class ConfidenceIntervalDescription implements Serializable {
      * @return the id
      */
     public int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -142,7 +142,7 @@ public class ConfidenceIntervalDescription implements Serializable {
      *            the new id
      */
     public void setId(int id) {
-        this.id = id;
+        this.idx = id;
     }
 
     /**
@@ -279,7 +279,7 @@ public class ConfidenceIntervalDescription implements Serializable {
 
     @Override
     public String toString() {
-        return "ConfidenceIntervalDescription [id=" + id + ", betaFixed="
+        return "ConfidenceIntervalDescription [id=" + idx + ", betaFixed="
                 + betaFixed + ", sigmaFixed=" + sigmaFixed
                 + ", lowerTailProbability=" + lowerTailProbability
                 + ", upperTailProbability=" + upperTailProbability

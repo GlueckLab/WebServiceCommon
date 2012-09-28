@@ -37,8 +37,8 @@ public class BetweenParticipantFactor implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The predictor name. */
     private String predictorName = null;
@@ -97,7 +97,7 @@ public class BetweenParticipantFactor implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -107,7 +107,7 @@ public class BetweenParticipantFactor implements Serializable {
      *            the new id
      */
     public final void setId(final int idValue) {
-        this.id = idValue;
+        this.idx = idValue;
     }
 
     /**
@@ -141,7 +141,7 @@ public class BetweenParticipantFactor implements Serializable {
      */
     @Override
     public final String toString() {
-        return "BetweenParticipantFactor [id=" + id + ", predictorName="
+        return "BetweenParticipantFactor [id=" + idx + ", predictorName="
                 + predictorName + ", categoryList=" + categoryList + "]";
     }
 }

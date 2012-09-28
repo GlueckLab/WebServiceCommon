@@ -40,8 +40,8 @@ public class Hypothesis implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The type. */
     private HypothesisTypeEnum type;
@@ -90,7 +90,7 @@ public class Hypothesis implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -100,7 +100,7 @@ public class Hypothesis implements Serializable {
      *            the new id
      */
     public final void setId(final int id) {
-        this.id = id;
+        this.idx = id;
     }
 
     /**
@@ -222,7 +222,7 @@ public class Hypothesis implements Serializable {
      */
     @Override
     public final String toString() {
-        return "Hypothesis [id=" + id + ", type=" + type
+        return "Hypothesis [id=" + idx + ", type=" + type
                 + ", betweenParticipantFactorMapList="
                 + betweenParticipantFactorMapList
                 + ", repeatedMeasuresMapTree=" + repeatedMeasuresMapTree + "]";

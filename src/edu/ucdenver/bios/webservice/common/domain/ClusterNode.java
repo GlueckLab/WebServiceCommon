@@ -36,8 +36,8 @@ public class ClusterNode implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The group name. */
     private String groupName = null;
@@ -103,7 +103,7 @@ public class ClusterNode implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -113,7 +113,7 @@ public class ClusterNode implements Serializable {
      *            the new id
      */
     public final void setId(final int idValue) {
-        this.id = idValue;
+        this.idx = idValue;
     }
 
     /**
@@ -224,7 +224,7 @@ public class ClusterNode implements Serializable {
      */
     @Override
     public final String toString() {
-        return "ClusterNode [id=" + id + ", groupName=" + groupName
+        return "ClusterNode [id=" + idx + ", groupName=" + groupName
                 + ", groupSize=" + groupSize + ", intraClusterCorrelation="
                 + intraClusterCorrelation + ", node=" + node + ", parent="
                 + parent + "]";

@@ -40,8 +40,8 @@ public class RepeatedMeasuresNode implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The dimension. */
     private String dimension = null;
@@ -144,7 +144,7 @@ public class RepeatedMeasuresNode implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -154,7 +154,7 @@ public class RepeatedMeasuresNode implements Serializable {
      *            the new id
      */
     public final void setId(final int id) {
-        this.id = id;
+        this.idx = id;
     }
 
     /**
@@ -284,7 +284,7 @@ public class RepeatedMeasuresNode implements Serializable {
      */
     @Override
     public final String toString() {
-        return "RepeatedMeasuresNode [id=" + id + ", dimension=" + dimension
+        return "RepeatedMeasuresNode [id=" + idx + ", dimension=" + dimension
                 + ", repeatedMeasuresDimensionType="
                 + repeatedMeasuresDimensionType + ", numberOfMeasurements="
                 + numberOfMeasurements + ", node=" + node + ", parent="

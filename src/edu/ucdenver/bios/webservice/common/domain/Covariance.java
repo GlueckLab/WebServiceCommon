@@ -39,8 +39,8 @@ public class Covariance implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The type. */
     private CovarianceTypeEnum type;
@@ -83,7 +83,7 @@ public class Covariance implements Serializable {
      * @return the id
      */
     public int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -93,7 +93,7 @@ public class Covariance implements Serializable {
      *            the new id
      */
     public void setId(int id) {
-        this.id = id;
+        this.idx = id;
     }
     
     /**
@@ -352,7 +352,7 @@ public class Covariance implements Serializable {
      */
     @Override
     public String toString() {
-        return "Covariance [id=" + id + ", name=" + name
+        return "Covariance [id=" + idx + ", name=" + name
                 + ", standardDeviationList=" + standardDeviationList + ", rho="
                 + rho + ", delta=" + delta + ", rows=" + rows + ", columns="
                 + columns + ", blob=" + blob + "]";

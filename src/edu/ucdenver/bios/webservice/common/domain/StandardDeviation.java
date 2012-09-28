@@ -36,8 +36,8 @@ public class StandardDeviation implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The value. */
     private double value;
@@ -72,7 +72,7 @@ public class StandardDeviation implements Serializable {
      */
     public StandardDeviation(final int id, final double value) {
         super();
-        this.id = id;
+        this.idx = id;
         this.value = value;
     }
 
@@ -86,7 +86,7 @@ public class StandardDeviation implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -96,7 +96,7 @@ public class StandardDeviation implements Serializable {
      *            the new id
      */
     public final void setId(final int id) {
-        this.id = id;
+        this.idx = id;
     }
 
     /**
@@ -133,6 +133,6 @@ public class StandardDeviation implements Serializable {
      */
     @Override
     public final String toString() {
-        return "StandardDeviation [id=" + id + ", value=" + value + "]";
+        return "StandardDeviation [id=" + idx + ", value=" + value + "]";
     }
 }

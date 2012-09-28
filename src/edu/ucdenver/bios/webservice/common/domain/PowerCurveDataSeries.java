@@ -35,8 +35,8 @@ public class PowerCurveDataSeries {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
     
     /** label for this data series. */
     private String label = "";
@@ -266,7 +266,7 @@ public class PowerCurveDataSeries {
      * @return the id
      */
     public int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -275,7 +275,7 @@ public class PowerCurveDataSeries {
      * @param id the new id
      */
     public void setId(int id) {
-        this.id = id;
+        this.idx = id;
     }
     
     /*--------------------
@@ -293,7 +293,7 @@ public class PowerCurveDataSeries {
      */
     @Override
     public String toString() {
-        return "PowerCurveDataSeries [id=" + id + ", label=" + label
+        return "PowerCurveDataSeries [id=" + idx + ", label=" + label
                 + ", confidenceLimits=" + confidenceLimits
                 + ", statisticalTestTypeEnum=" + statisticalTestTypeEnum
                 + ", betaScale=" + betaScale + ", sigmaScale=" + sigmaScale

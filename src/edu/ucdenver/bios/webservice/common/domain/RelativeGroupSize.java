@@ -36,8 +36,8 @@ public class RelativeGroupSize implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The value. */
     private int value;
@@ -71,7 +71,7 @@ public class RelativeGroupSize implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -81,7 +81,7 @@ public class RelativeGroupSize implements Serializable {
      *            the new id
      */
     public final void setId(final int id) {
-        this.id = id;
+        this.idx = id;
     }
 
     /**
@@ -115,6 +115,6 @@ public class RelativeGroupSize implements Serializable {
      */
     @Override
     public final String toString() {
-        return "RelativeGroupSize [id=" + id + ", value=" + value + "]";
+        return "RelativeGroupSize [id=" + idx + ", value=" + value + "]";
     }
 }

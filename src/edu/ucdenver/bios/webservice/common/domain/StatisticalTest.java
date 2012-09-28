@@ -39,8 +39,8 @@ public class StatisticalTest implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The type. */
     private StatisticalTestTypeEnum type;
@@ -74,7 +74,7 @@ public class StatisticalTest implements Serializable {
      * @return the id
      */
     public final int getId() {
-        return id;
+        return idx;
     }
 
     /**
@@ -84,7 +84,7 @@ public class StatisticalTest implements Serializable {
      *            the new id
      */
     public final void setId(final int id) {
-        this.id = id;
+        this.idx = id;
     }
 
     /**
@@ -120,6 +120,6 @@ public class StatisticalTest implements Serializable {
      */
     @Override
     public final String toString() {
-        return "StatisticalTest [id=" + id + ", type=" + type + "]";
+        return "StatisticalTest [id=" + idx + ", type=" + type + "]";
     }
 }
