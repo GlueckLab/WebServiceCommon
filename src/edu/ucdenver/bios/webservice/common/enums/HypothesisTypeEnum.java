@@ -39,39 +39,39 @@ public enum HypothesisTypeEnum {
     /** The TREND. */
     TREND("Trend");
 
-    /** The id. */
-    private final String id;
+    /** The idx. */
+    private final String idx;
 
     /**
      * Instantiates a new hypothesis type enum.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      */
-    HypothesisTypeEnum(final String id) {
-        this.id = id;
+    HypothesisTypeEnum(final String idx) {
+        this.idx = idx;
     }
 
     /**
-     * Gets the id.
+     * Gets the idx.
      *
-     * @return the id
+     * @return the idx
      */
     public String getId() {
-        return id;
+        return idx;
     }
 
     /**
-     * Parses the id.
+     * Parses the idx.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      * @return the hypothesis type enum
      */
-    public static HypothesisTypeEnum parseId(final String id) {
+    public static HypothesisTypeEnum parseId(final String idx) {
         HypothesisTypeEnum hypothesisType = null;
         for (HypothesisTypeEnum type : HypothesisTypeEnum.values()) {
-            if (id.equalsIgnoreCase(type.id)) {
+            if (idx.equalsIgnoreCase(type.idx)) {
                 hypothesisType = type;
             }
         }

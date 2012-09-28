@@ -37,39 +37,39 @@ public enum PowerMethodEnum {
     /** The QUANTILE. */
     QUANTILE("Quantile");
 
-    /** The id. */
-    private final String id;
+    /** The idx. */
+    private final String idx;
 
     /**
      * Instantiates a new power method enum.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      */
-    PowerMethodEnum(final String id) {
-        this.id = id;
+    PowerMethodEnum(final String idx) {
+        this.idx = idx;
     }
 
     /**
-     * Gets the id.
+     * Gets the idx.
      *
-     * @return the id
+     * @return the idx
      */
     public String getId() {
-        return id;
+        return idx;
     }
 
     /**
-     * Parses the id.
+     * Parses the idx.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      * @return the power method enum
      */
-    public static PowerMethodEnum parseId(final String id) {
+    public static PowerMethodEnum parseId(final String idx) {
         PowerMethodEnum powerMethodEnum = null;
         for (PowerMethodEnum b : PowerMethodEnum.values()) {
-            if (id.equalsIgnoreCase(b.id)) {
+            if (idx.equalsIgnoreCase(b.idx)) {
                 powerMethodEnum = b;
             }
         }

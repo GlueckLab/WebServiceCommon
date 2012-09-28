@@ -49,39 +49,39 @@ public enum StatisticalTestTypeEnum {
     /** The HLT. */
     HLT("hlt");
 
-    /** The id. */
-    private final String id;
+    /** The idx. */
+    private final String idx;
 
     /**
      * Instantiates a new statistical test type enum.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      */
-    StatisticalTestTypeEnum(final String id) {
-        this.id = id;
+    StatisticalTestTypeEnum(final String idx) {
+        this.idx = idx;
     }
 
     /**
-     * Gets the id.
+     * Gets the idx.
      *
-     * @return the id
+     * @return the idx
      */
     public String getId() {
-        return id;
+        return idx;
     }
 
     /**
-     * Parses the id.
+     * Parses the idx.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      * @return the statistical test type enum
      */
-    public static StatisticalTestTypeEnum parseId(final String id) {
+    public static StatisticalTestTypeEnum parseId(final String idx) {
         StatisticalTestTypeEnum type = null;
         for (StatisticalTestTypeEnum b : StatisticalTestTypeEnum.values()) {
-            if (id.equalsIgnoreCase(b.id)) {
+            if (idx.equalsIgnoreCase(b.idx)) {
                 type = b;
             }
         }
