@@ -54,7 +54,7 @@ public enum StudyDesignViewTypeEnum {
      *
      * @return the idx
      */
-    public String getId() {
+    public String getIdx() {
         return idx;
     }
 

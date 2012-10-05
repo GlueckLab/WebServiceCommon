@@ -57,7 +57,7 @@ public enum HypothesisTypeEnum {
      *
      * @return the idx
      */
-    public String getId() {
+    public String getIdx() {
         return idx;
     }
 

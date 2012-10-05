@@ -55,7 +55,7 @@ public enum CovarianceTypeEnum {
      *
      * @return the id
      */
-    public String getId() {
+    public String getIdx() {
         return idx;
     }
 
