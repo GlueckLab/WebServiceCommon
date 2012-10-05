@@ -82,7 +82,7 @@ public class Covariance implements Serializable {
      * 
      * @return the id
      */
-    public int getId() {
+    public int getIdx() {
         return idx;
     }
 
@@ -92,7 +92,7 @@ public class Covariance implements Serializable {
      * @param id
      *            the new id
      */
-    public void setId(int id) {
+    public void setIdx(int id) {
         this.idx = id;
     }
     
@@ -352,7 +352,7 @@ public class Covariance implements Serializable {
      */
     @Override
     public String toString() {
-        return "Covariance [id=" + idx + ", name=" + name
+        return "Covariance [idx=" + idx + ", name=" + name
                 + ", standardDeviationList=" + standardDeviationList + ", rho="
                 + rho + ", delta=" + delta + ", rows=" + rows + ", columns="
                 + columns + ", blob=" + blob + "]";

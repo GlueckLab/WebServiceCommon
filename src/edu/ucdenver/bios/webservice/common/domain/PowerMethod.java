@@ -73,7 +73,7 @@ public class PowerMethod implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
+    public final int getIdx() {
         return idx;
     }
 
@@ -83,7 +83,7 @@ public class PowerMethod implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(final int id) {
+    public final void setIdx(final int id) {
         this.idx = id;
     }
 
@@ -122,7 +122,7 @@ public class PowerMethod implements Serializable {
      */
     @Override
     public final String toString() {
-        return "PowerMethod [id=" + idx + ", powerMethodEnum=" + powerMethodEnum
+        return "PowerMethod [idx=" + idx + ", powerMethodEnum=" + powerMethodEnum
                 + "]";
     }
 }

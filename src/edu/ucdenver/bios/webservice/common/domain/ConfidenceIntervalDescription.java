@@ -131,7 +131,7 @@ public class ConfidenceIntervalDescription implements Serializable {
      * 
      * @return the id
      */
-    public int getId() {
+    public int getIdx() {
         return idx;
     }
 
@@ -141,7 +141,7 @@ public class ConfidenceIntervalDescription implements Serializable {
      * @param id
      *            the new id
      */
-    public void setId(int id) {
+    public void setIdx(int id) {
         this.idx = id;
     }
 
@@ -279,7 +279,7 @@ public class ConfidenceIntervalDescription implements Serializable {
 
     @Override
     public String toString() {
-        return "ConfidenceIntervalDescription [id=" + idx + ", betaFixed="
+        return "ConfidenceIntervalDescription [idx=" + idx + ", betaFixed="
                 + betaFixed + ", sigmaFixed=" + sigmaFixed
                 + ", lowerTailProbability=" + lowerTailProbability
                 + ", upperTailProbability=" + upperTailProbability

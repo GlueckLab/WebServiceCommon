@@ -96,7 +96,7 @@ public class BetweenParticipantFactor implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
+    public final int getIdx() {
         return idx;
     }
 
@@ -106,7 +106,7 @@ public class BetweenParticipantFactor implements Serializable {
      * @param idValue
      *            the new id
      */
-    public final void setId(final int idValue) {
+    public final void setIdx(final int idValue) {
         this.idx = idValue;
     }
 
@@ -141,7 +141,7 @@ public class BetweenParticipantFactor implements Serializable {
      */
     @Override
     public final String toString() {
-        return "BetweenParticipantFactor [id=" + idx + ", predictorName="
+        return "BetweenParticipantFactor [idx=" + idx + ", predictorName="
                 + predictorName + ", categoryList=" + categoryList + "]";
     }
 }

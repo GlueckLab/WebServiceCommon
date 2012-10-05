@@ -102,7 +102,7 @@ public class ClusterNode implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
+    public final int getIdx() {
         return idx;
     }
 
@@ -112,7 +112,7 @@ public class ClusterNode implements Serializable {
      * @param idValue
      *            the new id
      */
-    public final void setId(final int idValue) {
+    public final void setIdx(final int idValue) {
         this.idx = idValue;
     }
 
@@ -224,7 +224,7 @@ public class ClusterNode implements Serializable {
      */
     @Override
     public final String toString() {
-        return "ClusterNode [id=" + idx + ", groupName=" + groupName
+        return "ClusterNode [idx=" + idx + ", groupName=" + groupName
                 + ", groupSize=" + groupSize + ", intraClusterCorrelation="
                 + intraClusterCorrelation + ", node=" + node + ", parent="
                 + parent + "]";

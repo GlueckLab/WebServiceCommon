@@ -265,7 +265,7 @@ public class PowerCurveDataSeries {
      *
      * @return the id
      */
-    public int getId() {
+    public int getIdx() {
         return idx;
     }
 
@@ -274,7 +274,7 @@ public class PowerCurveDataSeries {
      *
      * @param id the new id
      */
-    public void setId(int id) {
+    public void setIdx(int id) {
         this.idx = id;
     }
     
@@ -293,7 +293,7 @@ public class PowerCurveDataSeries {
      */
     @Override
     public String toString() {
-        return "PowerCurveDataSeries [id=" + idx + ", label=" + label
+        return "PowerCurveDataSeries [idx=" + idx + ", label=" + label
                 + ", confidenceLimits=" + confidenceLimits
                 + ", statisticalTestTypeEnum=" + statisticalTestTypeEnum
                 + ", betaScale=" + betaScale + ", sigmaScale=" + sigmaScale

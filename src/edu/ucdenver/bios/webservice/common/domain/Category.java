@@ -66,7 +66,7 @@ public class Category implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
+    public final int getIdx() {
         return idx;
     }
 
@@ -76,7 +76,7 @@ public class Category implements Serializable {
      * @param idValue
      *            the new id
      */
-    public final void setId(final int idValue) {
+    public final void setIdx(final int idValue) {
         this.idx = idValue;
     }
 
@@ -111,6 +111,6 @@ public class Category implements Serializable {
      */
     @Override
     public final String toString() {
-        return "Category [id=" + idx + ", category=" + category + "]";
+        return "Category [idx=" + idx + ", category=" + category + "]";
     }
 }

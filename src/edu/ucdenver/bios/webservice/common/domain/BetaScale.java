@@ -85,7 +85,7 @@ public class BetaScale implements Serializable {
      * 
      * @return the id
      */
-    public final int getId() {
+    public final int getIdx() {
         return idx;
     }
 
@@ -95,7 +95,7 @@ public class BetaScale implements Serializable {
      * @param idValue
      *            the new id
      */
-    public final void setId(final int idValue) {
+    public final void setIdx(final int idValue) {
         this.idx = idValue;
     }
 
@@ -133,6 +133,6 @@ public class BetaScale implements Serializable {
      */
     @Override
     public final String toString() {
-        return "BetaScale [id=" + idx + ", value=" + value + "]";
+        return "BetaScale [idx=" + idx + ", value=" + value + "]";
     }
 }

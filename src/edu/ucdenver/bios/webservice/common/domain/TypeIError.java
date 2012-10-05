@@ -70,7 +70,7 @@ public class TypeIError implements Serializable {
      * 
      * @return the id
      */
-    public final int getId() {
+    public final int getIdx() {
         return idx;
     }
 
@@ -80,7 +80,7 @@ public class TypeIError implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(final int id) {
+    public final void setIdx(final int id) {
         this.idx = id;
     }
 
@@ -118,6 +118,6 @@ public class TypeIError implements Serializable {
      */
     @Override
     public final String toString() {
-        return "TypeIError [id=" + idx + ", alphaValue=" + alphaValue + "]";
+        return "TypeIError [idx=" + idx + ", alphaValue=" + alphaValue + "]";
     }
 }

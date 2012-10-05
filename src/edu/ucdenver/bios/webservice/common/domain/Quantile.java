@@ -84,7 +84,7 @@ public class Quantile implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
+    public final int getIdx() {
         return idx;
     }
 
@@ -94,7 +94,7 @@ public class Quantile implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(int id) {
+    public final void setIdx(int id) {
         this.idx = id;
     }
 
@@ -132,6 +132,6 @@ public class Quantile implements Serializable {
      */
     @Override
     public final String toString() {
-        return "Quantile [id=" + idx + ", value=" + value + "]";
+        return "Quantile [idx=" + idx + ", value=" + value + "]";
     }
 }
