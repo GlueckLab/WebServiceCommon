@@ -43,7 +43,7 @@ public enum CovarianceTypeEnum {
     /**
      * Instantiates a new horizontal axis label enum.
      *
-     * @param id
+     * @param idx
      *            the id
      */
     CovarianceTypeEnum(final String idx) {
