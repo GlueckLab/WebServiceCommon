@@ -32,6 +32,7 @@
 	<property name="javadoc.dir" value="${tmp.dir}/${module.name}-${module.version}-javadoc" />
 	<property name="thirdparty.dir" value="${basedir}/../../thirdparty" />
 	<property name="gwt.dir" value="${tmp.dir}/gwt" />
+	<property name="android.dir" value="${tmp.dir}/android" />
 	
 	<fileset id="thirdparty.libs" dir="${thirdparty.dir}">
 		<include name="hibernate/4.0.0/lib/required/antlr-2.7.7.jar" />
@@ -51,6 +52,7 @@
 		<include name="gson/2.1/lib/gson-2.1.jar" />
 		<include name="Jasypt/1.9.0/lib/jasypt-1.9.0.jar" />
 		<include name="Jasypt/1.9.0/lib/jasypt-hibernate4-1.9.0.jar" />
+		<include name="Android/4.0.3/lib/android.jar" />
 	</fileset>
 	
 	<path id="library.path">
@@ -68,6 +70,7 @@
         <mkdir dir="${artifacts.dir}"/>
         <mkdir dir="${gwt.dir}"/>
         <mkdir dir="${javadoc.dir}"/>
+        <mkdir dir="${android.dir}"/> 
     </target>
 	
 	<target name="javadoc">
@@ -146,6 +149,76 @@
 			</manifest>
 		</jar>
 	</target>
+	
+    <!-- compile the library file -->
+
+    <target
+        name="compile.android"
+        depends="setup" >
+        <javac
+            classpathref="library.path"
+            bootclasspath="Android/4.0.3/lib/android.jar"
+            debug="${debug}"
+            destdir="${tmp.dir}/classes"
+            encoding="ascii"
+            extdirs=""
+            srcdir="${source.dir}"            
+            target="1.5">        
+        </javac>
+    </target>
+
+    <!-- Android module creation -->
+
+    <target
+        name="compress.android"
+        depends="compile.android"
+        description="create a domain object jar file for inclusion in a Android application" >
+
+        <!-- Copy the required class and source files -->
+
+        <copy todir="${android.dir}" >
+
+            <fileset
+                dir="${tmp.dir}/classes"
+                excludes="edu/ucdenver/bios/webservice/common/domain/test/**,
+							edu/ucdenver/bios/webservice/common/hibernate/**"
+                includes="edu/ucdenver/bios/webservice/common/domain/**,
+							edu/ucdenver/bios/webservice/common/enums/**,
+							edu/ucdenver/bios/webservice/common/uuid/**" />
+        </copy>
+        <!-- Create the Android jar file -->
+
+        <jar
+            basedir="${android.dir}"
+            destfile="${artifacts.dir}/${module.name}-android-${module.version}.jar"
+            includes="**/*.class" >
+
+            <manifest>
+
+                <attribute
+                    name="Author"
+                    value="Uttara Sakhadeo" />
+
+                <section name="Shared" >
+
+                    <attribute
+                        name="Title"
+                        value="Web Services Common Library for Android" />
+
+                    <attribute
+                        name="Vendor"
+                        value="${owner}" />
+                </section>
+
+                <section name="Copyright" >
+
+                    <attribute
+                        name="Copy"
+                        value="(C) ${owner}" />
+                </section>
+            </manifest>
+        </jar>
+    </target>
 
 	<!-- Create the javadoc distribution  -->	
 	<target name="distribution.javadoc" >
@@ -173,7 +246,8 @@
 		<zip destfile="${artifacts.dir}/${module.name}-${module.version}-binary.zip" >
 			<zipfileset dir="${artifacts.dir}"
 				includes="${module.name}-gwt-${module.version}.jar,
-					${module.name}-${module.version}.jar" />	
+					${module.name}-${module.version}.jar,
+					${module.name}-android-${module.version}.jar" />	
 			<zipfileset file="${basedir}/../LICENSE-gpl2.0.txt"/>
 		    <zipfileset file="${basedir}/../README.txt"/>
 		</zip>
@@ -181,11 +255,9 @@
 	
 	<!-- build all distributions -->
 	<target name="distributions" 
-		depends="compress.gwt,javadoc,
+		depends="compress.gwt,compress.android,
+		javadoc,
 		distribution.binary,
 		distribution.javadoc,
 		distribution.source"/>
-	
-	
-			
 </project>
