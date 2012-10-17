@@ -69,7 +69,7 @@ public class ResponseNode implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
+    public final int getIdx() {
         return idx;
     }
 
@@ -79,8 +79,8 @@ public class ResponseNode implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(final int id) {
-        this.idx = id;
+    public final void setIdx(final int idx) {
+        this.idx = idx;
     }
 
     /**
