@@ -22,6 +22,8 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
+import edu.ucdenver.bios.webservice.common.enums.PowerCalculationErrorEnum;
+
 /**
  * Pojo containing a description of the general linear model power result
  * 
@@ -53,7 +55,11 @@ public class PowerResult implements Serializable
     private Quantile quantile;
 	// confidence limits for power if requested
 	// only available if solving for power in a random design
-	ConfidenceInterval confidenceInterval = null;
+	private ConfidenceInterval confidenceInterval = null;
+	// error or warning code.  Null if calculation successful
+	private PowerCalculationErrorEnum errorCode = null;
+	// error message.  Null if calculation successful
+	private String errorMessage = null;
 	
 	   /**
      * Create an empty Power result object.
@@ -347,6 +353,38 @@ public class PowerResult implements Serializable
 	}
 
 	/**
+	 * Get error code
+	 * @return error code, or null if no error
+	 */
+	public PowerCalculationErrorEnum getErrorCode() {
+        return errorCode;
+    }
+
+	/**
+	 * Set the error code
+	 * @param errorCode
+	 */
+    public void setErrorCode(PowerCalculationErrorEnum errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    /**
+     * Get the error message
+     * @return error message, or null if no error
+     */
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    /**
+     * Set the error message
+     * @param errorMessage
+     */
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    /**
 	 * Output the object as XML
 	 */
 	public String toXML()
