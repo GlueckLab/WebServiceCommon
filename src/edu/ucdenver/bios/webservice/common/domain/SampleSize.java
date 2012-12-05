@@ -129,6 +129,6 @@ public class SampleSize implements Serializable {
      */
     @Override
     public final String toString() {
-        return "Quantile [idx=" + idx + ", value=" + value + "]";
+        return "SampleSize [idx=" + idx + ", value=" + value + "]";
     }
 }
