@@ -38,16 +38,16 @@ public enum CovarianceTypeEnum {
     UNSTRUCTURED_COVARIANCE("Unstructured Covariance");
 
     /** The id. */
-    private final String id;
+    private final String idx;
 
     /**
      * Instantiates a new horizontal axis label enum.
      *
-     * @param id
+     * @param idx
      *            the id
      */
-    CovarianceTypeEnum(final String id) {
-        this.id = id;
+    CovarianceTypeEnum(final String idx) {
+        this.idx = idx;
     }
 
     /**
@@ -55,8 +55,8 @@ public enum CovarianceTypeEnum {
      *
      * @return the id
      */
-    public String getId() {
-        return id;
+    public String getIdx() {
+        return idx;
     }
 
     /**
@@ -66,10 +66,10 @@ public enum CovarianceTypeEnum {
      *            the id
      * @return the horizontal axis label enum
      */
-    public static CovarianceTypeEnum parseId(final String id) {
+    public static CovarianceTypeEnum parseId(final String idx) {
         CovarianceTypeEnum covarianceType = null;
         for (CovarianceTypeEnum ct : CovarianceTypeEnum.values()) {
-            if (id.equalsIgnoreCase(ct.id)) {
+            if (idx.equalsIgnoreCase(ct.idx)) {
                 covarianceType = ct;
             }
         }

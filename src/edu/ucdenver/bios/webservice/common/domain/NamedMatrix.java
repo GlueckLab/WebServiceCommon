@@ -36,8 +36,8 @@ public class NamedMatrix implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The name. */
     private String name = null;
@@ -78,8 +78,8 @@ public class NamedMatrix implements Serializable {
      * 
      * @return the id
      */
-    public final int getId() {
-        return id;
+    public final int getIdx() {
+        return idx;
     }
 
     /**
@@ -88,8 +88,8 @@ public class NamedMatrix implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(final int id) {
-        this.id = id;
+    public final void setIdx(final int id) {
+        this.idx = id;
     }
 
     /**
@@ -220,7 +220,7 @@ public class NamedMatrix implements Serializable {
 
     @Override
     public final String toString() {
-        return "NamedMatrix [id=" + id + ", name=" + name + ", rows=" + rows
+        return "NamedMatrix [idx=" + idx + ", name=" + name + ", rows=" + rows
                 + ", columns=" + columns + ", data=" + data + "]";
     }
     

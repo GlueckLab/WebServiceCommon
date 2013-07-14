@@ -36,8 +36,8 @@ public class ConfidenceIntervalDescription implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The beta fixed. */
     private boolean betaFixed = false;
@@ -46,10 +46,10 @@ public class ConfidenceIntervalDescription implements Serializable {
     private boolean sigmaFixed = false;
 
     /** The lower tail probability. */
-    private float lowerTailProbability = -1;
+    private double lowerTailProbability = -1;
 
     /** The upper tail probability. */
-    private float upperTailProbability = -1;
+    private double upperTailProbability = -1;
 
     /** The sample size. */
     private int sampleSize = -1;
@@ -83,8 +83,8 @@ public class ConfidenceIntervalDescription implements Serializable {
      *            the rank of design matrix
      */
     public ConfidenceIntervalDescription(boolean isBetaFixed,
-            boolean isSigmaFixed, float lowerTailProbability,
-            float upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
+            boolean isSigmaFixed, double lowerTailProbability,
+            double upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
         this.betaFixed = isBetaFixed;
         this.sigmaFixed = isSigmaFixed;
         this.lowerTailProbability = lowerTailProbability;
@@ -112,9 +112,9 @@ public class ConfidenceIntervalDescription implements Serializable {
      *            the rank of design matrix
      */
     public ConfidenceIntervalDescription(int id, boolean isBetaFixed,
-            boolean isSigmaFixed, float lowerTailProbability,
-            float upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
-        this.id = id;
+            boolean isSigmaFixed, double lowerTailProbability,
+            double upperTailProbability, int sampleSize, int rankOfDesignMatrix) {
+        this.idx = id;
         this.betaFixed = isBetaFixed;
         this.sigmaFixed = isSigmaFixed;
         this.lowerTailProbability = lowerTailProbability;
@@ -131,8 +131,8 @@ public class ConfidenceIntervalDescription implements Serializable {
      * 
      * @return the id
      */
-    public int getId() {
-        return id;
+    public int getIdx() {
+        return idx;
     }
 
     /**
@@ -141,8 +141,8 @@ public class ConfidenceIntervalDescription implements Serializable {
      * @param id
      *            the new id
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdx(int id) {
+        this.idx = id;
     }
 
     /**
@@ -231,7 +231,7 @@ public class ConfidenceIntervalDescription implements Serializable {
      * 
      * @return the lower Tail probability
      */
-    public float getLowerTailProbability() {
+    public double getLowerTailProbability() {
         return lowerTailProbability;
     }
 
@@ -241,7 +241,7 @@ public class ConfidenceIntervalDescription implements Serializable {
      * @param lowerTailProbability
      *            the new lower Tail probability
      */
-    public void setLowerTailProbability(float lowerTailProbability) {
+    public void setLowerTailProbability(double lowerTailProbability) {
         this.lowerTailProbability = lowerTailProbability;
     }
 
@@ -250,7 +250,7 @@ public class ConfidenceIntervalDescription implements Serializable {
      * 
      * @return the upper Tail probability
      */
-    public float getUpperTailProbability() {
+    public double getUpperTailProbability() {
         return upperTailProbability;
     }
 
@@ -260,7 +260,7 @@ public class ConfidenceIntervalDescription implements Serializable {
      * @param upperTailProbability
      *            the new upper Tail probability
      */
-    public void setUpperTailProbability(float upperTailProbability) {
+    public void setUpperTailProbability(double upperTailProbability) {
         this.upperTailProbability = upperTailProbability;
     }    
     /*--------------------
@@ -279,7 +279,7 @@ public class ConfidenceIntervalDescription implements Serializable {
 
     @Override
     public String toString() {
-        return "ConfidenceIntervalDescription [id=" + id + ", betaFixed="
+        return "ConfidenceIntervalDescription [idx=" + idx + ", betaFixed="
                 + betaFixed + ", sigmaFixed=" + sigmaFixed
                 + ", lowerTailProbability=" + lowerTailProbability
                 + ", upperTailProbability=" + upperTailProbability

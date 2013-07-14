@@ -36,8 +36,8 @@ public class TypeIError implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The alpha value. */
     private double alphaValue;
@@ -70,8 +70,8 @@ public class TypeIError implements Serializable {
      * 
      * @return the id
      */
-    public final int getId() {
-        return id;
+    public final int getIdx() {
+        return idx;
     }
 
     /**
@@ -80,8 +80,8 @@ public class TypeIError implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(final int id) {
-        this.id = id;
+    public final void setIdx(final int id) {
+        this.idx = id;
     }
 
     /**
@@ -118,6 +118,6 @@ public class TypeIError implements Serializable {
      */
     @Override
     public final String toString() {
-        return "TypeIError [id=" + id + ", alphaValue=" + alphaValue + "]";
+        return "TypeIError [idx=" + idx + ", alphaValue=" + alphaValue + "]";
     }
 }

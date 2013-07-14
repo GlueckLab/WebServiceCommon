@@ -43,39 +43,39 @@ public enum HypothesisTrendTypeEnum {
     /** The CUBIC. */
     CUBIC("Cubic trend");
 
-    /** The id. */
-    private final String id;
+    /** The idx. */
+    private final String idx;
 
     /**
      * Instantiates a new hypothesis trend type enum.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      */
-    HypothesisTrendTypeEnum(final String id) {
-        this.id = id;
+    HypothesisTrendTypeEnum(final String idx) {
+        this.idx = idx;
     }
 
     /**
-     * Gets the id.
+     * Gets the idx.
      *
-     * @return the id
+     * @return the idx
      */
-    public String getId() {
-        return id;
+    public String getIdx() {
+        return idx;
     }
 
     /**
-     * Parses the id.
+     * Parses the idx.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      * @return the hypothesis trend type enum
      */
-    public static HypothesisTrendTypeEnum parseId(final String id) {
+    public static HypothesisTrendTypeEnum parseId(final String idx) {
         HypothesisTrendTypeEnum hypothesisTrendType = null;
         for (HypothesisTrendTypeEnum type : HypothesisTrendTypeEnum.values()) {
-            if (id.equalsIgnoreCase(type.id)) {
+            if (idx.equalsIgnoreCase(type.idx)) {
                 hypothesisTrendType = type;
             }
         }

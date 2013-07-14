@@ -33,8 +33,8 @@ public class Category implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The category. */
     private String category = null;
@@ -66,8 +66,8 @@ public class Category implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
-        return id;
+    public final int getIdx() {
+        return idx;
     }
 
     /**
@@ -76,8 +76,8 @@ public class Category implements Serializable {
      * @param idValue
      *            the new id
      */
-    public final void setId(final int idValue) {
-        this.id = idValue;
+    public final void setIdx(final int idValue) {
+        this.idx = idValue;
     }
 
     /**
@@ -111,6 +111,6 @@ public class Category implements Serializable {
      */
     @Override
     public final String toString() {
-        return "Category [id=" + id + ", category=" + category + "]";
+        return "Category [idx=" + idx + ", category=" + category + "]";
     }
 }

@@ -46,7 +46,7 @@ public class PowerCurveDescription implements Serializable {
      * Member Variables
      *--------------------*/
     /** The id. */
-    private int id;
+    private int idx;
 
     /** boolean indicating if the legend should be displayed. */
     private boolean legend = false;
@@ -81,8 +81,8 @@ public class PowerCurveDescription implements Serializable {
      * 
      * @return the id
      */
-    public final int getId() {
-        return id;
+    public final int getIdx() {
+        return idx;
     }
 
     /**
@@ -91,8 +91,8 @@ public class PowerCurveDescription implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(final int id) {
-        this.id = id;
+    public final void setIdx(final int id) {
+        this.idx = id;
     }
     
     /**
@@ -222,7 +222,7 @@ public class PowerCurveDescription implements Serializable {
      */
     @Override
     public String toString() {
-        return "PowerCurveDescription [id=" + id + ", legend=" + legend
+        return "PowerCurveDescription [id=" + idx + ", legend=" + legend
                 + ", width=" + width + ", height=" + height + ", title="
                 + title + ", horizontalAxisLabelEnum="
                 + horizontalAxisLabelEnum + ", dataSeriesList="

@@ -36,8 +36,8 @@ public class ResponseNode implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The name. */
     private String name = null;
@@ -69,8 +69,8 @@ public class ResponseNode implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
-        return id;
+    public final int getIdx() {
+        return idx;
     }
 
     /**
@@ -79,8 +79,8 @@ public class ResponseNode implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(final int id) {
-        this.id = id;
+    public final void setIdx(final int idx) {
+        this.idx = idx;
     }
 
     /**
@@ -117,6 +117,6 @@ public class ResponseNode implements Serializable {
      */
     @Override
     public final String toString() {
-        return "ResponseNode [id=" + id + ", name=" + name + "]";
+        return "ResponseNode [id=" + idx + ", name=" + name + "]";
     }
 }

@@ -23,8 +23,6 @@ package edu.ucdenver.bios.webservice.common.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.mapping.Array;
-
 // TODO: Auto-generated Javadoc
 
 /**

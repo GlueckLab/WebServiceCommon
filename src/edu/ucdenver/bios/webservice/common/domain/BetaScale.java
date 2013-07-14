@@ -22,11 +22,12 @@ package edu.ucdenver.bios.webservice.common.domain;
 
 import java.io.Serializable;
 
+// TODO: Auto-generated Javadoc
 /**
  * This is a wrapper for the BetaScale information.
- *
+ * 
  * @author Uttara Sakhadeo
- *
+ * 
  */
 public class BetaScale implements Serializable {
 
@@ -36,8 +37,8 @@ public class BetaScale implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The value. */
     private double value;
@@ -53,7 +54,7 @@ public class BetaScale implements Serializable {
 
     /**
      * Instantiates a new beta scale.
-     *
+     * 
      * @param dataValue
      *            the value
      */
@@ -64,7 +65,7 @@ public class BetaScale implements Serializable {
 
     /**
      * Instantiates a new beta scale.
-     *
+     * 
      * @param idValue
      *            the id
      * @param dataValue
@@ -72,7 +73,7 @@ public class BetaScale implements Serializable {
      */
     public BetaScale(final int idValue, final double dataValue) {
         super();
-        this.id = idValue;
+        this.idx = idValue;
         this.value = dataValue;
     }
 
@@ -81,26 +82,26 @@ public class BetaScale implements Serializable {
      *--------------------*/
     /**
      * Gets the id.
-     *
+     * 
      * @return the id
      */
-    public final int getId() {
-        return id;
+    public final int getIdx() {
+        return idx;
     }
 
     /**
      * Sets the id.
-     *
+     * 
      * @param idValue
      *            the new id
      */
-    public final void setId(final int idValue) {
-        this.id = idValue;
+    public final void setIdx(final int idValue) {
+        this.idx = idValue;
     }
 
     /**
      * Gets the value.
-     *
+     * 
      * @return the value
      */
     public final double getValue() {
@@ -109,7 +110,7 @@ public class BetaScale implements Serializable {
 
     /**
      * Sets the value.
-     *
+     * 
      * @param dataValue
      *            the new value
      */
@@ -119,16 +120,19 @@ public class BetaScale implements Serializable {
 
     /*--------------------
      * toString()
-     *--------------------*/    
+     *--------------------*/
     /**
      * Intended only for debugging.
-     *
-     * <P>Here, a generic implementation uses reflection to print
-     * names and values of all fields <em>declared in this class</em>. Note that
-     * superclass fields are left out of this implementation.
+     * 
+     * <P>
+     * Here, a generic implementation uses reflection to print names and values
+     * of all fields <em>declared in this class</em>. Note that superclass
+     * fields are left out of this implementation.
+     * 
+     * @return the string
      */
     @Override
     public final String toString() {
-        return "BetaScale [id=" + id + ", value=" + value + "]";
+        return "BetaScale [idx=" + idx + ", value=" + value + "]";
     }
 }

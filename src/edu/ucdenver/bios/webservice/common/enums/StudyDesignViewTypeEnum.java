@@ -36,39 +36,39 @@ public enum StudyDesignViewTypeEnum {
     /** The UPLOAD. */
     UPLOAD("Upload");
 
-    /** The id. */
-    private final String id;
+    /** The idx. */
+    private final String idx;
 
     /**
      * Instantiates a new study design view type enum.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      */
-    StudyDesignViewTypeEnum(final String id) {
-        this.id = id;
+    StudyDesignViewTypeEnum(final String idx) {
+        this.idx = idx;
     }
 
     /**
-     * Gets the id.
+     * Gets the idx.
      *
-     * @return the id
+     * @return the idx
      */
-    public String getId() {
-        return id;
+    public String getIdx() {
+        return idx;
     }
 
     /**
-     * Parses the id.
+     * Parses the idx.
      *
-     * @param id
-     *            the id
+     * @param idx
+     *            the idx
      * @return the study design view type enum
      */
-    public static StudyDesignViewTypeEnum parseId(final String id) {
+    public static StudyDesignViewTypeEnum parseId(final String idx) {
         StudyDesignViewTypeEnum studyDesignViewTypeEnum = null;
         for (StudyDesignViewTypeEnum b : StudyDesignViewTypeEnum.values()) {
-            if (id.equalsIgnoreCase(b.id)) {
+            if (idx.equalsIgnoreCase(b.idx)) {
                 studyDesignViewTypeEnum = b;
             }
         }

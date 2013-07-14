@@ -35,8 +35,8 @@ public class NominalPower implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The value. */
     private double value;
@@ -71,7 +71,7 @@ public class NominalPower implements Serializable {
      */
     public NominalPower(final int id, final double value) {
         super();
-        this.id = id;
+        this.idx = id;
         this.value = value;
     }
 
@@ -83,8 +83,8 @@ public class NominalPower implements Serializable {
      *
      * @return the id
      */
-    public final int getId() {
-        return id;
+    public final int getIdx() {
+        return idx;
     }
 
     /**
@@ -93,8 +93,8 @@ public class NominalPower implements Serializable {
      * @param id
      *            the new id
      */
-    public final void setId(final int id) {
-        this.id = id;
+    public final void setIdx(final int id) {
+        this.idx = id;
     }
 
     /**
@@ -131,6 +131,6 @@ public class NominalPower implements Serializable {
      */
     @Override
     public final String toString() {
-        return "NominalPower [id=" + id + ", value=" + value + "]";
+        return "NominalPower [idx=" + idx + ", value=" + value + "]";
     }
 }

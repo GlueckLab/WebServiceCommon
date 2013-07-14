@@ -39,8 +39,8 @@ public class Covariance implements Serializable {
     /*--------------------
      * Member Variables
      *--------------------*/
-    /** The id. */
-    private int id;
+    /** The idx. */
+    private int idx;
 
     /** The type. */
     private CovarianceTypeEnum type;
@@ -82,8 +82,8 @@ public class Covariance implements Serializable {
      * 
      * @return the id
      */
-    public int getId() {
-        return id;
+    public int getIdx() {
+        return idx;
     }
 
     /**
@@ -92,8 +92,24 @@ public class Covariance implements Serializable {
      * @param id
      *            the new id
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdx(int id) {
+        this.idx = id;
+    }
+    
+    /**
+     * Get the type of covariance described.
+     * @return covariance type
+     */
+    public CovarianceTypeEnum getType() {
+        return type;
+    }
+
+    /**
+     * Set the covariance type.  
+     * @param type covariance type.
+     */
+    public void setType(CovarianceTypeEnum type) {
+        this.type = type;
     }
     
     /**
@@ -352,7 +368,7 @@ public class Covariance implements Serializable {
      */
     @Override
     public String toString() {
-        return "Covariance [id=" + id + ", name=" + name
+        return "Covariance [idx=" + idx + ", name=" + name
                 + ", standardDeviationList=" + standardDeviationList + ", rho="
                 + rho + ", delta=" + delta + ", rows=" + rows + ", columns="
                 + columns + ", blob=" + blob + "]";
