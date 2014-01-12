@@ -34,7 +34,10 @@ public enum HorizontalAxisLabelEnum {
     TOTAL_SAMPLE_SIZE("Total Sample Size"),
 
     /** The REGRESSION COEEFICIENT SCALE FACTOR. */
-    REGRESSION_COEEFICIENT_SCALE_FACTOR("Regression Coefficient Scale Factor");
+    REGRESSION_COEEFICIENT_SCALE_FACTOR("Regression Coefficient Scale Factor"),
+
+    /** The desired power **/
+    DESIRED_POWER("Desired Power");
 
     /** The idx. */
     private final String idx;
