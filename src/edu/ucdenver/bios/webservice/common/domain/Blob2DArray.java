@@ -91,6 +91,6 @@ public class Blob2DArray implements Serializable {
      */
     @Override
     public final String toString() {
-        return "Blob2DArray [data=" + Arrays.toString(data) + "]";
+        return "Blob2DArray [data=" + Arrays.deepToString(data) + "]";
     }
 }
