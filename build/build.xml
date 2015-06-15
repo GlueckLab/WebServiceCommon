@@ -23,7 +23,7 @@
 	<property name="owner" value="University of Colorado Denver, 
 		Department of Biostatistics and Informatics" />
 	<property name="author" value="Uttara Sakhadeo and Sarah Kreidler" />
-	<property name="module.version" value="1.1.1" />	
+	<property name="module.version" value="1.1.2.0" />	
 	<property name="module.name" value="edu.ucdenver.bios.webservice.common" />
 	<property name="debug" value="FALSE" />
 	<property name="source.dir" value="${basedir}/../src" />
