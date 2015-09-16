@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
  *
- * Copyright (C) 2010 Regents of the University of Colorado.
+ * Copyright (C) 2015 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -30,13 +30,16 @@ public enum HypothesisTypeEnum {
     /** Grand Mean hypothesis. */
     GRAND_MEAN("Grand Mean"),
 
-    /** The MAIN EFFECT. */
+    /** Main Effect hypothesis. */
     MAIN_EFFECT("Main Effect"),
 
-    /** The INTERACTION. */
+    /** MANOVA hypothesis. */
+    MANOVA("MANOVA"),
+
+    /** Interaction hypothesis. */
     INTERACTION("Interaction"),
 
-    /** The TREND. */
+    /** Trend hypothesis. */
     TREND("Trend");
 
     /** The idx. */
