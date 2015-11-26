@@ -67,7 +67,7 @@ public class PowerResult implements Serializable
     public PowerResult() {}
 
     /**
-     * Create a new Power result object.
+     * Create a new PowerResult object.
      *
      * @param test the statistical test performed
      * @param alpha the type I error rate
@@ -88,7 +88,7 @@ public class PowerResult implements Serializable
     }
 
     /**
-     * Create a new GLMMPower object.
+     * Create a new PowerResult object.
      *
      * @param test the statistical test performed
      * @param alpha the type I error rate
@@ -111,7 +111,7 @@ public class PowerResult implements Serializable
     }
 
     /**
-     * Create a new GLMMPower object.
+     * Create a new PowerResult object.
      *
      * @param test the statistical test performed
      * @param alpha the type I error rate
@@ -134,7 +134,7 @@ public class PowerResult implements Serializable
     }
 
     /**
-     * Create a new GLMMPower object.
+     * Create a new PowerResult object.
      *
      * @param test the statistical test performed
      * @param alpha the type I error rate
