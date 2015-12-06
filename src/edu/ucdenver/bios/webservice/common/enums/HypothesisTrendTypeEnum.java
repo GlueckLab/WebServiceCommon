@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
  *
- * Copyright (C) 2010 Regents of the University of Colorado.
+ * Copyright (C) 2015 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -25,22 +25,25 @@ package edu.ucdenver.bios.webservice.common.enums;
  */
 public enum HypothesisTrendTypeEnum {
 
-    /** The NONE. */
+    /** None. */
     NONE("None"),
 
-    /** The CHANG e_ fro m_ baseline. */
+    /** Change from baseline. */
     CHANGE_FROM_BASELINE("Change from baseline"),
 
-    /** The AL l_ poynomial. */
+    /** All polynomial trends. */
     ALL_POLYNOMIAL("All polynomial trends"),
 
-    /** The LINEAR. */
+    /** All nonconstant polynomial trends. */
+    ALL_NONCONSTANT_POLYNOMIAL("All nonconstant polynomial trends"),
+
+    /** Linear trend. */
     LINEAR("Linear trend"),
 
-    /** The QUADRATIC. */
+    /** Quadratic trend. */
     QUADRATIC("Quadratic trend"),
 
-    /** The CUBIC. */
+    /** Cubic trend. */
     CUBIC("Cubic trend");
 
     /** The idx. */

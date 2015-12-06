@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'org.samplesizeshop'
+archivesBaseName = 'webservicecommon'
+version = '1.1.4.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+buildDir = 'build/tmp'
+
+configurations {
+    android
+}
+
+dependencies {
+    compile 'commons-collections:commons-collections:3.2.1',
+            'org.hibernate:hibernate-entitymanager:4.0.1.Final',
+            'org.hibernate.common:hibernate-commons-annotations:4.0.1.Final',
+            'org.hibernate:hibernate-core:4.0.0.Final',
+            'com.google.code.gson:gson:2.1',
+            'junit:junit:4.7'
+
+    android files("${ant.properties['thirdparty.dir']}/Android/4.0.3/lib/android.jar")
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+}
