@@ -36,7 +36,7 @@ public final class UUIDUtils {
 
     /**
      * Return a java.util.UUID as a byte array.
-     * 
+     *
      * @param uuid
      *            the uuid
      * @return byte array
@@ -53,40 +53,6 @@ public final class UUIDUtils {
             buffer[i] = (byte) (lsb >>> 8 * (7 - i));
         }
         return buffer;
-    }
-
-    /**
-     * Hex to bytes.
-     *
-     * @param uuid the uuid
-     * @return the byte[]
-     */
-    public static byte[] hexToBytes(String uuid) {
-        int len = uuid.length();
-        byte[] data = new byte[len / 2];
-        for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte) ((Character.digit(uuid.charAt(i), 16) << 4) + Character
-                    .digit(uuid.charAt(i + 1), 16));
-        }
-        return data;
-
-    }
-
-    /**
-     * Return a java.util.UUID as a String.
-     *
-     * @param uuid the uuid
-     * @return the string
-     */
-    public static String bytesToHex(byte[] uuid) {
-        StringBuffer strbuf = new StringBuffer(uuid.length * 2);
-
-        for (int i = 0; i < uuid.length; i++) {
-            if (((int) uuid[i] & 0xff) < 0x10)
-                strbuf.append("0");
-            strbuf.append(Long.toString((int) uuid[i] & 0xff, 16));
-        }
-        return strbuf.toString();
     }
 
 }
