@@ -315,7 +315,7 @@ public class PowerResult implements Serializable
     }
 
     /**
-     * Get the quantile used for quantile power.  This will be set to NaN
+     * Get the quantile used for quantile power.  This will be set to null
      * unless the current power method is quantile power.
      * @return quantile
      */
