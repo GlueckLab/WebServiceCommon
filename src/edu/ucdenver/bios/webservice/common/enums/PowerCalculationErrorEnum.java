@@ -20,8 +20,8 @@
  */
 package edu.ucdenver.bios.webservice.common.enums;
 
-public enum PowerCalculationErrorEnum { 
-    // all possible errors from the 
+public enum PowerCalculationErrorEnum {
+    // all possible errors from the
     SAMPLE_SIZE_UNDEFINED("SAMPLE_SIZE_UNDEFINED"),
     MAX_SAMPLE_SIZE_EXCEEDED("MAX_SAMPLE_SIZE_EXCEEDED"),
     BETA_SCALE_UNDEFINED("BETA_SCALE_UNDEFINED"),
@@ -58,7 +58,7 @@ public enum PowerCalculationErrorEnum {
     INVALID_DISTRIBUTION_NONCENTRALITY_PARAMETER("INVALID_DISTRIBUTION_NONCENTRALITY_PARAMETER"),
     INVALID_DISTRIBUTION_NONCENTRAL_F("INVALID_DISTRIBUTION_NONCENTRAL_F"),
     DISTRIBUTION_NONCENTRALITY_PARAMETER_CDF_FAILED("DISTRIBUTION_NONCENTRALITY_PARAMETER_CDF_FAILED"),
-    MAX_RANDOM_PREDICTORS_EXCEEDED("MAX_RANDOM_PREDICTORS_EXCEEDED");    
+    MAX_RANDOM_PREDICTORS_EXCEEDED("MAX_RANDOM_PREDICTORS_EXCEEDED");
 
     /** The idx. */
     private final String idx;
@@ -98,7 +98,7 @@ public enum PowerCalculationErrorEnum {
         }
         return powerCalculationErrorEnum;
     }
-    
-    
-    
+
+
+
 }
