@@ -410,7 +410,7 @@ public class PowerResult implements Serializable
             buffer.append("' powerMethod='");
             buffer.append(powerMethod);
         }
-        if (quantile != null && quantile.getValue() != Double.NaN)
+        if (quantile != null && !Double.isNaN(quantile.getValue()))
         {
             buffer.append("' quantile='");
             buffer.append(quantile);
