@@ -1,7 +1,7 @@
 /*
  * Web service utility functions for managing hibernate, json, etc.
- * 
- * Copyright (C) 2010 Regents of the University of Colorado.  
+ *
+ * Copyright (C) 2010 Regents of the University of Colorado.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,9 +28,9 @@ import edu.ucdenver.bios.webservice.common.enums.HypothesisTypeEnum;
 // TODO: Auto-generated Javadoc
 /**
  * This is a wrapper for the Covariance information.
- * 
+ *
  * @author Uttara Sakhadeo
- * 
+ *
  */
 public class Covariance implements Serializable {
 
@@ -44,7 +44,7 @@ public class Covariance implements Serializable {
 
     /** The type. */
     private CovarianceTypeEnum type;
-    
+
     /** The name. */
     private String name = null;
 
@@ -79,7 +79,7 @@ public class Covariance implements Serializable {
      *--------------------*/
     /**
      * Gets the id.
-     * 
+     *
      * @return the id
      */
     public int getIdx() {
@@ -88,14 +88,14 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the id.
-     * 
+     *
      * @param id
      *            the new id
      */
     public void setIdx(int id) {
         this.idx = id;
     }
-    
+
     /**
      * Get the type of covariance described.
      * @return covariance type
@@ -105,7 +105,7 @@ public class Covariance implements Serializable {
     }
 
     /**
-     * Set the covariance type.  
+     * Set the covariance type.
      * @param type covariance type.
      */
     public void setType(CovarianceTypeEnum type) {
@@ -114,7 +114,7 @@ public class Covariance implements Serializable {
 
     /**
      * Gets the rho.
-     * 
+     *
      * @return the rho
      */
     public double getRho() {
@@ -123,7 +123,7 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the rho.
-     * 
+     *
      * @param rho
      *            the new rho
      */
@@ -133,7 +133,7 @@ public class Covariance implements Serializable {
 
     /**
      * Gets the delta.
-     * 
+     *
      * @return the delta
      */
     public double getDelta() {
@@ -142,7 +142,7 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the delta.
-     * 
+     *
      * @param delta
      *            the new delta
      */
@@ -152,7 +152,7 @@ public class Covariance implements Serializable {
 
     /**
      * Gets the rows.
-     * 
+     *
      * @return the rows
      */
     public int getRows() {
@@ -161,7 +161,7 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the rows.
-     * 
+     *
      * @param rows
      *            the new rows
      */
@@ -171,7 +171,7 @@ public class Covariance implements Serializable {
 
     /**
      * Gets the columns.
-     * 
+     *
      * @return the columns
      */
     public int getColumns() {
@@ -180,7 +180,7 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the columns.
-     * 
+     *
      * @param columns
      *            the new columns
      */
@@ -190,7 +190,7 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the name.
-     * 
+     *
      * @param name
      *            the new name
      */
@@ -200,7 +200,7 @@ public class Covariance implements Serializable {
 
     /**
      * Gets the name.
-     * 
+     *
      * @return the name
      */
     public String getName() {
@@ -209,7 +209,7 @@ public class Covariance implements Serializable {
 
     /**
      * Gets the blob.
-     * 
+     *
      * @return the blob
      */
     public Blob2DArray getBlob() {
@@ -218,7 +218,7 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the blob.
-     * 
+     *
      * @param blob
      *            the new blob
      */
@@ -228,7 +228,7 @@ public class Covariance implements Serializable {
 
     /**
      * Gets the standard deviation list.
-     * 
+     *
      * @return the standard deviation list
      */
     public List<StandardDeviation> getStandardDeviationList() {
@@ -237,15 +237,15 @@ public class Covariance implements Serializable {
 
     /**
      * Sets the standard deviation list.
-     * 
+     *
      * @param standardDeviationList
      *            the new standard deviation list
      */
     public void setStandardDeviationList(
             List<StandardDeviation> standardDeviationList) {
         this.standardDeviationList = standardDeviationList;
-    }    
-    
+    }
+
     /*--------------------
      * Return/Store data[]
      *--------------------*/
@@ -254,7 +254,7 @@ public class Covariance implements Serializable {
      *
      * @param data the new standard deviation list from array
      */
-    
+
     public void setStandardDeviationListFromArray(double[] data)
     {
         if(data != null)
@@ -264,7 +264,7 @@ public class Covariance implements Serializable {
             {
                 this.standardDeviationList.add(new StandardDeviation(data[i]));
             }*/
-            
+
             List<StandardDeviation> list = this.getStandardDeviationList();
             if(list != null && !list.isEmpty())
             {
@@ -275,7 +275,7 @@ public class Covariance implements Serializable {
             }
         }
     }
-    
+
     /**
      * Gets the standard deviation list from array.
      *
@@ -290,29 +290,29 @@ public class Covariance implements Serializable {
         List<StandardDeviation> list = this.getStandardDeviationList();
         double[] data = null;
         if(list != null && !list.isEmpty())
-        {            
+        {
             data = new double[list.size()];
             int i = 0;
             for(StandardDeviation sd : list)
             {
-                data[i++] = sd.getValue();            
-            }            
+                data[i++] = sd.getValue();
+            }
         }
         return data;
     }*/
-    
+
     /*--------------------
      * Return/Store data[][]
      *--------------------*/
     /**
      * Sets the blob.
-     * 
+     *
      * @param data
      *            the new blob
-     */   
+     */
     public void setBlobFromArray(double[][] data) {
         if(data != null)
-        {        
+        {
             Blob2DArray blob = new Blob2DArray(data);
             this.setBlob(blob);
         }
@@ -320,7 +320,7 @@ public class Covariance implements Serializable {
 
     /**
      * Gets the double array from blob.
-     * 
+     *
      * @return the double array from blob
      */
     /*
@@ -332,8 +332,8 @@ public class Covariance implements Serializable {
         double[][] data = null;
         if(blob != null)
         {
-            data = blob.getData();           
-        }        
+            data = blob.getData();
+        }
         return data;
     }*/
 
@@ -342,12 +342,12 @@ public class Covariance implements Serializable {
      *--------------------*/
     /**
      * Intended only for debugging.
-     * 
+     *
      * <P>
      * Here, a generic implementation uses reflection to print names and values
      * of all fields <em>declared in this class</em>. Note that superclass
      * fields are left out of this implementation.
-     * 
+     *
      * @return the string
      */
     @Override
