@@ -57,6 +57,9 @@ public class Covariance implements Serializable {
     /** The delta. */
     private double delta = -1;
 
+    /** The scale. */
+    private boolean scale = false;
+
     /** The rows. */
     private int rows = -1;
 
@@ -148,6 +151,25 @@ public class Covariance implements Serializable {
      */
     public void setDelta(double delta) {
         this.delta = delta;
+    }
+
+    /**
+     * Gets the scale.
+     *
+     * @return the scale
+     */
+    public boolean getScale() {
+        return scale;
+    }
+
+    /**
+     * Sets the scale.
+     *
+     * @param scale
+     *            the new scale
+     */
+    public void setScale(boolean scale) {
+        this.scale = scale;
     }
 
     /**
@@ -354,7 +376,7 @@ public class Covariance implements Serializable {
     public String toString() {
         return "Covariance [idx=" + idx + ", name=" + name
                 + ", standardDeviationList=" + standardDeviationList + ", rho="
-                + rho + ", delta=" + delta + ", rows=" + rows + ", columns="
+                + rho + ", delta=" + delta + ", scale=" + scale + ", rows=" + rows + ", columns="
                 + columns + ", blob=" + blob + "]";
     }
 
